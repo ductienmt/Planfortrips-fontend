@@ -1,0 +1,124 @@
+.main_container {
+  position: absolute;
+  width: 100vw;
+  height: 300vh;
+  top: 0;
+}
+.background_image {
+  width: 100%;
+  height: 360px;
+}
+.searchIcon {
+  color: #555;
+}
+.formFirstLine {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 9px;
+  height: 60px;
+}
+.formFirstLine > input {
+  width: 100%;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 17px;
+}
+.formFirstLine > input::placeholder {
+  color: #bbb;
+  font-size: 16px;
+}
+.formSecLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid transparent;
+  /* padding-bottom: 10px; */
+}
+.searchBtnLink {
+  min-width: 50%;
+  margin: auto;
+}
+.searchBtn {
+  background-color: #5392f9;
+  cursor: pointer;
+  border: none;
+  color: #ffffff;
+  padding: 15px;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  border-radius: 10px;
+  margin: 20px auto;
+  font-weight: 600;
+  width: 100%;
+}
+.searchBtn:hover {
+  background-color: #87b3fb;
+}
+.debounceRes {
+  width: 89.5%;
+  max-height: 500px;
+  position: absolute;
+  top: 110px;
+  z-index: 100;
+  overflow-y: scroll;
+  /* padding: 10px 10px 10px 40px; */
+  /* font-weight: 600; */
+  font-size: 16px;
+  /* display: none; */
+}
+.debounceRes::-webkit-scrollbar {
+  display: none;
+}
+.debounceCity {
+  cursor: pointer;
+  padding: 15px 10px 0px 20px;
+  margin: 0;
+  display: flex;
+  /* align-items: center */
+}
+.debounceCity:hover {
+  background-color: #5392f9;
+  color: #fff;
+  /* margin: 5px -10px; */
+}
+.locationIcon {
+  margin-right: 10px;
+}
+.checkbox_flightHotel {
+  border: 1px solid #ccc;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  border-radius: 9px;
+  background-color: #fff;
+  font-weight: 600;
+  color: #555;
+}
+.newTag {
+  position: absolute;
+  right: 97px;
+  top: -10px;
+  border-radius: 5px;
+  padding: 1px 5px;
+  background-color: #e12d2d;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.checkboxTag {
+  position: relative;
+  top: -29px;
+  border-radius: 5px;
+  padding: 1px 5px;
+  left: -220px;
+  background-color: #e12d2d;
+  color: #fff;
+  font-size: 12px;
+}
