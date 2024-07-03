@@ -17,7 +17,7 @@ export default function RoomSelect({ setFocus }) {
         size="large"
         showSearch
         variant="unstyled"
-        placeholder="1 adult / 1 room"
+        placeholder="Phòng"
         optionFilterProp="children"
         onChange={onChange}
         onFocus={() => setFocus(true)}
@@ -26,8 +26,8 @@ export default function RoomSelect({ setFocus }) {
           option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
         }
       >
-        <Option value={1}>Solo Traveller</Option>
-        <Option value={2}>Couple / Pair</Option>
+        <Option value={1}>Đơn</Option>
+        <Option value={2}>Đôi</Option>
       </Select>
     </div>
   );
