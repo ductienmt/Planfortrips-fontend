@@ -1,4 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import { LandingPage } from "./pages/landingPage/landingPage";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import Header from "./client/header/header";
 import EnterprisePage from './Enterprise/EnterpriseHome';
 import EnterpirseIndex from './Enterprise/EnterpriseIndex';
 import EnterpiseResources from './Enterprise/EnterpriseResources';
@@ -11,12 +17,14 @@ import EnterpriseStatistical from './Enterprise/EnterpriseStatistical';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<h2>Đây là App.jsx</h2>} />
+    <>
 
-        {/* // Begin Route Enterprise */}
-        <Route path="/enterprise" element={<EnterpirseIndex/>}>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<LandingPage />}/>
+          <Route path="/transport" element={<h1>Phương tiện</h1>} />
+                                            <Route path="/enterprise" element={<EnterpirseIndex/>}>
           <Route path='' element={<EnterprisePage/>}></Route>
           <Route path='resources' element={<EnterpiseResources/>}>
             <Route path='' element={<ShowResources/>}></Route>
@@ -31,10 +39,9 @@ function App() {
           <Route path='statistical' element={<EnterpriseStatistical/>}></Route>
   
         </Route>
-        {/* // End Route Enterprise */}
-
-      </Routes>
-    </Router>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
