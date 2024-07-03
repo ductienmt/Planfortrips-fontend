@@ -17,7 +17,7 @@ function Header() {
           <i className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
         </div>
 
-        <ul className="nav-menu">
+        <ul className={clicked ? "nav-menu active" : "nav-menu"}>
           {/* <li>
             <Link to="" className="nav-links">
               <i className="fa-brands fa-lastfm"></i>
@@ -52,6 +52,11 @@ function Header() {
             <Link to="" className="nav-links">
               <i className="fa-solid fa-handshake"></i>
               Hợp tác
+            </Link>
+          </li>
+          <li>
+            <Link to="" className="nav-links-mobile">
+              Đăng nhập
             </Link>
           </li>
           <button>Đăng nhập</button>
