@@ -1,0 +1,10 @@
+.advertImg {
+  display: flex;
+}
+.advertImg img {
+  width: 95%;
+  margin: -180px 10px 50px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px rgb(170, 170, 170), -4px -4px 10px lightgray;
+  cursor: pointer;
+}
