@@ -4,14 +4,26 @@ import { Calendar } from "./Calendar";
 import { Link } from "react-router-dom";
 import { Checkbox } from "antd";
 import RoomSelect from "./RoomSelect";
-import { createTheme, Grid, Paper, Tab, Tabs, ThemeProvider } from "@mui/material";
-import HomeWorkIcon from '@mui/icons-material/HomeWork';
-import ApartmentIcon from '@mui/icons-material/Apartment';
-import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
-import SearchIcon from '@mui/icons-material/Search';
-import FlightIcon from '@mui/icons-material/Flight';
-import EventAvailableIcon from '@mui/icons-material/EventAvailable';
-import { makeStyles } from '@mui/styles';
+import {
+  createTheme,
+  Grid,
+  Paper,
+  Tab,
+  Tabs,
+  ThemeProvider,
+} from "@mui/material";
+import HomeWorkIcon from "@mui/icons-material/HomeWork";
+import ApartmentIcon from "@mui/icons-material/Apartment";
+import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
+import SearchIcon from "@mui/icons-material/Search";
+import FlightIcon from "@mui/icons-material/Flight";
+import EventAvailableIcon from "@mui/icons-material/EventAvailable";
+import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/system";
+import { Unstable_Popup as BasePopup } from "@mui/base/Unstable_Popup";
+import TitlebarImageList from "./ImageDestination";
+import TitlebarImageListForeign from "./ImageForeign";
+
 // import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const theme = createTheme({
@@ -59,12 +71,51 @@ const useStyles = makeStyles((theme) => ({
     padding: "40px 50px",
   },
 }));
+const grey = {
+  50: "#F3F6F9",
+  100: "#E5EAF2",
+  200: "#DAE2ED",
+  300: "#C7D0DD",
+  400: "#B0B8C4",
+  500: "#9DA8B7",
+  600: "#6B7A90",
+  700: "#434D5B",
+  800: "#303740",
+  900: "#1C2025",
+};
 
+const blue = {
+  200: "#99CCFF",
+  300: "#66B2FF",
+  400: "#3399FF",
+  500: "#007FFF",
+  600: "#0072E5",
+  700: "#0066CC",
+};
+
+const PopupBody = styled("div")(
+  ({ theme }) => `
+  width: 1000px;
+  padding: 12px 16px;
+  margin: 8px;
+  border-radius: 8px;
+  border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
+  background-color: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
+  box-shadow: ${
+    theme.palette.mode === "dark"
+      ? `0px 4px 8px rgb(0 0 0 / 0.7)`
+      : `0px 4px 8px rgb(0 0 0 / 0.1)`
+  };
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  z-index: 1;
+`
+);
 export const FormSelection = () => {
   const classes = useStyles();
   const [value, setValue] = useState(0);
   // const [search, setSearch] = useState("");
-  const [cities, setCities] = useState([]);
   const [focus, setFocus] = useState(false);
   const [debounce, setDebounce] = useState(false);
 
@@ -74,6 +125,14 @@ export const FormSelection = () => {
     setValue(newValue);
   };
 
+  const [anchor, setAnchor] = useState(null);
+
+  const showPopup = (event) => {
+    setAnchor(anchor ? null : event.currentTarget);
+  };
+
+  const open = Boolean(anchor);
+  const id = open ? "simple-popup" : undefined;
 
   useEffect(() => {
     // axios.get("https://agoda-api.herokuapp.com/city").then(({ data }) => {
@@ -109,28 +168,53 @@ export const FormSelection = () => {
           >
             <Tab
               className={classes.tab}
+              style={{ margin: "auto" }}
               icon={<HomeWorkIcon />}
-              label="Hotels & Homes"
+              label="Nhà & Căn hộ"
+              value={1}
+              onClick={(e) => {
+                setValue(e.target.value);
+              }}
             />
             <Tab
               className={classes.tab}
+              style={{ margin: "auto" }}
               icon={<ApartmentIcon />}
-              label="Private Stays"
+              label="Khách sạn"
+              value={2}
+              onClick={(e) => {
+                setValue(e.target.value);
+              }}
             />
             <Tab
               className={classes.tab}
+              style={{ margin: "auto" }}
               icon={<FlightTakeoffIcon />}
-              label="Flight + Hotel"
+              label="Máy bay + K.sạn"
+              value={3}
+              onClick={(e) => {
+                setValue(e.target.value);
+              }}
             />
             <Tab
               className={classes.tab}
+              style={{ margin: "auto" }}
               icon={<FlightIcon />}
-              label="Flights"
+              label="Chuyến bay"
+              value={4}
+              onClick={(e) => {
+                setValue(e.target.value);
+              }}
             />
             <Tab
               className={classes.tab}
+              style={{ margin: "auto" }}
               icon={<EventAvailableIcon />}
-              label="Monthly Stays"
+              label="Hoạt động"
+              value={5}
+              onClick={(e) => {
+                setValue(e.target.value);
+              }}
             />
           </Tabs>
         </Paper>
@@ -139,6 +223,7 @@ export const FormSelection = () => {
         style={{
           backgroundColor: focus ? "#666" : "#F8F7F9",
           boxShadow: focus ? "none" : "0 4px 10px #888, 0 -4px 10px #888",
+          opacity: "0.9",
         }}
         square
         className={classes.form}
@@ -160,14 +245,38 @@ export const FormSelection = () => {
               }}
               onBlur={() => {
                 setFocus(false);
-                // setDebounce(false);
+                setDebounce(false);
+                setAnchor(null);
               }}
+              onClick={showPopup}
               type="search"
               // value={search}
-              placeholder="Enter a destination"
+              placeholder="Nhập địa điểm du lịch hoặc tên khách sạn"
             />
           </Grid>
 
+          <BasePopup id={id} open={open} anchor={anchor}>
+            <Grid container>
+              <PopupBody>
+                <div className="row">
+                  <div className="col-4">
+                    Tìm kiếm gần đây
+                    <div style={{ background: "#0072E5" }}>
+                      Đà Lạt, Việt Nam
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-8">
+                    <TitlebarImageList />
+                  </div>
+                  <div className="col-4">
+                    <TitlebarImageListForeign />
+                  </div>
+                </div>
+              </PopupBody>
+            </Grid>
+          </BasePopup>
           {/* debounce result */}
 
           <Paper
@@ -221,8 +330,8 @@ export const FormSelection = () => {
               sm={12}
               xs={12}
             >
-              <Checkbox>Save up to 25% on hotels</Checkbox>
-              <div className={styles.checkboxTag}>Flight + Hotel</div>
+              <Checkbox>Khuyến mãi lên đến 25% cho khách sạn</Checkbox>
+              <div className={styles.checkboxTag}>Máy bay + K.sạn</div>
             </Grid>
           </Grid>
 

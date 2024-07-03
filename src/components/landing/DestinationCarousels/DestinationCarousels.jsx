@@ -5,27 +5,26 @@ import { Container, Grid, Typography } from "@mui/material";
 export const DestinationCarousels = () => {
   return (
     <>
-
       <Typography
         style={{ textAlign: "center", marginBottom: 40 }}
         variant="h5"
       >
-        Explore more travel vacation rentals
-      </Typography> 
+        Những chỗ nghỉ nổi bật được đề xuất cho quý khách
+      </Typography>
       <Container maxWidth="lg">
         <Grid className={styles.rentalGrid} container>
-          <Grid item lg={3} md={4} sm={6} xs={12}>
-            <div className={styles.rentalTypes}>
+          <Grid item lg={3} md={4} sm={6} xs={12} >
+            <div className={styles.rentalTypes}style={{background:'#fff'}}>
               <img
                 className={styles.rentalImg}
                 src="https://cdn6.agoda.net/images/accommodation/other-property-types/entire-apartment.jpg"
                 alt=""
               />
-              <p>Apartments</p>
+              <p>Căn hộ</p>
             </div>
           </Grid>
           <Grid item lg={3} md={4} sm={6} xs={12}>
-            <div className={styles.rentalTypes}>
+            <div className={styles.rentalTypes}style={{background:'#fff'}}>
               <img
                 className={styles.rentalImg}
                 src="https://cdn6.agoda.net/images/accommodation/other-property-types/entire-house.jpg"
@@ -35,17 +34,17 @@ export const DestinationCarousels = () => {
             </div>
           </Grid>
           <Grid item lg={3} md={4} sm={6} xs={12}>
-            <div className={styles.rentalTypes}>
+            <div className={styles.rentalTypes}style={{background:'#fff'}}>
               <img
                 className={styles.rentalImg}
                 src="https://cdn6.agoda.net/images/accommodation/other-property-types/entire-villa.jpg"
                 alt=""
               />
-              <p>Private Villas</p>
+              <p>Biệt thự riêng</p>
             </div>
           </Grid>
           <Grid item lg={3} md={4} sm={6} xs={12}>
-            <div className={styles.rentalTypes}>
+            <div className={styles.rentalTypes}style={{background:'#fff'}}>
               <img
                 className={styles.rentalImg}
                 src="https://cdn6.agoda.net/images/accommodation/other-property-types/entire-bungalow.jpg"
@@ -63,51 +62,43 @@ export const DestinationCarousels = () => {
         style={{ textAlign: "center", marginBottom: 40 }}
         variant="h5"
       >
-        Overheard from travellers
+        Tiếng lành đồn xa
       </Typography>
 
       <Container maxWidth="lg">
         <Grid className={styles.rentalGrid} container>
-          <Grid item lg={4} md={6} sm={12} xs={12}>
-            <div className={styles.reviews}>
-              <h1>Hotel Leela International</h1>
-              <p>in New Delhi</p>
+          <Grid item lg={4} md={6} sm={12} xs={12} >
+            <div className={styles.reviews} style={{background:'#fff'}}>
+              <h1>Khách sạn Sydney</h1>
+              <p>ở Úc</p>
               <h2>
-                "We booked Hotel Leela International through Agoda after reading
-                a handful of reviews, and it was easily the best decision we
-                made for our trip to New delhi."
+              Giá phòng Executive hướng thành phố trên Agoda rất phải chăng. Đúng là một món hời!
               </h2>
-              <p>-Milind from Kolkata</p>
+              <p>- Bellarmine đến từ Philippines</p>
             </div>
           </Grid>
           <Grid item lg={4} md={6} sm={12} xs={12}>
-            <div className={styles.reviews}>
-              <h1>ITC Royal Bengal</h1>
-              <p>in Kolkata</p>
+            <div className={styles.reviews} style={{background:'#fff'}}>
+              <h1>Khách sạn Granvia Kyoto</h1>
+              <p>ở Nhật Bản</p>
               <h2>
-                "We booked ITC Royal Bengal through Agoda after reading a
-                handful of reviews, and it was easily the best decision we made
-                for our trip to Kolkata."
+              Gia đình chúng tôi vừa đi tàu tốc hành qua các thành phố ở Nhật Bản cùng nhiều hành lý
               </h2>
-              <p>-Abhishek from Delhi</p>
+              <p>- Diane đến từ Hoa Kỳ</p>
             </div>
           </Grid>
           <Grid item lg={4} md={6} sm={12} xs={12}>
-            <div className={styles.reviews}>
-              <h1>Hotel Taj Lands End</h1>
-              <p>in Mumbai</p>
+            <div className={styles.reviews} style={{background:'#fff'}}>
+              <h1>Khách sạn Heritage</h1>
+              <p>ở Philippines</p>
               <h2>
-                "We booked Hotel Taj Lands End through Agoda after reading a
-                handful of reviews, and it was easily the best decision we made
-                for our trip to Mumbai."
+              Tôi săn được giá đặc biệt giờ chót với Agoda. Phòng ốc rộng rãi, giường ngủ thoải mái và ấm cúng.
               </h2>
-              <p>-Avinash from Bihar</p>
+              <p>- Henry đến từ Úc</p>
             </div>
           </Grid>
         </Grid>
       </Container>
-
-
     </>
   );
 };
