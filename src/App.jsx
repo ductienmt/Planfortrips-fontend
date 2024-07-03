@@ -2,7 +2,7 @@ import "./App.css";
 import { LandingPage } from "./pages/landingPage/landingPage";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./client/header/header";
 import EnterprisePage from "./Enterprise/EnterpriseHome";
 import EnterpirseIndex from "./Enterprise/EnterpriseIndex";
@@ -15,9 +15,10 @@ import CreateResources from "./Enterprise/Resources/CreateResources";
 import EnterpriseStatistical from "./Enterprise/EnterpriseStatistical";
 
 function App() {
+  const location = useLocation();
   return (
     <>
-      <Header />
+      {!location.pathname.includes("/enterprise") && <Header />}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/transport" element={<h1>Phương tiện</h1>} />
@@ -41,4 +42,3 @@ function App() {
 }
 
 export default App;
-
