@@ -10,7 +10,7 @@ function Header() {
     <>
       <nav className={`NavbarItems ${clicked ? "active" : ""}`}>
         <h1 className="nav-logo">
-          <Link>Plan for Trips</Link>
+          <Link to="/">Plan for Trips</Link>
         </h1>
 
         <div className="menu-icon" onClick={() => setClicked(!clicked)}>
@@ -32,13 +32,13 @@ function Header() {
           </li>
           <li>
             <Link to="" className="nav-links">
-              <i className="fa-solid fa-house"></i>
+              <i className="fa-solid fa-utensils"></i>
               Hàng quán
             </Link>
           </li>
           <li>
             <Link to="" className="nav-links">
-              <i className="fa-solid fa-house"></i>
+              <i className="fa-solid fa-location-dot"></i>
               Check-in
             </Link>
           </li>

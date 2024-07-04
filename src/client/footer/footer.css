@@ -1,0 +1,11 @@
+.logoCompany {
+    width: 200px;
+}
+
+.nameCompany {
+    font-size: 1.1rem;
+}
+
+.custom-copyright {
+    background-color: rgba(0, 0, 0, 0.05);
+}

@@ -13,6 +13,7 @@ import ShowPost from "./Enterprise/Post/ShowPost";
 import ShowResources from "./Enterprise/Resources/ShowResources";
 import CreateResources from "./Enterprise/Resources/CreateResources";
 import EnterpriseStatistical from "./Enterprise/EnterpriseStatistical";
+import Footer from "./client/footer/footer";
 
 function App() {
   const location = useLocation();
@@ -37,6 +38,7 @@ function App() {
           <Route path="statistical" element={<EnterpriseStatistical />}></Route>
         </Route>
       </Routes>
+      {!location.pathname.includes("/enterprise") && <Footer />}
     </>
   );
 }
