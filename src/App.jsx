@@ -14,6 +14,7 @@ import ShowResources from "./Enterprise/Resources/ShowResources";
 import CreateResources from "./Enterprise/Resources/CreateResources";
 import EnterpriseStatistical from "./Enterprise/EnterpriseStatistical";
 import Footer from "./client/footer/footer";
+import Hotel from "./client/hotel/hotel";
 
 function App() {
   const location = useLocation();
@@ -22,7 +23,7 @@ function App() {
       {!location.pathname.includes("/enterprise") && <Header />}
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/transport" element={<h1>Phương tiện</h1>} />
+        <Route path="/hotel" element={<Hotel />} />
         <Route path="/enterprise" element={<EnterpirseIndex />}>
           <Route path="" element={<EnterprisePage />}></Route>
           <Route path="resources" element={<EnterpiseResources />}>

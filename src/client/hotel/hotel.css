@@ -1,0 +1,38 @@
+.background-hotel {
+    background-image: url('../../assets/img/background-hotel.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* Hoặc contain, tùy thuộc vào mục đích của bạn */
+    background-position: center;
+    /* Để căn giữa hình nền */
+    height: 600px;
+    display: flex;
+    /* Để sử dụng align-items và text-align */
+    align-items: center;
+    justify-content: center;
+    /* Để căn giữa nội dung theo chiều ngang */
+    text-align: center;
+}
+
+.form-hotel {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: var(--background-color);
+    padding: 2rem;
+    border-radius: 13px;
+    width: 80%;
+}
+
+
+.custom-btn-hotel {
+    color: white;
+    background-color: var(--success-btn-color);
+
+}
+
+.hide-text-search-hotel {
+    /* font-size: 1.2rem;
+    font-weight: 600; */
+    display: none;
+}

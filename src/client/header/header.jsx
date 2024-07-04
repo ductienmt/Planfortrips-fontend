@@ -25,7 +25,7 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link to="" className="nav-links">
+            <Link to="/hotel" className="nav-links">
               <i className="fa-solid fa-hotel"></i>
               Khách sạn
             </Link>
