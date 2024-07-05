@@ -13,6 +13,7 @@ import ShowPost from "./Enterprise/Post/ShowPost";
 import ShowResources from "./Enterprise/Resources/ShowResources";
 import CreateResources from "./Enterprise/Resources/CreateResources";
 import EnterpriseStatistical from "./Enterprise/EnterpriseStatistical";
+import FoodPage from "./components/Food/FoodPage";
 import Footer from "./client/footer/footer";
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
       {!location.pathname.includes("/enterprise") && <Header />}
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/food" element={<FoodPage />} />
+
         <Route path="/transport" element={<h1>Phương tiện</h1>} />
         <Route path="/enterprise" element={<EnterpirseIndex />}>
           <Route path="" element={<EnterprisePage />}></Route>
