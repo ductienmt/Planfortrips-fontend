@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
+import logo from "../../assets/img/planfortrips-logo.png";
 
 function Header() {
   const [clicked, setClicked] = useState(false);
@@ -10,7 +11,9 @@ function Header() {
     <>
       <nav className={`NavbarItems ${clicked ? "active" : ""}`}>
         <h1 className="nav-logo">
-          <Link to="/">Plan for Trips</Link>
+          <Link to="/">
+            <img src={logo} alt="" width="250px" className="mt-2" />
+          </Link>
         </h1>
 
         <div className="menu-icon" onClick={() => setClicked(!clicked)}>
@@ -25,13 +28,13 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link to="" className="nav-links">
+            <Link to="/hotel" className="nav-links">
               <i className="fa-solid fa-hotel"></i>
               Khách sạn
             </Link>
           </li>
           <li>
-            <Link to="" className="nav-links">
+            <Link to="/food" className="nav-links">
               <i className="fa-solid fa-utensils"></i>
               Hàng quán
             </Link>
