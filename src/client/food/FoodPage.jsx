@@ -4,8 +4,7 @@ import styles from "./foodpage.module.css";
 import Dashboardleft from "./Dashboardleft";
 import { Box } from "@mui/material";
 import { FoodItem } from "./FoodItem";
-import { Loading } from "../Loading/Loading";
-
+import {Loading} from "../../components/Loading/Loading"
 const FoodPage = () => {
   const [loading, setLoading] = useState(false);
   const handlechangecheck = () => {};
