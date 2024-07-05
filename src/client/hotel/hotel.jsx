@@ -2,6 +2,10 @@
 import React, { useEffect, useState } from "react";
 import "./hotel.css";
 import provinces from "./provinces";
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css"; // Import CSS for flatpickr
+import RangeSlider from "react-bootstrap-range-slider";
+import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
 
 const Hotel = () => {
   const [inputValue, setInputValue] = useState("");
@@ -12,6 +16,8 @@ const Hotel = () => {
   const [adults, setAdults] = useState(0);
   const [children, setChildren] = useState(0);
   const [infants, setInfants] = useState(0);
+
+  const [valuePrice, setValuePrice] = useState(0);
 
   const handleInputChange = (event) => {
     const query = event.target.value;
@@ -64,7 +70,95 @@ const Hotel = () => {
   };
 
   useEffect(() => {
+    const Vietnamese = {
+      weekdays: {
+        shorthand: ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
+        longhand: [
+          "Chủ Nhật",
+          "Thứ Hai",
+          "Thứ Ba",
+          "Thứ Tư",
+          "Thứ Năm",
+          "Thứ Sáu",
+          "Thứ Bảy",
+        ],
+      },
+      months: {
+        shorthand: [
+          "Th1",
+          "Th2",
+          "Th3",
+          "Th4",
+          "Th5",
+          "Th6",
+          "Th7",
+          "Th8",
+          "Th9",
+          "Th10",
+          "Th11",
+          "Th12",
+        ],
+        longhand: [
+          // "Tháng Một",
+          // "Tháng Hai",
+          // "Tháng Ba",
+          // "Tháng Tư",
+          // "Tháng Năm",
+          // "Tháng Sáu",
+          // "Tháng Bảy",
+          // "Tháng Tám",
+          // "Tháng Chín",
+          // "Tháng Mười",
+          // "Tháng Mười Một",
+          // "Tháng Mười Hai",
+          "Th1",
+          "Th2",
+          "Th3",
+          "Th4",
+          "Th5",
+          "Th6",
+          "Th7",
+          "Th8",
+          "Th9",
+          "Th10",
+          "Th11",
+          "Th12",
+        ],
+      },
+      firstDayOfWeek: 1, // Tuần bắt đầu từ thứ Hai
+      rangeSeparator: " đến ",
+      weekAbbreviation: "Tuần",
+      scrollTitle: "Cuộn để tăng giảm",
+      toggleTitle: "Nhấp để chuyển đổi",
+      ordinal: (nth) => {
+        if (nth > 1) return "th";
+        return "";
+      },
+    };
+    const today = new Date();
+    const maxDate = new Date(new Date().setFullYear(today.getFullYear() + 1)); // Tính toán ngày 12 tháng sau
     document.addEventListener("click", handleClickOutside);
+
+    // Khởi tạo flatpickr cho input "Ngày đi" với locale tiếng Việt
+    flatpickr("#date-depart", {
+      altInput: true,
+      altFormat: "d-m-Y",
+      dateFormat: "Y-m-d",
+      locale: Vietnamese, // Sử dụng locale tiếng Việt
+      minDate: today, // Ngày nhỏ nhất có thể chọn là ngày hiện tại
+      maxDate: maxDate,
+    });
+
+    // Khởi tạo flatpickr cho input "Ngày về" với locale tiếng Việt
+    flatpickr("#date-return", {
+      altInput: true,
+      altFormat: "d-m-Y",
+      dateFormat: "Y-m-d",
+      locale: Vietnamese, // Sử dụng locale tiếng Việt
+      minDate: today, // Ngày nhỏ nhất có thể chọn là ngày hiện tại
+      maxDate: maxDate,
+    });
+
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
@@ -98,11 +192,11 @@ const Hotel = () => {
             </div>
             <div className="input-custom-hotel">
               <i className="far fa-calendar-alt"></i>
-              <input type="text" placeholder="Ngày đi" />
+              <input id="date-depart" placeholder="Ngày đi" />
             </div>
             <div className="input-custom-hotel">
               <i className="far fa-calendar-alt"></i>
-              <input type="text" placeholder="Ngày về" />
+              <input id="date-return" placeholder="Ngày về" />
             </div>
             <div className="input-custom-hotel">
               <i className="fas fa-user-check"></i>
@@ -178,6 +272,23 @@ const Hotel = () => {
               <span className="hide-text-search-hotel"> Search</span>
             </button>
           </form>
+        </div>
+        <div className="col-md-12 row m-0">
+          <div className="col-md-3 bg-dark">
+            <div className="col-md-12 text-white">
+              <h1>Bộ lọc</h1>
+              <div>
+                <h5>Giá</h5>
+                <RangeSlider
+                  value={valuePrice}
+                  onChange={(changeEvent) =>
+                    setValuePrice(changeEvent.target.value)
+                  }
+                />
+              </div>
+            </div>
+          </div>
+          <div className="col-md-9 bg-danger">List</div>
         </div>
       </section>
     </>

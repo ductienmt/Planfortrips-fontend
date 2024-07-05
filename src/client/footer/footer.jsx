@@ -71,10 +71,10 @@ function Footer() {
               <p>
                 <i className="fas fa-home me-3"></i>FPT Polytechnic
               </p>
-              {/* <p>
+              <p>
                 <i className="fas fa-envelope me-3"></i>
-                tiendtdps32039@fpt.edu.vn
-              </p> */}
+                planfortrips.296@gmail.com
+              </p>
               <p>
                 <i className="fas fa-phone me-3"></i> + 84 123 456 789
               </p>
