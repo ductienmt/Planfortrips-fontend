@@ -1,5 +1,5 @@
 import "./App.css";
-import { LandingPage } from "./pages/landingPage/landingPage";
+import { LandingPage } from "./client/landingPage/landingPage";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { Routes, Route, useLocation } from "react-router-dom";
@@ -13,6 +13,8 @@ import ShowPost from "./Enterprise/Post/ShowPost";
 import ShowResources from "./Enterprise/Resources/ShowResources";
 import CreateResources from "./Enterprise/Resources/CreateResources";
 import EnterpriseStatistical from "./Enterprise/EnterpriseStatistical";
+import FoodPage from "./client/food/FoodPage";
+import { DetailFood } from "./client/food/DetailFood";
 import FoodPage from "./components/Food/FoodPage";
 import Footer from "./client/footer/footer";
 import Hotel from "./client/hotel/hotel";
@@ -25,7 +27,10 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/hotel" element={<Hotel />} />
-        <Route path="/food" element={<FoodPage />} />
+         <Route path="food">
+            <Route path="" element={<FoodPage />}></Route>
+            <Route path="detail" element={<DetailFood />} />
+          </Route>
         <Route path="/enterprise" element={<EnterpirseIndex />}>
           <Route path="" element={<EnterprisePage />}></Route>
           <Route path="resources" element={<EnterpiseResources />}>

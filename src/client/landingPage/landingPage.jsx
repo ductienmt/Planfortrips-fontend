@@ -1,9 +1,8 @@
 import React from "react";
 import styles from "./landingPage.module.css";
-import { DestinationCarousels } from "../../components/landing/DestinationCarousels/DestinationCarousels";
+import { DestinationCarousels } from "../landing/DestinationCarousels/DestinationCarousels";
 import { Container, Grid } from "@mui/material";
-import { FormSelection } from "../../components/landing/FormSelection/FormSelection";
-import { Opacity } from "@mui/icons-material";
+import { FormSelection } from "../landing/FormSelection/FormSelection";
 
 export const LandingPage = () => {
   const divStyle = {
