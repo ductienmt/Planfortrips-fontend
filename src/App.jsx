@@ -1,5 +1,5 @@
 import "./App.css";
-import { LandingPage } from "./pages/landingPage/landingPage";
+import { LandingPage } from "./client/landingPage/landingPage";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { Routes, Route } from "react-router-dom";
@@ -13,15 +13,21 @@ import ShowPost from "./Enterprise/Post/ShowPost";
 import ShowResources from "./Enterprise/Resources/ShowResources";
 import CreateResources from "./Enterprise/Resources/CreateResources";
 import EnterpriseStatistical from "./Enterprise/EnterpriseStatistical";
-import FoodPage from "./components/Food/FoodPage";
+import FoodPage from "./client/food/FoodPage";
+import { DetailFood } from "./client/food/DetailFood";
 
 function App() {
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/food" element={<FoodPage />} />
+        <Route path="/">
+          <Route path="" element={<LandingPage />}></Route>
+          <Route path="food">
+            <Route path="" element={<FoodPage />}></Route>
+            <Route path="detail" element={<DetailFood />} />
+          </Route>
+        </Route>
 
         <Route path="/transport" element={<h1>Phương tiện</h1>} />
         <Route path="/enterprise" element={<EnterpirseIndex />}>
@@ -44,4 +50,3 @@ function App() {
 }
 
 export default App;
-
