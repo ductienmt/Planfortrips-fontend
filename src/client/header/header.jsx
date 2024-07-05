@@ -8,22 +8,16 @@ function Header() {
 
   return (
     <>
-      <nav className="NavbarItems d-flex justify-content-between align-items-center">
-        <Link to="/">
-          <h1 className="navbar-logo">Plan for Trips</h1>
-        </Link>
+      <nav className={`NavbarItems ${clicked ? "active" : ""}`}>
+        <h1 className="nav-logo">
+          <Link to="/">Plan for Trips</Link>
+        </h1>
 
-        <div className="menu-icons" onClick={() => setClicked(!clicked)}>
+        <div className="menu-icon" onClick={() => setClicked(!clicked)}>
           <i className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
         </div>
 
-        <ul className={clicked ? "nav-menu active" : "nav-menu"}>
-          {/* <li>
-            <Link to="" className="nav-links">
-              <i className="fa-brands fa-lastfm"></i>
-              Plan
-            </Link>
-          </li> */}
+        <ul className={`nav-menu ${clicked ? "active" : ""}`}>
           <li>
             <Link to="/transport" className="nav-links">
               <i className="fa-solid fa-plane"></i>
@@ -38,13 +32,13 @@ function Header() {
           </li>
           <li>
             <Link to="" className="nav-links">
-              <i className="fa-solid fa-house"></i>
+              <i className="fa-solid fa-utensils"></i>
               Hàng quán
             </Link>
           </li>
           <li>
             <Link to="" className="nav-links">
-              <i className="fa-solid fa-house"></i>
+              <i className="fa-solid fa-location-dot"></i>
               Check-in
             </Link>
           </li>
