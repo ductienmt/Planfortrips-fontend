@@ -17,6 +17,7 @@ import FoodPage from "./client/food/FoodPage";
 import { DetailFood } from "./client/food/DetailFood";
 import FoodPage from "./components/Food/FoodPage";
 import Footer from "./client/footer/footer";
+import Hotel from "./client/hotel/hotel";
 
 function App() {
   const location = useLocation();
@@ -24,15 +25,12 @@ function App() {
     <>
       {!location.pathname.includes("/enterprise") && <Header />}
       <Routes>
-        <Route path="/">
-          <Route path="" element={<LandingPage />}></Route>
-          <Route path="food">
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/hotel" element={<Hotel />} />
+         <Route path="food">
             <Route path="" element={<FoodPage />}></Route>
             <Route path="detail" element={<DetailFood />} />
           </Route>
-        </Route>
-
-        <Route path="/transport" element={<h1>Phương tiện</h1>} />
         <Route path="/enterprise" element={<EnterpirseIndex />}>
           <Route path="" element={<EnterprisePage />}></Route>
           <Route path="resources" element={<EnterpiseResources />}>
