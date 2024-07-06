@@ -21,3 +21,31 @@
   /* transform: translateY(-10px); */
   padding: 20px 0;
 }
+.searchIcon {
+  color: #555;
+}
+.formFirstLine {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 9px;
+  height: 60px;
+}
+.formFirstLine > input {
+  width: 100%;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 17px;
+}
+.formFirstLine > input::placeholder {
+  color: #bbb;
+  font-size: 16px;
+}
+span{
+  font-size: 16px;
+  font-weight: bolder;
+}
