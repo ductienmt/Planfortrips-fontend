@@ -3,8 +3,14 @@ import { GetAllProvinces } from "../../../Api/Api3rd/VnLocationApi";
 
 function VehicleForm() {
 
+
+
+  const [provinces, setProvinces] = useState([])
+
   useEffect(() => {
+    GetAllProvinces().then((res) => setProvinces(res.results))
   }, [])
+
 
   const vehicleType = [
     {
@@ -139,32 +145,44 @@ function VehicleForm() {
               />
             </div>
             <div className="row mb-3">
-              <div className="col-6">
-                <label htmlFor="form" className="form-label">
-                  Chạy từ <span className="text-danger">(Điểm bắt đầu)</span>
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="form"
-                  name="form"
-                  value={vehicle.form}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="col-6">
-                <label htmlFor="to" className="form-label">
-                  Đến <span className="text-danger">(Điểm kết thúc)</span>
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="to"
-                  name="to"
-                  value={vehicle.to}
-                  onChange={handleInputChange}
-                />
-              </div>
+            <div className="col-6">
+    <label htmlFor="form" className="form-label">
+      Chạy từ <span className="text-danger">(Điểm bắt đầu)</span>
+    </label>
+    <select
+      name="form"
+      className="form-control"
+      value={vehicle.form}
+      onChange={handleInputChange}
+    >
+      <option value="">Chọn điểm bắt đầu</option>
+      {provinces.map((p) => (
+        <option key={p.province_id} value={p.province_id}>
+          {p.province_name}
+        </option>
+      ))}
+    </select>
+  </div>
+  <div className="col-6">
+    <label htmlFor="to" className="form-label">
+      Đến <span className="text-danger">(Điểm kết thúc)</span>
+    </label>
+    <select
+      name="to"
+      className="form-control"
+      value={vehicle.to}
+      onChange={handleInputChange}
+    >
+      <option value="">Chọn điểm kết thúc</option>
+      {provinces
+        .filter((p) => p.province_id < vehicle.form)
+        .map((p) => (
+          <option key={p.province_id} value={p.province_name}>
+            {p.province_name}
+          </option>
+        ))}
+    </select>
+  </div>
             </div>
             <div className="mb-3">
               <label htmlFor="manufacturer" className="form-label">

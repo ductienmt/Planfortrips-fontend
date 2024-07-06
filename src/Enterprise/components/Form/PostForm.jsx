@@ -84,8 +84,18 @@ function PostForm() {
                                     onChange={handleChange}
                                 />
                             </div>
+
+                            <div className="form-group mb-3">
+                                <label htmlFor="" className="form-label">Chọn sản phẩm review</label>
+                                <select className='form-control' multiple>
+                                    <option value="">Xe 1</option>
+                                    <option value="">Xe 2</option>
+                                    <option value="">Xe 3</option>
+                                </select>
+                                
+                            </div>
                             
-                            <button type="submit" className="btn btn-primary">
+                            <button type="submit mt-3" className="btn btn-primary">
                                 Đăng bài
                             </button>
                         </form>
