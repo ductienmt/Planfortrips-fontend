@@ -41,6 +41,7 @@ export const Calendar = ({ setFocus }) => {
       onCalendarChange={(val) => setDates(val)}
       onChange={(val) => setValue(val)}
       onOpenChange={onOpenChange}
+      placeholder={['Ngày bắt đầu', 'Ngày kết thúc']}
       // defaultValue={[moment('2015/01/01', dateFormat), moment('2015/01/01', dateFormat)]}
       // format={dateFormat}
       showToday

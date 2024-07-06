@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Checkbox } from "antd";
 import RoomSelect from "./RoomSelect";
 import {
+  Box,
   createTheme,
   Grid,
   Paper,
@@ -155,8 +156,9 @@ export const FormSelection = () => {
         alt=""
       />
       <ThemeProvider theme={theme}>
-        <Paper theme={theme} square className={classes.root}>
+        <Paper theme={theme} square className={classes.root} >
           <div className={styles.newTag}>New!</div>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs
             value={value}
             onChange={handleChange}
@@ -175,6 +177,7 @@ export const FormSelection = () => {
               onClick={(e) => {
                 setValue(e.target.value);
               }}
+              
             />
             <Tab
               className={classes.tab}
@@ -217,6 +220,7 @@ export const FormSelection = () => {
               }}
             />
           </Tabs>
+          </Box>
         </Paper>
       </ThemeProvider>
       <Paper
@@ -224,11 +228,12 @@ export const FormSelection = () => {
           backgroundColor: focus ? "#666" : "#F8F7F9",
           boxShadow: focus ? "none" : "0 4px 10px #888, 0 -4px 10px #888",
           opacity: "0.9",
+          height:'400px'
         }}
         square
         className={classes.form}
       >
-        <Grid container>
+        <Grid container className="m-2">
           <Grid
             className={styles.formFirstLine}
             item
@@ -236,6 +241,7 @@ export const FormSelection = () => {
             md={12}
             sm={12}
             xs={12}
+            style={{marginBottom:5}}
           >
             <SearchIcon className={styles.searchIcon} />
             <input
@@ -289,8 +295,9 @@ export const FormSelection = () => {
           {/* debounce result end */}
 
           <Grid
-            style={{ paddingBottom: window.innerWidth > 800 ? "0" : "10px" }}
+            style={{ paddingBottom: window.innerWidth > 800 ? "0" : "10px",marginBottom:5 }}
             className={styles.formSecLine}
+            
             container
             item
           >
@@ -317,7 +324,7 @@ export const FormSelection = () => {
           </Grid>
 
           <Grid
-            style={{ width: "98%" }}
+            style={{ width: "98%" ,marginBottom: '20px'}}
             className={styles.formThirdLine}
             container
             item
@@ -340,7 +347,7 @@ export const FormSelection = () => {
             style={{ color: "#fff" }}
             to="/hotel"
           >
-            <button className={styles.searchBtn}>SEARCH</button>
+            <button className={styles.searchBtn}>Tìm kiếm</button>
           </Link>
         </Grid>
       </Paper>
