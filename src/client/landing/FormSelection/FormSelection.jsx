@@ -142,7 +142,7 @@ export const FormSelection = () => {
   }, []);
 
   return (
-    <div>
+    <div >
       <div
         style={{
           backgroundColor: focus ? "rgba(0,0,0,0.7)" : "transparent",
@@ -154,6 +154,7 @@ export const FormSelection = () => {
         className={styles.background_image}
         src="https://cdn6.agoda.net/images/MVC/default/background_image/illustrations/bg-agoda-homepage.png"
         alt=""
+        style={{marginTop:'40px',marginBottom:'35px'}}
       />
       <ThemeProvider theme={theme}>
         <Paper theme={theme} square className={classes.root} >
@@ -347,7 +348,7 @@ export const FormSelection = () => {
             style={{ color: "#fff" }}
             to="/hotel"
           >
-            <button className={styles.searchBtn}>Tìm kiếm</button>
+            <button className={styles.searchBtn}>Lên kế hoạch</button>
           </Link>
         </Grid>
       </Paper>

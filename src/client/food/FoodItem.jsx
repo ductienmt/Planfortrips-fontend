@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "./FoodItem.module.css";
+import styles from "./foodItem.module.css";
 import StarRateIcon from '@mui/icons-material/StarRate';
 export function FoodItem() {
   return (
