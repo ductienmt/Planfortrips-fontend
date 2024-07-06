@@ -15,7 +15,6 @@ import PostForm from "./Enterprise/components/Form/PostForm";
 import VehicleList from "./Enterprise/components/List/VehicleList";
 import PostList from "./Enterprise/components/List/PostList";
 
-
 function App() {
   const location = useLocation();
 
@@ -24,18 +23,18 @@ function App() {
       {!location.pathname.includes("/enterprise") && <Header />}
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/enterprise" element={<EnterpriseIndex/>}>
-            <Route index element={<EtpHome/>}></Route>
-            
-            <Route path="vehicle">
-              <Route path="create" element={<VehicleForm/>}></Route>
-              <Route path="list" element={<VehicleList/>}></Route>
-            </Route>
-            <Route path="post">
-              <Route path="create" element={<PostForm/>}></Route>
-              <Route path="list" element={<PostList/>}></Route>
-            </Route>
-            </Route>
+        <Route path="/enterprise" element={<EnterpriseIndex />}>
+          <Route index element={<EtpHome />}></Route>
+
+          <Route path="vehicle">
+            <Route path="create" element={<VehicleForm />}></Route>
+            <Route path="list" element={<VehicleList />}></Route>
+          </Route>
+          <Route path="post">
+            <Route path="create" element={<PostForm />}></Route>
+            <Route path="list" element={<PostList />}></Route>
+          </Route>
+        </Route>
         <Route path="/hotel" element={<Hotel />} />
         <Route path="food">
           <Route path="" element={<FoodPage />}></Route>
