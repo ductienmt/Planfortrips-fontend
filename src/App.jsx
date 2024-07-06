@@ -15,7 +15,6 @@ import CreateResources from "./Enterprise/Resources/CreateResources";
 import EnterpriseStatistical from "./Enterprise/EnterpriseStatistical";
 import FoodPage from "./client/food/FoodPage";
 import { DetailFood } from "./client/food/DetailFood";
-import FoodPage from "./components/Food/FoodPage";
 import Footer from "./client/footer/footer";
 import Hotel from "./client/hotel/hotel";
 
@@ -27,10 +26,10 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/hotel" element={<Hotel />} />
-         <Route path="food">
-            <Route path="" element={<FoodPage />}></Route>
-            <Route path="detail" element={<DetailFood />} />
-          </Route>
+        <Route path="food">
+          <Route path="" element={<FoodPage />}></Route>
+          <Route path="detail" element={<DetailFood />} />
+        </Route>
         <Route path="/enterprise" element={<EnterpirseIndex />}>
           <Route path="" element={<EnterprisePage />}></Route>
           <Route path="resources" element={<EnterpiseResources />}>
@@ -46,7 +45,8 @@ function App() {
           <Route path="statistical" element={<EnterpriseStatistical />}></Route>
         </Route>
       </Routes>
-      {!location.pathname.includes("/enterprise") && <Footer />}
+      {!location.pathname.includes("/enterprise") &&
+        !location.pathname.includes("/food") && <Footer />}
     </>
   );
 }

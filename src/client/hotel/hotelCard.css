@@ -1,0 +1,8 @@
+.custom-card-hotel .custom-img-hotel-card {
+    height: 100%;
+    /* Chiều cao của hình ảnh sẽ bằng với chiều cao của card */
+    width: 100%;
+    /* Đảm bảo hình ảnh rộng 100% */
+    object-fit: cover;
+    /* Đảm bảo hình ảnh sẽ điều chỉnh sao cho vừa với kích thước mà không bị căng ra */
+}

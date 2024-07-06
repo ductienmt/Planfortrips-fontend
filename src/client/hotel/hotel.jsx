@@ -6,6 +6,8 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css"; // Import CSS for flatpickr
 import RangeSlider from "react-bootstrap-range-slider";
 import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
+import HotelCard from "./hotelCard";
+import Loading from "../../components/Loading/LoadingAnimation ";
 
 const Hotel = () => {
   const [inputValue, setInputValue] = useState("");
@@ -18,6 +20,10 @@ const Hotel = () => {
   const [infants, setInfants] = useState(0);
 
   const [valuePrice, setValuePrice] = useState(0);
+
+  const [sliderPosition, setSliderPosition] = useState("hotel");
+
+  const [selectedCategory, setSelectedCategory] = useState("hotel");
 
   const handleInputChange = (event) => {
     const query = event.target.value;
@@ -68,6 +74,74 @@ const Hotel = () => {
       );
     }
   };
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
+  const hotels = [
+    "Khách sạn A",
+    "Khách sạn B",
+    "Khách sạn C",
+    "Khách sạn D",
+    "Khách sạn E",
+    "Khách sạn F",
+  ];
+  const homestays = [
+    "Home stay A",
+    "Home stay B",
+    "Home stay C",
+    "Home stay D",
+    "Home stay E",
+    "Home stay F",
+  ];
+  const resorts = [
+    "Resort A",
+    "Resort B",
+    "Resort C",
+    "Resort D",
+    "Resort E",
+    "Resort F",
+  ];
+
+  const renderList = () => {
+    let list = [];
+    if (selectedCategory === "hotel") {
+      list = hotels;
+    } else if (selectedCategory === "homestay") {
+      list = homestays;
+    } else if (selectedCategory === "resort") {
+      list = resorts;
+    }
+    const paginatedList = paginate(list, itemsPerPage, currentPage);
+    return paginatedList.map((item, index) =>
+      HotelCard({ name: item, key: index })
+    );
+  };
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    setSliderPosition(category);
+    setCurrentPage(1);
+  };
+
+  const getTotalLocations = (category) => {
+    if (category === "hotel") {
+      return hotels.length;
+    } else if (category === "homestay") {
+      return homestays.length;
+    } else if (category === "resort") {
+      return resorts.length;
+    }
+    return 0;
+  };
+
+  const paginate = (array, page_size, page_number) => {
+    window.scrollTo(0, 450);
+    return array.slice((page_number - 1) * page_size, page_number * page_size);
+  };
+
+  const totalItems = getTotalLocations(selectedCategory);
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   useEffect(() => {
     const Vietnamese = {
@@ -163,6 +237,32 @@ const Hotel = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+
+  const [isLoading, setIsLoading] = useState(true); // Thêm trạng thái isLoading
+
+  useEffect(() => {
+    // Thêm timeout để chuyển isLoading thành false sau 1 giây
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+
+    return () => clearTimeout(timer); // Dọn dẹp khi component unmount
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <Loading />
+      </div>
+    ); // Hiển thị chữ Loading ở giữa màn hình
+  }
 
   return (
     <>
@@ -278,7 +378,7 @@ const Hotel = () => {
             <div className="col-md-12 text-white">
               <h1>Bộ lọc</h1>
               <div>
-                <h5>Giá</h5>
+                <h5>Giá:</h5>
                 <RangeSlider
                   value={valuePrice}
                   onChange={(changeEvent) =>
@@ -288,7 +388,62 @@ const Hotel = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-9 bg-danger">List</div>
+          <div className="col-md-9 custom-list-hotel">
+            <div className="select-category">
+              <div
+                className={`col-md-4 ${
+                  selectedCategory === "hotel" ? "active" : ""
+                }`}
+                onClick={() => handleCategoryClick("hotel")}
+              >
+                <h5>Khách sạn</h5>
+                <small>Tổng nơi ở: {getTotalLocations("hotel")}</small>
+              </div>
+              <div
+                className={`col-md-4 ${
+                  selectedCategory === "homestay" ? "active" : ""
+                }`}
+                onClick={() => handleCategoryClick("homestay")}
+              >
+                <h5>Home stay</h5>
+                <small>Tổng nơi ở: {getTotalLocations("homestay")}</small>
+              </div>
+              <div
+                className={`col-md-4 ${
+                  selectedCategory === "resort" ? "active" : ""
+                }`}
+                onClick={() => handleCategoryClick("resort")}
+              >
+                <h5>Resort</h5>
+                <small>Tổng nơi ở: {getTotalLocations("resort")}</small>
+              </div>
+              <div className={`slider-bar ${sliderPosition}`}></div>
+            </div>
+            <div className="column-sort">
+              <div className="sort-title">
+                <h6>Hiển thị 1 trong 3 nơi</h6>
+              </div>
+              <div className="sort-button">
+                <button className="btn custom-btn-hotel">
+                  <i className="fa-solid fa-sort-amount-down-alt"></i>
+                  <span className="hide-text-sort-hotel">Sắp xếp theo giá</span>
+                </button>
+              </div>
+            </div>
+            <ul className="hotel-list">{renderList()}</ul>
+            <br />
+            <div className="pagination">
+              {Array.from({ length: totalPages }, (_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentPage(index + 1)}
+                  className={index + 1 === currentPage ? "active" : ""}
+                >
+                  {index + 1}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </>
