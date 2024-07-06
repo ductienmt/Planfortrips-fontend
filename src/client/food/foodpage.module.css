@@ -11,22 +11,89 @@
   cursor: pointer;
   /* border: 1px solid black;  */
 }
+@media (min-width: 768px) {
+  .root {
+    grid-template-columns: 20% 65%;
+  }
+}
 
 .hotelpaper {
   /* height: 2160px; */
   width: 910px;
   margin-left: 20px;
 }
-
-.root2 {
-  margin: 20px;
+@media (min-width: 768px) {
+  .hotelpaper {
+    width: 910px;
+    margin-left: 20px;
+  }
 }
+
 .root3{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     margin: 20px 0;
 }
+.hoteldiv:hover {
+  box-shadow: 5px 5px 5px rgb(184, 182, 182);
+}
+
+.hoteldiv {
+  display: flex;
+  width: 100%;
+  height: 250px;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+}
+
+
+.root {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: auto;
+  width: 90%;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .root {
+    grid-template-columns: 20% 65%;
+  }
+}
+
+.hotelpaper {
+  width: 100%;
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  .hotelpaper {
+    width: 910px;
+    margin-left: 20px;
+  }
+}
+.root2 {
+  margin: 20px;
+}
+.root3{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 20px 0;
+}
+@media (max-width: 1200px) {
+  .root3 {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .root3 {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
 .hoteldiv:hover {
   box-shadow: 5px 5px 5px rgb(184, 182, 182);
 }

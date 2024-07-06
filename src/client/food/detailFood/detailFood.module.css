@@ -18,6 +18,7 @@
   max-width: 1200px;
   display: flex;
   flex-direction: column;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   background: white;
   border-radius: 8px;
@@ -30,6 +31,8 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+  grid-column: 1 / 2;
+
 }
 
 .detailImgContent {
@@ -130,12 +133,17 @@
 .navigationButton:hover {
   background-color: #eaeaea;
 }
-
 .detailBtn {
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 15px;
+  list-style-type: none; /* Remove list markers for all list items within .detailBtn */
+  padding: 0; /* Remove default padding */
+}
+
+.detailBtn li {
+  list-style-type: none; /* Ensure no markers on list items */
 }
 
 .detailBtn button {
@@ -172,8 +180,10 @@
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  grid-column: 2 / 3;
   text-align: center;
 }
+
 
 .detailText h2 {
   font-size: 1.4rem;
@@ -279,6 +289,38 @@
 }
 
 /* Responsive styles */
+@media (max-width: 767px) {
+  .detailContent {
+    flex-direction: column;
+  }
+
+  .detailImg {
+    width: 100%;
+  }
+
+  .detailText {
+    width: 100%;
+  }
+
+  .detailPrice {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .detailBtn {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navigationButtons {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-top: 20px;
+  }
+}
+
 @media (min-width: 768px) {
   .detailContent {
     flex-direction: row;
@@ -292,56 +334,32 @@
   .detailText {
     width: 60%;
   }
-}
-.textspan {
-  color: #5a5b5b;
-  cursor: text;
-  font-size: 18px;
-  font-weight: 800;
-  padding-top: 18px;
-  padding-bottom: 7px;
-}
-.month {
-  font-size: 14px;
-  margin-bottom: 5px;
-  font-weight: 800;
-}
-.day {
-  font-size: 20px;
-  margin-bottom: 5px;
-  font-weight: bolder;
-}
-.weekday {
-  font-size: 12px;
 
+  .detailPrice {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .detailBtn {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .navigationButtons {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
-/* Responsive styles */
-@media (max-width: 767px) {
-    .detailContent {
-      flex-direction: column;
-    }
-  
-    .detailImg {
-      width: 100%;
-    }
-  
-    .detailText {
-      width: 100%;
-    }
-  }
-  
-  @media (min-width: 768px) {
-    .detailContent {
-      flex-direction: row;
-      gap: 50px;
-    }
-  
-    .detailImg {
-      width: 40%;
-    }
-  
-    .detailText {
-      width: 60%;
-    }
-  }
-  
+.feedback {
+  grid-column: 1 / -1; /* Span across all columns */
+  margin-top: 20px;
+}
+
+/* detailFood.module.css */
+.clicked {
+  color: #fff !important;
+  border-color: #46a2da !important;
+  background-color: #b8e2f4 !important;
+}

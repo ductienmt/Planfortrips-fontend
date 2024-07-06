@@ -19,7 +19,7 @@ const FoodPage = () => {
   return (
     <>
       {loading ? (
-        <div className="mt-5">
+        <div style={{marginTop:'110px'}}>
           <Box className={styles.root}>
             <Box className={styles.root1}>
               <Dashboardleft handlechangecheck={handlechangecheck} />

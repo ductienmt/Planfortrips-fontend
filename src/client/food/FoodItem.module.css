@@ -7,6 +7,8 @@
     box-shadow: 5px 5px 6px #dadada,
                  -5px -5px 6px #f6f6f6;
     transition: 0.4s;
+    width: 100%; /* Adjust width as per your design */
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
   }
   
   .card:hover {

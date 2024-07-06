@@ -14,8 +14,7 @@ import ShowResources from "./Enterprise/Resources/ShowResources";
 import CreateResources from "./Enterprise/Resources/CreateResources";
 import EnterpriseStatistical from "./Enterprise/EnterpriseStatistical";
 import FoodPage from "./client/food/FoodPage";
-import { DetailFood } from "./client/food/DetailFood";
-import FoodPage from "./components/Food/FoodPage";
+import { DetailFood } from "./client/food/detailFood/DetailFood";
 import Footer from "./client/footer/footer";
 import Hotel from "./client/hotel/hotel";
 
