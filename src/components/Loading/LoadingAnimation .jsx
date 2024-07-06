@@ -1,4 +1,3 @@
-import React from "react";
 import { Spinner } from "react-bootstrap";
 import "./LoadingAnimation.css"; // File CSS để tùy chỉnh animation
 
