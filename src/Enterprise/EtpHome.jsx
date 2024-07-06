@@ -1,16 +1,13 @@
-import './assets/js/sidebarmenu.js';
-import './assets/js/app.min.js';
-import './assets/libs/jquery/dist/jquery.min.js'
-import './assets/libs/apexcharts/dist/apexcharts.min.js';
-import './assets/libs/simplebar/dist/simplebar.js';
-import './assets/js/dashboard.js';
-
+import "./assets/js/sidebarmenu.js";
+import "./assets/js/app.min.js";
+import "./assets/libs/jquery/dist/jquery.min.js";
+import "./assets/libs/apexcharts/dist/apexcharts.min.js";
+import "./assets/libs/simplebar/dist/simplebar.js";
+import "./assets/js/dashboard.js";
 
 function EtpHome() {
-    return (  
-      <>
-  
-   
+  return (
+    <>
       <div className="container-fluid">
         {/*  Row 1 */}
         <div className="row">
@@ -139,10 +136,7 @@ function EtpHome() {
                     </div>
                     <div className="timeline-desc fs-3 text-dark mt-n1 fw-semibold">
                       New sale recorded{" "}
-                      <a
-                        href="#"
-                        className="text-primary d-block fw-normal"
-                      >
+                      <a href="#" className="text-primary d-block fw-normal">
                         #ML-3467
                       </a>
                     </div>
@@ -169,10 +163,7 @@ function EtpHome() {
                     </div>
                     <div className="timeline-desc fs-3 text-dark mt-n1 fw-semibold">
                       New sale recorded{" "}
-                      <a
-                        href="#"
-                        className="text-primary d-block fw-normal"
-                      >
+                      <a href="#" className="text-primary d-block fw-normal">
                         #ML-3467
                       </a>
                     </div>
@@ -586,8 +577,8 @@ function EtpHome() {
           </p>
         </div>
       </div>
-</>
-    );
+    </>
+  );
 }
 
 export default EtpHome;
