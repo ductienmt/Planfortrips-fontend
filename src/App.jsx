@@ -1,6 +1,4 @@
 import "./App.css";
-
-
 import { LandingPage } from "./client/landingPage/landingPage";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
@@ -17,6 +15,7 @@ import PostForm from "./Enterprise/components/Form/PostForm";
 import VehicleList from "./Enterprise/components/List/VehicleList";
 import PostList from "./Enterprise/components/List/PostList";
 
+
 function App() {
   const location = useLocation();
 
@@ -25,7 +24,6 @@ function App() {
       {!location.pathname.includes("/enterprise") && <Header />}
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/transport" element={<h1>Phương tiện</h1>} />
         <Route path="/enterprise" element={<EnterpriseIndex/>}>
             <Route index element={<EtpHome/>}></Route>
             
