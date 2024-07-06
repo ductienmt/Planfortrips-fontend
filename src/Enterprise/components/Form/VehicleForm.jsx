@@ -3,9 +3,6 @@ import { GetAllProvinces } from "../../../Api/Api3rd/VnLocationApi";
 
 function VehicleForm() {
 
-<<<<<<< HEAD
-
-
   const [provinces, setProvinces] = useState([])
 
   useEffect(() => {
@@ -13,11 +10,9 @@ function VehicleForm() {
   }, [])
 
 
-=======
   useEffect(() => {
   }, [])
 
->>>>>>> master
   const vehicleType = [
     {
       vehicleTypeId: '1',
@@ -151,7 +146,6 @@ function VehicleForm() {
               />
             </div>
             <div className="row mb-3">
-<<<<<<< HEAD
             <div className="col-6">
     <label htmlFor="form" className="form-label">
       Chạy từ <span className="text-danger">(Điểm bắt đầu)</span>
@@ -217,7 +211,6 @@ function VehicleForm() {
                   onChange={handleInputChange}
                 />
               </div>
->>>>>>> master
             </div>
             <div className="mb-3">
               <label htmlFor="manufacturer" className="form-label">
