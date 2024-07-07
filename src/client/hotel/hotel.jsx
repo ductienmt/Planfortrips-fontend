@@ -6,12 +6,14 @@ import provinces from "./provinces";
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import "flatpickr/dist/flatpickr.min.js"; // Import CSS for flatpickr
-import RangeSlider from "react-bootstrap-range-slider";
-import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
-import HotelCard from "./hotelCard";
+import HotelCard from "./card/hotelCard";
 import Loading from "../../components/Loading/LoadingAnimation ";
+import PriceRangeSlider from "./priceRange/PriceRangeSlider";
+import CheckboxGroup from "./checkBox/CheckboxGroup";
+import ServicesCheckboxGroup from "./checkBox/ServicesCheckboxGroup";
 
 const Hotel = () => {
+  // window.scrollTo(0, 0);
   const [inputValue, setInputValue] = useState("");
   const [filteredProvinces, setFilteredProvinces] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -20,8 +22,6 @@ const Hotel = () => {
   const [adults, setAdults] = useState(0);
   const [children, setChildren] = useState(0);
   const [infants, setInfants] = useState(0);
-
-  const [valuePrice, setValuePrice] = useState(0);
 
   const [sliderPosition, setSliderPosition] = useState("hotel");
 
@@ -192,7 +192,7 @@ const Hotel = () => {
         "Tháng 12",
       ],
     },
-    firstDayOfWeek: 1, // Tuần bắt đầu từ thứ Hai
+    firstDayOfWeek: 1, // tuần bắt đầu từ thứ 2
     rangeSeparator: " đến ",
     weekAbbreviation: "Tuần",
     scrollTitle: "Cuộn để tăng giảm",
@@ -377,23 +377,26 @@ const Hotel = () => {
               </div>
               <button type="submit" className="btn custom-btn-hotel">
                 <i className="fa-solid fa-magnifying-glass"></i>
-                <span className="hide-text-search-hotel"> Search</span>
+                <span className="hide-text-search-hotel"> Tìm</span>
               </button>
             </form>
           </div>
-          <div className="col-md-12 row m-0">
-            <div className="col-md-3 bg-dark">
-              <div className="col-md-12 text-white">
+          <div className="col-md-12 row m-0 filter">
+            <div className="col-md-3 custom-filter">
+              <div className="row mt-5 ms-2">
                 <h1>Bộ lọc</h1>
-                <div>
-                  <h5>Giá:</h5>
-                  <RangeSlider
-                    value={valuePrice}
-                    onChange={(changeEvent) =>
-                      setValuePrice(changeEvent.target.value)
-                    }
-                  />
-                </div>
+              </div>
+              <div className="row mt-5 ms-2">
+                <h4 className="price-range">Giá tiền</h4>
+                <PriceRangeSlider />
+              </div>
+              <div className="row mt-5 ms-2">
+                <h4 className="price-range">Tiện ích</h4>
+                <CheckboxGroup />
+              </div>
+              <div className="row mt-5 ms-2">
+                <h4 className="price-range">Dịch vụ đi kèm</h4>
+                <ServicesCheckboxGroup />
               </div>
             </div>
             <div className="col-md-9 custom-list-hotel">

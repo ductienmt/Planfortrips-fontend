@@ -24,15 +24,19 @@
   "axios": "^1.7.2",
   "bootstrap": "^5.3.3",
   "bootstrap-icons": "^1.11.3",
-  "jquery": "^3.7.1",
   "flatpickr": "^4.6.13",
+  "gsap": "^3.12.5",
+  "jquery": "^3.7.1",
+  "jquery-ui": "^1.13.3",
   "prop-types": "^15.8.1",
   "react": "^18.3.1",
   "react-bootstrap": "^2.10.4",
   "react-bootstrap-range-slider": "^3.0.8",
   "react-dom": "^18.3.1",
   "react-leaf-carousel": "^3.0.0",
-  "react-router-dom": "^6.24.0"
+  "react-nouislider": "^2.0.1",
+  "react-router-dom": "^6.24.0",
+  "styled-components": "^6.1.11"
  },
  "devDependencies": {
   "@types/react": "^18.2.66",
