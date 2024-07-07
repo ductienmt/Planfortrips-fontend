@@ -1,4 +1,5 @@
 import "./App.css";
+
 import { LandingPage } from "./pages/landingPage/landingPage";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
@@ -16,6 +17,13 @@ import EnterpriseStatistical from "./Enterprise/EnterpriseStatistical";
 import FoodPage from "./components/Food/FoodPage";
 import Footer from "./client/footer/footer";
 import Hotel from "./client/hotel/hotel";
+
+import Content from './components/Admin/Content';
+import FeedbackPage from './components/Admin/FeedbackPage';
+import TransactionPage from './components/Admin/TransactionPage';
+import BusinessPage from './components/Admin/BusinessPage';
+import StatisticsPage from './components/Admin/StatisticsPage';
+import SupportPage from './components/Admin/SupportPage';
 
 function App() {
   const location = useLocation();
@@ -40,7 +48,20 @@ function App() {
 
           <Route path="statistical" element={<EnterpriseStatistical />}></Route>
         </Route>
+
+        <Route path='/content' element={<Content />} />
+        <Route path='/transaction' element={<TransactionPage />} />
+        <Route path='/business' element={<BusinessPage />} />
+        <Route path='/statistics' element={<StatisticsPage />} />
+        <Route path='/feedback' element={<FeedbackPage />} />
+        <Route path='/support' element={<SupportPage />} />
+
       </Routes>
+
+
+
+
+
       {!location.pathname.includes("/enterprise") && <Footer />}
     </>
   );

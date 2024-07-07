@@ -1,0 +1,82 @@
+.dashboard {
+    display: flex;
+    gap: 20px;
+}
+
+.dashboard--content {
+    background: #fff;
+    flex: 1;
+    border-radius: 20px;
+    padding: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: space-evenly;
+}
+
+/* feedbackpage.css */
+
+/* Feedback page container */
+.feedback-page {
+    width: 80%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Page title */
+.feedback-page h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #526d82;
+    margin-bottom: 30px;
+}
+
+/* Feedback table */
+.feedback-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #dde6ed;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.feedback-table th,
+.feedback-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    color: #526d82;
+}
+
+.feedback-table th {
+    background-color: #526d82;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.feedback-table tbody tr:hover {
+    background-color: #d0dbe2;
+}
+
+/* Action buttons */
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #526d82;
+}
+
+.edit-btn:hover {
+    color: #007bff;
+}
+
+.delete-btn:hover {
+    color: #dc3545;
+}
