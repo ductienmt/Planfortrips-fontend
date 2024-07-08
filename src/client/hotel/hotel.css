@@ -37,6 +37,7 @@
     padding: 0 1.2rem;
     font-size: 1.1rem;
     border: none;
+    background-color: var(--background-color);
 }
 
 .form-hotel .input-custom-hotel input:focus {
@@ -246,8 +247,8 @@
 }
 
 .custom-btn-hotel {
-    color: white;
-    background-color: var(--success-btn-color);
+    color: white !important;
+    background-color: var(--success-btn-color) !important;
 }
 
 .custom-btn-hotel:hover {
@@ -259,4 +260,18 @@
     /* font-size: 1.2rem;
     font-weight: 600; */
     display: none;
+}
+
+.custom-filter h1 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.price-range {
+    font-weight: 600;
+}
+
+.form-check-label {
+    font-size: 1rem;
+    font-weight: 600;
 }

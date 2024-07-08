@@ -4,8 +4,10 @@ import styles from "./detailFood.module.css";
 import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
-import { Unstable_Popup as BasePopup } from '@mui/base/Unstable_Popup';
+import { Unstable_Popup as BasePopup } from "@mui/base/Unstable_Popup";
 import { CalendarIcon } from "@mui/x-date-pickers";
+import { Feedback } from "./Feedback";
+
 const DemoPaper = styled(Paper)(({ theme }) => ({
   width: 80,
   height: 120,
@@ -22,31 +24,39 @@ const DemoPaper = styled(Paper)(({ theme }) => ({
     backgroundColor: "#b8e2f4",
   },
 }));
-const PopupBody = styled('div')(
+
+const PopupBody = styled("div")(
   ({ theme }) => `
   width: max-content;
   padding: 12px 16px;
   margin: 8px;
   border-radius: 8px;
   box-shadow: ${
-    theme.palette.mode === 'dark'
+    theme.palette.mode === "dark"
       ? `0px 4px 8px rgb(0 0 0 / 0.7)`
       : `0px 4px 8px rgb(0 0 0 / 0.1)`
   };
   font-weight: 500;
   font-size: 0.875rem;
   z-index: 1;
-`,
+`
 );
+
 export function DetailFood() {
-  const [anchor, setAnchor] = React.useState(null);
+  const [clickedIndex, setClickedIndex] = useState(null);
+  const [anchor, setAnchor] = useState(null);
 
   const handleClick = (event) => {
     setAnchor(anchor ? null : event.currentTarget);
   };
 
+  const handleStyleChange = (index) => {
+    setClickedIndex(index);
+  };
+
   const open = Boolean(anchor);
-  const id = open ? 'simple-popup' : undefined;
+  const id = open ? "simple-popup" : undefined;
+
   const showImage = (src) => {
     const fullscreenImage = document.getElementById("fullscreen-image");
     const fullscreenImageSrc = document.getElementById("fullscreen-image-src");
@@ -61,8 +71,8 @@ export function DetailFood() {
   };
 
   return (
-    <main className={styles.detail} style={{ marginTop: "50px" }}>
-      <div className={styles.container}>
+    <main className={styles.detail} style={{ marginTop: "150px" }}>
+      <div className="container">
         <div className={styles.detailContent}>
           <div className={styles.detailImg}>
             <div className={styles.detailImgContent}>
@@ -134,7 +144,7 @@ export function DetailFood() {
             <div className={styles.detailPrice}>
               <span>80.000 đ</span>
               <span>100.000 đ</span>
-              <span className={styles.priceSale}>-50%</span>
+              <span className={styles.priceSale}>-20%</span>
             </div>
             <ul className={styles.detailBtn}>
               <li>
@@ -152,40 +162,31 @@ export function DetailFood() {
               <span className={styles.textspan}>Lựa chọn ngày đặt</span>
               <div className="mt-2">
                 <Stack direction="row" spacing={2}>
-                  <DemoPaper square>
-                    <div className={styles.month}>Tháng 7</div>
-                    <div className={styles.day}>5</div>
-                    <div className={styles.weekday}>T6</div>
-                  </DemoPaper>
-                  <DemoPaper square>
-                    <div className={styles.month}>Tháng 7</div>
-                    <div className={styles.day}>6</div>
-                    <div className={styles.weekday}>T6</div>
-                  </DemoPaper>
-                  <DemoPaper square>
-                    <div className={styles.month}>Tháng 7</div>
-                    <div className={styles.day}>7</div>
-                    <div className={styles.weekday}>T6</div>
-                  </DemoPaper>
-                  <DemoPaper square>
-                    <div className={styles.month}>Tháng 7</div>
-                    <div className={styles.day}>8</div>
-                    <div className={styles.weekday}>T6</div>
-                  </DemoPaper>
-                  <DemoPaper square>
-                    <div className={styles.month}>Tháng 7</div>
-                    <div className={styles.day}>9</div>
-                    <div className={styles.weekday}>T6</div>
-                  </DemoPaper>
-                  <DemoPaper square>
-                    <div className={styles.month}>Tháng 7</div>
-                    <div className={styles.day}>10</div>
-                    <div className={styles.weekday}>T6</div>
-                  </DemoPaper>
+                  {[
+                    { month: "Tháng 7", day: "5", weekday: "T6" },
+                    { month: "Tháng 7", day: "6", weekday: "T7" },
+                    { month: "Tháng 7", day: "7", weekday: "CN" },
+                    { month: "Tháng 7", day: "8", weekday: "T2" },
+                    { month: "Tháng 7", day: "9", weekday: "T3" },
+                    { month: "Tháng 7", day: "10", weekday: "T4" },
+                  ].map((date, index) => (
+                    <DemoPaper
+                      key={index}
+                      onClick={() => handleStyleChange(index)}
+                      className={
+                        clickedIndex === index ? styles.clicked : ""
+                      }
+                      square
+                    >
+                      <div className={styles.month}>{date.month}</div>
+                      <div className={styles.day}>{date.day}</div>
+                      <div className={styles.weekday}>{date.weekday}</div>
+                    </DemoPaper>
+                  ))}
                   <DemoPaper square>
                     <div onClick={handleClick}>
-                    <CalendarIcon/>
-                    <span className={styles.textspan}>Thêm ngày</span>
+                      <CalendarIcon />
+                      <span className={styles.textspan}>Thêm ngày</span>
                     </div>
                   </DemoPaper>
                   <BasePopup id={id} open={open} anchor={anchor}>
@@ -195,6 +196,9 @@ export function DetailFood() {
               </div>
             </div>
           </div>
+        </div>
+        <div className={styles.feedback}>
+          <Feedback />
         </div>
       </div>
     </main>

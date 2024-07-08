@@ -5,7 +5,7 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./client/header/header";
 import FoodPage from "./client/food/FoodPage";
-import { DetailFood } from "./client/food/DetailFood";
+import { DetailFood } from "./client/food/detailFood/DetailFood";
 import Footer from "./client/footer/footer";
 import Hotel from "./client/hotel/hotel";
 import EnterpriseIndex from "./Enterprise/EnterpriseIndex";
@@ -23,7 +23,6 @@ import EtpVehicleHome from "./Enterprise/components/Home/EtpVehicleHome";
 import EtpRestaurantHome from "./Enterprise/components/Home/EtpRestaurantHome";
 import EtpHotelHome from "./Enterprise/components/Home/EtpHotelHome";
 import EtpLogin from "./Enterprise/components/Form/EtpLogin";
-
 
 function App() {
   const location = useLocation();
