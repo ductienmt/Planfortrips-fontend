@@ -1,0 +1,16 @@
+.loading-animation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.loading-animation p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.text-primary {
+    color: var(--success-btn-color) !important;
+}
