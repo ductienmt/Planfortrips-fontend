@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { GetAllProvinces } from "../../../Api/Api3rd/VnLocationApi";
 
-function VehicleForm() {
+function EtpVehicleForm() {
 
   const [provinces, setProvinces] = useState([])
 
@@ -75,9 +75,7 @@ function VehicleForm() {
   };
 
   return (
-    <div className="container-fluid">
-      <div className="card">
-        <div className="card-body">
+    <>
           <h5 className="card-title fw-semibold mb-4">Thêm phương tiện</h5>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
@@ -184,33 +182,6 @@ function VehicleForm() {
         ))}
     </select>
   </div>
-=======
-              <div className="col-6">
-                <label htmlFor="form" className="form-label">
-                  Chạy từ <span className="text-danger">(Điểm bắt đầu)</span>
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="form"
-                  name="form"
-                  value={vehicle.form}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="col-6">
-                <label htmlFor="to" className="form-label">
-                  Đến <span className="text-danger">(Điểm kết thúc)</span>
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="to"
-                  name="to"
-                  value={vehicle.to}
-                  onChange={handleInputChange}
-                />
-              </div>
             </div>
             <div className="mb-3">
               <label htmlFor="manufacturer" className="form-label">
@@ -242,10 +213,8 @@ function VehicleForm() {
               Thêm phương tiện
             </button>
           </form>
-        </div>
-      </div>
-    </div>
+          </>
   );
 }
 
-export default VehicleForm;
+export default EtpVehicleForm;
