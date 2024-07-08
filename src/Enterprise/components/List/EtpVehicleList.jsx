@@ -1,4 +1,4 @@
-function VehicleList() {
+function EtpVehicleList() {
 
     const vehicles = [
         {
@@ -87,4 +87,4 @@ function VehicleList() {
     );
 }
 
-export default VehicleList;
+export default EtpVehicleList;
