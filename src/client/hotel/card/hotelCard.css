@@ -81,3 +81,10 @@
     font-size: 1.5rem;
     color: var(--success-text-color);
 }
+
+
+@media screen and (max-width: 1230px) {
+    .addFav-viewDe {
+        gap: 10px;
+    }
+}

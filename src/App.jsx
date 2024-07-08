@@ -72,7 +72,10 @@ function App() {
 
             </Route>
 
-        <Route path="/hotel" element={<Hotel />} />
+         <Route path="/hotel">
+          <Route path="" element={<Hotel />} />
+          <Route path="detail" element={<DetailCard />} />
+        </Route>
         <Route path="food">
           <Route path="" element={<FoodPage />}></Route>
           <Route path="detail" element={<DetailFood />} />         
