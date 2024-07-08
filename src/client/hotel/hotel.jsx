@@ -13,7 +13,7 @@ import CheckboxGroup from "./checkBox/CheckboxGroup";
 import ServicesCheckboxGroup from "./checkBox/ServicesCheckboxGroup";
 
 const Hotel = () => {
-  // window.scrollTo(0, 0);
+  window.scrollTo(0, 0);
   const [inputValue, setInputValue] = useState("");
   const [filteredProvinces, setFilteredProvinces] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);

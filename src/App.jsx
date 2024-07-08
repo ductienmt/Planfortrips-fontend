@@ -14,6 +14,7 @@ import VehicleForm from "./Enterprise/components/Form/VehicleForm";
 import PostForm from "./Enterprise/components/Form/PostForm";
 import VehicleList from "./Enterprise/components/List/VehicleList";
 import PostList from "./Enterprise/components/List/PostList";
+import DetailCard from "./client/hotel/detailHotel/detailCard";
 
 function App() {
   const location = useLocation();
@@ -35,7 +36,10 @@ function App() {
             <Route path="list" element={<PostList />}></Route>
           </Route>
         </Route>
-        <Route path="/hotel" element={<Hotel />} />
+        <Route path="/hotel">
+          <Route path="" element={<Hotel />} />
+          <Route path="detail" element={<DetailCard />} />
+        </Route>
         <Route path="food">
           <Route path="" element={<FoodPage />}></Route>
           <Route path="detail" element={<DetailFood />} />

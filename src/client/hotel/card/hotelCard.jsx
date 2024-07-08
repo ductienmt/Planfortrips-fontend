@@ -59,7 +59,7 @@ const HotelCard = ({ name }) => {
                     </button>
                   </div>
                   <div className="col-md-9">
-                    <Link className="">Xem chi tiết</Link>
+                    <Link to={"./detail"}>Xem chi tiết</Link>
                   </div>
                 </div>
               </div>
