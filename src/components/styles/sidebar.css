@@ -1,0 +1,131 @@
+.sidebar {
+    width: 60px;
+    /* Width khi ẩn */
+    height: 100vh;
+    background: #f0f4f8;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    /* Giảm padding khi thu gọn */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    /* Đảm bảo sidebar luôn nằm trên các phần tử khác */
+}
+
+.sidebar:not(.collapsed) {
+    width: 250px;
+    /* Width khi mở rộng */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.logo-collapsed {
+    justify-content: center;
+    /* Căn giữa logo khi thu gọn */
+}
+
+.logo-img {
+    width: 200px;
+    transition: width 0.3s ease;
+}
+
+.logo-collapsed .logo-img {
+    width: 40px;
+    /* Kích thước logo khi thu gọn */
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-item:hover {
+    background-color: #e1e8f0;
+    color: #007bff;
+}
+
+.menu-item.active {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+
+.icon {
+    font-size: 1.5rem;
+}
+
+span {
+    margin-left: 10px;
+    font-weight: 500;
+}
+
+.toggle-button {
+    position: absolute;
+    bottom: 10px;
+    /* Giảm khoảng cách khi thu gọn */
+    left: 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.75rem;
+    /* Tăng kích thước nút khi thu gọn */
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-button:hover {
+    background: #0056b3;
+}
+
+.sidebar.collapsed .menu-item span {
+    display: none;
+    /* Ẩn văn bản khi thu gọn */
+}
+
+.sidebar.collapsed .logo {
+    justify-content: center;
+    /* Căn giữa logo khi thu gọn */
+}
+
+.sidebar.collapsed .logo-img {
+    width: 40px;
+    /* Kích thước logo khi thu gọn */
+}
+
+.sidebar.collapsed .toggle-button {
+    font-size: 1.75rem;
+    /* Tăng kích thước nút khi thu gọn */
+    bottom: 20px;
+    /* Đưa nút xuống phía dưới */
+}
+
+.sidebar.collapsed .menu-item {
+    padding: 10px;
+    font-size: 1.2rem;
+    /* Điều chỉnh kích thước font cho menu items */
+}

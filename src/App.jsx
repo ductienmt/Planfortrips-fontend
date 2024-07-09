@@ -17,11 +17,22 @@ import FoodPage from "./components/Food/FoodPage";
 import Footer from "./client/footer/footer";
 import Hotel from "./client/hotel/hotel";
 
+import Content from './components/Content';
+import FeedbackPage from './components/FeedbackPage';
+import TransactionPage from './components/TransactionPage';
+import BusinessPage from './components/BusinessPage';
+import StatisticsPage from './components/StatisticsPage';
+import TravelfreePage from './components/Travelfree';
+import HotPage from './components/HotPage'
+
+
 function App() {
   const location = useLocation();
   return (
     <>
-      {!location.pathname.includes("/enterprise") && <Header />}
+      {!(location.pathname.includes("/enterprise") || location.pathname.includes("/admin")) && <Header />}
+
+
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/hotel" element={<Hotel />} />
@@ -41,7 +52,19 @@ function App() {
           <Route path="statistical" element={<EnterpriseStatistical />}></Route>
         </Route>
       </Routes>
-      {!location.pathname.includes("/enterprise") && <Footer />}
+
+      <Routes>
+        <Route path='/admin/transaction' element={<TransactionPage />} />
+        <Route path='/admin/content' element={<Content />} />
+        <Route path='/admin/business' element={<BusinessPage />} />
+        <Route path='/admin' element={<StatisticsPage />} />
+        <Route path='/admin/feedback' element={<FeedbackPage />} />
+        <Route path='/admin/travelfree' element={<TravelfreePage />} />
+        <Route path='/admin/hot' element={<HotPage />} />
+
+      </Routes>
+      {!(location.pathname.includes("/enterprise") || location.pathname.includes("/admin")) && <Footer />}
+
     </>
   );
 }
