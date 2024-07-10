@@ -97,6 +97,7 @@ function App() {
         <Route path="/admin/travelfree" element={<TravelfreePage />} />
         <Route path="/admin/hot" element={<HotPage />} />
       </Routes>
+
       {!location.pathname.includes("/enterprise") &&
         !location.pathname.includes("/food") &&
         !location.pathname.includes("/admin") && <Footer />}
