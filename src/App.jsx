@@ -24,22 +24,23 @@ import EtpHotelHome from "./Enterprise/components/Home/EtpHotelHome";
 import EtpLogin from "./Enterprise/components/Form/EtpLogin";
 import DetailCard from "./client/hotel/detailHotel/detailCard";
 
-import Content from './components/Content';
-import FeedbackPage from './components/FeedbackPage';
-import TransactionPage from './components/TransactionPage';
-import BusinessPage from './components/BusinessPage';
-import StatisticsPage from './components/StatisticsPage';
-import TravelfreePage from './components/Travelfree';
-import HotPage from './components/HotPage'
-
+import Content from "./components/Content";
+import FeedbackPage from "./components/FeedbackPage";
+import TransactionPage from "./components/TransactionPage";
+import BusinessPage from "./components/BusinessPage";
+import StatisticsPage from "./components/StatisticsPage";
+import TravelfreePage from "./components/Travelfree";
+import HotPage from "./components/HotPage";
 
 function App() {
   const location = useLocation();
 
   return (
     <>
-      {!(location.pathname.includes("/enterprise") || location.pathname.includes("/admin")) && <Header />}
-
+      {!(
+        location.pathname.includes("/enterprise") &&
+        location.pathname.includes("/admin")
+      ) && <Header />}
 
       <Routes>
         <Route path="/" element={<LandingPage />} />
@@ -90,17 +91,17 @@ function App() {
       </Routes>
 
       <Routes>
-        <Route path='/admin/transaction' element={<TransactionPage />} />
-        <Route path='/admin/content' element={<Content />} />
-        <Route path='/admin/business' element={<BusinessPage />} />
-        <Route path='/admin' element={<StatisticsPage />} />
-        <Route path='/admin/feedback' element={<FeedbackPage />} />
-        <Route path='/admin/travelfree' element={<TravelfreePage />} />
-        <Route path='/admin/hot' element={<HotPage />} />
-
+        <Route path="/admin/transaction" element={<TransactionPage />} />
+        <Route path="/admin/content" element={<Content />} />
+        <Route path="/admin/business" element={<BusinessPage />} />
+        <Route path="/admin" element={<StatisticsPage />} />
+        <Route path="/admin/feedback" element={<FeedbackPage />} />
+        <Route path="/admin/travelfree" element={<TravelfreePage />} />
+        <Route path="/admin/hot" element={<HotPage />} />
       </Routes>
       {!location.pathname.includes("/enterprise") &&
-        !location.pathname.includes("/food") &&  location.pathname.includes("/admin")) &&  <Footer />}
+        !location.pathname.includes("/food") &&
+        location.pathname.includes("/admin") && <Footer />}
     </>
   );
 }
