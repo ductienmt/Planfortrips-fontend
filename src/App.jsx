@@ -37,10 +37,8 @@ function App() {
 
   return (
     <>
-      {!(
-        location.pathname.includes("/enterprise") &&
-        location.pathname.includes("/admin")
-      ) && <Header />}
+      {!location.pathname.includes("/enterprise") &&
+        !location.pathname.includes("/admin") && <Header />}
 
       <Routes>
         <Route path="/" element={<LandingPage />} />
