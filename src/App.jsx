@@ -23,7 +23,6 @@ import EtpRestaurantHome from "./Enterprise/components/Home/EtpRestaurantHome";
 import EtpHotelHome from "./Enterprise/components/Home/EtpHotelHome";
 import EtpLogin from "./Enterprise/components/Form/EtpLogin";
 import DetailCard from "./client/hotel/detailHotel/detailCard";
-
 import Content from "./components/Content";
 import FeedbackPage from "./components/FeedbackPage";
 import TransactionPage from "./components/TransactionPage";
@@ -31,6 +30,7 @@ import BusinessPage from "./components/BusinessPage";
 import StatisticsPage from "./components/StatisticsPage";
 import TravelfreePage from "./components/Travelfree";
 import HotPage from "./components/HotPage";
+import Login from "./client/login/login";
 
 function App() {
   const location = useLocation();
@@ -86,16 +86,18 @@ function App() {
           <Route path="" element={<FoodPage />}></Route>
           <Route path="detail" element={<DetailFood />} />
         </Route>
-      </Routes>
-
-      <Routes>
-        <Route path="/admin/transaction" element={<TransactionPage />} />
-        <Route path="/admin/content" element={<Content />} />
-        <Route path="/admin/business" element={<BusinessPage />} />
-        <Route path="/admin" element={<StatisticsPage />} />
-        <Route path="/admin/feedback" element={<FeedbackPage />} />
-        <Route path="/admin/travelfree" element={<TravelfreePage />} />
-        <Route path="/admin/hot" element={<HotPage />} />
+        <Route path="/admin">
+          <Route path="" element={<StatisticsPage />} />
+          <Route path="transaction" element={<TransactionPage />} />
+          <Route path="content" element={<Content />} />
+          <Route path="business" element={<BusinessPage />} />
+          <Route path="feedback" element={<FeedbackPage />} />
+          <Route path="travelfree" element={<TravelfreePage />} />
+          <Route path="hot" element={<HotPage />} />
+        </Route>
+        <Route path="/login">
+          <Route path="" element={<Login />} />
+        </Route>
       </Routes>
 
       {!location.pathname.includes("/enterprise") &&
