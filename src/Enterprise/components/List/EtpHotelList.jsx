@@ -1,6 +1,9 @@
 import { red } from '@mui/material/colors';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import StarRate from '@mui/icons-material/StarRate';
+import { LocationCity } from '@mui/icons-material';
+import { RemoveCircle } from '@mui/icons-material';
 
 // Sample data for hotels
 const hotels = [
@@ -137,35 +140,50 @@ function EtpHotelList() {
                     </li>
                 </ul>
             </nav>
-            <div className="row">
+            <div className="row g-5 justify-content-center">
                 {currentHotels.map((hotel, index) => (
-                    <div className="col-6 mb-4" key={index} >
-                        <div className="card bg-dark text-white" style={{height : '18rem', overflow : 'hidden'}}>
-                            <img className="card-img" src={hotel.thumbnail} alt="Card image" />
-                            <div className="
-                            card-img-overlay d-flex flex-column justify-content-between" style={{background : 'rgba(71, 150, 187, 0.2)'}}>
-                                <div className="info">
-                                <h5 className="card-title text-info">{hotel.hotelName}</h5>
-                                <p className="card-text">
-                                   <span className='fw-bold text-danger'>Mô tả : </span> {hotel.hotelDes}
-                                </p>
-                                <p className="card-text">
-                                  Đánh giá : <span className='fs-4 fw-bold' style={{color : 'yellow'}}>{hotel.hotelRate}
-                                  <i class="ti ti-star"></i>
-                                    </span></p>
-                                  <p className="card-text">
-                                  Số phòng : <span className='fs-4 fw-bold text-info'>{hotel.hotelRoom}
-                                  <i class="ti ti-door"></i>
-                                    </span></p>
-                                </div>
-                                
-                                <div className="function">
-                                <button className='btn btn-warning me-2'>Xóa</button>
-                                <button className='btn btn-outline-info'>Chi tiết</button>
-                                </div>
-                            </div>
+                    <div className='card-hotel d-flex flex-column col-6' key={index}>
+                        <div className="card-hotel_thumbnail" style={{height : 270, overflow : 'hidden'}}>
+                                <img src={hotel.thumbnail} alt="" className=' w-100' 
+                                    
+                                />
                         </div>
 
+                        <div className="card-hotel_info">
+                                <span 
+                                className='card-hotel_infor_name d-block my-2'>{hotel.hotelName}</span>
+                                <span 
+                                className='card-hotel_infor_location d-block fw-bold fs-4 my-2'>
+                                  <LocationCity/>  {hotel.hotelLocation}</span>
+                                <div className='card-hotel_infor_service d-flex my-2'>
+                                    <button className='card-hotel_infor_service-item me-2
+                                    btn btn-outline-dark'>Bãi đỗ xe</button>
+                                    <button className='card-hotel_infor_service-item me-2
+                                    btn btn-outline-dark'>Wifi</button>
+                                    <button className='card-hotel_infor_service-item me-2
+                                    btn btn-outline-dark'>Hồ bơi</button>
+                                </div>
+                                <div className="card-hotel_infor_rate">
+                                <StarRate style={{fontSize : '19px'}} color='error'/>
+                            <StarRate style={{fontSize : '19px'}} color='error'/>
+                            <StarRate style={{fontSize : '19px'}} color='error'/>
+                            <StarRate style={{fontSize : '19px'}} color='error'/>
+                            <StarRate style={{fontSize : '19px', marginRight : '5px'}} color='error'/>
+
+                            <span className='fs-2'>43 người đánh giá</span>
+                                </div>
+
+                                <div className="card-hotel_infor_modify">
+                                    <span className='fs-2'>Cập nhật 3 phút trước</span>
+                                </div>
+                                
+                        </div>
+
+                        <div className="card-hotel_footer d-flex flex-column">
+                           <button className='btn my-2' style={{backgroundColor : 'rgb(178,34,34)', color : 'white'}}>
+                           <RemoveCircle/> Xóa</button>
+                           <button className='btn btn-info my-2'>Chi tiết</button>
+                        </div>
                     </div>
                 ))}
             </div>
