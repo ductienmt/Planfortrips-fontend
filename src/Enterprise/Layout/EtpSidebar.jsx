@@ -5,11 +5,17 @@ import logoBrand from '../assets/images/planfortrips-logo.png';
 
 function EtpSideBar() {
   const typeEtp = sessionStorage.getItem('typeEtp')
+  const Mylocation = useLocation();
 
 
   const isActive = (path) => {
-    return location.pathname === path ? 'sidebar-link active' : 'sidebar-link';
+    return Mylocation.pathname.endsWith(path) ? 'sidebar-link active' : 'sidebar-link';
   };
+
+  const clclcss = (path) => {
+    console.log(location.pathname);
+    console.log(path);
+  }
 
   const navi = useNavigate()
   useEffect(() => {
@@ -39,7 +45,7 @@ function EtpSideBar() {
                 <span className="hide-menu">Thông tin</span>
               </li>
               <li className="sidebar-item">
-                <Link className={isActive('/')} to="">
+                <Link className={isActive('enterprise')} to="">
                   <span>
                     <i className="ti ti-layout-dashboard" />
                   </span>
@@ -47,7 +53,7 @@ function EtpSideBar() {
                 </Link>
               </li>
               <li className="sidebar-item">
-                <Link className={isActive('/news')} to="news">
+                <Link className={isActive('/news')} to="news" onClick={() => clclcss('news')}>
                   <span>
                     <i className="ti ti-news"></i>
                   </span>
@@ -131,7 +137,7 @@ function EtpSideBar() {
               <li className="sidebar-item">
                 <Link className={isActive(`${typeEtp}/list`)} to={`${typeEtp}/list`}>
                   <span>
-                    <i class="ti ti-window"></i>
+                    <i className="ti ti-window"></i>
                   </span>
                   <span className="hide-menu">Danh sách khách sạn</span>
                 </Link>

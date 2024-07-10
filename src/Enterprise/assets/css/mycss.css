@@ -14,3 +14,11 @@
     padding: 5px 20px;
     margin-right: 15px ;
 }
+
+.card-hotel_info_name {
+    display: block;
+}
+
+.minhnhutActive {
+    background-color: red;
+}
