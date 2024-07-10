@@ -1,0 +1,76 @@
+.bgBlue500 {
+  background-color: rgb(1, 148, 243) !important;
+}
+
+.customSelect {
+  position: relative;
+  display: inline-block;
+}
+
+/* Atur border saat select box dibuka */
+.customSelect select:focus {
+  outline: none;
+}
+
+/* Atur option */
+.customSelect select option {
+  background-color: white;
+  /* Sesuaikan dengan warna latar belakang */
+  color: black;
+  /* Sesuaikan dengan warna teks */
+}
+
+/* Atur border saat select box tertutup */
+.customSelect select:closed {
+  border: none;
+}
+
+.customSelect select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none;
+  /* Menghapus background image */
+  padding-right: 1.5rem;
+  /* Menambahkan ruang di sebelah kanan untuk teks */
+}
+
+.rotateIcon {
+  transition: transform 0.3s ease;
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+.flightSpan {
+  margin: 0px 20px 0px 20px;
+  font-weight: bold;
+  color: #000;
+}
+.selected {
+  border-bottom: 1px solid #958e8e;
+}
+.selected:hover {
+  background-color: #f5eded;
+  padding: -10px -20px -20px -20px;
+  cursor: pointer;
+}
+.spanText {
+  padding: 12px 16px;
+}
+.btnEvent {
+  color: rgba(13, 110, 253);
+}
+.btnEvent:hover {
+  cursor: pointer;
+}
+.customSelect span {
+  font-weight: bolder;
+  color: #000;
+  padding: 10px 12px;
+  flex: 1;
+}
+.customSelect span:hover {
+  background-color: #f5eded;
+  cursor: pointer;
+}
