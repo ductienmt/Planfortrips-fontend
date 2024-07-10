@@ -128,4 +128,39 @@
     font-weight: 500;
 }
 
-.star-review
+.star-review .star-number {
+    font-size: 4rem;
+    color: salmon;
+}
+
+.star-review .status-review .status-text-review {
+    font-size: 1.8rem;
+    color: var(--success-text-color);
+}
+
+.star-review .status-review {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1rem;
+}
+
+@media screen and (max-width: 960px) {
+    .flex-container-header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn-seeAll {
+        font-size: 0.9rem;
+        font-weight: 400;
+        height: 40px;
+
+    }
+
+    .review-hotel .giveYour-review {
+        font-size: 0.8rem;
+        font-weight: 400;
+
+    }
+}

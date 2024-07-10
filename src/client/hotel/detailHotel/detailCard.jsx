@@ -5,11 +5,14 @@ import img3 from "../../../assets/img/group-hotel-6.webp";
 import img4 from "../../../assets/img/group-hotel-4.png";
 import img5 from "../../../assets/img/group-hotel-5.jpg";
 import RoomCard from "../roomCard/roomCard";
+import PersonReview from "../personReview/PersonReview";
 
 const DetailCard = () => {
   const originalPrice = 250000;
   const discountedPrice = 200000;
   const hasDiscount = discountedPrice < originalPrice;
+  window.scrollTo(0, 0);
+
   return (
     <>
       <div className="conatiner custom-detailCard">
@@ -126,7 +129,7 @@ const DetailCard = () => {
           </div>
         </div>
         <hr className="py-3" />
-        <div className="review-hotel">
+        <div className="review-hotel mb-3">
           <div className="d-flex justify-content-between align-items-center">
             <h3>Đánh giá</h3>
             <button className="giveYour-review">Thêm đánh giá của bạn</button>
@@ -134,8 +137,18 @@ const DetailCard = () => {
           <div className="star-review">
             <div className="d-flex justify-content-start">
               <span className="star-number">4.9</span>
+              <div className="status-review">
+                <span className="status-text-review">Rất tốt</span>
+                <span>43 người đã đánh giá</span>
+              </div>
             </div>
           </div>
+        </div>
+        <div className="persons-review">
+          <PersonReview />
+          <PersonReview />
+          <PersonReview />
+          <PersonReview />
         </div>
       </div>
     </>

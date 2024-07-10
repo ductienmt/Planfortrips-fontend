@@ -8,7 +8,7 @@ const RoomCard = () => {
     <>
       <div className="flex-container-room-card">
         <div className="card-room-type align-items-center">
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center custom-img-room-type">
             <img
               src={img1}
               alt=""
