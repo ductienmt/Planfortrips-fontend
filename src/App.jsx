@@ -72,6 +72,17 @@ function App() {
           {/* <Route path="detail" element={<DetailFood />} />          */}
         </Route>
       </Routes>
+
+      <Routes>
+        <Route path="/admin/transaction" element={<TransactionPage />} />
+        <Route path="/admin/content" element={<Content />} />
+        <Route path="/admin/business" element={<BusinessPage />} />
+        <Route path="/admin" element={<StatisticsPage />} />
+        <Route path="/admin/feedback" element={<FeedbackPage />} />
+        <Route path="/admin/travelfree" element={<TravelfreePage />} />
+        <Route path="/admin/hot" element={<HotPage />} />
+      </Routes>
+
       {!location.pathname.includes("/enterprise") &&
         !location.pathname.includes("/food") && <Footer />}
     </>

@@ -61,19 +61,21 @@ const DetailCard = () => {
           </div>
         </div>
         <div className="flex-container-body">
-          <div style={{ flexGrow: 6 }}>
+          <div className="img-col-1">
             <img src={img1} alt="" className="img1" />
           </div>
-          <div className="img-col-2" style={{ flexGrow: 2 }}>
+          <div className="img-col-2">
             <img src={img2} alt="" className="img2" />
             <img src={img3} alt="" className="img2" />
           </div>
-          <div className="img-col-3" style={{ flexGrow: 2 }}>
+          <div className="img-col-3">
             <img src={img4} alt="" className="img3" />
             <img src={img5} alt="" className="img4" />
           </div>
         </div>
-        <button className="btn-seeAll">Xem tất cả</button>
+        <div className="btn-seeAll-container">
+          <button className="btn-seeAll">Xem tất cả</button>
+        </div>
         <hr />
         <div className="row">
           <div className="col-6">

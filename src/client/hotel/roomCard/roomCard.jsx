@@ -9,11 +9,7 @@ const RoomCard = () => {
       <div className="flex-container-room-card">
         <div className="card-room-type align-items-center">
           <div className="d-flex align-items-center custom-img-room-type">
-            <img
-              src={img1}
-              alt=""
-              style={{ width: "200px", height: "200px", objectFit: "cover" }}
-            />
+            <img src={img1} alt="" />
             <p className="content-type ms-3">Phòng đơn 1 người</p>
           </div>
           <div className="price-room-type text-end">
@@ -33,12 +29,8 @@ const RoomCard = () => {
           </div>
         </div>
         <div className="card-room-type align-items-center">
-          <div className="d-flex align-items-center">
-            <img
-              src={img3}
-              alt=""
-              style={{ width: "200px", height: "200px", objectFit: "cover" }}
-            />
+          <div className="d-flex align-items-center custom-img-room-type">
+            <img src={img3} alt="" />
             <p className="content-type ms-3">Phòng đôi 2 người</p>
           </div>
           <div className="price-room-type text-end">
@@ -58,12 +50,8 @@ const RoomCard = () => {
           </div>
         </div>
         <div className="card-room-type align-items-center">
-          <div className="d-flex align-items-center">
-            <img
-              src={img5}
-              alt=""
-              style={{ width: "200px", height: "200px", objectFit: "cover" }}
-            />
+          <div className="d-flex align-items-center custom-img-room-type">
+            <img src={img5} alt="" className="" />
             <p className="content-type ms-3">
               Phòng gia đình (2 người lớn, 2 bé nhỏ)
             </p>

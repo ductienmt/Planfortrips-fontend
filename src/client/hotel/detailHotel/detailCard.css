@@ -45,6 +45,7 @@
     max-height: 500px;
     margin-top: 2rem;
     gap: 10px;
+    position: relative;
 }
 
 .flex-container-body img {
@@ -81,7 +82,20 @@
     border-radius: 0 0 13px 0 !important;
 }
 
-.btn-seeAll {
+.flex-container-body .img-col-1 {
+    flex-grow: 6;
+}
+
+.flex-container-body .img-col-2 {
+    flex-grow: 2;
+}
+
+.flex-container-body .img-col-3 {
+    flex-grow: 2;
+}
+
+
+/* .btn-seeAll {
     position: absolute;
     border: none;
     height: 50px;
@@ -97,6 +111,30 @@
 
 .btn-seeAll:hover {
     background-color: var(--success-text-color);
+} */
+
+/* Bọc nút btn-seeAll bằng một container */
+.btn-seeAll-container {
+    position: absolute;
+    right: 6rem;
+    transform: translateY(-150%);
+}
+
+.btn-seeAll {
+    border: none;
+    height: 50px;
+    background-color: var(--success-btn-color);
+    color: var(--background-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 13px;
+    padding: 11px;
+    /* Loại bỏ transform từ btn-seeAll */
+}
+
+.btn-seeAll:hover {
+    background-color: var(--success-text-color);
+    /* Đảm bảo không có thay đổi về kích thước hoặc vị trí */
 }
 
 .amenities-text {
@@ -145,22 +183,37 @@
     margin-left: 1rem;
 }
 
+
+
 @media screen and (max-width: 960px) {
     .flex-container-header {
         display: flex;
         flex-direction: column;
     }
 
-    .btn-seeAll {
+    /* .btn-seeAll {
         font-size: 0.9rem;
         font-weight: 400;
         height: 40px;
 
-    }
+    } */
 
     .review-hotel .giveYour-review {
         font-size: 0.8rem;
         font-weight: 400;
 
+    }
+
+    .flex-container-body {
+        flex-direction: column;
+        max-height: max-content;
+    }
+
+    .btn-seeAl {
+        background-color: var(--success-text-color);
+    }
+
+    .location-hotel .findHotel-onMap {
+        font-size: 0.8rem;
     }
 }
