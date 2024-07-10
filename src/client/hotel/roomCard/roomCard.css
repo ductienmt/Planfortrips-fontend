@@ -38,3 +38,16 @@
     font-size: 1.2rem;
     font-weight: 600;
 }
+
+@media screen and (max-width: 960px) {
+    .card-room-type {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .custom-img-room-type {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
