@@ -7,7 +7,7 @@ function Footer() {
   return (
     <>
       <footer className="text-center text-lg-start text-muted">
-        <div className="container"></div>
+        <hr />
         <div className="container text-center text-md-start mt-5">
           <div className="row mt-3">
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
@@ -71,10 +71,10 @@ function Footer() {
               <p>
                 <i className="fas fa-home me-3"></i>FPT Polytechnic
               </p>
-              {/* <p>
+              <p>
                 <i className="fas fa-envelope me-3"></i>
-                tiendtdps32039@fpt.edu.vn
-              </p> */}
+                planfortrips.296@gmail.com
+              </p>
               <p>
                 <i className="fas fa-phone me-3"></i> + 84 123 456 789
               </p>

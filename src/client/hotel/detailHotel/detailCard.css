@@ -1,0 +1,131 @@
+.custom-detailCard {
+    margin-top: 8rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+
+.flex-container-header {
+    display: flex;
+    align-items: stretch;
+}
+
+
+.flex-container>.nameHotelDetail .start-feedback i {
+    color: salmon;
+}
+
+.btn-detail-hotel {
+    display: flex;
+    justify-content: stretch;
+    gap: 10px;
+    width: 100%;
+}
+
+.hotel-adr {
+    font-size: 1.2rem;
+}
+
+.btn-detail-hotel button {
+    border: none;
+    height: 50px;
+    background-color: var(--success-btn-color);
+    color: var(--background-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 13px;
+}
+
+.btn-detail-hotel button:hover {
+    background-color: var(--success-text-color);
+}
+
+.flex-container-body {
+    display: flex;
+    align-items: stretch;
+    max-height: 500px;
+    margin-top: 2rem;
+    gap: 10px;
+}
+
+.flex-container-body img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flex-container-body .img1 {
+    border-radius: 13px 0 0 13px !important;
+}
+
+.img-col-2,
+.img-col-3 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.flex-container-body .img2 {
+    width: 100%;
+    max-height: 250px;
+}
+
+.flex-container-body .img3 {
+    width: 100%;
+    max-height: 250px;
+    border-radius: 0 13px 0 0 !important;
+}
+
+.flex-container-body .img4 {
+    width: 100%;
+    max-height: 250px;
+    border-radius: 0 0 13px 0 !important;
+}
+
+.btn-seeAll {
+    position: absolute;
+    border: none;
+    height: 50px;
+    background-color: var(--success-btn-color);
+    color: var(--background-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 13px;
+    padding: 11px;
+    transform: translateY(-150%);
+    right: 6rem;
+}
+
+.btn-seeAll:hover {
+    background-color: var(--success-text-color);
+}
+
+.amenities-text {
+    text-align: center;
+}
+
+.location-hotel .findHotel-onMap {
+    height: 50px;
+    width: 15%;
+    border: none;
+    background-color: var(--success-btn-color);
+    color: var(--background-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.location-hotel .findHotel-onMap:hover,
+.review-hotel .giveYour-review:hover {
+    background-color: var(--success-text-color);
+}
+
+.review-hotel .giveYour-review {
+    height: 50px;
+    width: 20%;
+    border: none;
+    background-color: var(--success-btn-color);
+    color: var(--background-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.star-review
