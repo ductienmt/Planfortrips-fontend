@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { GetAllCarMakes, GetAllCarModelsByMakeId } from "../../../../Api/Api3rd/CarAppApi";
 
-function EtpVehicleForm_Step2() {
+function EtpVehicleForm_Step2_Car() {
     const [vehicleMakes, setVehicleMakes] = useState([]);
     const [makeId, setMakeId] = useState('');
 
@@ -58,4 +58,4 @@ function EtpVehicleForm_Step2() {
      );
 }
 
-export default EtpVehicleForm_Step2;
+export default EtpVehicleForm_Step2_Car;

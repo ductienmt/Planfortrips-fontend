@@ -19,6 +19,11 @@
     display: block;
 }
 
+span {
+    font-weight: normal;
+    font-size: 13px;
+}
+
 .minhnhutActive {
     background-color: red;
 }
