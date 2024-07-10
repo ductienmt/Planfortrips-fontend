@@ -101,7 +101,7 @@ function App() {
       </Routes>
       {!location.pathname.includes("/enterprise") &&
         !location.pathname.includes("/food") &&
-        location.pathname.includes("/admin") && <Footer />}
+        !location.pathname.includes("/admin") && <Footer />}
     </>
   );
 }
