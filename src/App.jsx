@@ -17,14 +17,14 @@ import FoodPage from "./components/Food/FoodPage";
 import Footer from "./client/footer/footer";
 import Hotel from "./client/hotel/hotel";
 
-import Content from './components/Content';
+// import Content from './components/Content';
+import Userlist from './components/Userlist'
 import FeedbackPage from './components/FeedbackPage';
 import TransactionPage from './components/TransactionPage';
 import BusinessPage from './components/BusinessPage';
 import StatisticsPage from './components/StatisticsPage';
 import TravelfreePage from './components/Travelfree';
 import HotPage from './components/HotPage'
-
 
 function App() {
   const location = useLocation();
@@ -54,10 +54,10 @@ function App() {
       </Routes>
 
       <Routes>
-        <Route path='/admin/transaction' element={<TransactionPage />} />
-        <Route path='/admin/content' element={<Content />} />
-        <Route path='/admin/business' element={<BusinessPage />} />
         <Route path='/admin' element={<StatisticsPage />} />
+        <Route path='/admin/userlist' element={<Userlist />} />
+        <Route path='/admin/transaction' element={<TransactionPage />} />
+        <Route path='/admin/business' element={<BusinessPage />} />
         <Route path='/admin/feedback' element={<FeedbackPage />} />
         <Route path='/admin/travelfree' element={<TravelfreePage />} />
         <Route path='/admin/hot' element={<HotPage />} />

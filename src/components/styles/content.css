@@ -1,5 +1,5 @@
-.content {
-    width: 75%;
+/* .content {
+    width: 200%;
 }
 
 .content--header {
@@ -66,7 +66,6 @@
 
 
 
-/* Button styles */
 button {
     background-color: #4399dc;
     color: #fff;
@@ -87,4 +86,4 @@ button:hover {
 button:focus {
     outline: none;
     box-shadow: 0 0 0 2px rgba(82, 109, 130, 0.5);
-}
+} */

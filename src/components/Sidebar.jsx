@@ -27,7 +27,7 @@ const Sidebar = () => {
                     {!isCollapsed && <span>Thống Kê</span>}
                 </Link>
 
-                <Link to="/admin/content" className="menu-item">
+                <Link to="/admin/userlist" className="menu-item">
                     <BiRepost className='icon' />
                     {!isCollapsed && <span>Bảng Quản Lí</span>}
                 </Link>
