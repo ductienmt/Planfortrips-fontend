@@ -15,6 +15,7 @@ import PostForm from "./Enterprise/components/Form/PostForm";
 import VehicleList from "./Enterprise/components/List/VehicleList";
 import PostList from "./Enterprise/components/List/PostList";
 import { TransportPage } from "./client/transport/transportPage";
+import FlightItemPage from "./client/transport/formFlight/flightItem/FlightItemPage";
 
 function App() {
   const location = useLocation();
@@ -43,6 +44,7 @@ function App() {
         </Route>
         <Route path="transport">
         <Route path="" element={<TransportPage />}></Route>
+        <Route path="item" element={<FlightItemPage />}></Route>
         </Route>
       </Routes>
       {!location.pathname.includes("/enterprise") &&

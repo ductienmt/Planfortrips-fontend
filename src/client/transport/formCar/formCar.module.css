@@ -110,3 +110,6 @@
   font-weight: bolder;
   color:  rgba(13, 110, 253);
 }
+.rotateLeft {
+  transform: rotate(-90deg); /* Xoay 90 độ về phía trái */
+}

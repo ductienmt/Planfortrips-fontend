@@ -13,6 +13,9 @@ import {
 } from "@mui/icons-material";
 import AccessibilityIcon from "@mui/icons-material/Accessibility";
 import CloseIcon from "@mui/icons-material/Close";
+import DateCalendarServerRequest from "./datePicker/datePicker";
+import dayjs from "dayjs";
+import { Link } from "react-router-dom";
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 const airports = [
   {
@@ -150,6 +153,35 @@ const PopupBodyType = styled("div")(
     }
   `
 );
+
+const PopupBodyCalender = styled("div")(
+  ({ theme }) => `
+    position: relative;
+    width: 340px;
+    padding: 12px 16px 10px 16px;
+    margin:10px 15px 10px 20px;
+    border-radius: 8px;
+    border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
+    background-color: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};\
+    opacity: 0.8;
+    box-shadow: ${
+      theme.palette.mode === "dark"
+        ? `0px 4px 8px rgba(0, 0, 0, 0.7)`
+        : `0px 4px 8px rgba(0, 0, 0, 0.1)`
+    };
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    z-index: 1;
+  
+    &::before {
+      position: absolute;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent transparent #fff transparent; /* Adjust border color */
+    }
+  `
+);
 const CountContainer = styled("div")`
   display: flex;
   align-items: center;
@@ -161,19 +193,28 @@ export function FormFlight() {
   const [anchorAirport, setAnchorAirport] = useState(null);
   const [anchorPerson, setAnchorPerson] = useState(false);
   const [anchorType, setAnchorType] = useState(false);
+  const [anchorCalendar, setAnchorCalendar] = useState(false);
   const [popupType, setPopupType] = useState(null);
   const [isRotateType, setIsRotateType] = useState(false);
   const [isRotatePerson, setIsRotatePerson] = useState(false);
   const [peopleCount1, setPeopleCount1] = useState(1);
   const [peopleCount2, setPeopleCount2] = useState(0);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [dateOfDeparture, setDateOfDeparture] = useState(
+    dayjs().format("DD MMM YYYY")
+  );
+  const [isChecked, setIsChecked] = useState(false);
   const showPopup = (event, type) => {
     setAnchorAirport(anchorAirport ? null : event.currentTarget);
     setPopupType(type);
   };
-
+  const handleClickItem = (index) => {
+    setSelectedItem(index);
+  };
   const openAirport = Boolean(anchorAirport);
   const openPerson = Boolean(anchorPerson);
   const openType = Boolean(anchorType);
+  const openCalendar = Boolean(anchorCalendar);
   const id = openAirport ? "simple-popup" : undefined;
   const handleClick = () => {
     setIsRotated(!isRotated);
@@ -186,6 +227,9 @@ export function FormFlight() {
   const handleTypeClick = (e) => {
     setIsRotateType(!isRotateType);
     setAnchorType(anchorType ? null : e.currentTarget);
+  };
+  const handleCalenderClick = (e) => {
+    setAnchorCalendar(anchorCalendar ? null : e.currentTarget);
   };
   const [noiDen, setNoiDen] = useState(airports[1]);
   const [noiDi, setNoiDi] = useState(airports[0]);
@@ -216,6 +260,9 @@ export function FormFlight() {
   };
   const increasePeople2 = () => {
     setPeopleCount2(peopleCount2 + 1);
+  };
+  const handleDateOfDepartureChange = (newDate) => {
+    setDateOfDeparture(newDate);
   };
   return (
     <>
@@ -268,7 +315,7 @@ export function FormFlight() {
                     <PopupBodyPerson>
                       <span className="fw-bolder">Số hành khách</span>
                       <CloseIcon
-                        style={{ float: "right" }}
+                        style={{ float: "right", cursor: "pointer" }}
                         onClick={handlePersonClick}
                       />
                       <CountContainer>
@@ -367,19 +414,32 @@ export function FormFlight() {
                 className="bg-transparent text-gray-900 text-sm rounded-lg focus:ring-blue-500/0 focus:border-blue-400/0 focus:border-blue-500/0 block w-full py-1.5 pr-2.5 dark:placeholder-gray-400/0 dark:text-white"
               >
                 <option selected="">Phổ thông</option>
-                <option value="US">Phổ thông đặc biệt</option>
+                {/* <option value="US">Phổ thông đặc biệt</option>
                 <option value="CA">Thương gia</option>
-                <option value="FR">Hạng nhất</option>
+                <option value="FR">Hạng nhất</option> */}
               </select>
             </div>
             <BasePopup id={id} open={openType} anchor={anchorType}>
               <Grid container>
                 <PopupBodyType>
                   <div className={styles.customSelect}>
-                    <div>
-                    <span></span>
-                    <span>Phổ thông</span>
-                    </div>
+                    {[
+                      "Phổ thông",
+                      "Phổ thông đặc biệt",
+                      "Thương gia",
+                      "Hạng nhất",
+                    ].map((item, index) => (
+                      <div
+                        key={index}
+                        className={`${styles.item} ${
+                          selectedItem === index ? styles.selected : ""
+                        }`}
+                        onClick={() => handleClickItem(index)}
+                      >
+                        <span className={styles.dot}></span>
+                        <span>{item}</span>
+                      </div>
+                    ))}
                   </div>
                 </PopupBodyType>
               </Grid>
@@ -546,6 +606,7 @@ export function FormFlight() {
                 <Checkbox
                   {...label}
                   className="relative float-left -ms-[1.5rem] me-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-secondary-500 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent bg-white before:opacity-0 before:shadow-checkbox before:shadow-transparent before:content-[''] checked:border-blue-500 checked:bg-blue-500 checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ms-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-black/60 focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-black/60 focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-checkbox checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ms-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent rtl:float-right dark:border-neutral-400 dark:checked:border-primary dark:checked:bg-blue-500"
+                  onClick={() => setIsChecked(!isChecked)}
                 />
                 Khứ hồi{" "}
               </h3>
@@ -584,7 +645,8 @@ export function FormFlight() {
                     name="start"
                     type="text"
                     className="bg-white text-gray-900 text-sm rounded-l-2xl focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 placeholder-black"
-                    placeholder="28 Mar 2024"
+                    placeholder={`${dateOfDeparture}`}
+                    onClick={handleCalenderClick}
                   />
                 </div>
                 <div className="relative py-1.5 w-72 bg-white border border-gray-300 rounded-r-2xl">
@@ -599,7 +661,7 @@ export function FormFlight() {
                     >
                       <path
                         d="M7 2V5M17 2V5M3 8H21M11.5 11.5H12.5V12.5H11.5V11.5ZM11.5 16.5H12.5V17.5H11.5V16.5ZM16.5 11.5H17.5V12.5H16.5V11.5ZM6.5 16.5H7.5V17.5H6.5V16.5ZM5 21H19C20.1046 21 21 20.1046 21 19V6C21 4.89543 20.1046 4 19 4H5C3.89543 4 3 4.89543 3 6V19C3 20.1046 3.89543 21 5 21Z"
-                        stroke="#687176"
+                        stroke={isChecked ? "#0194f3" : "#687176"}
                         strokeWidth={2}
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -608,7 +670,7 @@ export function FormFlight() {
                         fillRule="evenodd"
                         clipRule="evenodd"
                         d="M7.5 11.5V12.5H6.5V11.5H7.5Z"
-                        stroke="#687176"
+                        stroke={isChecked ? "#0194f3" : "#687176"}
                         strokeWidth={2}
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -623,7 +685,10 @@ export function FormFlight() {
                   />
                 </div>
               </div>
-              <button className="bg-orange-500 border-4 border-gray-400/80 hover:bg-orange-700 text-white font-semibold py-3 px-3.5 rounded-2xl">
+              <Link
+                to={"item"}
+                className="bg-orange-500 border-4 border-gray-400/80 hover:bg-orange-700 text-white font-semibold py-3 px-3.5 rounded-2xl"
+              >
                 <svg
                   width={24}
                   height={24}
@@ -640,8 +705,17 @@ export function FormFlight() {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </button>
+              </Link>
             </div>
+            <BasePopup id={id} open={openCalendar} anchor={anchorCalendar}>
+              <Grid container>
+                <PopupBodyCalender>
+                  <DateCalendarServerRequest
+                    setDateOfDeparture={handleDateOfDepartureChange}
+                  />
+                </PopupBodyCalender>
+              </Grid>
+            </BasePopup>
           </div>
         </div>
       </div>

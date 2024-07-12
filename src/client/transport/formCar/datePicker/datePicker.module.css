@@ -1,0 +1,21 @@
+.dateCalendarContainer {
+  display: none;
+  background-color: white;
+  opacity: 0.8;
+  padding: 20px; /* Optional: add some padding */
+  border-radius: 8px; /* Optional: add some border-radius for a smooth look */
+}
+.ticked{
+    display: block;
+}
+.dateDayContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ticketPrice {
+  font-size: 0.75rem;
+  color: #33a043;
+  margin-top: 2px;
+}
