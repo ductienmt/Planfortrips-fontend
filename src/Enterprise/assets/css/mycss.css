@@ -27,3 +27,108 @@ span {
 .minhnhutActive {
     background-color: red;
 }
+
+.search-input {
+    position: relative;
+}
+.search-container {
+    margin: 0;
+    padding: 0px;
+    width: 100%;
+    max-height: 170px;
+    overflow: scroll;
+    scrollbar-width: thin;
+    background-color: white;
+    border: 1px solid hsla(0, 0%, 20%, 0.123);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.search-result-item {
+    margin: 0;
+    padding: 8px;
+    padding-left: 10px;
+    display: block;
+    color: black;
+    cursor: pointer;
+    font-family: Arial,sans-serif;
+}
+.search-result-item span {
+    font-weight: bold;
+    font-size: 15px;
+}
+.search-result-item:hover {
+    color: white;
+    background-color: rgba(70, 68, 68, 0.233);
+}
+
+.tab-buttons {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.tab-button {
+    border: none;
+    border-radius: 0%;
+    outline: none;
+    background-color: transparent;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000;
+    transition: background-color 0.3s ease, boder-radius 0.3 ease;
+}
+
+.tab-button.active {
+    border-radius: 0% !important;
+    background-color:black !important;
+    color: #fff;
+    font-weight: bold;
+}
+
+.tab-button:hover {
+    border-radius: 40px;
+    background-color: rgba(0, 0, 0, 0.107);
+}
+
+.tab-content {
+    padding: 20px;
+    border: 1px solid black;
+}
+.vehicle-icon i {
+    font-size: 20px;
+    color: white;
+    background-color: #000;
+    border-radius: 100%;
+    padding: 4px 10px;
+}
+.service-container {
+    border: 1px solid rgba(189, 189, 188, 0.248);
+    background-color: rgba(203, 189, 189, 0.088);
+    padding: 10px 5px;
+}
+.service-container .service-item {
+    display: inline-block;
+    text-align: center;
+    padding: 2px 6px;
+    border-radius: 8%;
+    border: 1px solid #333;
+    color: white;
+    background-color: black;
+    text-transform: uppercase;
+    margin-right: 5px;
+    font-size: 13px;
+}
+.service-container .service-item span {
+    margin-left: 0px;
+}
+.service-item button {
+    font-size: 12px;
+    padding: 2px 8px;
+    background-color: gainsboro;
+    color: black;
+    font-weight: bold;
+}

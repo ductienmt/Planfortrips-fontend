@@ -47,9 +47,6 @@ function EtpVehicleList() {
 
     return (
         <>
-            <div className="container-fluid">
-                <div className="card">
-                    <div className="card-body">
                         <h5 className="card-title">Danh sách xe</h5>
 
                         <table className="table table-hover">
@@ -78,11 +75,6 @@ function EtpVehicleList() {
                                 })}
                             </tbody>
                         </table>
-
-
-                    </div>
-                </div>
-            </div>
         </>
     );
 }
