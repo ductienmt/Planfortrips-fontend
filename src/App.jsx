@@ -28,6 +28,11 @@ import HotPage from "./components/HotPage";
 import EtpVehicleForm from "./Enterprise/components/Form/EtpVehicleForm";
 import EtpBusesForm from "./Enterprise/components/Form/EtpBusesForm";
 import EtpBusesList from "./Enterprise/components/List/EtpBusesList";
+import EtpRestaurantForm from "./Enterprise/components/Form/EtpRestaurantForm";
+import EtpRestaurantDetail from "./Enterprise/components/Detai/EtpRestaurantDetail";
+import EtpHotelForm from "./Enterprise/components/Form/EtpHotelForm";
+import EtpHotelDetail from "./Enterprise/components/Detai/EtpHotelDetai";
+import EtpCarDetail from "./Enterprise/components/Detai/EtpCarDetail";
 
 
 function App() {
@@ -52,6 +57,11 @@ function App() {
                 <Route index element={<EtpBusesList/>}></Route>
                 <Route path="create" element={<EtpBusesForm/>}></Route>
               </Route>
+
+              <Route path="detail">
+                <Route path="car/:carId" element={<EtpCarDetail/>}></Route>
+                <Route path="plane/:planeId"></Route>
+              </Route>
             </Route>
             
             {/* Route Etp-Post */}
@@ -65,7 +75,9 @@ function App() {
             {/* Route Etp-Restaurant */}
             <Route path="restaurant">
               <Route index element={<EtpRestaurantHome/>}></Route>
+              <Route path="create" element={<EtpRestaurantForm/>}></Route>
               <Route path="list" element={<EtpRestaurantList/>}></Route>
+              <Route path="detail/:rtrId" element={<EtpRestaurantDetail/>}></Route>
             </Route>
 
             <Route path="news">
@@ -74,6 +86,8 @@ function App() {
               {/* Route Etp-Hotel */}
               <Route path="hotel">
                 <Route index element={<EtpHotelHome/>}></Route>
+                <Route path="create" element={<EtpHotelForm/>}></Route>
+                <Route path="detail/:hId" element={<EtpHotelDetail/>}></Route>
               <Route path="list" element={<EtpHotelList/>}></Route>
             </Route>
 

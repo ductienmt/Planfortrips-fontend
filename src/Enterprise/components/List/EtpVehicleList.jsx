@@ -1,7 +1,10 @@
+import { Link } from "react-router-dom";
+
 function EtpVehicleList() {
 
     const vehicles = [
         {
+          vehicleId : 'vh001',
           VehicleName: 'Toyota Camry',
           VehicleType: 'Sedan',
           VehiclePrice: '$30,000',
@@ -9,6 +12,7 @@ function EtpVehicleList() {
           VehicleTo: 'Hanoi'
         },
         {
+          vehicleId : 'vh002',
           VehicleName: 'Honda CR-V',
           VehicleType: 'SUV',
           VehiclePrice: '$35,000',
@@ -16,6 +20,7 @@ function EtpVehicleList() {
           VehicleTo: 'Nha Trang'
         },
         {
+          vehicleId : 'vh003',
           VehicleName: 'Tesla Model S',
           VehicleType: 'Electric',
           VehiclePrice: '$80,000',
@@ -23,6 +28,7 @@ function EtpVehicleList() {
           VehicleTo: 'Phu Quoc'
         },
         {
+          vehicleId : 'vh004',
           VehicleName: 'Mazda CX-5',
           VehicleType: 'SUV',
           VehiclePrice: '$40,000',
@@ -30,6 +36,7 @@ function EtpVehicleList() {
           VehicleTo: 'Da Lat'
         },
         {
+          vehicleId : 'vh005',
           VehicleName: 'Hyundai Sonata Hybrid',
           VehicleType: 'Hybrid',
           VehiclePrice: '$50,000',
@@ -37,6 +44,7 @@ function EtpVehicleList() {
           VehicleTo: 'Hue'
         },
         {
+          vehicleId : 'vh006',
           VehicleName: 'Ford Ranger',
           VehicleType: 'Pickup Truck',
           VehiclePrice: '$45,000',
@@ -58,6 +66,7 @@ function EtpVehicleList() {
                                     <th scope="col">Giá vé</th>
                                     <th scope="col">Khởi đầu</th>
                                     <th scope="col">Điểm kết thúc</th>
+                                    <th>Chi tiết</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -70,6 +79,9 @@ function EtpVehicleList() {
                                             <td>{v.VehiclePrice}</td>
                                             <td>{v.VehicleFrom}</td>
                                             <td>{v.VehicleTo}</td>
+                                            <td>
+                                              <Link to={`../detail/car/${v.vehicleId}`}>Chi tiết Xe</Link>
+                                            </td>
                                         </tr>
                                     )
                                 })}

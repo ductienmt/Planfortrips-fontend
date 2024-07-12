@@ -132,3 +132,39 @@ span {
     color: black;
     font-weight: bold;
 }
+
+.food-item {
+    border: 1px solid aqua;
+    padding: 5px 10px;
+    color: white;
+    font-size: 15px;
+    background-color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.7s ease, padding 0.5s ease-in-out;
+}
+
+.food-item:hover {
+    color: red;
+    padding: 5px 15px;
+}
+
+.room-icon {
+    display: block;
+    font-size: 50px;
+}
+.room-icon.isBooked {
+    color: red;
+}
+.isBooked i {
+    color: blue;
+}
+.room-item {
+    cursor: pointer;
+}
+
+.room-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: red;
+}

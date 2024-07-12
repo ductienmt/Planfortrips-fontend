@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 // Sample data for restaurants
 const restaurants = [
   {
+    restaunrantId : 'rtr001',
     restaurantName: 'Nhà hàng A',
     restaurantDes: 'Nhà hàng sang trọng phục vụ các món ăn truyền thống Việt Nam.',
     restaurantLocation: '123 Nguyễn Văn A, Quận 1, TP.HCM',
@@ -11,6 +12,7 @@ const restaurants = [
     thumbnail: 'https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
+    restaunrantId : 'rtr002',
     restaurantName: 'Quán ăn B',
     restaurantDes: 'Quán ăn gia đình, phục vụ các món ăn nấu từ lòng đất.',
     restaurantLocation: '456 Nguyễn Thị B, Quận 5, TP.HCM',
@@ -18,6 +20,7 @@ const restaurants = [
     thumbnail: 'https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
+    restaunrantId : 'rtr003',
     restaurantName: 'Tiệm cà phê C',
     restaurantDes: 'Tiệm cà phê yên tĩnh, phục vụ các loại thức uống đậm đà.',
     restaurantLocation: '789 Lê Lợi, Quận 10, TP.HCM',
@@ -25,6 +28,7 @@ const restaurants = [
     thumbnail: 'https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
+    restaunrantId : 'rtr004',
     restaurantName: 'Nhà hàng D',
     restaurantDes: 'Nhà hàng phong cách châu Âu, đồ ăn ngon, không gian lãng mạn.',
     restaurantLocation: '101 Đường Hoa, Hà Nội',
@@ -32,6 +36,7 @@ const restaurants = [
     thumbnail: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
+    restaunrantId : 'rtr005',
     restaurantName: 'Quán ăn E',
     restaurantDes: 'Quán ăn đơn giản, phục vụ các món ăn đường phố nổi tiếng.',
     restaurantLocation: '11 Trần Phú, Hải Phòng',
@@ -39,6 +44,7 @@ const restaurants = [
     thumbnail: 'https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
+    restaunrantId : 'rtr006',
     restaurantName: 'Tiệm cà phê F',
     restaurantDes: 'Tiệm cà phê hiện đại, phục vụ các thức uống phổ biến.',
     restaurantLocation: '321 Nguyễn Văn Linh, Đà Nẵng',
@@ -46,6 +52,7 @@ const restaurants = [
     thumbnail: 'https://images.pexels.com/photos/1581554/pexels-photo-1581554.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
+    restaunrantId : 'rtr007',
     restaurantName: 'Nhà hàng G',
     restaurantDes: 'Nhà hàng hải sản tươi sống, phục vụ các món biển hấp dẫn.',
     restaurantLocation: '456 Lê Duẩn, Nha Trang',
@@ -53,6 +60,7 @@ const restaurants = [
     thumbnail: 'https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
+    restaunrantId : 'rtr008',
     restaurantName: 'Quán ăn H',
     restaurantDes: 'Quán ăn gia đình, phục vụ các món ăn miền Trung truyền thống.',
     restaurantLocation: '789 Nguyễn Huệ, Huế',
@@ -60,6 +68,7 @@ const restaurants = [
     thumbnail: 'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
+    restaunrantId : 'rtr009',
     restaurantName: 'Tiệm cà phê I',
     restaurantDes: 'Tiệm cà phê sáng tạo, phục vụ các thức uống độc đáo.',
     restaurantLocation: '222 Bùi Thị Xuân, Hà Nội',
@@ -67,6 +76,7 @@ const restaurants = [
     thumbnail: 'https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
+    restaunrantId : 'rtr010',
     restaurantName: 'Nhà hàng J',
     restaurantDes: 'Nhà hàng buffet, đa dạng món ăn quốc tế, không gian rộng rãi.',
     restaurantLocation: '333 Trần Hưng Đạo, Đà Lạt',
@@ -74,6 +84,7 @@ const restaurants = [
     thumbnail: 'https://images.pexels.com/photos/1581384/pexels-photo-1581384.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
+    restaunrantId : 'rtr011',
     restaurantName: 'Quán ăn K',
     restaurantDes: 'Quán ăn phục vụ các món ăn đặc sản vùng miền.',
     restaurantLocation: '555 Lê Lai, Quy Nhơn',
@@ -81,6 +92,7 @@ const restaurants = [
     thumbnail: 'https://images.pexels.com/photos/2253643/pexels-photo-2253643.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
+    restaunrantId : 'rtr012',
     restaurantName: 'Tiệm cà phê L',
     restaurantDes: 'Tiệm cà phê phong cách cổ điển, không gian ấm cúng.',
     restaurantLocation: '777 Nguyễn Thị Minh Khai, TP.HCM',
@@ -88,6 +100,7 @@ const restaurants = [
     thumbnail: 'https://images.pexels.com/photos/761854/pexels-photo-761854.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
+    restaunrantId : 'rtr013',
     restaurantName: 'Nhà hàng M',
     restaurantDes: 'Nhà hàng sang trọng, phục vụ các món ăn Âu châu cao cấp.',
     restaurantLocation: '999 Điện Biên Phủ, Hà Nội',
@@ -147,7 +160,7 @@ function EtpRestaurantList() {
                 <button className="btn btn-outline-danger">
                   Xóa
                 </button>
-                <Link to={`/restaurant/${index}`} className="btn btn-outline-info ms-2">
+                <Link to={`../detail/${rtr.restaunrantId}`} className="btn btn-outline-info ms-2">
                   Chi tiết
                 </Link>
               </div>
