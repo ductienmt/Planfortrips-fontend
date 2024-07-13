@@ -1,5 +1,6 @@
 .statistics-page {
     width: 80%;
+    /* Điều chỉnh chiều rộng cho màn hình nhỏ hơn sau */
     margin: 0 auto;
     padding: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -7,6 +8,44 @@
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     position: relative;
+}
+
+/* Các truy vấn media cho hành vi đáp ứng */
+@media (max-width: 768px) {
+    .statistics-page {
+        width: 90%;
+        /* Điều chỉnh chiều rộng cho máy tính bảng */
+    }
+}
+
+@media (max-width: 480px) {
+    .statistics-page {
+        width: 100%;
+        /* Đặt chiều rộng đầy đủ cho thiết bị di động */
+    }
+
+    .statistics-cards {
+        flex-wrap: wrap;
+        /* Bẻ dòng các thẻ thành nhiều hàng */
+    }
+
+    .card-icon {
+        margin-bottom: 10px;
+        /* Điều chỉnh khoảng cách cho màn hình nhỏ hơn */
+    }
+
+    .chart-container {
+        flex-direction: column;
+        /* Xếp chồng các biểu đồ theo chiều dọc trên thiết bị di động */
+        gap: 10px;
+        /* Giảm khoảng cách giữa các thành phần */
+    }
+
+    .bar-chart-box,
+    .pie-chart-box {
+        height: 150px;
+        /* Điều chỉnh chiều cao biểu đồ cho thiết bị di động */
+    }
 }
 
 .statistics-page--content {

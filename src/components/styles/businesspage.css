@@ -1,217 +1,227 @@
-.userlist-container {
-    width: 80%;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* General Styles */
+.businesspage {
     margin: 0 auto;
     padding: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+
+    .businesspage-header,
+    .businesspage-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .businesspage-content {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .businesspage-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .businesspage-actions {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .businesspage-modal {
+        width: 95%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .businesspage-add-button,
+    .businesspage-confirm-button,
+    .businesspage-cancel-button {
+        padding: 8px 15px;
+    }
+
+    .businesspage-form-group input {
+        width: 100%;
+    }
+
+    .businesspage-actions {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .businesspage-table th,
+    .businesspage-table td {
+        padding: 10px;
+    }
+}
+
+
+.businesspage-content {
     background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    position: relative;
-}
-
-.userlist-container .header {
+    flex: 1;
+    border-radius: 20px;
+    padding: 1rem;
     display: flex;
-    justify-content: space-between;
+    gap: 1.5rem;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.businesspage-container {
+    padding: 20px;
+    width: 91%;
+}
+
+.businesspage-header {
+    display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.userlist-container .header h1 {
-    font-size: 1.8rem;
-    color: #007bff;
-}
-
-.userlist-container .add-user-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+.businesspage-add-button {
     background-color: #007bff;
     color: #fff;
-    font-size: 1rem;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.userlist-container .add-user-button:hover {
-    background-color: #0056b3;
-}
-
-.userlist-card {
-    background: #f9f9f9;
+.businesspage-card {
+    margin-top: 20px;
+    background: #fff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.userlist-card .title {
-    font-size: 1.4rem;
-    color: #007bff;
-    margin-bottom: 15px;
-}
-
-.userlist-card .table-responsive {
+.businesspage-table-responsive {
     overflow-x: auto;
 }
 
-.userlist-card .table {
+.businesspage-table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.userlist-card .table th,
-.userlist-card .table td {
-    padding: 12px;
+.businesspage-table th,
+.businesspage-table td {
+    padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
-.userlist-card .table th {
-    background-color: #007bff;
-    color: #fff;
-    font-size: 1rem;
-}
-
-.userlist-card .table tr:hover {
-    background-color: #f1f1f1;
-}
-
-.userlist-card .table .actions {
+.businesspage-actions {
     display: flex;
     gap: 10px;
 }
 
-.userlist-card .table .view-button {
+.businesspage-view-button,
+.businesspage-edit-button,
+.businesspage-delete-button {
     padding: 5px 10px;
     border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 0.9rem;
     cursor: pointer;
 }
 
-.userlist-card .table .edit-button {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #ffc107;
-    color: #fff;
-    font-size: 0.9rem;
-    cursor: pointer;
+.businesspage-view-button {
+    background-color: #2196F3;
+    color: white;
 }
 
-.userlist-card .table .delete-button {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #dc3545;
-    color: #fff;
-    font-size: 0.9rem;
-    cursor: pointer;
+.businesspage-edit-button {
+    background-color: #FFC107;
+    color: white;
 }
 
-.userlist-card .table .view-button:hover {
-    background-color: #0056b3;
+.businesspage-delete-button {
+    background-color: #f44336;
+    color: white;
 }
 
-.userlist-card .table .edit-button:hover {
-    background-color: #e0a800;
-}
-
-.userlist-card .table .delete-button:hover {
-    background-color: #c82333;
-}
-
-.profile-modal {
+.businesspage-modal {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
-.profile-modal .modal-content {
-    background: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    width: 50%;
-    max-width: 600px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+.businesspage-modal-content {
     position: relative;
 }
 
-.profile-modal .modal-content h2 {
-    font-size: 1.4rem;
-    color: #007bff;
-    margin-bottom: 20px;
-}
-
-.profile-modal .modal-content .close-button {
+.businesspage-close-button {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 1.5rem;
+    background: transparent;
     border: none;
-    background: none;
-    color: #000;
+    font-size: 20px;
     cursor: pointer;
 }
 
-.profile-modal .modal-content .profile-info {
-    margin-bottom: 20px;
+.businesspage-profile-info p {
+    margin: 10px 0;
 }
 
-.profile-modal .modal-content .profile-info p {
-    font-size: 0.9rem;
-    margin: 5px 0;
+.businesspage-form-group {
+    margin-bottom: 15px;
 }
 
-.profile-modal .modal-content .form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.profile-modal .modal-content .form-group label {
+.businesspage-form-group label {
+    display: block;
     margin-bottom: 5px;
 }
 
-.profile-modal .modal-content .form-group input,
-.profile-modal .modal-content .form-group select {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+.businesspage-form-group input {
+    width: calc(100% - 20px);
+    padding: 8px;
     margin-bottom: 10px;
-}
-
-.profile-modal .modal-content .modal-actions {
-    display: flex;
-    gap: 10px;
-}
-
-.profile-modal .modal-content .modal-actions button {
-    padding: 10px 20px;
-    border: none;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    color: #fff;
-    font-size: 0.9rem;
+}
+
+.businesspage-modal-actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.businesspage-confirm-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.profile-modal .modal-content .modal-actions .confirm-button {
-    background-color: #28a745;
-}
-
-.profile-modal .modal-content .modal-actions .cancel-button {
-    background-color: #6c757d;
-}
-
-.profile-modal .modal-content .modal-actions .confirm-button:hover {
-    background-color: #218838;
-}
-
-.profile-modal .modal-content .modal-actions .cancel-button:hover {
-    background-color: #5a6268;
+.businesspage-cancel-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
 }

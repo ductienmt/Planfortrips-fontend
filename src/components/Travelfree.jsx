@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
-// import '../styles/travelfree.css'
-import './styles/userlist.css';
 import Sidebar from './Sidebar';
+import './styles/travelfree.css';
 
-const Travelfree = () => {
+const TravelPage = () => {
     const [places, setPlaces] = useState([
-        { id: 1, name: 'Công viên Thống Nhất', location: 'Hà Nội', description: 'Công viên rộng lớn với nhiều hoạt động miễn phí' },
-        { id: 2, name: 'Bảo tàng Hồ Chí Minh', location: 'Hà Nội', description: 'Bảo tàng lịch sử về cuộc đời Hồ Chí Minh' },
-        { id: 3, name: 'Chợ Bến Thành', location: 'TP. Hồ Chí Minh', description: 'Chợ nổi tiếng với nhiều hàng hóa và thực phẩm' },
-        { id: 4, name: 'Biển Mỹ Khê', location: 'Đà Nẵng', description: 'Bãi biển đẹp với cát trắng và nước trong xanh' },
-        { id: 5, name: 'Chùa Thiên Mụ', location: 'Huế', description: 'Ngôi chùa cổ nổi tiếng với kiến trúc độc đáo' },
+        { id: 1, name: 'Vịnh Hạ Long', region: 'Bắc', location: 'Quảng Ninh', description: 'Kỳ quan thiên nhiên thế giới', price: 'Miễn phí' },
+        { id: 2, name: 'Phố cổ Hội An', region: 'Trung', location: 'Quảng Nam', description: 'Di sản văn hóa thế giới', price: 'Mất phí' },
+        { id: 3, name: 'Đà Lạt', region: 'Nam', location: 'Lâm Đồng', description: 'Thành phố ngàn hoa', price: 'Miễn phí' },
+        { id: 4, name: 'Sa Pa', region: 'Bắc', location: 'Lào Cai', description: 'Thị trấn sương mù', price: 'Mất phí' },
+        { id: 5, name: 'Biển Mỹ Khê', region: 'Trung', location: 'Đà Nẵng', description: 'Bãi biển đẹp nhất', price: 'Miễn phí' }
     ]);
 
     const [isViewModalOpen, setIsViewModalOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
     const [selectedPlace, setSelectedPlace] = useState(null);
+    const [filterRegion, setFilterRegion] = useState('Tất cả');
+    const [filterPrice, setFilterPrice] = useState('Tất cả');
 
     const handleViewPlace = (place) => {
         setSelectedPlace(place);
@@ -45,36 +46,59 @@ const Travelfree = () => {
         setIsAddModalOpen(false);
     };
 
+    const filteredPlaces = places.filter(place =>
+        (filterRegion === 'Tất cả' || place.region === filterRegion) &&
+        (filterPrice === 'Tất cả' || place.price === filterPrice)
+    );
+
     return (
-        <div className='dashboard'>
+        <div className="travel-dashboard">
             <Sidebar />
-            <div className='dashboard--content'>
-                <div className="userlist-container">
-                    <div className="header">
-                        <button className="add-user-button" onClick={handleAddPlace}>Thêm Điểm Tham Quan</button>
-                        <h1>Danh Sách Điểm Tham Quan Miễn Phí</h1>
+            <div className="travel-dashboard-content">
+                <div className="travel-container">
+                    <div className="travel-header">
+                        <h1>Danh Sách Điểm Tham Quan</h1>
+                        <button className="add-travel-button" onClick={handleAddPlace}>Thêm Điểm Tham Quan</button>
                     </div>
-                    <div className="userlist-card">
-                        <h3 className="title">Danh Sách Điểm Tham Quan</h3>
-                        <div className="table-responsive">
-                            <table className="table">
+                    <div className="travel-card">
+                        <div className="filter-container">
+                            <label htmlFor="region-filter">Lọc theo vùng:</label>
+                            <select id="region-filter" value={filterRegion} onChange={(e) => setFilterRegion(e.target.value)} className="styled-select">
+                                <option value="Tất cả">Tất cả</option>
+                                <option value="Bắc">Bắc</option>
+                                <option value="Trung">Trung</option>
+                                <option value="Nam">Nam</option>
+                            </select>
+                            <label htmlFor="price-filter">Lọc theo giá:</label>
+                            <select id="price-filter" value={filterPrice} onChange={(e) => setFilterPrice(e.target.value)} className="styled-select">
+                                <option value="Tất cả">Tất cả</option>
+                                <option value="Miễn phí">Miễn phí</option>
+                                <option value="Mất phí">Mất phí</option>
+                            </select>
+                        </div>
+                        <div className="travel-table-responsive">
+                            <table className="travel-table">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
                                         <th>Tên</th>
+                                        <th>Vùng</th>
                                         <th>Địa Điểm</th>
                                         <th>Mô Tả</th>
+                                        <th>Giá</th>
                                         <th>Hành Động</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {places.map((place) => (
+                                    {filteredPlaces.map((place) => (
                                         <tr key={place.id}>
                                             <td>{place.id}</td>
                                             <td>{place.name}</td>
+                                            <td>{place.region}</td>
                                             <td>{place.location}</td>
                                             <td>{place.description}</td>
-                                            <td className="actions">
+                                            <td>{place.price}</td>
+                                            <td className="travel-actions">
                                                 <button className="view-button" onClick={() => handleViewPlace(place)}>Xem</button>
                                                 <button className="edit-button" onClick={() => handleEditPlace(place)}>Chỉnh Sửa</button>
                                                 <button className="delete-button" onClick={() => setPlaces(places.filter(p => p.id !== place.id))}>Xóa</button>
@@ -88,17 +112,19 @@ const Travelfree = () => {
 
                     {/* View Place Modal */}
                     {isViewModalOpen && selectedPlace && (
-                        <div className="profile-modal">
-                            <div className="modal-content">
+                        <div className="travel-modal">
+                            <div className="travel-modal-content">
                                 <button className="close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Thông Tin Điểm Tham Quan</h2>
-                                <div className="profile-info">
+                                <div className="travel-info">
                                     <p><strong>ID:</strong> {selectedPlace.id}</p>
                                     <p><strong>Tên:</strong> {selectedPlace.name}</p>
+                                    <p><strong>Vùng:</strong> {selectedPlace.region}</p>
                                     <p><strong>Địa Điểm:</strong> {selectedPlace.location}</p>
                                     <p><strong>Mô Tả:</strong> {selectedPlace.description}</p>
+                                    <p><strong>Giá:</strong> {selectedPlace.price}</p>
                                 </div>
-                                <div className="modal-actions">
+                                <div className="travel-modal-actions">
                                     <button className="edit-button" onClick={() => handleEditPlace(selectedPlace)}>Chỉnh Sửa</button>
                                     <button className="delete-button" onClick={() => setPlaces(places.filter(p => p.id !== selectedPlace.id))}>Xóa</button>
                                     <button className="cancel-button" onClick={handleCloseModal}>Đóng</button>
@@ -109,25 +135,34 @@ const Travelfree = () => {
 
                     {/* Add Place Modal */}
                     {isAddModalOpen && (
-                        <div className="profile-modal">
-                            <div className="modal-content">
+                        <div className="travel-modal">
+                            <div className="travel-modal-content">
                                 <button className="close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Thêm Điểm Tham Quan</h2>
                                 <div className="form-group">
                                     <label>Tên:</label>
                                     <input type="text" placeholder="Nhập tên điểm tham quan" />
+                                    <label>Vùng:</label>
+                                    <input type="text" placeholder="Nhập vùng" />
                                     <label>Địa Điểm:</label>
                                     <input type="text" placeholder="Nhập địa điểm" />
                                     <label>Mô Tả:</label>
                                     <input type="text" placeholder="Nhập mô tả" />
+                                    <label>Giá:</label>
+                                    <select>
+                                        <option value="Miễn phí">Miễn phí</option>
+                                        <option value="Mất phí">Mất phí</option>
+                                    </select>
                                 </div>
-                                <div className="modal-actions">
+                                <div className="travel-modal-actions">
                                     <button className="confirm-button" onClick={() => {
                                         const newPlace = {
                                             id: places.length + 1,
                                             name: document.querySelector('input[placeholder="Nhập tên điểm tham quan"]').value,
+                                            region: document.querySelector('input[placeholder="Nhập vùng"]').value,
                                             location: document.querySelector('input[placeholder="Nhập địa điểm"]').value,
                                             description: document.querySelector('input[placeholder="Nhập mô tả"]').value,
+                                            price: document.querySelector('select').value,
                                         };
                                         handleAddNewPlace(newPlace);
                                     }}>Lưu</button>
@@ -139,8 +174,8 @@ const Travelfree = () => {
 
                     {/* Edit Place Modal */}
                     {isEditModalOpen && selectedPlace && (
-                        <div className="profile-modal">
-                            <div className="modal-content">
+                        <div className="travel-modal">
+                            <div className="travel-modal-content">
                                 <button className="close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Chỉnh Sửa Điểm Tham Quan</h2>
                                 <div className="form-group">
@@ -149,6 +184,12 @@ const Travelfree = () => {
                                         type="text"
                                         defaultValue={selectedPlace.name}
                                         onChange={(e) => setSelectedPlace({ ...selectedPlace, name: e.target.value })}
+                                    />
+                                    <label>Vùng:</label>
+                                    <input
+                                        type="text"
+                                        defaultValue={selectedPlace.region}
+                                        onChange={(e) => setSelectedPlace({ ...selectedPlace, region: e.target.value })}
                                     />
                                     <label>Địa Điểm:</label>
                                     <input
@@ -162,8 +203,13 @@ const Travelfree = () => {
                                         defaultValue={selectedPlace.description}
                                         onChange={(e) => setSelectedPlace({ ...selectedPlace, description: e.target.value })}
                                     />
+                                    <label>Giá:</label>
+                                    <select value={selectedPlace.price} onChange={(e) => setSelectedPlace({ ...selectedPlace, price: e.target.value })}>
+                                        <option value="Miễn phí">Miễn phí</option>
+                                        <option value="Mất phí">Mất phí</option>
+                                    </select>
                                 </div>
-                                <div className="modal-actions">
+                                <div className="travel-modal-actions">
                                     <button className="confirm-button" onClick={() => handleSavePlace(selectedPlace)}>Lưu</button>
                                     <button className="cancel-button" onClick={handleCloseModal}>Hủy</button>
                                 </div>
@@ -176,4 +222,4 @@ const Travelfree = () => {
     );
 };
 
-export default Travelfree;
+export default TravelPage;
