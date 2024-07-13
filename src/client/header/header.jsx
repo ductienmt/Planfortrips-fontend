@@ -40,7 +40,7 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link to="" className="nav-links">
+            <Link to="/check-in" className="nav-links">
               <i className="fa-solid fa-location-dot"></i>
               Check-in
             </Link>
