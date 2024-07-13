@@ -10,9 +10,19 @@ const instance = axios.create({
 
 export const GetAllCarMakes = async () => {
     const response = await instance.get('/makes?direction=asc&sort=id')
-    console.log(response);
     return response.data;
 }
+
+export const GetModelsByMakeName = async (makeName) => {
+    const response = await instance.get(`models?make=${makeName}&sort=id&direction=asc&year=2020&verbose=yes`);
+    console.log(response.data);
+    return response.data;
+}
+
+export const GetAllMakeByMakeNameContanning = async (makeContainning) => {
+    const response = await instance.get(`makes?limit=8&&direction=asc&sort=id&make=${makeContainning}`);
+    return response.data;
+} 
 
 export const GetAllCarModelsByMakeId = async (makeId) => {
     const response = await instance.get(`/models?verbose=yes&year=2020&sort=id&make_id=${makeId}&direction=asc`)
