@@ -1,220 +1,171 @@
 import React, { useEffect, useState } from "react";
-import { GetAllDistrictByProvinceId, GetAllProvinces, GetAllWardByDistTrictId } from "../../../Api/Api3rd/VnLocationApi";
-import { DNA } from 'react-loader-spinner';
+import { GetAllProvinces, GetAllDistrictByProvinceId, GetAllWardByDistTrictId } from "../../../Api/Api3rd/VnLocationApi";
 
 function EtpHotelForm() {
-  const [loader, setLoader] = useState(false);
-  const [hotel, setHotel] = useState({
-    hotelName: '',
-    hotelDes: '',
-    hotelType: '',
-    thumbnail: '',
-    averagePrice: 0,
-    rating: 0,
-    provinceId: '',
-    districtId: '',
-    wardId: ''
-  });
 
-  const [provinces, setProvinces] = useState([]);
-  const [districts, setDistricts] = useState([]);
-  const [wards, setWards] = useState([]);
+    const [provinces, setProvinces] = useState([]);
+    const [province_id, setProvince_id] = useState('');
 
-  const [hotelTypes] = useState([
-    { hotelTypeId: 1, hotelTypeName: 'Khách sạn' },
-    { hotelTypeId: 2, hotelTypeName: 'Resort' },
-    { hotelTypeId: 3, hotelTypeName: 'Nhà nghỉ' }
-  ]);
+    const [districts, setDistricts] = useState([]);
+    const [district_id, setDistrict_id] = useState('');
 
-  useEffect(() => {
-    setLoader(true);
-    GetAllProvinces().then((res) => {
-      setProvinces(res.results);
-      setLoader(false);
+    const [wards, setWards] = useState([]);
+    const [ward_id, setWard_id] = useState('');
+
+    const cuisineType = [
+        {
+            cuisineTypeId : '1',
+            cuisineTypeName : 'Việt Nam'
+        },
+        {
+            cuisineTypeId : '2',
+            cuisineTypeName : 'Hàn Quốc'
+        },
+        {
+            cuisineTypeId : '3',
+            cuisineTypeName : 'Trung Quốc'
+        },
+    ]
+
+
+    useEffect(() => {
+        GetAllProvinces().then((res) => setProvinces(res.results));
+    }, []);
+
+    useEffect(() => {
+        if (province_id) {
+            GetAllDistrictByProvinceId(province_id).then((res) => setDistricts(res.results));
+        } else {
+            setDistricts([]);
+            setDistrict_id('');
+            setWards([]);
+            setWard_id('');
+        }
+    }, [province_id]);
+
+    useEffect(() => {
+        if (district_id) {
+            GetAllWardByDistTrictId(district_id).then((res) => setWards(res.results));
+        } else {
+            setWards([]);
+            setWard_id('');
+        }
+    }, [district_id]);
+
+    const [hotelData, setHotelData] = useState({
+        hotelName: "",
+        description: "",
+        location: "",
+        starRating: 0,
+        contactEmail: "",
+        contactPhone: "",
+        imageUrl: ""
     });
-  }, []);
 
-  useEffect(() => {
-    if (hotel.provinceId) {
-      setLoader(true);
-      GetAllDistrictByProvinceId(hotel.provinceId).then((res) => {
-        setDistricts(res.results);
-        setLoader(false);
-      });
-      setWards([]);
-    }
-  }, [hotel.provinceId]);
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setHotelData({
+            ...hotelData,
+            [name]: value
+        });
+    };
 
-  useEffect(() => {
-    if (hotel.districtId) {
-      setLoader(true);
-      GetAllWardByDistTrictId(hotel.districtId).then((res) => {
-        setWards(res.results);
-        setLoader(false);
-      });
-    }
-  }, [hotel.districtId]);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Đưa dữ liệu khách sạn (hotelData) đi đâu đó, ví dụ: gửi lên server hoặc xử lý tiếp
+        console.log(hotelData);
+        // Sau khi xử lý xong, có thể làm sạch form
+        setHotelData({
+            hotelName: "",
+            description: "",
+            location: "",
+            starRating: 0,
+            contactEmail: "",
+            contactPhone: "",
+            imageUrl: ""
+        });
+    };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setHotel({
-      ...hotel,
-      [name]: value
-    });
-  };
+    return ( 
+        <div className="container">
+            <h3>Thêm khách sạn</h3>
+            <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                    <label htmlFor="hotelName" className="form-label">Tên khách sạn</label>
+                    <input type="text" className="form-control" id="hotelName" name="hotelName" value={hotelData.hotelName} onChange={handleInputChange} />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="description" className="form-label">Mô tả</label>
+                    <textarea className="form-control" id="description" name="description" value={hotelData.description} onChange={handleInputChange} />
+                </div>
+                <div className="mb-3">
+                <label htmlFor="" className='form-label text-primary'>Địa điểm quán ăn</label>
+                <div className="departure d-flex">
+                    <div className="province me-2">
+                        <select
+                            name="provinceDeparture"
+                            className='form-control'
+                            defaultValue={''}
+                            onChange={(e) => setProvince_id(e.target.value)}
+                        >
+                            <option value="" disabled>Chọn tỉnh</option>
+                            {provinces.map((pv) => (
+                                <option key={pv.province_id} value={pv.province_id}>{pv.province_name}</option>
+                            ))}
+                        </select>
+                    </div>
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission here
-  };
+                    <div className="district me-2">
+                        <select
+                            name="districtDeparture"
+                            className='form-control'
+                            defaultValue={''}
+                            onChange={(e) => setDistrict_id(e.target.value)}
+                        >
+                            <option value="" disabled>Chọn huyện</option>
+                            {districts.map((dt) => (
+                                <option key={dt.district_id} value={dt.district_id}>{dt.district_name}</option>
+                            ))}
+                        </select>
+                    </div>
 
-  return (
-    <>
-      {loader && (
-        <div className="loader position-absolute w-100 h-100 d-flex">
-          <div className="m-auto">
-            <DNA />
-          </div>
-        </div>
-      )}
-      <h5 className="card-title fw-semibold mb-4">Thêm khách sạn</h5>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="hotelName" className="form-label">
-            Tên khách sạn
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="hotelName"
-            name="hotelName"
-            value={hotel.hotelName}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="hotelDes" className="form-label">
-            Mô tả
-          </label>
-          <textarea
-            className="form-control"
-            id="hotelDes"
-            name="hotelDes"
-            value={hotel.hotelDes}
-            onChange={handleInputChange}
-          ></textarea>
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="location" className="form-label">Địa điểm</label>
-          <div className="d-flex">
-            <div className="province me-2">
-              <select
-                className="form-control"
-                id="provinceId"
-                value={hotel.provinceId}
-                onChange={(e) => setHotel({ ...hotel, provinceId: e.target.value })}
-              >
-                <option value="">Chưa chọn Tỉnh / Thành Phố</option>
-                {provinces.map((pv) => (
-                  <option key={pv.province_id} value={pv.province_id}>{pv.province_name}</option>
-                ))}
-              </select>
+                    <div className="ward">
+                        <select
+                            name="wardDeparture"
+                            className='form-control'
+                            defaultValue={''}
+                            onChange={(e) => setWard_id(e.target.value)}
+                        >
+                            <option value="" disabled>Chọn xã</option>
+                            {wards.map((wd) => (
+                                <option key={wd.ward_id} value={wd.ward_id}>{wd.ward_name}</option>
+                            ))}
+                        </select>
+                    </div>
+                </div>
             </div>
 
-            <div className="district me-2">
-              <select
-                className="form-control"
-                id="districtId"
-                value={hotel.districtId}
-                onChange={(e) => setHotel({ ...hotel, districtId: e.target.value })}
-              >
-                <option value="">Chưa chọn Quận / Huyện</option>
-                {districts.map((dt) => (
-                  <option key={dt.district_id} value={dt.district_id}>{dt.district_name}</option>
-                ))}
-              </select>
+            <div className="mb-3">
+                <label htmlFor="" className="form-label text-primary">Địa điểm cụ thể</label>
+                <input type="text" className="form-control" placeholder="Địa chỉ cụ thể bao gồm tỉnh, huyện, xã, tên đường hoặc ghi chú"/>
             </div>
-
-            <div className="ward me-2">
-              <select
-                className="form-control"
-                id="wardId"
-                value={hotel.wardId}
-                onChange={(e) => setHotel({ ...hotel, wardId: e.target.value })}
-              >
-                <option value="">Chưa chọn Phường / Xã</option>
-                {wards.map((wd) => (
-                  <option key={wd.ward_id} value={wd.ward_id}>{wd.ward_name}</option>
-                ))}
-              </select>
-            </div>
-          </div>
+              
+                <div className="mb-3">
+                    <label htmlFor="contactEmail" className="form-label">Email liên hệ</label>
+                    <input type="email" className="form-control" id="contactEmail" name="contactEmail" value={hotelData.contactEmail} onChange={handleInputChange} />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="contactPhone" className="form-label">Số điện thoại liên hệ</label>
+                    <input type="tel" className="form-control" id="contactPhone" name="contactPhone" value={hotelData.contactPhone} onChange={handleInputChange} />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="imageUrl" className="form-label">Ảnh khách sạn</label>
+                    <input type="file" className="form-control" id="imageUrl" name="imageUrl" value={hotelData.imageUrl} onChange={handleInputChange} />
+                </div>
+                <button type="submit" className="btn btn-primary">Thêm</button>
+            </form>
         </div>
-        <div className="mb-3">
-          <label htmlFor="hotelType" className="form-label">
-            Loại khách sạn
-          </label>
-          <select
-            className="form-control"
-            id="hotelType"
-            name="hotelType"
-            value={hotel.hotelType}
-            onChange={handleInputChange}
-          >
-            <option value="">Chọn loại khách sạn</option>
-            {hotelTypes.map((ht) => (
-              <option key={ht.hotelTypeId} value={ht.hotelTypeId}>
-                {ht.hotelTypeName}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="thumbnail" className="form-label">
-            Hình ảnh đại diện
-          </label>
-          <input
-            type="file"
-            className="form-control"
-            id="thumbnail"
-            name="thumbnail"
-            value={hotel.thumbnail}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="averagePrice" className="form-label">
-            Giá trung bình
-          </label>
-          <input
-            type="number"
-            className="form-control"
-            id="averagePrice"
-            name="averagePrice"
-            value={hotel.averagePrice}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="rating" className="form-label">
-            Đánh giá
-          </label>
-          <input
-            type="number"
-            className="form-control"
-            id="rating"
-            name="rating"
-            value={hotel.rating}
-            onChange={handleInputChange}
-          />
-        </div>
-        <button type="submit" className="btn btn-primary mt-3">
-          Thêm khách sạn
-        </button>
-      </form>
-    </>
-  );
+    );
 }
 
 export default EtpHotelForm;

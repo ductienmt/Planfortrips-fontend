@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import styles from "./detailFood.module.css";
 import Stack from "@mui/material/Stack";
@@ -69,7 +69,9 @@ export function DetailFood() {
     const fullscreenImage = document.getElementById("fullscreen-image");
     fullscreenImage.classList.remove(styles.show);
   };
-
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  },[]);
   return (
     <main className={styles.detail} style={{ marginTop: "150px" }}>
       <div className="container">
