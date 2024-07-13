@@ -1,0 +1,40 @@
+.body-login {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.login-container {
+    margin-top: 8rem;
+}
+
+.body-login .form-login .form-title h1 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.body-login .form-login .form-title p {
+    font-size: 0.8rem;
+}
+
+.form-login .remember-fogot {
+    display: flex;
+    justify-content: space-between;
+    /* margin-bottom: 1rem; */
+}
+
+.form-footer button {
+    width: 100%;
+    font-size: 1.2rem;
+    margin: 1rem 0 1rem 0;
+    border-radius: 0;
+}
+
+.form-footer a {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+.login-container a {
+    color: #5A6A85;
+}

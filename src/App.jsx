@@ -9,9 +9,6 @@ import FoodPage from "./client/food/FoodPage";
 import Footer from "./client/footer/footer";
 import Hotel from "./client/hotel/hotel";
 import EnterpriseIndex from "./Enterprise/EnterpriseIndex";
-
-
-
 import { TransportPage } from "./client/transport/transportPage";
 import FlightItemPage from "./client/transport/formFlight/flightItem/FlightItemPage";
 import EtpVehicleList from "./Enterprise/components/List/EtpVehicleList";
@@ -22,14 +19,10 @@ import EtpNewsIndex from "./Enterprise/components/News/EtpNewsIndex";
 import EtpVehicleHome from "./Enterprise/components/Home/EtpVehicleHome";
 import EtpRestaurantHome from "./Enterprise/components/Home/EtpRestaurantHome";
 import EtpHotelHome from "./Enterprise/components/Home/EtpHotelHome";
+import DetailCard from "./client/hotel/detailHotel/detailCard";
 import EtpLogin from "./Enterprise/components/EtpLogin";
-import Content from "./components/Content";
-import FeedbackPage from "./components/FeedbackPage";
-import TransactionPage from "./components/TransactionPage";
-import BusinessPage from "./components/BusinessPage";
-import StatisticsPage from "./components/StatisticsPage";
-import TravelfreePage from "./components/Travelfree";
-import HotPage from "./components/HotPage";
+
+import Login from "./client/login/login";
 import EtpVehicleForm from "./Enterprise/components/Form/EtpVehicleForm";
 import EtpBusesForm from "./Enterprise/components/Form/EtpBusesForm";
 import EtpBusesList from "./Enterprise/components/List/EtpBusesList";
@@ -40,7 +33,7 @@ import EtpHotelDetail from "./Enterprise/components/Detai/EtpHotelDetai";
 import EtpCarDetail from "./Enterprise/components/Detai/EtpCarDetail";
 
 
-// import Content from './components/Content';
+import Content from './components/Content';
 import Userlist from './components/Userlist'
 import FeedbackPage from './components/FeedbackPage';
 import TransactionPage from './components/TransactionPage';
@@ -49,12 +42,13 @@ import StatisticsPage from './components/StatisticsPage';
 import TravelfreePage from './components/Travelfree';
 import HotPage from './components/HotPage'
 
+
 function App() {
   const location = useLocation();
 
   return (
     <>
-      {!location.pathname.includes("/enterprise") && <Header />}
+      {!location.pathname.includes("/enterprise") && !location.pathname.includes("/admin") && <Header />}
       <Routes>
         <Route path="/" element={<LandingPage />} />
 
@@ -118,25 +112,25 @@ function App() {
         <Route path="" element={<TransportPage />}></Route>
         <Route path="item" element={<FlightItemPage />}></Route>
         </Route>
-  <Route path='/admin' element={<StatisticsPage />} />
 
-        <Route path='/admin/userlist' element={<Userlist />} />
-
-        <Route path='/admin/transaction' element={<TransactionPage />} />
-
-        <Route path='/admin/business' element={<BusinessPage />} />
-
-        <Route path='/admin/feedback' element={<FeedbackPage />} />
-
-        <Route path='/admin/travelfree' element={<TravelfreePage />} />
-
-        <Route path='/admin/hot' element={<HotPage />} />
+        <Route path="/admin">
+          <Route path="" element={<StatisticsPage />} />
+          <Route path="transaction" element={<TransactionPage />} />
+          <Route path="content" element={<Content />} />
+          <Route path="business" element={<BusinessPage />} />
+          <Route path="feedback" element={<FeedbackPage />} />
+          <Route path="travelfree" element={<TravelfreePage />} />
+          <Route path="hot" element={<HotPage />} />
+        </Route>
+        <Route path="/login">
+          <Route path="" element={<Login />} />
+        </Route>
       </Routes>
 
       
 
       {!location.pathname.includes("/enterprise") &&
-        !location.pathname.includes("/food") && <Footer />}
+        !location.pathname.includes("/food") &&  !location.pathname.includes("/admin") &&<Footer />}
     </>
   );
 }
