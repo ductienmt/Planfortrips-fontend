@@ -32,7 +32,6 @@ import EtpHotelForm from "./Enterprise/components/Form/EtpHotelForm";
 import EtpHotelDetail from "./Enterprise/components/Detai/EtpHotelDetai";
 import EtpCarDetail from "./Enterprise/components/Detai/EtpCarDetail";
 
-
 import Content from './components/Content';
 import Userlist from './components/Userlist'
 import FeedbackPage from './components/FeedbackPage';
@@ -43,74 +42,79 @@ import TravelfreePage from './components/Travelfree';
 import HotPage from './components/HotPage'
 
 
+
 function App() {
   const location = useLocation();
 
   return (
     <>
-      {!location.pathname.includes("/enterprise") && !location.pathname.includes("/admin") && <Header />}
+      {!location.pathname.includes("/enterprise") &&
+        !location.pathname.includes("/admin") && <Header />}
       <Routes>
         <Route path="/" element={<LandingPage />} />
 
-
         {/* Begin Route Enterprise */}
-        <Route path="/enterprise" element={<EnterpriseIndex/>}>
-            {/* <Route index element={<EtpHome/>}></Route> */}
-            
-            {/* Route Etp-Vehicle */}
-            <Route path="vehicle">
-              <Route index element={<EtpVehicleHome/>}></Route>
-              <Route path="create" element={<EtpVehicleForm/>}></Route>
-              <Route path="list" element={<EtpVehicleList/>}></Route>
-              <Route path="buses">
-                <Route index element={<EtpBusesList/>}></Route>
-                <Route path="create" element={<EtpBusesForm/>}></Route>
-              </Route>
+        <Route path="/enterprise" element={<EnterpriseIndex />}>
+          {/* <Route index element={<EtpHome/>}></Route> */}
 
-              <Route path="detail">
-                <Route path="car/:carId" element={<EtpCarDetail/>}></Route>
-                <Route path="plane/:planeId"></Route>
-              </Route>
-            </Route>
-            
-            {/* Route Etp-Post */}
-            <Route path="post">
-              <Route path="list" element={<EtpPostList/>}></Route>
+          {/* Route Etp-Vehicle */}
+          <Route path="vehicle">
+            <Route index element={<EtpVehicleHome />}></Route>
+            <Route path="create" element={<EtpVehicleForm />}></Route>
+            <Route path="list" element={<EtpVehicleList />}></Route>
+            <Route path="buses">
+              <Route index element={<EtpBusesList />}></Route>
+              <Route path="create" element={<EtpBusesForm />}></Route>
             </Route>
 
-            <Route path="login" element={<EtpLogin/>}></Route>
-
-           
-            {/* Route Etp-Restaurant */}
-            <Route path="restaurant">
-              <Route index element={<EtpRestaurantHome/>}></Route>
-              <Route path="create" element={<EtpRestaurantForm/>}></Route>
-              <Route path="list" element={<EtpRestaurantList/>}></Route>
-              <Route path="detail/:rtrId" element={<EtpRestaurantDetail/>}></Route>
+            <Route path="detail">
+              <Route path="car/:carId" element={<EtpCarDetail />}></Route>
+              <Route path="plane/:planeId"></Route>
             </Route>
+          </Route>
 
-            <Route path="news">
-              <Route index element={<EtpNewsIndex/>}></Route>
-            </Route>
-              {/* Route Etp-Hotel */}
-              <Route path="hotel">
-                <Route index element={<EtpHotelHome/>}></Route>
-                <Route path="create" element={<EtpHotelForm/>}></Route>
-                <Route path="detail/:hId" element={<EtpHotelDetail/>}></Route>
-              <Route path="list" element={<EtpHotelList/>}></Route>
-            </Route>
+          {/* Route Etp-Post */}
+          <Route path="post">
+            <Route path="list" element={<EtpPostList />}></Route>
+          </Route>
 
-            </Route>
+          <Route path="login" element={<EtpLogin />}></Route>
 
+          {/* Route Etp-Restaurant */}
+          <Route path="restaurant">
+            <Route index element={<EtpRestaurantHome />}></Route>
+            <Route path="create" element={<EtpRestaurantForm />}></Route>
+            <Route path="list" element={<EtpRestaurantList />}></Route>
+            <Route
+              path="detail/:rtrId"
+              element={<EtpRestaurantDetail />}
+            ></Route>
+          </Route>
 
-        <Route path="/hotel" element={<Hotel />} />
+          <Route path="news">
+            <Route index element={<EtpNewsIndex />}></Route>
+          </Route>
+          {/* Route Etp-Hotel */}
+          <Route path="hotel">
+            <Route index element={<EtpHotelHome />}></Route>
+            <Route path="create" element={<EtpHotelForm />}></Route>
+            <Route path="detail/:hId" element={<EtpHotelDetail />}></Route>
+            <Route path="list" element={<EtpHotelList />}></Route>
+          </Route>
+        </Route>
+
+        <Route path="/hotel">
+          <Route path="" element={<Hotel />}></Route>
+          <Route path="detail" element={<DetailCard />}></Route>
+        </Route>
+
         <Route path="food">
           <Route path="" element={<FoodPage />}></Route>
           {/* <Route path="detail" element={<DetailFood />} />          */}
         </Route>
         <Route path="transport">
-        <Route path="" element={<TransportPage />}></Route>
-        <Route path="item" element={<FlightItemPage />}></Route>
+          <Route path="" element={<TransportPage />}></Route>
+          <Route path="item" element={<FlightItemPage />}></Route>
         </Route>
 
         <Route path="/admin">
@@ -130,7 +134,8 @@ function App() {
       
 
       {!location.pathname.includes("/enterprise") &&
-        !location.pathname.includes("/food") &&  !location.pathname.includes("/admin") &&<Footer />}
+        !location.pathname.includes("/food") &&
+        !location.pathname.includes("/admin") && <Footer />}
     </>
   );
 }
