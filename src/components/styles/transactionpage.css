@@ -1,0 +1,165 @@
+.dashboard--content {
+    background: #fff;
+    flex: 1;
+    border-radius: 20px;
+    padding: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: space-evenly;
+}
+
+/* userlist.css */
+
+.userlist-container {
+    padding: 20px;
+}
+
+.header {
+    position: relative;
+    /* Đặt vị trí tương đối để chứa phần tử tuyệt đối */
+    display: flex;
+    align-items: center;
+}
+
+.add-user-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    /* Đặt vị trí tuyệt đối */
+    right: 0;
+    /* Di chuyển nút sang bên trái */
+}
+
+.userlist-card {
+    margin-top: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.actions .view-button,
+.actions .edit-button,
+.actions .delete-button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.view-button {
+    background-color: #2196F3;
+    color: white;
+}
+
+.edit-button {
+    background-color: #FFC107;
+    color: white;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.profile-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-start;
+    /* Căn chỉnh các nút sang trái */
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.confirm-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}

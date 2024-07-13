@@ -37,6 +37,7 @@
     padding: 0 1.2rem;
     font-size: 1.1rem;
     border: none;
+    background-color: var(--background-color);
 }
 
 .form-hotel .input-custom-hotel input:focus {
@@ -67,6 +68,7 @@
     list-style: none;
     margin-top: 1rem;
     padding: 0;
+    z-index: 1111;
 }
 
 .suggestions-list li {
@@ -246,8 +248,8 @@
 }
 
 .custom-btn-hotel {
-    color: white;
-    background-color: var(--success-btn-color);
+    color: white !important;
+    background-color: var(--success-btn-color) !important;
 }
 
 .custom-btn-hotel:hover {
@@ -259,4 +261,86 @@
     /* font-size: 1.2rem;
     font-weight: 600; */
     display: none;
+}
+
+.custom-filter h1 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.price-range {
+    font-weight: 600;
+}
+
+.form-check-label {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 1230px) {
+    .form-hotel {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .form-hotel .input-custom-hotel {
+        width: 100%;
+    }
+
+    .form-hotel .input-custom-hotel input {
+        width: 100%;
+    }
+
+    .form-hotel .input-custom-hotel .suggestions-list {
+        width: 100%;
+    }
+
+    .guest-options {
+        width: 100%;
+    }
+
+    .select-category {
+        width: 100%;
+    }
+
+    .select-category .col-md-4 {
+        padding: 0.5rem;
+    }
+
+    .hotel-list {
+        width: 100%;
+    }
+
+    .column-sort {
+        width: 100%;
+    }
+
+    .pagination {
+        width: 100%;
+    }
+
+    .custom-btn-hotel {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .hide-text-search-hotel {
+        display: block;
+    }
+
+    .custom-filter h1 {
+        font-size: 1.5rem;
+    }
+
+    .price-range {
+        font-size: 1rem;
+    }
+
+    .form-check-label {
+        font-size: 0.9rem;
+    }
+
+    .guest-options {
+        width: 92%;
+    }
 }
