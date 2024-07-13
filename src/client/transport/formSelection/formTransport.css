@@ -1,0 +1,88 @@
+.container {
+  width: 100%;
+  background-color: var(--background-paper);
+  margin-top: 120px;
+  margin-bottom: 200px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #fff;
+}
+
+.tab {
+  color: #fff;
+  position: relative;
+  border: none;
+  outline: none;
+}
+
+.tab .borderBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: transparent;
+  transition: height 0.3s, background-color 0.3s;
+}
+
+.tab:hover .borderBottom {
+  height: 4px; /* Set height for bottom border line */
+  background-color: #3b82f6; /* Color for bottom border line */
+}
+
+.tab.Mui-selected .borderBottom {
+  height: 4px; /* Set height for bottom border line */
+  background-color: #3b82f6; /* Color for bottom border line */
+} /* Center icon and add margin-bottom */
+.icon-center {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.custom-tab {
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  font-weight: 600;
+  width: 200px;
+  min-height: 64px;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  
+}
+
+.custom-tab.Mui-selected {
+  background-color: white;
+  color: black !important;
+  border: 1px solid transparent;
+}
+.navBtn {
+  border: none;
+  outline: none;
+  position: relative;
+}
+
+.navBtn .borderBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: transparent;
+  transition: height 0.3s, background-color 0.3s;
+}
+
+.navBtn:hover .borderBottom {
+  height: 4px; /* Set tinggi garis border bawah */
+  background-color: #3b82f6; /* Warna garis border */
+}
+
+.navBtn.active .borderBottom {
+  height: 4px; /* Set tinggi garis border bawah */
+  background-color: #3b82f6; /* Warna garis border */
+}

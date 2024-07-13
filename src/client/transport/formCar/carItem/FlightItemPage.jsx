@@ -1,11 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import styles from "./foodpage.module.css";
+import styles from "./flightItemPage.module.css";
 import Dashboardleft from "./Dashboardleft";
 import { Box } from "@mui/material";
-import { FoodItem } from "./FoodItem";
-import {Loading} from "../../components/Loading/Loading"
-const FoodPage = () => {
+import { FlightItem } from "./FlightItem";
+const FlightItemPage = () => {
   const [loading, setLoading] = useState(false);
   const handlechangecheck = () => {};
   useEffect(() => {
@@ -19,7 +18,6 @@ const FoodPage = () => {
 
   return (
     <>
-      {loading ? (
         <div style={{marginTop:'110px'}}>
           <Box className={styles.root}>
             <Box className={styles.root1}>
@@ -28,21 +26,18 @@ const FoodPage = () => {
 
             <div className={styles.hotelpaper}>
               <Box className={styles.root3}>
-                <FoodItem/>
-                <FoodItem/>
-                <FoodItem/>
-                <FoodItem/>
-                <FoodItem/>
-                <FoodItem/>
+                <FlightItem/>
+                <FlightItem/>
+                <FlightItem/>
+                <FlightItem/>
+                <FlightItem/>
+                <FlightItem/>
               </Box>
             </div>
           </Box>
         </div>
-      ) : (
-        <Loading />
-      )}
     </>
   );
 };
 
-export default FoodPage;
+export default FlightItemPage;

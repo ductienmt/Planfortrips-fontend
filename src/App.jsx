@@ -9,6 +9,11 @@ import FoodPage from "./client/food/FoodPage";
 import Footer from "./client/footer/footer";
 import Hotel from "./client/hotel/hotel";
 import EnterpriseIndex from "./Enterprise/EnterpriseIndex";
+
+
+
+import { TransportPage } from "./client/transport/transportPage";
+import FlightItemPage from "./client/transport/formFlight/flightItem/FlightItemPage";
 import EtpVehicleList from "./Enterprise/components/List/EtpVehicleList";
 import EtpPostList from "./Enterprise/components/List/EtpPostList";
 import EtpRestaurantList from "./Enterprise/components/List/EtpRetaunrantList";
@@ -35,6 +40,7 @@ import EtpHotelDetail from "./Enterprise/components/Detai/EtpHotelDetai";
 import EtpCarDetail from "./Enterprise/components/Detai/EtpCarDetail";
 
 
+
 function App() {
   const location = useLocation();
 
@@ -43,6 +49,7 @@ function App() {
       {!location.pathname.includes("/enterprise") && <Header />}
       <Routes>
         <Route path="/" element={<LandingPage />} />
+
 
         {/* Begin Route Enterprise */}
         <Route path="/enterprise" element={<EnterpriseIndex/>}>
@@ -93,10 +100,15 @@ function App() {
 
             </Route>
 
+
         <Route path="/hotel" element={<Hotel />} />
         <Route path="food">
           <Route path="" element={<FoodPage />}></Route>
           {/* <Route path="detail" element={<DetailFood />} />          */}
+        </Route>
+        <Route path="transport">
+        <Route path="" element={<TransportPage />}></Route>
+        <Route path="item" element={<FlightItemPage />}></Route>
         </Route>
       </Routes>
 
