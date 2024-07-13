@@ -21,13 +21,7 @@ import EtpRestaurantHome from "./Enterprise/components/Home/EtpRestaurantHome";
 import EtpHotelHome from "./Enterprise/components/Home/EtpHotelHome";
 import DetailCard from "./client/hotel/detailHotel/detailCard";
 import EtpLogin from "./Enterprise/components/EtpLogin";
-import Content from "./components/Content";
-import FeedbackPage from "./components/FeedbackPage";
-import TransactionPage from "./components/TransactionPage";
-import BusinessPage from "./components/BusinessPage";
-import StatisticsPage from "./components/StatisticsPage";
-import TravelfreePage from "./components/Travelfree";
-import HotPage from "./components/HotPage";
+
 import Login from "./client/login/login";
 import EtpVehicleForm from "./Enterprise/components/Form/EtpVehicleForm";
 import EtpBusesForm from "./Enterprise/components/Form/EtpBusesForm";
@@ -37,6 +31,17 @@ import EtpRestaurantDetail from "./Enterprise/components/Detai/EtpRestaurantDeta
 import EtpHotelForm from "./Enterprise/components/Form/EtpHotelForm";
 import EtpHotelDetail from "./Enterprise/components/Detai/EtpHotelDetai";
 import EtpCarDetail from "./Enterprise/components/Detai/EtpCarDetail";
+
+import Content from './components/Content';
+import Userlist from './components/Userlist'
+import FeedbackPage from './components/FeedbackPage';
+import TransactionPage from './components/TransactionPage';
+import BusinessPage from './components/BusinessPage';
+import StatisticsPage from './components/StatisticsPage';
+import TravelfreePage from './components/Travelfree';
+import HotPage from './components/HotPage'
+
+
 
 function App() {
   const location = useLocation();
@@ -111,6 +116,7 @@ function App() {
           <Route path="" element={<TransportPage />}></Route>
           <Route path="item" element={<FlightItemPage />}></Route>
         </Route>
+
         <Route path="/admin">
           <Route path="" element={<StatisticsPage />} />
           <Route path="transaction" element={<TransactionPage />} />
@@ -124,6 +130,8 @@ function App() {
           <Route path="" element={<Login />} />
         </Route>
       </Routes>
+
+      
 
       {!location.pathname.includes("/enterprise") &&
         !location.pathname.includes("/food") &&
