@@ -2,14 +2,23 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import avartar from '../assets/images/pexels-photo-1162361-removebg-preview.png';
 import logoBrand from '../assets/images/planfortrips-logo.png';
+import EtpVehicle_Nav from '../components/Nav/EtpVehicle_Nav';
+import EtpRestaurant_Nav from '../components/Nav/EtpRestaurant_Nav';
+import EtpHotel_Nav from '../components/Nav/EtpHotel_Nav';
 
 function EtpSideBar() {
   const typeEtp = sessionStorage.getItem('typeEtp')
+  const Mylocation = useLocation();
 
 
   const isActive = (path) => {
-    return location.pathname === path ? 'sidebar-link active' : 'sidebar-link';
+    return Mylocation.pathname.endsWith(path) ? 'sidebar-link active' : 'sidebar-link';
   };
+
+  const clclcss = (path) => {
+    console.log(location.pathname);
+    console.log(path);
+  }
 
   const navi = useNavigate()
   useEffect(() => {
@@ -39,7 +48,7 @@ function EtpSideBar() {
                 <span className="hide-menu">Thông tin</span>
               </li>
               <li className="sidebar-item">
-                <Link className={isActive('/')} to="">
+                <Link className={isActive('enterprise')} to="">
                   <span>
                     <i className="ti ti-layout-dashboard" />
                   </span>
@@ -47,7 +56,7 @@ function EtpSideBar() {
                 </Link>
               </li>
               <li className="sidebar-item">
-                <Link className={isActive('/news')} to="news">
+                <Link className={isActive('/news')} to="news" onClick={() => clclcss('news')}>
                   <span>
                     <i className="ti ti-news"></i>
                   </span>
@@ -59,85 +68,11 @@ function EtpSideBar() {
                 <span className="hide-menu">Tài nguyên</span>
               </li>
 
-              {typeEtp === 'vehicle' && (
-                <>
-                  {/* Nav Phương Tiện */}
-                  <li className="nav-small-cap">
-                    <i className="ti ti-dots nav-small-cap-icon fs-4" />
-                    <span className="hide-menu">Phương tiện</span>
-                  </li>
-                  <li className="sidebar-item">
-                    <Link className={isActive(`${typeEtp}/create`)} to={`${typeEtp}/create`}>
-                      <span>
-                        <i className="ti ti-circle-plus"></i>
-                      </span>
-                      <span className="hide-menu">Thêm phương tiện</span>
-                    </Link>
-                  </li>
-                  <li className="sidebar-item">
-                    <Link className={isActive(`${typeEtp}/list`)} to={`${typeEtp}/list`}>
-                      <span>
-                        <i className="ti ti-car"></i>
-                      </span>
-                      <span className="hide-menu">Danh sách phương tiện</span>
-                    </Link>
-                  </li>
-                </>
-              )}
+              {typeEtp === 'vehicle' && <EtpVehicle_Nav isActive={isActive} typeEtp={typeEtp}/>}
 
-
-
-              {typeEtp === 'restaurant'&& (
-                <>
-                     {/* Nav Đồ Ăn */}
-              <li className="nav-small-cap">
-                <i className="ti ti-dots nav-small-cap-icon fs-4" />
-                <span className="hide-menu">Quán ăn</span>
-              </li>
-              <li className="sidebar-item">
-                <Link className={isActive(`${typeEtp}/create`)} to={`${typeEtp}/create`}>
-                  <span>
-                    <i className="ti ti-circle-plus"></i>
-                  </span>
-                  <span className="hide-menu">Thêm quán ăn</span>
-                </Link>
-              </li>
-              <li className="sidebar-item">
-                <Link className={isActive(`${typeEtp}/list`)} to={`${typeEtp}/list`}>
-                  <span>
-                    <i className="ti ti-soup"></i>
-                  </span>
-                  <span className="hide-menu">Danh sách quán ăn</span>
-                </Link>
-              </li>
-                </>
-              )}
+              {typeEtp === 'restaurant'&& <EtpRestaurant_Nav isActive={isActive} typeEtp={typeEtp}/>}
            
-           {typeEtp === 'hotel' && (
-            <>
-               {/* Nav Phương Tiện */}
-               <li className="nav-small-cap">
-                <i className="ti ti-dots nav-small-cap-icon fs-4" />
-                <span className="hide-menu">Khách sạn</span>
-              </li>
-              <li className="sidebar-item">
-                <Link className={isActive(`${typeEtp}/create`)} to={`${typeEtp}/create`}>
-                  <span>
-                    <i className="ti ti-circle-plus"></i>
-                  </span>
-                  <span className="hide-menu">Thêm khách sạn</span>
-                </Link>
-              </li>
-              <li className="sidebar-item">
-                <Link className={isActive(`${typeEtp}/list`)} to={`${typeEtp}/list`}>
-                  <span>
-                    <i class="ti ti-window"></i>
-                  </span>
-                  <span className="hide-menu">Danh sách khách sạn</span>
-                </Link>
-              </li>
-            </>
-           )}
+              {typeEtp === 'hotel' && <EtpHotel_Nav isActive={isActive} typeEtp={typeEtp}/>}
 
            
 
