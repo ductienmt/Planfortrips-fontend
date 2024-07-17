@@ -33,13 +33,14 @@ import EtpHotelDetail from "./Enterprise/components/Detai/EtpHotelDetai";
 import EtpCarDetail from "./Enterprise/components/Detai/EtpCarDetail";
 
 // import Content from "./components/Content";
-// import Userlist from "./components/Userlist";
-// import FeedbackPage from "./components/FeedbackPage";
-// import TransactionPage from "./components/TransactionPage";
-// import BusinessPage from "./components/BusinessPage";
-// import StatisticsPage from "./components/StatisticsPage";
-// import TravelfreePage from "./components/Travelfree";
-// import HotPage from "./components/HotPage";
+
+import Userlist from "./components/Userlist";
+import FeedbackPage from "./components/FeedbackPage";
+import TransactionPage from "./components/TransactionPage";
+import BusinessPage from "./components/BusinessPage";
+import StatisticsPage from "./components/StatisticsPage";
+import TravelfreePage from "./components/Travelfree";
+// import HotPage from './components/HotPage'
 
 function App() {
   const location = useLocation();
@@ -115,15 +116,16 @@ function App() {
           <Route path="item" element={<FlightItemPage />}></Route>
         </Route>
 
-        {/* <Route path="/admin">
+        <Route path="/admin">
           <Route path="" element={<StatisticsPage />} />
           <Route path="transaction" element={<TransactionPage />} />
-          <Route path="content" element={<Content />} />
+          {/* <Route path="content" element={<Content />} /> */}
           <Route path="business" element={<BusinessPage />} />
           <Route path="feedback" element={<FeedbackPage />} />
           <Route path="travelfree" element={<TravelfreePage />} />
-          <Route path="hot" element={<HotPage />} />
-        </Route> */}
+
+          {/* <Route path="hot" element={<HotPage />} /> */}
+        </Route>
         <Route path="/login">
           <Route path="" element={<Login />} />
         </Route>

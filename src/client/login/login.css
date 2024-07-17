@@ -28,6 +28,9 @@
     font-size: 1.2rem;
     margin: 1rem 0 1rem 0;
     border-radius: 0;
+    background-color: var(--success-btn-color);
+    color: var(--background-color);
+    height: 50px;
 }
 
 .form-footer a {
@@ -37,4 +40,44 @@
 
 .login-container a {
     color: #5A6A85;
+}
+
+.image-login img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.social-login .button-login-social-network {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    gap: 20px;
+    text-align: center;
+
+}
+
+.social-login .button-login-social-network a {
+    outline: 2px solid var(--success-btn-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.social-login .button-login-social-network a i {
+    margin-left: 20px;
 }
