@@ -1,0 +1,88 @@
+.stepper-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.stepper-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    flex: 1;
+}
+
+.stepper-item::before,
+.stepper-item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    background-color: #ddd;
+    width: 100%;
+    z-index: -1;
+}
+
+.stepper-item::before {
+    left: -50%;
+}
+
+.stepper-item::after {
+    right: -50%;
+}
+
+.stepper-item:first-child::before {
+    display: none;
+}
+
+.stepper-item:last-child::after {
+    display: none;
+}
+
+.stepper-item.completed::before,
+.stepper-item.completed::after {
+    background-color: #28a745;
+}
+
+.stepper-item.active::before,
+.stepper-item.active::after {
+    background-color: #007bff;
+}
+
+.step-counter {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.stepper-item.completed .step-counter {
+    border-color: #28a745;
+    color: #28a745;
+}
+
+.stepper-item.active .step-counter {
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.step-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #6c757d;
+}
+
+.stepper-item.completed .step-name {
+    color: #28a745;
+}
+
+.stepper-item.active .step-name {
+    color: #007bff;
+}
