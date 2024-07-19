@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Sidebar from './Sidebar';
-import './styles/feedbackpage.css';
+import Sidebar from './Sidebar'
+import './styles/userlist.css';
 
 const FeedbackPage = () => {
     const [feedbacks] = useState([
@@ -8,7 +8,13 @@ const FeedbackPage = () => {
         { id: 2, user: 'Le Thi B', email: 'b@example.com', content: 'Phản hồi B', date: '2024-07-02' },
         { id: 3, user: 'Tran Van C', email: 'c@example.com', content: 'Phản hồi C', date: '2024-07-03' },
         { id: 4, user: 'Nguyen Thi D', email: 'd@example.com', content: 'Phản hồi D', date: '2024-07-04' },
-        { id: 5, user: 'Le Van E', email: 'e@example.com', content: 'Phản hồi E', date: '2024-07-05' }
+        { id: 5, user: 'Le Van E', email: 'e@example.com', content: 'Phản hồi E', date: '2024-07-05' },
+        { id: 1, user: 'Nguyen Van A', email: 'a@example.com', content: 'Phản hồi A', date: '2024-07-01' },
+        { id: 2, user: 'Le Thi B', email: 'b@example.com', content: 'Phản hồi B', date: '2024-07-02' },
+        { id: 3, user: 'Tran Van C', email: 'c@example.com', content: 'Phản hồi C', date: '2024-07-03' },
+        { id: 4, user: 'Nguyen Thi D', email: 'd@example.com', content: 'Phản hồi D', date: '2024-07-04' },
+        { id: 5, user: 'Le Van E', email: 'e@example.com', content: 'Phản hồi E', date: '2024-07-05' },
+        // Thêm nhiều phản hồi ở đây
     ]);
 
     const [isViewModalOpen, setIsViewModalOpen] = useState(false);
@@ -30,17 +36,18 @@ const FeedbackPage = () => {
     };
 
     return (
-        <div className='feedbackpage'>
+        <div className='dashboard'>
             <Sidebar />
-            <div className='feedbackpage--content'>
-                <div className="feedbackpage-container">
-                    <div className="feedbackpage-header">
+            <div className='dashboard--content'>
+                <div className="userlist-container">
+                    <div className="header">
+                        <button className="add-user-button" onClick={handleAddFeedback}>Thêm Phản Hồi</button>
                         <h1>Danh Sách Phản Hồi</h1>
-                        <button className="feedbackpage-add-button" onClick={handleAddFeedback}>Thêm Phản Hồi</button>
                     </div>
-                    <div className="feedbackpage-card">
-                        <div className="feedbackpage-table-responsive">
-                            <table className="feedbackpage-table">
+                    <div className="userlist-card">
+                        <h3 className="title">Danh Sách Phản Hồi</h3>
+                        <div className="table-responsive">
+                            <table className="table">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -59,21 +66,21 @@ const FeedbackPage = () => {
                                             <td>{feedback.email}</td>
                                             <td>{feedback.content}</td>
                                             <td>{feedback.date}</td>
-                                            <td className="feedbackpage-actions">
+                                            <td className="actions">
                                                 <button
-                                                    className="feedbackpage-view-button"
+                                                    className="view-button"
                                                     onClick={() => handleViewFeedback(feedback)}
                                                 >
                                                     Xem
                                                 </button>
                                                 <button
-                                                    className="feedbackpage-edit-button"
+                                                    className="edit-button"
                                                     onClick={handleEditFeedback}
                                                 >
                                                     Chỉnh Sửa
                                                 </button>
                                                 <button
-                                                    className="feedbackpage-delete-button"
+                                                    className="delete-button"
                                                     onClick={() => alert('Xóa phản hồi')}
                                                 >
                                                     Xóa
@@ -88,21 +95,21 @@ const FeedbackPage = () => {
 
                     {/* View Feedback Modal */}
                     {isViewModalOpen && selectedFeedback && (
-                        <div className="feedbackpage-modal">
-                            <div className="feedbackpage-modal-content">
-                                <button className="feedbackpage-close-button" onClick={handleCloseModal}>×</button>
+                        <div className="profile-modal">
+                            <div className="modal-content">
+                                <button className="close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Thông Tin Phản Hồi</h2>
-                                <div className="feedbackpage-info">
+                                <div className="profile-info">
                                     <p><strong>ID:</strong> {selectedFeedback.id}</p>
                                     <p><strong>Người Dùng:</strong> {selectedFeedback.user}</p>
                                     <p><strong>Email:</strong> {selectedFeedback.email}</p>
                                     <p><strong>Nội Dung:</strong> {selectedFeedback.content}</p>
                                     <p><strong>Ngày:</strong> {selectedFeedback.date}</p>
                                 </div>
-                                <div className="feedbackpage-modal-actions">
-                                    <button className="feedbackpage-edit-button" onClick={handleEditFeedback}>Chỉnh Sửa</button>
-                                    <button className="feedbackpage-delete-button" onClick={() => alert('Xóa phản hồi')}>Xóa</button>
-                                    <button className="feedbackpage-cancel-button" onClick={handleCloseModal}>Đóng</button>
+                                <div className="modal-actions">
+                                    <button className="edit-button" onClick={handleEditFeedback}>Chỉnh Sửa</button>
+                                    <button className="delete-button" onClick={() => alert('Xóa phản hồi')}>Xóa</button>
+                                    <button className="cancel-button" onClick={handleCloseModal}>Đóng</button>
                                 </div>
                             </div>
                         </div>
@@ -110,11 +117,11 @@ const FeedbackPage = () => {
 
                     {/* Add Feedback Modal */}
                     {isAddModalOpen && (
-                        <div className="feedbackpage-modal">
-                            <div className="feedbackpage-modal-content">
-                                <button className="feedbackpage-close-button" onClick={handleCloseModal}>×</button>
+                        <div className="profile-modal">
+                            <div className="modal-content">
+                                <button className="close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Thêm Phản Hồi</h2>
-                                <div className="feedbackpage-form-group">
+                                <div className="form-group">
                                     <label>Người Dùng:</label>
                                     <input type="text" placeholder="Nhập tên người dùng" />
                                     <label>Email:</label>
@@ -124,9 +131,9 @@ const FeedbackPage = () => {
                                     <label>Ngày:</label>
                                     <input type="date" placeholder="Nhập ngày phản hồi" />
                                 </div>
-                                <div className="feedbackpage-modal-actions">
-                                    <button className="feedbackpage-confirm-button" onClick={() => alert('Lưu phản hồi')}>Lưu</button>
-                                    <button className="feedbackpage-cancel-button" onClick={handleCloseModal}>Hủy</button>
+                                <div className="modal-actions">
+                                    <button className="confirm-button" onClick={() => alert('Lưu phản hồi')}>Lưu</button>
+                                    <button className="cancel-button" onClick={handleCloseModal}>Hủy</button>
                                 </div>
                             </div>
                         </div>
@@ -134,11 +141,11 @@ const FeedbackPage = () => {
 
                     {/* Edit Feedback Modal */}
                     {isEditModalOpen && (
-                        <div className="feedbackpage-modal">
-                            <div className="feedbackpage-modal-content">
-                                <button className="feedbackpage-close-button" onClick={handleCloseModal}>×</button>
+                        <div className="profile-modal">
+                            <div className="modal-content">
+                                <button className="close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Chỉnh Sửa Phản Hồi</h2>
-                                <div className="feedbackpage-form-group">
+                                <div className="form-group">
                                     <label>Người Dùng:</label>
                                     <input type="text" placeholder="Nhập tên người dùng" />
                                     <label>Email:</label>
@@ -148,9 +155,9 @@ const FeedbackPage = () => {
                                     <label>Ngày:</label>
                                     <input type="date" placeholder="Nhập ngày phản hồi" />
                                 </div>
-                                <div className="feedbackpage-modal-actions">
-                                    <button className="feedbackpage-confirm-button" onClick={() => alert('Lưu phản hồi')}>Lưu</button>
-                                    <button className="feedbackpage-cancel-button" onClick={handleCloseModal}>Hủy</button>
+                                <div className="modal-actions">
+                                    <button className="confirm-button" onClick={() => alert('Lưu phản hồi')}>Lưu</button>
+                                    <button className="cancel-button" onClick={handleCloseModal}>Hủy</button>
                                 </div>
                             </div>
                         </div>

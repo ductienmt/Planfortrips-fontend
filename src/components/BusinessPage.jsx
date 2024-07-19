@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import Sidebar from './Sidebar';
-import './styles/businesspage.css';
+import Sidebar from './Sidebar'
+import './styles/userlist.css';
+// import '../styles/businesspage.css'
 
 const BusinessPage = () => {
     const [businesses] = useState([
@@ -11,7 +12,11 @@ const BusinessPage = () => {
         { id: 5, name: 'Doanh Nghiệp E', owner: 'Le Van E', email: 'e@example.com', phone: '789-123-4560', address: 'Huế' },
         { id: 1, name: 'Doanh Nghiệp A', owner: 'Nguyen Van A', email: 'a@example.com', phone: '123-456-7890', address: 'Hà Nội' },
         { id: 2, name: 'Doanh Nghiệp B', owner: 'Le Thi B', email: 'b@example.com', phone: '987-654-3210', address: 'TP.HCM' },
-        { id: 3, name: 'Doanh Nghiệp C', owner: 'Tran Van C', email: 'c@example.com', phone: '456-789-1230', address: 'Đà Nẵng' }
+        { id: 3, name: 'Doanh Nghiệp C', owner: 'Tran Van C', email: 'c@example.com', phone: '456-789-1230', address: 'Đà Nẵng' },
+        { id: 4, name: 'Doanh Nghiệp D', owner: 'Nguyen Thi D', email: 'd@example.com', phone: '654-321-0987', address: 'Hải Phòng' },
+        { id: 5, name: 'Doanh Nghiệp E', owner: 'Le Van E', email: 'e@example.com', phone: '789-123-4560', address: 'Huế' },
+        // Thêm nhiều doanh nghiệp ở đây
+        // Thêm nhiều doanh nghiệp ở đây
     ]);
 
     const [isViewModalOpen, setIsViewModalOpen] = useState(false);
@@ -33,19 +38,18 @@ const BusinessPage = () => {
     };
 
     return (
-        <div className='businesspage'>
+        <div className='daschboard'>
             <Sidebar />
-            <div className='businesspage-content'>
-                <div className="businesspage-container">
-                    <div className="businesspage-header">
+            <div className='dashboard--content'>
+                <div className="userlist-container">
+                    <div className="header">
+                        <button className="add-user-button" onClick={handleAddBusiness}>Thêm Doanh Nghiệp</button>
                         <h1>Danh Sách Doanh Nghiệp</h1>
-                        <button className="businesspage-add-button" onClick={handleAddBusiness}>Thêm Doanh Nghiệp</button>
-
                     </div>
-                    <div className="businesspage-card">
+                    <div className="userlist-card">
 
-                        <div className="businesspage-table-responsive">
-                            <table className="businesspage-table">
+                        <div className="table-responsive">
+                            <table className="table">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -66,21 +70,21 @@ const BusinessPage = () => {
                                             <td>{business.email}</td>
                                             <td>{business.phone}</td>
                                             <td>{business.address}</td>
-                                            <td className="businesspage-actions">
+                                            <td className="actions">
                                                 <button
-                                                    className="businesspage-view-button"
+                                                    className="view-button"
                                                     onClick={() => handleViewBusiness(business)}
                                                 >
                                                     Xem
                                                 </button>
                                                 <button
-                                                    className="businesspage-edit-button"
+                                                    className="edit-button"
                                                     onClick={handleEditBusiness}
                                                 >
                                                     Chỉnh Sửa
                                                 </button>
                                                 <button
-                                                    className="businesspage-delete-button"
+                                                    className="delete-button"
                                                     onClick={() => alert('Xóa doanh nghiệp')}
                                                 >
                                                     Xóa
@@ -95,11 +99,11 @@ const BusinessPage = () => {
 
                     {/* View Business Modal */}
                     {isViewModalOpen && selectedBusiness && (
-                        <div className="businesspage-modal">
-                            <div className="businesspage-modal-content">
-                                <button className="businesspage-close-button" onClick={handleCloseModal}>×</button>
+                        <div className="profile-modal">
+                            <div className="modal-content">
+                                <button className="close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Thông Tin Doanh Nghiệp</h2>
-                                <div className="businesspage-profile-info">
+                                <div className="profile-info">
                                     <p><strong>ID:</strong> {selectedBusiness.id}</p>
                                     <p><strong>Tên Doanh Nghiệp:</strong> {selectedBusiness.name}</p>
                                     <p><strong>Người Đại Diện:</strong> {selectedBusiness.owner}</p>
@@ -107,10 +111,10 @@ const BusinessPage = () => {
                                     <p><strong>Số Điện Thoại:</strong> {selectedBusiness.phone}</p>
                                     <p><strong>Địa Chỉ:</strong> {selectedBusiness.address}</p>
                                 </div>
-                                <div className="businesspage-modal-actions">
-                                    <button className="businesspage-edit-button" onClick={handleEditBusiness}>Chỉnh Sửa</button>
-                                    <button className="businesspage-delete-button" onClick={() => alert('Xóa doanh nghiệp')}>Xóa</button>
-                                    <button className="businesspage-cancel-button" onClick={handleCloseModal}>Đóng</button>
+                                <div className="modal-actions">
+                                    <button className="edit-button" onClick={handleEditBusiness}>Chỉnh Sửa</button>
+                                    <button className="delete-button" onClick={() => alert('Xóa doanh nghiệp')}>Xóa</button>
+                                    <button className="cancel-button" onClick={handleCloseModal}>Đóng</button>
                                 </div>
                             </div>
                         </div>
@@ -118,11 +122,11 @@ const BusinessPage = () => {
 
                     {/* Add Business Modal */}
                     {isAddModalOpen && (
-                        <div className="businesspage-modal">
-                            <div className="businesspage-modal-content">
-                                <button className="businesspage-close-button" onClick={handleCloseModal}>×</button>
+                        <div className="profile-modal">
+                            <div className="modal-content">
+                                <button className="close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Thêm Doanh Nghiệp</h2>
-                                <div className="businesspage-form-group">
+                                <div className="form-group">
                                     <label>Tên Doanh Nghiệp:</label>
                                     <input type="text" placeholder="Nhập tên doanh nghiệp" />
                                     <label>Người Đại Diện:</label>
@@ -134,9 +138,9 @@ const BusinessPage = () => {
                                     <label>Địa Chỉ:</label>
                                     <input type="text" placeholder="Nhập địa chỉ doanh nghiệp" />
                                 </div>
-                                <div className="businesspage-modal-actions">
-                                    <button className="businesspage-confirm-button" onClick={() => alert('Lưu doanh nghiệp')}>Lưu</button>
-                                    <button className="businesspage-cancel-button" onClick={handleCloseModal}>Hủy</button>
+                                <div className="modal-actions">
+                                    <button className="confirm-button" onClick={() => alert('Lưu doanh nghiệp')}>Lưu</button>
+                                    <button className="cancel-button" onClick={handleCloseModal}>Hủy</button>
                                 </div>
                             </div>
                         </div>
@@ -144,11 +148,11 @@ const BusinessPage = () => {
 
                     {/* Edit Business Modal */}
                     {isEditModalOpen && (
-                        <div className="businesspage-modal">
-                            <div className="businesspage-modal-content">
-                                <button className="businesspage-close-button" onClick={handleCloseModal}>×</button>
+                        <div className="profile-modal">
+                            <div className="modal-content">
+                                <button className="close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Chỉnh Sửa Doanh Nghiệp</h2>
-                                <div className="businesspage-form-group">
+                                <div className="form-group">
                                     <label>Tên Doanh Nghiệp:</label>
                                     <input type="text" placeholder="Nhập tên doanh nghiệp" />
                                     <label>Người Đại Diện:</label>
@@ -160,9 +164,9 @@ const BusinessPage = () => {
                                     <label>Địa Chỉ:</label>
                                     <input type="text" placeholder="Nhập địa chỉ doanh nghiệp" />
                                 </div>
-                                <div className="businesspage-modal-actions">
-                                    <button className="businesspage-confirm-button" onClick={() => alert('Lưu doanh nghiệp')}>Lưu</button>
-                                    <button className="businesspage-cancel-button" onClick={handleCloseModal}>Hủy</button>
+                                <div className="modal-actions">
+                                    <button className="confirm-button" onClick={() => alert('Lưu doanh nghiệp')}>Lưu</button>
+                                    <button className="cancel-button" onClick={handleCloseModal}>Hủy</button>
                                 </div>
                             </div>
                         </div>

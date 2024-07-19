@@ -1,11 +1,7 @@
 import "./check-in.css";
 
 const CheckIn = () => {
-  return (
-    <>
-      <div className="check-in-container"></div>
-    </>
-  );
+  return <div>check-in</div>;
 };
 
 export default CheckIn;

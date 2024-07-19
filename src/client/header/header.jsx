@@ -52,13 +52,11 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/login" className="nav-links-mobile">
+            <Link to="" className="nav-links-mobile">
               Đăng nhập
             </Link>
           </li>
-          <Link to="/login">
-            <button>Đăng nhập</button>
-          </Link>
+          <button>Đăng nhập</button>
         </ul>
       </nav>
     </>

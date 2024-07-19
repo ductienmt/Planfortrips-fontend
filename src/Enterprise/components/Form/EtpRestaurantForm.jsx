@@ -126,9 +126,9 @@ function EtpRestaurantForm() {
                 <label htmlFor="" className="form-label">Loại ẩm thực</label>
                 <select name="" id="" defaultValue={''} className="form-control">
                     <option value="" disabled>Chọn hương vị quốc gia</option>
-                    {cuisineType.map((cT,index) => {
+                    {cuisineType.map((cT) => {
                         return (
-                            <option key={index} value={cT.cuisineTypeId}>{cT.cuisineTypeName}</option>
+                            <option value={cT.cuisineTypeId}>{cT.cuisineTypeName}</option>
                         )
                     })}
                 </select>

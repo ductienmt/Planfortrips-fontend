@@ -342,7 +342,7 @@ export function FormCar() {
                 </div>
               </div>
               <Link
-                to={"item"}
+                to={"car"}
                 className="bg-orange-500 border-4 border-gray-400/80 hover:bg-orange-700 text-white font-semibold py-3 px-3.5 rounded-2xl"
               >
                 <svg

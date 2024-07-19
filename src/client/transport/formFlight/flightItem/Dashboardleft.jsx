@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./dashboardleft.module.css";
 import {
   Checkbox,
@@ -7,25 +7,25 @@ import {
   RadioGroup,
   Slider,
 } from "@mui/material";
-import StarRateIcon from '@mui/icons-material/StarRate';
+import StarRateIcon from "@mui/icons-material/StarRate";
 // import Paper from "@material-ui/core/Paper";
-const minDistance = 10;
 function valuetext(value) {
   return `${value}d`;
 }
 const Dashboardleft = () => {
-  const [value1, setValue1] = React.useState([0, 1000000]);
+  const [value, setValue] = useState([0, 24]);
 
-  const handleChange1 = (event, newValue, activeThumb) => {
-    if (!Array.isArray(newValue)) {
-      return;
-    }
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
-    if (activeThumb === 0) {
-      setValue1([Math.min(newValue[0], value1[1] - minDistance), value1[1]]);
-    } else {
-      setValue1([value1[0], Math.max(newValue[1], value1[0] + minDistance)]);
-    }
+  const formatTime = (value) => {
+    const hours = Math.floor(value);
+    const minutes = Math.round((value - hours) * 60);
+    return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(
+      2,
+      "0"
+    )}`;
   };
   const [, setChecked] = React.useState(true);
 
@@ -36,167 +36,105 @@ const Dashboardleft = () => {
   return (
     <>
       {/* <Paper> */}
-
       <div className={styles.checkdiv}>
-        <div className={styles.mapdivhead}>
-          <div className={styles.mapnarrow}>
-            <img
-              height="40px"
-              src="https://cdn6.agoda.net/images/MAPS-1213/default/img-map-pin-red.svg"
-              alt=""
+        <div className={styles.hov}>
+          <p className={styles.checkdivtext}>Các hãng hàng không</p>
+          <div className={styles.airlineRow}>
+            <Checkbox
+              color="primary"
+              onChange={handleChangecheck}
+              inputProps={{ "aria-label": "secondary checkbox" }}
             />
-          </div>
-          <div>
             <img
-              height=""
-              src="https://cdn6.agoda.net/images/MAPS-1213/default/bkg-map-entry.svg"
-              alt=""
+              src="http://static.tripcdn.com/packages/flight/airline-logo/latest/airline_logo/3x/vj.webp"
+              className={styles.detailsIcon}
             />
+            <span className={styles.detailsTextPrimary}>VietJet Air</span>
           </div>
-
-          <div className={styles.mapnarrowtext}>
-            <p>Tìm kiếm trên bản đồ</p>
+          <div className={styles.airlineRow}>
+            <Checkbox
+              color="primary"
+              onChange={handleChangecheck}
+              inputProps={{ "aria-label": "secondary checkbox" }}
+            />
+            <img
+              src="http://static.tripcdn.com/packages/flight/airline-logo/latest/airline_logo/3x/vn.webp"
+              className={styles.detailsIcon}
+            />
+            <span className={styles.detailsTextPrimary}>Vietnam Airlines</span>
           </div>
         </div>
       </div>
+
+      {/* </Paper> */}
+      {/* <Paper> */}
+
       <div className={styles.checkdiv}>
         <div className={styles.hov}>
-          <p className={styles.checkdivtext}>Sắp xếp</p>
+          <p className={styles.checkdivtext}>Thời gian</p>
+          <span
+            style={{
+              fontSize: "14px",
+              float: "left",
+              padding: "10px 16px",
+              background: "#f0f0f0",
+              borderRadius: "8px",
+            }}
+          >
+            {formatTime(value[0])}
+          </span>
+          <span
+            style={{
+              fontSize: "14px",
+              float: "right",
+              padding: "10px 6px",
+              background: "#f0f0f0",
+              borderRadius: "8px",
+            }}
+          >
+            {formatTime(value[1])}
+          </span>
+        </div>
+        <Slider
+          value={value}
+          onChange={handleChange}
+          valueLabelDisplay="auto"
+          getAriaValueText={formatTime}
+          min={0}
+          max={24}
+          step={0.5}
+        />
+      </div>
+      {/* </Paper> */}
+      <div className={styles.checkdiv}>
+        <div className={styles.hov}>
+          <p className={styles.checkdivtext}>Hạng dịch vụ</p>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
             defaultValue="female"
             name="radio-buttons-group"
           >
             <FormControlLabel
-              value="bestSeller"
+              value="phoThong"
               control={<Radio />}
-              label="Được ưa chuộng nhất"
+              label="Phổ thông"
             />
             <FormControlLabel
-              value="priceLow"
+              value="phoThongDb"
               control={<Radio />}
-              label="Giá thấp nhất trước"
+              label="Phổ thông đặc biệt"
             />
             <FormControlLabel
-              value="topRate"
+              value="thuongGia"
               control={<Radio />}
-              label="Xếp hạng cao nhất"
+              label="Thương gia"
+            />
+             <FormControlLabel
+              value="hangNhat"
+              control={<Radio />}
+              label="Hạng nhất"
             />
           </RadioGroup>
-        </div>
-      </div>
-      {/* </Paper> */}
-      {/* <Paper> */}
-
-      <div className={styles.checkdiv}>
-        <div className={styles.hov}>
-          <p className={styles.checkdivtext}>Giá</p>
-          <span style={{float:'left'}}>{value1[0].toLocaleString()}₫</span>
-          <span style={{float:'right'}}>{value1[1].toLocaleString()}₫</span>
-            <Slider
-              getAriaLabel={() => "Minimum distance"}
-              value={value1}
-              onChange={handleChange1}
-              valueLabelDisplay="auto"
-              getAriaValueText={valuetext}
-              disableSwap
-              min={0}
-              max={100000000}
-              marks={[
-                { value: 0, label: '0₫' },
-                { value: 100000000, label: '100,000,000₫' },
-              ]}
-            />
-        </div>
-      </div>
-      {/* </Paper> */}
-
-      {/* <Paper> */}
-      <div className={styles.checkdiv}>
-        <div className={styles.hov}>
-          <p className={styles.checkdivtext}>Đánh giá sao</p>
-
-          <span>
-            {" "}
-            <Checkbox
-              // checked={checked}
-              color="primary"
-              onChange={handleChangecheck}
-              inputProps={{ "aria-label": "secondary checkbox" }}
-            />
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
-
-          </span>
-        </div>
-        <div className={styles.hov}>
-          <span>
-            {" "}
-            <Checkbox
-              // checked={checked}
-              color="primary"
-              onChange={handleChangecheck}
-              inputProps={{ "aria-label": "secondary checkbox" }}
-            />
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
-          </span>
-        </div>
-        <div className={styles.hov}>
-          <span>
-            {" "}
-            <Checkbox
-              // checked={checked}
-              color="primary"
-              onChange={handleChangecheck}
-              inputProps={{ "aria-label": "secondary checkbox" }}
-            />
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
-          </span>
-        </div>
-        <div className={styles.hov}>
-          <span>
-            {" "}
-            <Checkbox
-              // checked={checked}
-              color="primary"
-              onChange={handleChangecheck}
-              inputProps={{ "aria-label": "secondary checkbox" }}
-            />
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
-          </span>
-        </div>
-        <div className={styles.hov}>
-          <span>
-            {" "}
-            <Checkbox
-              // checked={checked}
-              color="primary"
-              onChange={handleChangecheck}
-              inputProps={{ "aria-label": "secondary checkbox" }}
-            />
-            <StarRateIcon className="text-warning"/>
-          </span>
-        </div>
-        <div className={styles.hov}>
-          <span>
-            {" "}
-            <Checkbox
-              // checked={checked}
-              color="primary"
-              onChange={handleChangecheck}
-              inputProps={{ "aria-label": "secondary checkbox" }}
-            />
-           <span style={{fontSize:'15px'}}>Không có đánh giá</span>
-          </span>
         </div>
       </div>
 

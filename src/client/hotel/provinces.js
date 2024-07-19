@@ -30,7 +30,6 @@ const provinces = [
   "Hậu Giang",
   "Hòa Bình",
   "Hưng Yên",
-  "Hồ Chí Minh - Sài Gòn",
   "Khánh Hòa - Nha Trang",
   "Kiên Giang",
   "Kon Tum",
