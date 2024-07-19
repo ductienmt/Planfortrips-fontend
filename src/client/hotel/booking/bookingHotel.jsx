@@ -74,9 +74,16 @@ const BookingHotel = () => {
                   <h5>
                     3 phòng cho <span>5 người</span>
                   </h5>
-                  <div className="menu-icons">
-                    <i className="fa-solid fa-angle-down"></i>
-                    <i className="fa-solid fa-angle-up"></i>
+                  <div
+                    className="menu-icons"
+                    onClick={toggleIcon}
+                    style={{ cursor: "pointer" }}
+                  >
+                    {isOpen ? (
+                      <i className="fa-solid fa-angle-up"></i>
+                    ) : (
+                      <i className="fa-solid fa-angle-down"></i>
+                    )}
                   </div>
                 </div>
                 <div className="number-room-detail">
