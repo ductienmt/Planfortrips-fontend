@@ -1,8 +1,11 @@
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import './assets/css/styles.min.css';
 import './assets/css/mycss.css'
+import './assets/js/app.min.js'
 import EtpSideBar from './Layout/EtpSidebar.jsx';
 import EtpHeader from './Layout/EtpHeader.jsx';
+import { useState } from 'react';
+
 
 function EnterpriseIndex() {
 
