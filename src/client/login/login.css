@@ -2,10 +2,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: 2rem;
+
 }
 
 .login-container {
-    margin-top: 8rem;
+    margin-top: 10rem;
 }
 
 .body-login .form-login .form-title h1 {
@@ -23,18 +25,42 @@
     /* margin-bottom: 1rem; */
 }
 
+.form-login .remember-fogot a {
+    color: #ef8c86;
+    font-weight: 600;
+}
+
+.form-login .form-body {
+    margin-top: 2rem;
+}
+
+.form-login {
+    width: 60%;
+}
+
 .form-footer button {
     width: 100%;
     font-size: 1.2rem;
     margin: 1rem 0 1rem 0;
-    border-radius: 0;
+    border: 0;
     background-color: var(--success-btn-color);
     color: var(--background-color);
     height: 50px;
+    font-weight: 500;
 }
 
+
 .form-footer a {
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-footer a span {
+    color: #ef8c86;
+    font-weight: 600;
     font-size: 1rem;
 }
 
@@ -42,8 +68,14 @@
     color: #5A6A85;
 }
 
+.image-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .image-login img {
-    max-width: 100%;
+    max-width: 90%;
     max-height: 100%;
     object-fit: cover;
 }
@@ -56,28 +88,49 @@
     margin-top: 1rem;
 }
 
+.social-login {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-login h5 {
+    margin-bottom: 20px;
+    color: #555;
+}
+
 .social-login .button-login-social-network {
-    margin-top: 1rem;
     display: flex;
-    justify-content: space-between;
-    margin-left: 3rem;
-    margin-right: 3rem;
-    gap: 20px;
-    text-align: center;
-
-}
-
-.social-login .button-login-social-network a {
-    outline: 2px solid var(--success-btn-color);
-    display: flex;
-    align-items: center;
+    justify-content: center;
     gap: 10px;
-    width: 100%;
-    text-align: center;
-    height: 40px;
-    border-radius: 5px;
 }
 
-.social-login .button-login-social-network a i {
-    margin-left: 20px;
+.social-login .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    /* color: white; */
+    /* transition: background-color 0.3s ease; */
+    border: 1px solid var(--success-text-color);
+    /* border-radius: 0; */
+    color: var(--success-text-color);
+}
+
+.social-login .btn:hover {
+    transform: scale(1.05);
+    border: none;
+    background: var(--success-btn-color);
+    color: white;
+
+}
+
+.social-login .btn-facebook img {
+    width: 1.5rem;
+}
+
+.social-login .btn img {
+    margin-right: 8px;
 }

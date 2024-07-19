@@ -56,7 +56,10 @@ const DetailCard = () => {
               <button style={{ flexGrow: 2 }}>
                 <i className="fa-solid fa-share-nodes"></i>{" "}
               </button>
-              <button style={{ flexGrow: 6 }}>Đặt phòng</button>
+              {/* <button style={{ flexGrow: 6 }}>Đặt phòng</button> */}
+              <a href="#room-availible" style={{ flexGrow: 6 }}>
+                Đặt phòng
+              </a>
             </div>
           </div>
         </div>
@@ -89,7 +92,7 @@ const DetailCard = () => {
               tenetur, error molestiae? Natus, mollitia.
             </p>
           </div>
-          <div className="col-6">
+          <div className="col-6" id="room-availible">
             <h4 className="amenities-text">Tiện ích</h4>
             <p className="amenities d-flex justify-content-center mt-3">
               <small>
