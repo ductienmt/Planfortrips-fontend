@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import styles from "./flightItemPage.module.css";
+import styles from "./carItemPage.module.css";
 import Dashboardleft from "./Dashboardleft";
 import { Box } from "@mui/material";
-import { FlightItem } from "./FlightItem";
+import { FlightItem } from "./CarItem";
 const FlightItemPage = () => {
   const [loading, setLoading] = useState(false);
   const handlechangecheck = () => {};
@@ -31,7 +31,7 @@ const FlightItemPage = () => {
                 <FlightItem/>
                 <FlightItem/>
                 <FlightItem/>
-                <FlightItem/>
+
               </Box>
             </div>
           </Box>

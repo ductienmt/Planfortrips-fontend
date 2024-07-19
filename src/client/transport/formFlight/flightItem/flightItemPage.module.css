@@ -2,54 +2,23 @@
   margin: 0;
   padding: 0;
 }
-
-.root {
-  display: grid;
-  grid-template-columns: 20% 65%;
-  margin: auto;
-  width: 90%;
-  cursor: pointer;
-  /* border: 1px solid black;  */
+.bd {
+  background-image: url("https://ik.imagekit.io/tvlk/image/imageResource/2023/09/27/1695776209619-17a750c3f514f7a8cccde2d0976c902a.png?tr=q-75 1x, https://ik.imagekit.io/tvlk/image/imageResource/2023/09/27/1695776209619-17a750c3f514f7a8cccde2d0976c902a.png?tr=dpr-2,q-75 2x, https://ik.imagekit.io/tvlk/image/imageResource/2023/09/27/1695776209619-17a750c3f514f7a8cccde2d0976c902a.png?tr=dpr-3,q-75 3x");
 }
-@media (min-width: 768px) {
-  .root {
-    grid-template-columns: 20% 65%;
-  }
-}
-
-.hotelpaper {
-  /* height: 2160px; */
-  width: 910px;
-  margin-left: 20px;
-}
-@media (min-width: 768px) {
-  .hotelpaper {
-    width: 910px;
-    margin-left: 20px;
-  }
-}
-
-.root3{
-    display: grid;
-    gap: 20px;
-    margin: 20px 0;
-}
-.hoteldiv:hover {
-  box-shadow: 5px 5px 5px rgb(184, 182, 182);
-}
-
-.hoteldiv {
+.box {
+  padding: 10px 16px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
   display: flex;
-  width: 100%;
-  height: 250px;
-  margin-top: 20px;
-  border: 1px solid #ccc;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
-
+/* Flight Item Page Styles */
 .root {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr; /* Default for mobile */
   margin: auto;
   width: 90%;
   cursor: pointer;
@@ -57,39 +26,38 @@
 
 @media (min-width: 768px) {
   .root {
-    grid-template-columns: 20% 65%;
+    grid-template-columns: 20% 65%; /* Tablet and above */
   }
 }
 
 .hotelpaper {
-  width: 100%;
+  width: 100%; /* Full width on mobile */
   margin-left: 0;
 }
 
 @media (min-width: 768px) {
   .hotelpaper {
-    width: 910px;
+    width: 910px; /* Set width for larger screens */
     margin-left: 20px;
   }
 }
-.root2 {
-  margin: 20px;
-}
-.root3{
+
+.root3 {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
   gap: 20px;
   margin: 20px 0;
+  grid-template-columns: repeat(1, 1fr); /* Default for mobile */
 }
+
 @media (max-width: 1200px) {
   .root3 {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Responsive columns */
   }
 }
 
 @media (max-width: 768px) {
   .root3 {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Smaller columns for mobile */
   }
 }
 
@@ -108,7 +76,6 @@
 .hotelchild1 {
   width: 260px;
   height: 250px;
-  /* border: 1px solid black;  */
 }
 .childimg1 {
   margin-top: 2px;
@@ -119,10 +86,9 @@
 
 .hoteldetails {
   font-size: 15px;
-  width: 38%;
-  margin-left: 10px;
   width: 400px;
-  padding: 25;
+  margin-left: 10px;
+  padding: 25px;
   height: 250px;
 }
 
@@ -131,25 +97,26 @@
   color: blue;
 }
 
+.detailsbtn,
+.detailsbtnplus,
+.detailsbtndinner {
+  margin-left: 5px;
+  gap: 10px;
+}
+
 .detailsbtn {
   width: 80px;
   height: 20px;
-  margin-left: 5px;
-  gap: 10px;
 }
 
 .detailsbtnplus {
   width: 30px;
   height: 20px;
-  margin-left: 5px;
-  gap: 10px;
 }
 
 .detailsbtndinner {
   width: 130px;
   height: 20px;
-  margin-left: 5px;
-  gap: 10px;
 }
 
 .btntext {
@@ -196,24 +163,21 @@
   width: 230px;
   height: 300px;
   padding-top: 2%;
-  /* border: 1px solid rgb(58, 23, 23); */
   margin-left: 0px;
 }
 
 .hotelfacilitychild {
   width: 230px;
   height: 250px;
-  /* background-color: aqua; */
   margin-left: 65px;
 }
 
 .offer {
   display: flex;
-  height: 15px;
+  height: 27px;
   padding: 4px 8px;
   border-radius: 2px;
   width: 120px;
-  height: 27px;
   background-color: rgb(22, 115, 127);
   color: rgb(255, 255, 255);
   font-size: 13px;
@@ -230,9 +194,7 @@
 .ratingdiv {
   width: 30px;
   height: 30px;
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
-  border-top-left-radius: 50%;
+  border-radius: 50%;
   background-color: #0283df;
   margin-left: 14px;
   margin-top: 3px;
@@ -305,11 +267,11 @@
   border-radius: 8px;
   padding-right: 20px;
 }
-.upgrade div{
-    color: white;
+.upgrade div {
+  color: white;
 }
-.imgText{
-    display: flex;
+.imgText {
+  display: flex;
 }
 .upgradetext {
   width: 400px;
@@ -338,7 +300,6 @@
   width: 130px;
   height: 23px;
   background: rgb(55, 125, 66);
-
   top: 10px;
   left: -5px;
   padding: 5px 10px;
@@ -358,8 +319,7 @@
   width: 35px;
   height: 35px;
   color: white;
-  border-top-left-radius: 50%;
-  border-bottom-left-radius: 50%;
+  border-radius: 50%;
   border: 3px solid white;
   bottom: 10px;
   right: 0px;

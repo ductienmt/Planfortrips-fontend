@@ -16,6 +16,9 @@ import VehicleList from "./Enterprise/components/List/VehicleList";
 import PostList from "./Enterprise/components/List/PostList";
 import { TransportPage } from "./client/transport/transportPage";
 import FlightItemPage from "./client/transport/formFlight/flightItem/FlightItemPage";
+import CarItemPage from "./client/transport/formCar/carItem/CarItemPage";
+import HorizontalNonLinearStepper from "./client/transport/formFlight/passenger/Stepper";
+import { PassengerPage } from "./client/transport/formFlight/passenger/PassengerPage";
 
 function App() {
   const location = useLocation();
@@ -43,8 +46,12 @@ function App() {
           <Route path="detail" element={<DetailFood />} />
         </Route>
         <Route path="transport">
-        <Route path="" element={<TransportPage />}></Route>
-        <Route path="item" element={<FlightItemPage />}></Route>
+          <Route path="" element={<TransportPage />}></Route>
+          <Route path="flight">
+            <Route path="" element={<FlightItemPage />} />
+            <Route path="passenger" element={<HorizontalNonLinearStepper />} />
+          </Route>
+          <Route path="car" element={<CarItemPage />}></Route>
         </Route>
       </Routes>
       {!location.pathname.includes("/enterprise") &&

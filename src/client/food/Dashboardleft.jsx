@@ -7,11 +7,11 @@ import {
   RadioGroup,
   Slider,
 } from "@mui/material";
-import StarRateIcon from '@mui/icons-material/StarRate';
+import StarRateIcon from "@mui/icons-material/StarRate";
 // import Paper from "@material-ui/core/Paper";
 const minDistance = 10;
 function valuetext(value) {
-  return `${value}d`;
+  return `${value}VND`;
 }
 const Dashboardleft = () => {
   const [value1, setValue1] = React.useState([0, 1000000]);
@@ -91,22 +91,41 @@ const Dashboardleft = () => {
       <div className={styles.checkdiv}>
         <div className={styles.hov}>
           <p className={styles.checkdivtext}>Giá</p>
-          <span style={{float:'left'}}>{value1[0].toLocaleString()}₫</span>
-          <span style={{float:'right'}}>{value1[1].toLocaleString()}₫</span>
-            <Slider
-              getAriaLabel={() => "Minimum distance"}
-              value={value1}
-              onChange={handleChange1}
-              valueLabelDisplay="auto"
-              getAriaValueText={valuetext}
-              disableSwap
-              min={0}
-              max={100000000}
-              marks={[
-                { value: 0, label: '0₫' },
-                { value: 100000000, label: '100,000,000₫' },
-              ]}
-            />
+          <span
+            style={{fontSize:'14px',
+              float: "left",
+              padding: "10px 16px",
+              background: "#f0f0f0",
+              borderRadius: "8px",
+            }}
+          >
+            {value1[0].toLocaleString()}VND
+          </span>
+          <span
+            style={{fontSize:'14px',
+              float: "right",
+              padding: "10px 6px",
+              background: "#f0f0f0",
+              borderRadius: "8px",
+            }}
+          >
+            {value1[1].toLocaleString()}VND
+          </span>
+
+          <Slider
+            getAriaLabel={() => "Minimum distance"}
+            value={value1}
+            onChange={handleChange1}
+            valueLabelDisplay="auto"
+            getAriaValueText={valuetext}
+            disableSwap
+            min={0}
+            max={100000000}
+            // marks={[
+            //   { value: 0, label: "0 VND" },
+            //   { value: 100000000, label: "100,000,000 VND" },
+            // ]}
+          />
         </div>
       </div>
       {/* </Paper> */}
@@ -124,12 +143,11 @@ const Dashboardleft = () => {
               onChange={handleChangecheck}
               inputProps={{ "aria-label": "secondary checkbox" }}
             />
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
-
+            <StarRateIcon className="text-warning" />
+            <StarRateIcon className="text-warning" />
+            <StarRateIcon className="text-warning" />
+            <StarRateIcon className="text-warning" />
+            <StarRateIcon className="text-warning" />
           </span>
         </div>
         <div className={styles.hov}>
@@ -141,10 +159,10 @@ const Dashboardleft = () => {
               onChange={handleChangecheck}
               inputProps={{ "aria-label": "secondary checkbox" }}
             />
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
+            <StarRateIcon className="text-warning" />
+            <StarRateIcon className="text-warning" />
+            <StarRateIcon className="text-warning" />
+            <StarRateIcon className="text-warning" />
           </span>
         </div>
         <div className={styles.hov}>
@@ -156,9 +174,9 @@ const Dashboardleft = () => {
               onChange={handleChangecheck}
               inputProps={{ "aria-label": "secondary checkbox" }}
             />
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
+            <StarRateIcon className="text-warning" />
+            <StarRateIcon className="text-warning" />
+            <StarRateIcon className="text-warning" />
           </span>
         </div>
         <div className={styles.hov}>
@@ -170,8 +188,8 @@ const Dashboardleft = () => {
               onChange={handleChangecheck}
               inputProps={{ "aria-label": "secondary checkbox" }}
             />
-            <StarRateIcon className="text-warning"/>
-            <StarRateIcon className="text-warning"/>
+            <StarRateIcon className="text-warning" />
+            <StarRateIcon className="text-warning" />
           </span>
         </div>
         <div className={styles.hov}>
@@ -183,7 +201,7 @@ const Dashboardleft = () => {
               onChange={handleChangecheck}
               inputProps={{ "aria-label": "secondary checkbox" }}
             />
-            <StarRateIcon className="text-warning"/>
+            <StarRateIcon className="text-warning" />
           </span>
         </div>
         <div className={styles.hov}>
@@ -195,7 +213,7 @@ const Dashboardleft = () => {
               onChange={handleChangecheck}
               inputProps={{ "aria-label": "secondary checkbox" }}
             />
-           <span style={{fontSize:'15px'}}>Không có đánh giá</span>
+            <span style={{ fontSize: "15px" }}>Không có đánh giá</span>
           </span>
         </div>
       </div>
