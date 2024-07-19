@@ -1,0 +1,99 @@
+.Mui-active circle,
+.Mui-completed path {
+    color: var(--success-btn-color) !important;
+}
+
+.MuiStepLabel-label {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    font-family: 'Quicksand', sans-serif !important;
+}
+
+.flex-container-booking {
+    display: flex;
+    justify-content: stretch;
+    margin-top: 2rem;
+}
+
+
+.flex-container-booking .col-left .type-of-hotel {
+    margin-left: 0;
+}
+
+.flex-container-booking .col-left .hotel-book {
+    border: 1px solid #d4d4d4;
+    width: 80%;
+    border-radius: 10px;
+}
+
+.flex-container-booking .col-left .hotel-book .content {
+    padding: 1rem;
+}
+
+.flex-container-booking .col-left .hotel-book .content h4 {
+    font-weight: 600;
+}
+
+.flex-container-booking .col-left .hotel-book .content .review button {
+    border: none;
+    background-color: var(--dark-color);
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--background-color);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.flex-container-booking .col-left .hotel-book .content .amenities-booking small {
+    background-color: #d8d8d8;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.flex-container-booking .col-left .deatail-your-room {
+    border: 1px solid #d4d4d4;
+    width: 80%;
+    border-radius: 10px;
+}
+
+.flex-container-booking .col-left .deatail-your-room .content {
+    padding: 1rem;
+}
+
+.flex-container-booking .col-left .deatail-your-room .content .title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.flex-container-booking .col-left .deatail-your-room .content .check-in {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 2rem 1rem 0;
+}
+
+.flex-container-booking .col-left .deatail-your-room .content .check-in .out {
+    border-left: 1px solid #d4d4d4;
+    padding-left: 10px;
+}
+
+.flex-container-booking .col-left .deatail-your-room .content .check-in .out h6,
+.flex-container-booking .col-left .deatail-your-room .content .check-in .in h6,
+.flex-container-booking .col-left .deatail-your-room .content .check-in .out h5,
+.flex-container-booking .col-left .deatail-your-room .content .check-in .in h5 {
+    font-weight: 600;
+}
+
+.flex-container-booking .col-left .deatail-your-room .content .check-in span {
+    margin: 0;
+}
+
+.flex-container-booking .col-left .deatail-your-room .content .time-stay-in span {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}

@@ -1,4 +1,5 @@
 import "./App.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import { LandingPage } from "./client/landingPage/landingPage";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
@@ -40,6 +41,7 @@ import TransactionPage from "./components/TransactionPage";
 import BusinessPage from "./components/BusinessPage";
 import StatisticsPage from "./components/StatisticsPage";
 import TravelfreePage from "./components/Travelfree";
+import BookingHotel from "./client/hotel/booking/bookingHotel";
 // import HotPage from './components/HotPage'
 
 function App() {
@@ -105,6 +107,7 @@ function App() {
         <Route path="/hotel">
           <Route path="" element={<Hotel />}></Route>
           <Route path="detail" element={<DetailCard />}></Route>
+          <Route path="booking" element={<BookingHotel />}></Route>
         </Route>
 
         <Route path="food">

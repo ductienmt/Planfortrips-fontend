@@ -39,6 +39,24 @@
     background-color: var(--success-text-color);
 }
 
+.btn-detail-hotel a {
+    border: none;
+    height: 50px;
+    background-color: var(--success-btn-color);
+    color: var(--background-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 13px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.btn-detail-hotel a:hover {
+    background-color: var(--success-text-color);
+}
+
 .flex-container-body {
     display: flex;
     align-items: stretch;
