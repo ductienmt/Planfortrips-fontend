@@ -41,14 +41,21 @@
 }
 
 .userlist-content {
-    background: #fff;
+    /* background: #fff;
     flex: 1;
     border-radius: 20px;
     padding: 1rem;
     display: flex;
     gap: 1.5rem;
     justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .userlist-containe {

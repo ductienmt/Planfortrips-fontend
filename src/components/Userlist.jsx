@@ -27,6 +27,13 @@ const Userlist = () => {
         setIsAddModalOpen(false);
     };
 
+    // animation
+    const [showProfile, setShowProfile] = useState(false)
+
+    const handleButtonClick = () => { setShowProfile(true) }
+    const handleCloseProfile = () => { setShowProfile(false) }
+
+
     return (
         <div className='userlist'>
             <Sidebar />
@@ -68,7 +75,6 @@ const Userlist = () => {
                             </table>
                         </div>
                     </div>
-
                     {/* View User Modal */}
                     {isViewModalOpen && (
                         <div className="userlist-modal">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BiHome, BiMessage, BiStats, BiTask, BiRepost, BiMenu, BiSolidChevronsRight, BiSolidHot } from 'react-icons/bi';
+import { BiHome, BiMessage, BiStats, BiTask, BiRepost, BiMenu, BiMapAlt, BiSolidUser } from 'react-icons/bi';
 import logo from '../assets/img/planfortrips-logo.png';
 import './styles/sidebar.css';
 
@@ -28,11 +28,11 @@ const Sidebar = () => {
                 </Link>
 
                 <Link to="/admin/userlist" className="menu-item">
-                    <BiRepost className='icon' />
+                    <BiTask className='icon' />
                     {!isCollapsed && <span>Bảng Quản Lí</span>}
                 </Link>
                 <Link to="/admin/transaction" className="menu-item">
-                    <BiTask className='icon' />
+                    <BiRepost className='icon' />
                     {!isCollapsed && <span>Giao Dịch</span>}
                 </Link>
 
@@ -47,13 +47,18 @@ const Sidebar = () => {
                 </Link>
 
                 <Link to="/admin/travelfree" className="menu-item">
-                    <BiSolidChevronsRight className='icon' />
+                    <BiMapAlt className='icon' />
                     {!isCollapsed && <span>Điểm Tham Quan</span>}
                 </Link>
 
-                <Link to="/admin/hot" className="menu-item">
-                    <BiSolidHot className='icon' />
-                    {!isCollapsed && <span>Bắc,Trung,Nam</span>}
+                <Link to="/admin/adminlogin" className="menu-item">
+                    <BiMapAlt className='icon' />
+                    {!isCollapsed && <span>Điểm Tham Quan</span>}
+                </Link>
+
+                <Link to="/admin/adminaccount" className="menu-item">
+                    <BiSolidUser className='icon' />
+                    {!isCollapsed && <span>Tài Khoản</span>}
                 </Link>
             </div>
 

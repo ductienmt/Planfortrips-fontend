@@ -24,8 +24,8 @@ import TransactionPage from './components/TransactionPage';
 import BusinessPage from './components/BusinessPage';
 import StatisticsPage from './components/StatisticsPage';
 import TravelfreePage from './components/Travelfree';
-import HotPage from './components/HotPage'
-
+import Adminlogin from "./components/AdminLogin"
+import Adminaccount from "./components/Adminaccount";
 function App() {
   const location = useLocation();
   return (
@@ -60,8 +60,8 @@ function App() {
         <Route path='/admin/business' element={<BusinessPage />} />
         <Route path='/admin/feedback' element={<FeedbackPage />} />
         <Route path='/admin/travelfree' element={<TravelfreePage />} />
-        <Route path='/admin/hot' element={<HotPage />} />
-
+        <Route path='/admin/adminlogin' element={<Adminlogin />} />
+        <Route path='/admin/adminaccount' element={<Adminaccount />} />
       </Routes>
       {!(location.pathname.includes("/enterprise") || location.pathname.includes("/admin")) && <Footer />}
 

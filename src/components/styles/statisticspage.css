@@ -1,13 +1,22 @@
 .statistics-page {
-    width: 80%;
-    /* Điều chỉnh chiều rộng cho màn hình nhỏ hơn sau */
+    /* width: 80%;
     margin: 0 auto;
     padding: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    position: relative;
+    position: relative; */
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
 /* Các truy vấn media cho hành vi đáp ứng */
@@ -143,4 +152,11 @@
 .pie-chart-box {
     height: 200px;
     /* Điều chỉnh chiều cao cho biểu đồ hình tròn */
+}
+
+.sales-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
