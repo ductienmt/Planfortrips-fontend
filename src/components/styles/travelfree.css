@@ -1,241 +1,210 @@
-.travel-dashboard {
-    display: flex;
-    background-color: #f5f5f5;
-    min-height: 100vh;
-}
-
-.travel-dashboard-content {
-    flex: 1;
-    padding: 20px;
-    max-width: 1200px;
+.userlist-container {
+    width: 80%;
     margin: 0 auto;
-}
-
-.travel-container {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
-.travel-header {
+.userlist-container .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
     margin-bottom: 20px;
 }
 
-.add-travel-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+.userlist-container .header h1 {
+    font-size: 1.8rem;
+    color: #007bff;
 }
 
-.add-travel-button:hover {
+.userlist-container .add-user-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.userlist-container .add-user-button:hover {
     background-color: #0056b3;
 }
 
-.filter-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.userlist-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.filter-container label {
-    font-weight: 500;
-}
-
-.filter-container select {
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #ffffff;
-    font-size: 14px;
-    transition: all 0.2s ease;
-}
-
-.filter-container select:hover {
-    border-color: #007bff;
-}
-
-.travel-title {
-    margin-bottom: 15px;
+.userlist-card .title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
     color: #333;
-    font-size: 1.2em;
 }
 
-.travel-table-responsive {
+.userlist-card .table-responsive {
     overflow-x: auto;
 }
 
-.travel-table {
+.userlist-card .table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 20px;
 }
 
-.travel-table th,
-.travel-table td {
+.userlist-card .table th,
+.userlist-card .table td {
     padding: 10px;
-    border: 1px solid #e0e0e0;
     text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
-.travel-table th {
-    background-color: #f5f5f5;
+.userlist-card .table th {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
 }
 
-.travel-actions button {
-    margin-right: 5px;
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+.userlist-card .table tr:hover {
+    background-color: #f1f1f1;
 }
 
-.view-button {
-    background-color: #17a2b8;
-    color: white;
-}
-
-.view-button:hover {
-    background-color: #117a8b;
-}
-
-.edit-button {
-    background-color: #ffc107;
-    color: white;
-}
-
-.edit-button:hover {
-    background-color: #e0a800;
-}
-
-.delete-button {
-    background-color: #dc3545;
-    color: white;
-}
-
-.delete-button:hover {
-    background-color: #c82333;
-}
-
-.travel-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+.userlist-card .table .actions {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.travel-modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 500px;
-    width: 100%;
-    position: relative;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #aaa;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 500;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.travel-modal-actions {
-    display: flex;
-    justify-content: flex-end;
     gap: 10px;
 }
 
-.confirm-button,
-.cancel-button {
+.userlist-card .table .view-button,
+.userlist-card .table .edit-button,
+.userlist-card .table .delete-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.userlist-card .table .view-button {
+    background-color: #007bff;
+}
+
+.userlist-card .table .edit-button {
+    background-color: #ffc107;
+}
+
+.userlist-card .table .delete-button {
+    background-color: #dc3545;
+}
+
+.userlist-card .table .view-button:hover {
+    background-color: #0056b3;
+}
+
+.userlist-card .table .edit-button:hover {
+    background-color: #e0a800;
+}
+
+.userlist-card .table .delete-button:hover {
+    background-color: #c82333;
+}
+
+.profile-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-modal .modal-content {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 50%;
+    max-width: 600px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.profile-modal .modal-content h2 {
+    font-size: 1.4rem;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.profile-modal .modal-content .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    border: none;
+    background: none;
+    color: #000;
+    cursor: pointer;
+}
+
+.profile-modal .modal-content .profile-info {
+    margin-bottom: 20px;
+}
+
+.profile-modal .modal-content .profile-info p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+.profile-modal .modal-content .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-modal .modal-content .form-group label {
+    margin-bottom: 5px;
+}
+
+.profile-modal .modal-content .form-group input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.profile-modal .modal-content .modal-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.profile-modal .modal-content .modal-actions button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
+    color: #fff;
+    font-size: 0.9rem;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-.confirm-button {
+.profile-modal .modal-content .modal-actions .confirm-button {
     background-color: #28a745;
-    color: white;
 }
 
-.confirm-button:hover {
+.profile-modal .modal-content .modal-actions .cancel-button {
+    background-color: #6c757d;
+}
+
+.profile-modal .modal-content .modal-actions .confirm-button:hover {
     background-color: #218838;
 }
 
-.cancel-button {
-    background-color: #6c757d;
-    color: white;
-}
-
-.cancel-button:hover {
+.profile-modal .modal-content .modal-actions .cancel-button:hover {
     background-color: #5a6268;
-}
-
-@media (max-width: 768px) {
-    .travel-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .add-travel-button {
-        margin-bottom: 10px;
-    }
-
-    .travel-table th,
-    .travel-table td {
-        padding: 8px;
-    }
-
-    .travel-modal-content {
-        padding: 15px;
-    }
-
-    .close-button {
-        font-size: 20px;
-    }
-
-    .form-group input {
-        padding: 8px;
-    }
-
-    .confirm-button,
-    .cancel-button {
-        padding: 8px 15px;
-    }
 }

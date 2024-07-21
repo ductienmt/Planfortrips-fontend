@@ -16,6 +16,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import DateCalendarServerRequest from "./datePicker/datePicker";
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
+
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 const airports = [
   {
@@ -686,7 +687,7 @@ export function FormFlight() {
                 </div>
               </div>
               <Link
-                to={"item"}
+                to={"flight"}
                 className="bg-orange-500 border-4 border-gray-400/80 hover:bg-orange-700 text-white font-semibold py-3 px-3.5 rounded-2xl"
               >
                 <svg

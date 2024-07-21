@@ -33,9 +33,9 @@ const statistics = [
     },
     {
         id: 3,
-        title: 'Đánh Giá Từ Người Dùng',
-        value: '4.5/5',
-        icon: <BiStar />,
+        title: 'Lượt Sử Dụng',
+        value: '900',
+        icon: <BiPieChart />,
         color: '#1dd1a1'
     }
 ];
@@ -51,7 +51,7 @@ const partnerStatistics = [
     {
         id: 2,
         title: 'Số Lượng Dự Án',
-        value: '0',
+        value: '25',
         icon: <BiBuilding />,
         color: '#96c93d'
     },
@@ -65,13 +65,12 @@ const partnerStatistics = [
 ];
 
 const barChartData = {
-    labels: ['Lượt Truy Cập', 'Lượt Đăng Ký'],
+    labels: ['Lượt Truy Cập', 'Lượt Đăng Ký', 'Lượt Sử Dụng'],
     datasets: [
         {
             label: 'Số lượng',
-            data: [1200, 300,],
-            backgroundColor: ['#ff6b6b', '#54a0ff',]
-
+            data: [1200, 300, 900],
+            backgroundColor: ['#ff6b6b', '#54a0ff', '#1dd1a1']
         }
     ]
 };

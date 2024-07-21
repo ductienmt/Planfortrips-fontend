@@ -28,13 +28,13 @@ function EtpHeader({ children }) {
           <nav className="navbar navbar-expand-lg navbar-light">
             <ul className="navbar-nav">
               <li className="nav-item d-block d-xl-none">
-                <a
+                <Link
                   className="nav-link sidebartoggler nav-icon-hover"
                   id="headerCollapse"
-                  href="#" // Replaced href="#" with href="#"
+                  to="#" // Replaced href="#" with href="#"
                 >
                   <i className="ti ti-menu-2" />
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link nav-icon-hover" href="#"> {/* Replaced href="#" with href="#" */}

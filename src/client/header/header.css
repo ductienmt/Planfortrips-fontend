@@ -68,8 +68,6 @@
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s ease-in-out;
-    background-color: var(--success-text-color);
-    color: var(--background-color);
 }
 
 .NavbarItems ul button:hover {
@@ -80,11 +78,6 @@
 @media screen and (max-width: 1230px) {
     .NavbarItems {
         z-index: 1000;
-        height: 50px;
-    }
-
-    .nav-logo img {
-        width: 150px;
     }
 
     .menu-icon {

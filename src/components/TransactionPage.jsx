@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import Sidebar from './Sidebar';
-import './styles/transactionpage.css';
+import Sidebar from './Sidebar'
+import './styles/userlist.css';
+// import '../styles/transactionpage.css'
 
 const TransactionPage = () => {
     const [transactions] = useState([
@@ -8,7 +9,8 @@ const TransactionPage = () => {
         { id: 2, user: 'Le Thi B', date: '05-02-2023', amount: '1500 USD', status: 'Đang Xử Lý' },
         { id: 3, user: 'Tran Van C', date: '15-03-2023', amount: '500 USD', status: 'Hoàn Thành' },
         { id: 4, user: 'Nguyen Thi D', date: '25-04-2023', amount: '2000 USD', status: 'Đang Xử Lý' },
-        { id: 5, user: 'Le Van E', date: '30-05-2023', amount: '750 USD', status: 'Hoàn Thành' }
+        { id: 5, user: 'Le Van E', date: '30-05-2023', amount: '750 USD', status: 'Hoàn Thành' },
+        // Thêm nhiều giao dịch ở đây
     ]);
 
     const [isViewModalOpen, setIsViewModalOpen] = useState(false);
@@ -32,15 +34,15 @@ const TransactionPage = () => {
     return (
         <div className='dashboard'>
             <Sidebar />
-            <div className='transactionpage-content'>
-                <div className="transactionpage-container">
-                    <div className="transactionpage-header">
+            <div className='dashboard--content'>
+                <div className="userlist-container">
+                    <div className="header">
+                        <button className="add-user-button" onClick={handleAddTransaction}>Thêm Giao Dịch</button>
                         <h1>Danh Sách Giao Dịch</h1>
-                        <button className="transactionpage-add-button" onClick={handleAddTransaction}>Thêm Giao Dịch</button>
                     </div>
-                    <div className="transactionpage-card">
-                        <div className="transactionpage-table-responsive">
-                            <table className="transactionpage-table">
+                    <div className="userlist-card">
+                        <div className="table-responsive">
+                            <table className="table">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -59,21 +61,21 @@ const TransactionPage = () => {
                                             <td>{transaction.date}</td>
                                             <td>{transaction.amount}</td>
                                             <td>{transaction.status}</td>
-                                            <td className="transactionpage-actions">
+                                            <td className="actions">
                                                 <button
-                                                    className="transactionpage-view-button"
+                                                    className="view-button"
                                                     onClick={() => handleViewTransaction(transaction)}
                                                 >
                                                     Xem
                                                 </button>
                                                 <button
-                                                    className="transactionpage-edit-button"
+                                                    className="edit-button"
                                                     onClick={handleEditTransaction}
                                                 >
                                                     Chỉnh Sửa
                                                 </button>
                                                 <button
-                                                    className="transactionpage-delete-button"
+                                                    className="delete-button"
                                                     onClick={() => alert('Xóa giao dịch')}
                                                 >
                                                     Xóa
@@ -88,19 +90,21 @@ const TransactionPage = () => {
 
                     {/* View Transaction Modal */}
                     {isViewModalOpen && selectedTransaction && (
-                        <div className="transactionpage-modal">
-                            <div className="transactionpage-modal-content">
-                                <button className="transactionpage-close-button" onClick={handleCloseModal}>×</button>
+                        <div className="profile-modal">
+                            <div className="modal-content">
+                                <button className="close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Chi Tiết Giao Dịch</h2>
-                                <div className="transactionpage-info">
+                                <div className="profile-info">
                                     <p><strong>ID:</strong> {selectedTransaction.id}</p>
                                     <p><strong>Người Dùng:</strong> {selectedTransaction.user}</p>
                                     <p><strong>Ngày:</strong> {selectedTransaction.date}</p>
                                     <p><strong>Số Tiền:</strong> {selectedTransaction.amount}</p>
                                     <p><strong>Trạng Thái:</strong> {selectedTransaction.status}</p>
                                 </div>
-                                <div className="transactionpage-modal-actions">
-                                    <button className="transactionpage-cancel-button" onClick={handleCloseModal}>Đóng</button>
+                                <div className="modal-actions">
+                                    <button className="edit-button" onClick={handleEditTransaction}>Chỉnh Sửa</button>
+                                    <button className="delete-button" onClick={() => alert('Xóa giao dịch')}>Xóa</button>
+                                    <button className="cancel-button" onClick={handleCloseModal}>Đóng</button>
                                 </div>
                             </div>
                         </div>
@@ -108,11 +112,11 @@ const TransactionPage = () => {
 
                     {/* Add Transaction Modal */}
                     {isAddModalOpen && (
-                        <div className="transactionpage-modal">
-                            <div className="transactionpage-modal-content">
-                                <button className="transactionpage-close-button" onClick={handleCloseModal}>×</button>
+                        <div className="profile-modal">
+                            <div className="modal-content">
+                                <button className="close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Thêm Giao Dịch</h2>
-                                <div className="transactionpage-form-group">
+                                <div className="form-group">
                                     <label>Người Dùng:</label>
                                     <input type="text" placeholder="Nhập người dùng" />
                                     <label>Ngày:</label>
@@ -125,9 +129,9 @@ const TransactionPage = () => {
                                         <option value="Đang Xử Lý">Đang Xử Lý</option>
                                     </select>
                                 </div>
-                                <div className="transactionpage-modal-actions">
-                                    <button className="transactionpage-confirm-button" onClick={() => alert('Lưu giao dịch')}>Lưu</button>
-                                    <button className="transactionpage-cancel-button" onClick={handleCloseModal}>Hủy</button>
+                                <div className="modal-actions">
+                                    <button className="confirm-button" onClick={() => alert('Lưu giao dịch')}>Lưu</button>
+                                    <button className="cancel-button" onClick={handleCloseModal}>Hủy</button>
                                 </div>
                             </div>
                         </div>
@@ -135,11 +139,11 @@ const TransactionPage = () => {
 
                     {/* Edit Transaction Modal */}
                     {isEditModalOpen && (
-                        <div className="transactionpage-modal">
-                            <div className="transactionpage-modal-content">
-                                <button className="transactionpage-close-button" onClick={handleCloseModal}>×</button>
+                        <div className="profile-modal">
+                            <div className="modal-content">
+                                <button className="close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Chỉnh Sửa Giao Dịch</h2>
-                                <div className="transactionpage-form-group">
+                                <div className="form-group">
                                     <label>Người Dùng:</label>
                                     <input type="text" placeholder="Nhập người dùng" />
                                     <label>Ngày:</label>
@@ -152,9 +156,9 @@ const TransactionPage = () => {
                                         <option value="Đang Xử Lý">Đang Xử Lý</option>
                                     </select>
                                 </div>
-                                <div className="transactionpage-modal-actions">
-                                    <button className="transactionpage-confirm-button" onClick={() => alert('Lưu giao dịch')}>Lưu</button>
-                                    <button className="transactionpage-cancel-button" onClick={handleCloseModal}>Hủy</button>
+                                <div className="modal-actions">
+                                    <button className="confirm-button" onClick={() => alert('Lưu giao dịch')}>Lưu</button>
+                                    <button className="cancel-button" onClick={handleCloseModal}>Hủy</button>
                                 </div>
                             </div>
                         </div>

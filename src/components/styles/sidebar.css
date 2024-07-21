@@ -1,61 +1,25 @@
 .sidebar {
     width: 60px;
-    /* Chiều rộng khi ẩn */
+    /* Width khi ẩn */
     height: 100vh;
     background: #f0f4f8;
     color: #333;
     display: flex;
     flex-direction: column;
     padding: 20px 10px;
+    /* Giảm padding khi thu gọn */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
     left: 0;
     transition: all 0.3s ease;
     z-index: 1000;
-}
-
-/* Các truy vấn media cho hành vi đáp ứng */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 40px;
-        /* Chiều rộng mặc định khi màn hình nhỏ */
-    }
-
-    .sidebar:not(.collapsed) {
-        width: 200px;
-        /* Chiều rộng khi mở rộng trên màn hình nhỏ */
-    }
-
-    .logo-img {
-        width: 150px;
-        /* Kích thước logo mặc định khi màn hình nhỏ */
-    }
-
-    .logo-collapsed .logo-img {
-        width: 30px;
-        /* Kích thước logo khi thu gọn trên màn hình nhỏ */
-    }
-
-    .toggle-button {
-        font-size: 1.2rem;
-        /* Kích thước nút mặc định khi màn hình nhỏ */
-    }
-
-    .sidebar.collapsed .toggle-button {
-        font-size: 0.8rem;
-        /* Kích thước nút khi thu gọn trên màn hình nhỏ */
-    }
-
-    .sidebar.collapsed .menu-item {
-        font-size: 0.9rem;
-        /* Kích thước font menu item mặc định khi màn hình nhỏ */
-    }
+    /* Đảm bảo sidebar luôn nằm trên các phần tử khác */
 }
 
 .sidebar:not(.collapsed) {
     width: 250px;
-    /* Chiều rộng khi mở rộng (màn hình lớn) */
+    /* Width khi mở rộng */
 }
 
 .logo {
@@ -121,7 +85,7 @@ span {
     position: absolute;
     bottom: 10px;
     /* Giảm khoảng cách khi thu gọn */
-    left: 0px;
+    left: 10px;
     background: #007bff;
     color: #fff;
     border: none;
@@ -154,7 +118,7 @@ span {
 }
 
 .sidebar.collapsed .toggle-button {
-    font-size: 0.9rem;
+    font-size: 1.75rem;
     /* Tăng kích thước nút khi thu gọn */
     bottom: 20px;
     /* Đưa nút xuống phía dưới */
