@@ -6,7 +6,7 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./client/header/header";
 import FoodPage from "./client/food/FoodPage";
-// import { DetailFood } from "./client/food/DetailFood";
+import { DetailFood } from "./client/food/detailFood/DetailFood";
 import Footer from "./client/footer/footer";
 import Hotel from "./client/hotel/hotel";
 import EnterpriseIndex from "./Enterprise/EnterpriseIndex";
@@ -112,7 +112,7 @@ function App() {
 
         <Route path="food">
           <Route path="" element={<FoodPage />}></Route>
-          {/* <Route path="detail" element={<DetailFood />} />          */}
+          <Route path="detail" element={<DetailFood />} />
         </Route>
         <Route path="transport">
           <Route path="" element={<TransportPage />}></Route>
