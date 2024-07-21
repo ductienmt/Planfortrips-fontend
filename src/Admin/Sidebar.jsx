@@ -51,11 +51,6 @@ const Sidebar = () => {
                     {!isCollapsed && <span>Điểm Tham Quan</span>}
                 </Link>
 
-                <Link to="/admin/adminlogin" className="menu-item">
-                    <BiMapAlt className='icon' />
-                    {!isCollapsed && <span>Điểm Tham Quan</span>}
-                </Link>
-
                 <Link to="/admin/adminaccount" className="menu-item">
                     <BiSolidUser className='icon' />
                     {!isCollapsed && <span>Tài Khoản</span>}

@@ -18,14 +18,14 @@ import Footer from "./client/footer/footer";
 import Hotel from "./client/hotel/hotel";
 
 // import Content from './components/Content';
-import Userlist from './components/Userlist'
-import FeedbackPage from './components/FeedbackPage';
-import TransactionPage from './components/TransactionPage';
-import BusinessPage from './components/BusinessPage';
-import StatisticsPage from './components/StatisticsPage';
-import TravelfreePage from './components/Travelfree';
-import Adminlogin from "./components/AdminLogin"
-import Adminaccount from "./components/Adminaccount";
+import Userlist from './Admin/Userlist'
+import FeedbackPage from './Admin/FeedbackPage';
+import TransactionPage from './Admin/TransactionPage';
+import BusinessPage from './Admin/BusinessPage';
+import StatisticsPage from './Admin/StatisticsPage';
+import TravelfreePage from './Admin/Travelfree';
+import Adminlogin from "./Admin/AdminLogin"
+import Adminaccount from "./Admin/Adminaccount";
 function App() {
   const location = useLocation();
   return (

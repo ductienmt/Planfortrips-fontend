@@ -8,6 +8,11 @@ const TransactionPage = () => {
         { id: 2, user: 'Le Thi B', date: '05-02-2023', amount: '1500 USD', status: 'Đang Xử Lý' },
         { id: 3, user: 'Tran Van C', date: '15-03-2023', amount: '500 USD', status: 'Hoàn Thành' },
         { id: 4, user: 'Nguyen Thi D', date: '25-04-2023', amount: '2000 USD', status: 'Đang Xử Lý' },
+        { id: 5, user: 'Le Van E', date: '30-05-2023', amount: '750 USD', status: 'Hoàn Thành' },
+        { id: 1, user: 'Nguyen Van A', date: '01-01-2023', amount: '1000 USD', status: 'Hoàn Thành' },
+        { id: 2, user: 'Le Thi B', date: '05-02-2023', amount: '1500 USD', status: 'Đang Xử Lý' },
+        { id: 3, user: 'Tran Van C', date: '15-03-2023', amount: '500 USD', status: 'Hoàn Thành' },
+        { id: 4, user: 'Nguyen Thi D', date: '25-04-2023', amount: '2000 USD', status: 'Đang Xử Lý' },
         { id: 5, user: 'Le Van E', date: '30-05-2023', amount: '750 USD', status: 'Hoàn Thành' }
     ]);
 

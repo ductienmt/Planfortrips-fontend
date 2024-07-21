@@ -10,6 +10,7 @@
     margin: 0 auto;
     padding: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 .feedbackpage-content {
@@ -21,13 +22,21 @@
     gap: 1.5rem;
     justify-content: space-evenly;
     flex-wrap: wrap;
+
+
 }
 
 .feedbackpage-container {
+    width: 90%;
+    height: 90%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 91%;
-    max-width: 1200px;
-    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .feedbackpage-header {

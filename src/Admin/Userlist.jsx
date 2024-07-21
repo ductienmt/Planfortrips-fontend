@@ -27,11 +27,7 @@ const Userlist = () => {
         setIsAddModalOpen(false);
     };
 
-    // animation
-    const [showProfile, setShowProfile] = useState(false)
 
-    const handleButtonClick = () => { setShowProfile(true) }
-    const handleCloseProfile = () => { setShowProfile(false) }
 
 
     return (
@@ -88,8 +84,7 @@ const Userlist = () => {
                                     <p><strong>Địa Chỉ:</strong> Ninh Thuan</p>
                                 </div>
                                 <div className="userlist-modal-actions">
-                                    <button className="userlist-edit-button" onClick={handleEditUser}>Chỉnh Sửa</button>
-                                    <button className="userlist-delete-button" onClick={() => alert('Xóa người dùng')}>Xóa</button>
+
                                     <button className="userlist-cancel-button" onClick={handleCloseModal}>Đóng</button>
                                 </div>
                             </div>

@@ -8,6 +8,11 @@ const FeedbackPage = () => {
         { id: 2, user: 'Le Thi B', email: 'b@example.com', content: 'Phản hồi B', date: '2024-07-02' },
         { id: 3, user: 'Tran Van C', email: 'c@example.com', content: 'Phản hồi C', date: '2024-07-03' },
         { id: 4, user: 'Nguyen Thi D', email: 'd@example.com', content: 'Phản hồi D', date: '2024-07-04' },
+        { id: 5, user: 'Le Van E', email: 'e@example.com', content: 'Phản hồi E', date: '2024-07-05' },
+        { id: 1, user: 'Nguyen Van A', email: 'a@example.com', content: 'Phản hồi A', date: '2024-07-01' },
+        { id: 2, user: 'Le Thi B', email: 'b@example.com', content: 'Phản hồi B', date: '2024-07-02' },
+        { id: 3, user: 'Tran Van C', email: 'c@example.com', content: 'Phản hồi C', date: '2024-07-03' },
+        { id: 4, user: 'Nguyen Thi D', email: 'd@example.com', content: 'Phản hồi D', date: '2024-07-04' },
         { id: 5, user: 'Le Van E', email: 'e@example.com', content: 'Phản hồi E', date: '2024-07-05' }
     ]);
 
@@ -100,8 +105,7 @@ const FeedbackPage = () => {
                                     <p><strong>Ngày:</strong> {selectedFeedback.date}</p>
                                 </div>
                                 <div className="feedbackpage-modal-actions">
-                                    <button className="feedbackpage-edit-button" onClick={handleEditFeedback}>Chỉnh Sửa</button>
-                                    <button className="feedbackpage-delete-button" onClick={() => alert('Xóa phản hồi')}>Xóa</button>
+
                                     <button className="feedbackpage-cancel-button" onClick={handleCloseModal}>Đóng</button>
                                 </div>
                             </div>

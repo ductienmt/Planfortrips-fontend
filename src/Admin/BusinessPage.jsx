@@ -108,8 +108,6 @@ const BusinessPage = () => {
                                     <p><strong>Địa Chỉ:</strong> {selectedBusiness.address}</p>
                                 </div>
                                 <div className="businesspage-modal-actions">
-                                    <button className="businesspage-edit-button" onClick={handleEditBusiness}>Chỉnh Sửa</button>
-                                    <button className="businesspage-delete-button" onClick={() => alert('Xóa doanh nghiệp')}>Xóa</button>
                                     <button className="businesspage-cancel-button" onClick={handleCloseModal}>Đóng</button>
                                 </div>
                             </div>
