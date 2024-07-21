@@ -97,3 +97,133 @@
     font-size: 1rem;
     font-weight: 600;
 }
+
+.flex-container-booking .col-left .deatail-your-room .content .number-room {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-container-booking .col-left .deatail-your-room .content .number-room h5 span {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.flex-container-booking .col-left .deatail-your-room .content .number-room-detail {
+    display: none;
+}
+
+.flex-container-booking .col-left .deatail-your-room .content .number-room-detail.active {
+    display: block;
+}
+
+.flex-container-booking .col-left .price-of-total-room .content .price .flex-price {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-container-booking .col-left .price-of-total-room {
+    width: 80%;
+    border: 1px solid #d4d4d4;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.flex-container-booking .col-left .price-of-total-room .content {
+    padding: 1rem;
+}
+
+.flex-container-booking .col-left .price-of-total-room .content .toatal-price {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0 1rem 0;
+    background-color: #b5e0fd;
+    padding: 1rem;
+
+}
+
+.flex-container-booking .col-left .price-of-total-room .content .toatal-price h4,
+.flex-container-booking .col-left .price-of-total-room .content .toatal-price div h3 {
+    font-weight: 700;
+
+}
+
+.flex-container-booking .col-left .price-of-total-room .content .toatal-price div h6 {
+    text-align: end;
+    font-size: 0.8rem;
+}
+
+.flex-container-booking .col-left .price-of-total-room .content .small-text {
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.flex-container-booking .col-left .price-of-total-room .content .about-price-vat span {
+    margin: 0;
+}
+
+.flex-container-booking .col-left .price-of-total-room .content .about-price-vat .about-vat {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-container-booking .col-left .price-of-total-room .content .about-price-vat .about-vat span {
+    font-size: 0.8rem;
+}
+
+.flex-container-booking .col-left .price-of-total-room .content .about-price-vat .row .col-md-2 i {
+    font-size: 1.2rem;
+    margin: 0.5rem 0 0 1rem;
+}
+
+.flex-container-booking .col-right .detail-info-you {
+    border: 1px solid #d4d4d4;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.flex-container-booking .col-right .detail-info-you .content {
+    padding: 1rem;
+}
+
+.flex-container-booking .col-right .detail-info-you .content .warning-user {
+    background-color: #f1f1f1;
+    margin: 1rem 0 1rem 0;
+    border-radius: 13px;
+    padding: 1rem;
+}
+
+.flex-container-booking .col-right .detail-info-you .content .warning-user .row .col-md-1 i {
+    font-size: 1.5rem;
+    margin: 1rem 0 0 0.5rem;
+}
+
+.flex-container-booking .col-right .detail-info-you .content .warning-user .row .col-md-11 p {
+    color: black;
+}
+
+.flex-container-booking .col-right .detail-info-you .content .star-require {
+    font-weight: 600;
+    margin: 0;
+    color: red;
+}
+
+.flex-container-booking .col-right .detail-info-you .content .form-info .name,
+.flex-container-booking .col-right .detail-info-you .content .form-info .contact {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    /* justify-content: space-between; */
+    /* flex-direction: column; */
+}
+
+
+.flex-container-booking .col-right .detail-info-you .content .form-info .flex-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.flex-container-booking .col-right .detail-info-you .content .form-info .flex-info label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
