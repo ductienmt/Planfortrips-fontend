@@ -300,6 +300,9 @@ function EtpBusesForm_Car() {
                 <label htmlFor="" className="form-label">Địa chỉ cụ thể</label>
                 <input type="text" className="form-control" name="destinationAddress" value={buses.destinationAddress} onChange={handleInputChange} placeholder='Địa chỉ cụ thể cho Trạm kết thúc gồm (tỉnh, huyện, xã, đường,..)' />
             </div>
+
+            <button className='btn btn-danger'>Thêm tuyến</button>
+
         </>
     );
 }

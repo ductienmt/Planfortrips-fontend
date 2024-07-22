@@ -19,7 +19,6 @@ import EtpNewsIndex from "./Enterprise/components/News/EtpNewsIndex";
 import EtpVehicleHome from "./Enterprise/components/Home/EtpVehicleHome";
 import EtpRestaurantHome from "./Enterprise/components/Home/EtpRestaurantHome";
 import EtpHotelHome from "./Enterprise/components/Home/EtpHotelHome";
-import EtpLogin from "./Enterprise/components/EtpLogin";
 // import Content from "./components/Content";
 import FeedbackPage from "./components/FeedbackPage";
 import TransactionPage from "./components/TransactionPage";
@@ -42,6 +41,8 @@ import DetailCard from "./client/hotel/detailHotel/detailCard";
 import BookingHotel from "./client/hotel/booking/bookingHotel";
 import Payment from "./client/hotel/payment/payment";
 import Login from "./client/login/login";
+import EtpBusesDetail from "./Enterprise/components/Detai/EtpBusesDetail";
+import EtpLogin from "./Enterprise/components/Account/EtpLogin";
 
 function App() {
   const location = useLocation();
@@ -82,9 +83,11 @@ function App() {
             <Route index element={<EtpVehicleHome />}></Route>
             <Route path="create" element={<EtpVehicleForm />}></Route>
             <Route path="list" element={<EtpVehicleList />}></Route>
+
             <Route path="buses">
               <Route index element={<EtpBusesList />}></Route>
               <Route path="create" element={<EtpBusesForm />}></Route>
+              <Route path=":busesId" element={<EtpBusesDetail/>}></Route>
             </Route>
 
             <Route path="detail">
