@@ -86,56 +86,60 @@
 
 .detailsText {
   display: flex;
-  flex-direction: row; /* Chuyển hướng từ cột sang hàng */
-  align-items: center; /* Căn chỉnh các phần tử con theo chiều dọc */
+  flex-direction: row;
+  align-items: center;
   margin-left: 0.5rem;
 }
 
 .detailsTextPrimary {
-  font-size: 16px;
   font-size: 0.75rem;
   font-weight: bold;
-  color: #6b7280;
-}
-
-.detailsTextSecondary {
-  font-size: 0.75rem;
-  color: #6b7280;
-}
-
-.detailsWeight {
-  font-size: 0.75rem;
   color: #6b7280;
 }
 
 .flightInfo {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Align text to the start */
   padding: 0.5rem;
+  flex: 1; /* Allow space for alignment */
 }
 
-.flightTime {
-  font-size: 18px;
-  font-weight: bold;
+.flightDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 
-.flightLocation {
-  font-size: 18px;
-  font-weight: bold;
-  color: #6b7280;
-}
-
+.flightTime,
+.flightLocation,
 .flightCountry {
-  font-size: 18px;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: bold;
   color: #6b7280;
+  white-space: nowrap; /* Prevent line breaks */
+}
+
+.flightDuration {
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.flightLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .detailsIcon {
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   align-self: center;
-  margin-right: 0.5rem; /* Thêm khoảng cách giữa icon và text */
+  margin-right: 0.5rem;
 }
 
 .footer {
@@ -298,7 +302,8 @@
     align-items: flex-start;
   }
 
-  .headerTitle, .headerText {
+  .headerTitle,
+  .headerText {
     font-size: 1rem;
   }
 
@@ -307,7 +312,10 @@
     align-items: flex-start;
   }
 
-  .detailsTextPrimary, .flightTime, .flightLocation, .flightCountry {
+  .detailsTextPrimary,
+  .flightTime,
+  .flightLocation,
+  .flightCountry {
     font-size: 0.875rem;
   }
 
@@ -316,22 +324,28 @@
     align-items: flex-start;
   }
 
-  .ticket, .flexibleTicket {
+  .ticket,
+  .flexibleTicket {
     margin-left: 0;
   }
 
-  .bookButton, .flexibleBookButton {
+  .bookButton,
+  .flexibleBookButton {
     width: 100%;
     margin: 0.5rem 0;
   }
 }
 
 @media (max-width: 480px) {
-  .headerTitle, .headerText {
+  .headerTitle,
+  .headerText {
     font-size: 0.875rem;
   }
 
-  .detailsTextPrimary, .flightTime, .flightLocation, .flightCountry {
+  .detailsTextPrimary,
+  .flightTime,
+  .flightLocation,
+  .flightCountry {
     font-size: 0.75rem;
   }
 

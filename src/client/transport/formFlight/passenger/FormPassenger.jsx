@@ -4,14 +4,14 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { DatePicker } from "antd";
 import { AddOutlined } from "@mui/icons-material";
 
-export function FormPassenger({index}) {
+export function FormPassenger({index,removePassenger}) {
   const [startDate, setStartDate] = useState(null);
 
   return (
     <form className={styles.form}>
       <div className={styles.titleInfo}>
         <p className={styles.title}>Hành Khách {index + 1} ( Vé người lớn )</p>
-        <span className={styles.remove}>
+        <span className={styles.remove} onClick={removePassenger}>
           Xóa <DeleteOutlineIcon />
         </span>
       </div>

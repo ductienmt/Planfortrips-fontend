@@ -7,20 +7,15 @@
   display: inline-block;
 }
 
-/* Atur border saat select box dibuka */
 .customSelect select:focus {
   outline: none;
 }
 
-/* Atur option */
 .customSelect select option {
   background-color: white;
-  /* Sesuaikan dengan warna latar belakang */
   color: black;
-  /* Sesuaikan dengan warna teks */
 }
 
-/* Atur border saat select box tertutup */
 .customSelect select:closed {
   border: none;
 }
@@ -30,9 +25,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   background-image: none;
-  /* Menghapus background image */
   padding-right: 1.5rem;
-  /* Menambahkan ruang di sebelah kanan untuk teks */
 }
 
 .rotateIcon {

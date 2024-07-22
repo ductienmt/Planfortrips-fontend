@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { FormSelection } from "../landing/FormSelection/FormSelection";
+import  FormSelection  from "../landing/FormSelection/FormSelection";
 
 export const LandingPage = () => {
   const divStyle = {

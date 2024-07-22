@@ -1,18 +1,37 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import avartar from '../assets/images/pexels-photo-1162361-removebg-preview.png';
 import logoBrand from '../assets/images/planfortrips-logo.png';
+import EtpVehicle_Nav from '../components/Nav/EtpVehicle_Nav';
+import EtpRestaurant_Nav from '../components/Nav/EtpRestaurant_Nav';
+import EtpHotel_Nav from '../components/Nav/EtpHotel_Nav';
 
 function EtpSideBar() {
-  const [isActive, setIsActive] = useState(0);
+  const typeEtp = sessionStorage.getItem('typeEtp')
+  const Mylocation = useLocation();
 
 
-  console.log(isActive);
+  const isActive = (path) => {
+    return Mylocation.pathname.endsWith(path) ? 'sidebar-link active' : 'sidebar-link';
+  };
+
+  const clclcss = (path) => {
+    console.log(location.pathname);
+    console.log(path);
+  }
+
+  const navi = useNavigate()
+  useEffect(() => {
+    if (typeEtp === null) {
+        navi('login')
+    }
+  },[typeEtp])
+
+
 
   return (
     <>
       <aside className="left-sidebar">
-        {/* Sidebar scroll */}
         <div>
           <div className="brand-logo d-flex align-items-center justify-content-between">
             <a href="./index.html" className="text-nowrap logo-img">
@@ -22,7 +41,6 @@ function EtpSideBar() {
               <i className="ti ti-x fs-8" />
             </div>
           </div>
-          {/* Sidebar navigation */}
           <nav className="sidebar-nav scroll-sidebar" data-simplebar="">
             <ul id="sidebarnav">
               <li className="nav-small-cap">
@@ -30,11 +48,7 @@ function EtpSideBar() {
                 <span className="hide-menu">Thông tin</span>
               </li>
               <li className="sidebar-item">
-                <Link 
-                  className={isActive === 0 ? 'sidebar-link active' : 'sidebar-link'} 
-                  to="" 
-                  onClick={() => setIsActive(0)}
-                >
+                <Link className={isActive('enterprise')} to="">
                   <span>
                     <i className="ti ti-layout-dashboard" />
                   </span>
@@ -42,11 +56,7 @@ function EtpSideBar() {
                 </Link>
               </li>
               <li className="sidebar-item">
-                <Link 
-                  className={isActive === 1 ? 'sidebar-link active' : 'sidebar-link'} 
-                  to="news" 
-                  onClick={() => setIsActive(1)}
-                >
+                <Link className={isActive('/news')} to="news" onClick={() => clclcss('news')}>
                   <span>
                     <i className="ti ti-news"></i>
                   </span>
@@ -57,40 +67,25 @@ function EtpSideBar() {
                 <i className="ti ti-dots nav-small-cap-icon fs-4" />
                 <span className="hide-menu">Tài nguyên</span>
               </li>
-              <li className="sidebar-item">
-                <Link 
-                  className={isActive === 2 ? 'sidebar-link active' : 'sidebar-link'} 
-                  to="vehicle/create" 
-                  onClick={() => setIsActive(2)}
-                >
-                  <span>
-                    <i className="ti ti-circle-plus"></i>
-                  </span>
-                  <span className="hide-menu">Thêm phương tiện</span>
-                </Link>
-              </li>
-              <li className="sidebar-item">
-                <Link 
-                  className={isActive === 3 ? 'sidebar-link active' : 'sidebar-link'} 
-                  to="vehicle/list" 
-                  onClick={() => setIsActive(3)}
-                >
-                  <span>
-                    <i className="ti ti-car"></i>
-                  </span>
-                  <span className="hide-menu">Danh sách xe</span>
-                </Link>
-              </li>
+
+              {typeEtp === 'vehicle' && <EtpVehicle_Nav isActive={isActive} typeEtp={typeEtp}/>}
+
+              {typeEtp === 'restaurant'&& <EtpRestaurant_Nav isActive={isActive} typeEtp={typeEtp}/>}
+           
+              {typeEtp === 'hotel' && <EtpHotel_Nav isActive={isActive} typeEtp={typeEtp}/>}
+
+           
+
+           
+
+             
+
               <li className="nav-small-cap">
                 <i className="ti ti-dots nav-small-cap-icon fs-4" />
                 <span className="hide-menu">Bài đăng</span>
               </li>
               <li className="sidebar-item">
-                <Link 
-                  className={isActive === 4 ? 'sidebar-link active' : 'sidebar-link'} 
-                  to="post/create" 
-                  onClick={() => setIsActive(4)}
-                >
+                <Link className={isActive('/post/create')} to="post/create">
                   <span>
                     <i className="ti ti-book-upload"></i>
                   </span>
@@ -98,11 +93,7 @@ function EtpSideBar() {
                 </Link>
               </li>
               <li className="sidebar-item">
-                <Link 
-                  className={isActive === 5 ? 'sidebar-link active' : 'sidebar-link'} 
-                  to="post/list" 
-                  onClick={() => setIsActive(5)}
-                >
+                <Link className={isActive('/post/list')} to="post/list">
                   <span>
                     <i className="ti ti-message-2-share"></i>
                   </span>
@@ -114,11 +105,7 @@ function EtpSideBar() {
                 <span className="hide-menu">Khác</span>
               </li>
               <li className="sidebar-item">
-                <Link 
-                  className={isActive === 6 ? 'sidebar-link active' : 'sidebar-link'} 
-                  to="settings" 
-                  onClick={() => setIsActive(6)}
-                >
+                <Link className={isActive('/settings')} to="settings">
                   <span>
                     <i className="ti ti-settings"></i>
                   </span>
@@ -126,11 +113,7 @@ function EtpSideBar() {
                 </Link>
               </li>
               <li className="sidebar-item">
-                <Link 
-                  className={isActive === 7 ? 'sidebar-link active' : 'sidebar-link'} 
-                  to="support" 
-                  onClick={() => setIsActive(7)}
-                >
+                <Link className={isActive('/support')} to="support">
                   <span>
                     <i className="ti ti-headset"></i>
                   </span>
@@ -138,11 +121,7 @@ function EtpSideBar() {
                 </Link>
               </li>
               <li className="sidebar-item">
-                <Link 
-                  className={isActive === 8 ? 'sidebar-link active' : 'sidebar-link'} 
-                  to="help" 
-                  onClick={() => setIsActive(8)}
-                >
+                <Link className={isActive('/help')} to="help">
                   <span>
                     <i className="ti ti-help"></i>
                   </span>
@@ -174,9 +153,7 @@ function EtpSideBar() {
               </div>
             </div>
           </nav>
-          {/* End Sidebar navigation */}
         </div>
-        {/* End Sidebar scroll */}
       </aside>
     </>
   );

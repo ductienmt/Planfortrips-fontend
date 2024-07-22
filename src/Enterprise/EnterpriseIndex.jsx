@@ -1,10 +1,11 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import './assets/css/styles.min.css';
 import './assets/css/mycss.css'
 import EtpSideBar from './Layout/EtpSidebar.jsx';
 import EtpHeader from './Layout/EtpHeader.jsx';
 
 function EnterpriseIndex() {
+
   return ( 
     <>
       {/* Body Wrapper */}
@@ -19,7 +20,13 @@ function EnterpriseIndex() {
       >
         <EtpSideBar />
           <EtpHeader>
+          <div className="container-fluid">
+      <div className="card">
+        <div className="card-body">
           <Outlet />
+          </div>
+          </div>
+          </div>
           </EtpHeader>
         </div>
     </>

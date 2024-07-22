@@ -78,14 +78,14 @@
   /* margin-top: 140px; */
   position: fixed; /* Thay vì sticky, sử dụng fixed */
   top: 0;
-  z-index: 100; 
+  z-index: 100;
   width: 100%;
   max-width: 400px;
   border-width: 1px;
   border: 1px solid rgb(214, 214, 213);
   border-radius: 1rem;
   background-color: rgba(255, 255, 255, 1);
-  padding: 20px 50px;
+  padding: 10px 20px;
   margin: 165px 10px 20px 100px;
   transition: top 0.3s ease, position 0.3s ease;
 }
@@ -219,12 +219,12 @@
 .submit:hover {
   background-color: rgb(56, 90, 194);
 }
-.payment{
+.payment {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.price{
+.price {
   font-size: 20px;
   color: royalblue;
   font-weight: 600;
@@ -232,4 +232,61 @@
   position: relative;
   display: flex;
   align-items: center;
+}
+@media (min-width: 268px) {
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    border-width: 1px;
+    border: 1px solid rgb(214, 214, 213);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 10px 20px;
+    margin: 0px 10px 20px 10px;
+    transition: top 0.3s ease, position 0.3s ease;
+  }
+}
+@media (min-width: 468px) {
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    border-width: 1px;
+    border: 1px solid rgb(214, 214, 213);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 10px 20px;
+    margin: 165px 10px 20px 10px;
+    transition: top 0.3s ease, position 0.3s ease;
+  }
+}
+@media (min-width: 768px) {
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    border-width: 1px;
+    border: 1px solid rgb(214, 214, 213);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 10px 20px;
+    margin: 165px 10px 20px 20px;
+    transition: top 0.3s ease, position 0.3s ease;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    border-width: 1px;
+    border: 1px solid rgb(214, 214, 213);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 10px 20px;
+    margin: 165px 10px 20px 20px;
+    transition: top 0.3s ease, position 0.3s ease;
+  }
 }

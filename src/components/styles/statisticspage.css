@@ -1,0 +1,107 @@
+.statistics-page {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.statistics-page--content {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.statistics-page--content h1 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #007bff;
+    text-align: center;
+}
+
+.statistics-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.statistics-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 3px solid transparent;
+    text-align: center;
+    flex: 1;
+}
+
+.card-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    color: #fff;
+    margin: 0 auto 15px;
+    font-size: 1.5rem;
+}
+
+.card-details h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.card-details p {
+    margin: 5px 0 0;
+    font-size: 1rem;
+    color: #666;
+}
+
+.partner-statistics {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.chart {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+.chart-header {
+    margin-bottom: 20px;
+}
+
+.chart-header h2 {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.bar-chart-box {
+    height: 200px;
+    /* Điều chỉnh chiều cao cho biểu đồ cột */
+}
+
+.pie-chart-box {
+    height: 200px;
+    /* Điều chỉnh chiều cao cho biểu đồ hình tròn */
+}

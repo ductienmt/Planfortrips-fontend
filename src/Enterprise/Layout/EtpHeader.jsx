@@ -2,9 +2,23 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import avartar from '../assets/images/pexels-photo-1162361-removebg-preview.png';
 import { faSearch } from '@fortawesome/free-solid-svg-icons'; // Adjusted icon import
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function EtpHeader({ children }) {
+
+
+
+  const navi = useNavigate();
+
+  const logOut = () => {
+    sessionStorage.removeItem('typeEtp');
+    navi('')
+  }
+
+  const logIn = (typeEnterprise) => {
+    sessionStorage.setItem('typeEtp',typeEnterprise);
+  }
+
   return (
     <>
       {/* Main wrapper */}
@@ -58,24 +72,30 @@ function EtpHeader({ children }) {
                     aria-labelledby="drop2"
                   >
                     <div className="message-body">
-                      <a href="#" className="d-flex align-items-center gap-2 dropdown-item">
-                        <i className="ti ti-user fs-6" />
-                        <p className="mb-0 fs-3">My Profile</p>
-                      </a>
-                      <a href="#" className="d-flex align-items-center gap-2 dropdown-item">
-                        <i className="ti ti-mail fs-6" />
-                        <p className="mb-0 fs-3">My Account</p>
-                      </a>
-                      <a href="#" className="d-flex align-items-center gap-2 dropdown-item">
-                        <i className="ti ti-list-check fs-6" />
-                        <p className="mb-0 fs-3">My Task</p>
-                      </a>
-                      <a
-                        href="#"
+                      <Link to="vehicle" className="d-flex align-items-center gap-2 dropdown-item"
+                        onClick={() => logIn('vehicle')}
+                      >
+                      <i className="ti ti-car"></i>
+                        <p className="mb-0 fs-3">Phương tiện</p>
+                      </Link>
+                      <Link to="restaurant" className="d-flex align-items-center gap-2 dropdown-item"
+                        onClick={() => logIn('restaurant')}
+                      >
+                      <i className="ti ti-tools-kitchen-2"></i>
+                        <p className="mb-0 fs-3">Quán ăn</p>
+                      </Link>
+                      <Link to="hotel" className="d-flex align-items-center gap-2 dropdown-item"
+                        onClick={() => logIn('hotel')}
+                      >
+                      <i className="ti ti-window"></i>
+                        <p className="mb-0 fs-3">Khách sạn</p>
+                      </Link>
+                      <button
+                      onClick={logOut}
                         className="btn btn-outline-primary mx-3 mt-2 d-block"
                       >
                         Logout
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </li>

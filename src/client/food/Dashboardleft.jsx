@@ -14,7 +14,7 @@ function valuetext(value) {
   return `${value}VND`;
 }
 const Dashboardleft = () => {
-  const [value1, setValue1] = React.useState([0, 1000000]);
+  const [value1, setValue1] = React.useState([0, 10000000]);
 
   const handleChange1 = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {

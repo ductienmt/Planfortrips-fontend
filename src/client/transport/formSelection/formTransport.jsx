@@ -7,8 +7,8 @@ import TabPanel from "@mui/lab/TabPanel";
 import FlightIcon from "@mui/icons-material/Flight";
 import DirectionsBusIcon from "@mui/icons-material/DirectionsBus";
 import { FormFlight } from "../formFlight/formFlight";
-import "./formTransport.css"; // Import the custom CSS file
 import { FormCar } from "../formCar/formCar";
+import "./formTransport.css"; // Import the custom CSS file
 
 export default function FormTransport() {
   const [value, setValue] = React.useState("1");
@@ -22,40 +22,29 @@ export default function FormTransport() {
       sx={{
         width: "100%",
         typography: "body1",
-        paddingTop: "120px",
-        paddingBottom: "400px",
+        paddingTop: { xs: "60px", md: "120px" }, // Responsive paddingTop
+        paddingBottom: { xs: "200px", md: "400px" }, // Responsive paddingBottom
       }}
     >
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <TabList
             onChange={handleChange}
-            aria-label="lab API tabs example"
+            aria-label="transport tabs"
             centered
+            sx={{ display: { xs: 'block', sm: 'flex' }, justifyContent: { sm: 'center' } }} // Responsive TabList
           >
             <Tab
               label="Đặt vé máy bay"
               value="1"
-              icon={
-                <FlightIcon
-                  className="icon-center mb-2"
-                  style={{ color: "#46a2da" }}
-                />
-              }
+              icon={<FlightIcon className="icon-center" style={{ color: "#46a2da" }} />}
               className="custom-tab navBtn"
-              style={{ borderRadius: "30px" }}
             />
             <Tab
               label="Đặt vé xe"
               value="2"
-              icon={
-                <DirectionsBusIcon
-                  className="icon-center mb-2"
-                  style={{ color: "rgb(32, 191, 85)" }}
-                />
-              }
+              icon={<DirectionsBusIcon className="icon-center" style={{ color: "rgb(32, 191, 85)" }} />}
               className="custom-tab navBtn"
-              style={{ borderRadius: "30px" }}
             />
           </TabList>
         </Box>

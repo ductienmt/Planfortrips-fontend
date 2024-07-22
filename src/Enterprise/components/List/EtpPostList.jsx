@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function PostList() {
+function EtpPostList() {
   const postsPerPage = 4; // Số bài đăng trên mỗi trang
   const [currentPage, setCurrentPage] = useState(1); // Trang hiện tại, mặc định là trang đầu tiên
 
@@ -180,4 +180,4 @@ function PostList() {
   );
 }
 
-export default PostList;
+export default EtpPostList;
