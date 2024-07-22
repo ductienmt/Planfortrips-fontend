@@ -1,0 +1,10 @@
+.con-pay .Mui-active circle,
+.con-pay .Mui-completed path {
+    color: var(--success-btn-color) !important;
+}
+
+.con-pay .MuiStepLabel-label {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    font-family: 'Quicksand', sans-serif !important;
+}

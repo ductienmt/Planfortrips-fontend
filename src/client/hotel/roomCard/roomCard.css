@@ -19,7 +19,7 @@
     margin-right: 2rem;
 }
 
-.price-room-type button {
+.price-room-type a {
     border: none;
     width: 100%;
     height: 50px;
@@ -28,15 +28,23 @@
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 10px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
-.price-room-type button:hover {
+.price-room-type a:hover {
     background-color: var(--success-text-color);
 }
 
 .card-room-type .content-type {
     font-size: 1.2rem;
     font-weight: 600;
+}
+
+.price-room-type span {
+    font-size: 1.2rem;
 }
 
 .custom-img-room-type img {

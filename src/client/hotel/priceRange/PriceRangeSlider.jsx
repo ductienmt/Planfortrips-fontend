@@ -1,142 +1,82 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import "./PriceRangeSlider.css";
+import Slider from "@mui/material/Slider";
+
+const minDistance = 300;
 
 const PriceRangeSlider = () => {
-  const [minValue, setMinValue] = useState(200);
-  const [maxValue, setMaxValue] = useState(2000);
-  const [sliderMinValue] = useState(200);
-  const [sliderMaxValue] = useState(5000);
-  const minGap = 1500;
+  const [value, setValue] = useState([200, 2000]);
 
-  useEffect(() => {
-    setArea();
-  }, [minValue, maxValue]);
-
-  function setArea() {
-    const range = document.querySelector(".slider-track");
-    const minVal = document.querySelector(".min-val");
-    const maxVal = document.querySelector(".max-val");
-    const minTooltip = document.querySelector(".min-tooltip");
-    const maxTooltip = document.querySelector(".max-tooltip");
-
-    range.style.left = `${
-      ((minValue - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * 100
-    }%`;
-    minTooltip.style.left = `${
-      ((minValue - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * 100
-    }%`;
-    range.style.right = `${
-      100 -
-      ((maxValue - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * 100
-    }%`;
-    maxTooltip.style.right = `${
-      100 -
-      ((maxValue - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * 100
-    }%`;
-  }
-
-  function handleMinInputChange(event) {
-    let value = parseInt(event.target.value);
-    if (value < sliderMinValue) {
-      value = sliderMinValue;
+  const handleChange = (_, newValue, activeThumb) => {
+    if (!Array.isArray(newValue)) {
+      return;
     }
-    setMinValue(value);
-  }
 
-  function handleMaxInputChange(event) {
-    let value = parseInt(event.target.value);
-    if (value > sliderMaxValue) {
-      value = sliderMaxValue;
+    if (activeThumb === 0) {
+      const newMin = Math.min(newValue[0], value[1] - minDistance);
+      setValue([newMin, Math.max(value[1], newMin + minDistance)]);
+    } else {
+      const newMax = Math.max(newValue[1], value[0] + minDistance);
+      setValue([Math.min(value[0], newMax - minDistance), newMax]);
     }
-    setMaxValue(value);
-  }
+  };
 
   const formatPrice = (price) => {
-    // Chuyển đổi giá thành chuỗi và đảm bảo nó là số
     const formattedPrice = Number(price).toString();
-
-    // Tách phần nguyên và phần thập phân
     const parts = formattedPrice.split(".");
     const integerPart = parts[0];
     const decimalPart = parts.length > 1 ? "." + parts[1] : "";
-
-    // Thêm dấu chấm sau mỗi 3 số trong phần nguyên
     const regex = /\B(?=(\d{3})+(?!\d))/g;
     const formattedIntegerPart = integerPart.replace(regex, ".");
-
-    // Thêm số 0 vào phần thập phân nếu cần
     let formattedDecimalPart = "";
     if (decimalPart) {
       formattedDecimalPart = decimalPart.padEnd(3, "0");
     } else {
       formattedDecimalPart = ".000";
     }
-
-    // Kết hợp phần nguyên và phần thập phân để tạo giá trị hoàn chỉnh
     const formattedPriceWithDecimal =
       formattedIntegerPart + formattedDecimalPart + " VNĐ";
-
     return formattedPriceWithDecimal;
   };
 
   return (
-    <div className="double-slider-box">
-      <div className="range-slider">
-        <span className="slider-track"></span>
-        <input
-          type="range"
-          className="min-val"
-          name="min_val"
-          min={sliderMinValue}
-          max={sliderMaxValue}
-          value={minValue}
-          step="50"
-          onChange={(e) => setMinValue(parseInt(e.target.value))}
-          onInput={(e) => setMinValue(parseInt(e.target.value))}
-        />
-        <input
-          type="range"
-          className="max-val"
-          name="max_val"
-          min={sliderMinValue}
-          max={sliderMaxValue}
-          value={maxValue}
-          step="50"
-          onChange={(e) => setMaxValue(parseInt(e.target.value))}
-          onInput={(e) => setMaxValue(parseInt(e.target.value))}
-        />
-        <div className="tooltip min-tooltip">{minValue}</div>
-        <div className="tooltip max-tooltip">{maxValue}</div>
-      </div>
+    <>
+      <Slider
+        min={0}
+        max={5000}
+        getAriaLabel={() => "Price range"}
+        value={value}
+        onChange={handleChange}
+        valueLabelDisplay="auto"
+        disableSwap
+      />
       <div className="input-box">
         <div className="min-box">
           <div className="input-wrap">
-            {/* <span className="input-addon">VND</span> */}
             <input
               type="text"
               name="min_input"
               className="input-field min-input"
-              value={formatPrice(minValue)}
-              onChange={handleMinInputChange}
+              value={formatPrice(value[0])}
+              onChange={handleChange}
               disabled
             />
           </div>
         </div>
         <div className="max-box">
           <div className="input-wrap">
-            {/* <span className="input-addon">VND</span> */}
             <input
               type="text"
               name="max_input"
               className="input-field max-input"
-              value={formatPrice(maxValue)}
-              onChange={handleMaxInputChange}
+              value={formatPrice(value[1])}
+              onChange={handleChange}
               disabled
             />
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

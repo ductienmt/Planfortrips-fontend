@@ -250,6 +250,15 @@
 .custom-btn-hotel {
     color: white !important;
     background-color: var(--success-btn-color) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .custom-btn-hotel:hover {
@@ -258,10 +267,23 @@
 }
 
 .hide-text-search-hotel {
-    /* font-size: 1.2rem;
-    font-weight: 600; */
     display: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+    /* Space between icon and text */
 }
+
+/* .custom-btn-hotel:hover .hide-text-search-hotel {
+    display: inline-block;
+
+} */
+
+.custom-btn-hotel i {
+    margin-right: 0.5rem;
+    /* Space between icon and text */
+}
+
 
 .custom-filter h1 {
     font-size: 2rem;

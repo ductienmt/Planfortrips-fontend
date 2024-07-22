@@ -1,62 +1,31 @@
-.double-slider-box {
-    background-color: transparent;
-    /* padding: 20px 40px; */
-    border-radius: 10px;
-    max-width: 20rem;
+.css-ttgsjq-MuiSlider-track {
+    color: rgb(252, 221, 155);
 }
 
-h3.range-title {
-    margin-bottom: 4rem;
+.css-7o8aqz-MuiSlider-rail {
+    color: #ddd;
 }
 
-.range-slider {
-    position: relative;
-    width: 100%;
-    height: 5px;
-    margin: 30px 0;
-    background-color: #dbdbdb;
-    border-radius: 13px;
+.css-188mx6n-MuiSlider-root {
+    height: 6px !important;
 }
 
-.slider-track {
-    height: 100%;
-    position: absolute;
-    background-color: var(--warning-color);
+.css-cp2j25-MuiSlider-thumb {
+    width: 24px !important;
+    height: 24px !important;
+    color: var(--success-btn-color);
 }
 
-.range-slider input {
-    position: absolute;
-    width: 100%;
-    background: none;
-    pointer-events: none;
-    top: 50%;
-    transform: translateY(-50%);
-    appearance: none;
+.css-14gyywz-MuiSlider-valueLabel {
+    background-color: var(--success-btn-color) !important;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif !important;
 }
 
-input[type="range"]::-webkit-slider-thumb {
-    height: 25px;
-    width: 25px;
-    border-radius: 50%;
-    border: 3px solid #FFF;
-    background: var(--success-btn-color);
-    pointer-events: auto;
-    appearance: none;
-    cursor: pointer;
-    box-shadow: 0 .125rem .5625rem -0.125rem rgba(0, 0, 0, .25);
+.MuiSlider-valueLabelCircle .MuiSlider-valueLabelLabel {
+    margin: 0;
 }
 
-input[type="range"]::-moz-range-thumb {
-    height: 25px;
-    width: 25px;
-    border-radius: 50%;
-    border: 3px solid #FFF;
-    background: var(--success-btn-color);
-    pointer-events: auto;
-    -moz-appearance: none;
-    cursor: pointer;
-    box-shadow: 0 .125rem .5625rem -0.125rem rgba(0, 0, 0, .25);
-}
 
 .input-field {
     border: none;
@@ -65,10 +34,13 @@ input[type="range"]::-moz-range-thumb {
     padding: 10px;
     width: 100%;
     font-weight: 600;
+    text-align: center;
+
 }
 
 .input-box {
     display: flex;
+    justify-content: space-between;
 }
 
 .min-box,
@@ -87,4 +59,5 @@ input[type="range"]::-moz-range-thumb {
     flex-wrap: wrap;
     align-items: stretch;
     width: 100%;
+
 }
