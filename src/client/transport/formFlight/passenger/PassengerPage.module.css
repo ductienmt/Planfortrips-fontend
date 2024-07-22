@@ -265,7 +265,7 @@
   .card {
     position: relative;
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
     border-width: 1px;
     border: 1px solid rgb(214, 214, 213);
     border-radius: 1rem;
@@ -280,7 +280,7 @@
   .card {
     position: relative;
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
     border-width: 1px;
     border: 1px solid rgb(214, 214, 213);
     border-radius: 1rem;
