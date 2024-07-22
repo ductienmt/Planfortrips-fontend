@@ -9,12 +9,8 @@ import { DetailFood } from "./client/food/detailFood/DetailFood";
 import Footer from "./client/footer/footer";
 import Hotel from "./client/hotel/hotel";
 import EnterpriseIndex from "./Enterprise/EnterpriseIndex";
-
-
-
 import { TransportPage } from "./client/transport/transportPage";
 import FlightItemPage from "./client/transport/formFlight/flightItem/FlightItemPage";
-<<<<<<< HEAD
 import EtpVehicleList from "./Enterprise/components/List/EtpVehicleList";
 import EtpPostList from "./Enterprise/components/List/EtpPostList";
 import EtpRestaurantList from "./Enterprise/components/List/EtpRetaunrantList";
@@ -24,7 +20,7 @@ import EtpVehicleHome from "./Enterprise/components/Home/EtpVehicleHome";
 import EtpRestaurantHome from "./Enterprise/components/Home/EtpRestaurantHome";
 import EtpHotelHome from "./Enterprise/components/Home/EtpHotelHome";
 import EtpLogin from "./Enterprise/components/EtpLogin";
-import Content from "./components/Content";
+// import Content from "./components/Content";
 import FeedbackPage from "./components/FeedbackPage";
 import TransactionPage from "./components/TransactionPage";
 import BusinessPage from "./components/BusinessPage";
@@ -39,13 +35,13 @@ import EtpRestaurantDetail from "./Enterprise/components/Detai/EtpRestaurantDeta
 import EtpHotelForm from "./Enterprise/components/Form/EtpHotelForm";
 import EtpHotelDetail from "./Enterprise/components/Detai/EtpHotelDetai";
 import EtpCarDetail from "./Enterprise/components/Detai/EtpCarDetail";
-
-
-=======
 import CarItemPage from "./client/transport/formCar/carItem/CarItemPage";
 import HorizontalNonLinearStepper from "./client/transport/formFlight/passenger/Stepper";
 import { PassengerPage } from "./client/transport/formFlight/passenger/PassengerPage";
->>>>>>> 08658e7 (flight page)
+import DetailCard from "./client/hotel/detailHotel/detailCard";
+import BookingHotel from "./client/hotel/booking/bookingHotel";
+import Payment from "./client/hotel/payment/payment";
+import Login from "./client/login/login";
 
 function App() {
   const location = useLocation();
@@ -55,59 +51,15 @@ function App() {
       {!location.pathname.includes("/enterprise") && <Header />}
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<Login />}></Route>
 
+        <Route path="/hotel">
+          <Route path="" element={<Hotel />}></Route>
+          <Route path="detail" element={<DetailCard />}></Route>
+          <Route path="booking" element={<BookingHotel />}></Route>
+          <Route path="payment" element={<Payment />}></Route>
+        </Route>
 
-        {/* Begin Route Enterprise */}
-        <Route path="/enterprise" element={<EnterpriseIndex/>}>
-            {/* <Route index element={<EtpHome/>}></Route> */}
-            
-            {/* Route Etp-Vehicle */}
-            <Route path="vehicle">
-              <Route index element={<EtpVehicleHome/>}></Route>
-              <Route path="create" element={<EtpVehicleForm/>}></Route>
-              <Route path="list" element={<EtpVehicleList/>}></Route>
-              <Route path="buses">
-                <Route index element={<EtpBusesList/>}></Route>
-                <Route path="create" element={<EtpBusesForm/>}></Route>
-              </Route>
-
-              <Route path="detail">
-                <Route path="car/:carId" element={<EtpCarDetail/>}></Route>
-                <Route path="plane/:planeId"></Route>
-              </Route>
-            </Route>
-            
-            {/* Route Etp-Post */}
-            <Route path="post">
-              <Route path="list" element={<EtpPostList/>}></Route>
-            </Route>
-
-            <Route path="login" element={<EtpLogin/>}></Route>
-
-           
-            {/* Route Etp-Restaurant */}
-            <Route path="restaurant">
-              <Route index element={<EtpRestaurantHome/>}></Route>
-              <Route path="create" element={<EtpRestaurantForm/>}></Route>
-              <Route path="list" element={<EtpRestaurantList/>}></Route>
-              <Route path="detail/:rtrId" element={<EtpRestaurantDetail/>}></Route>
-            </Route>
-
-            <Route path="news">
-              <Route index element={<EtpNewsIndex/>}></Route>
-            </Route>
-              {/* Route Etp-Hotel */}
-              <Route path="hotel">
-                <Route index element={<EtpHotelHome/>}></Route>
-                <Route path="create" element={<EtpHotelForm/>}></Route>
-                <Route path="detail/:hId" element={<EtpHotelDetail/>}></Route>
-              <Route path="list" element={<EtpHotelList/>}></Route>
-            </Route>
-
-            </Route>
-
-
-        <Route path="/hotel" element={<Hotel />} />
         <Route path="food">
           <Route path="" element={<FoodPage />}></Route>
           <Route path="detail" element={<DetailFood />} />
@@ -120,11 +72,61 @@ function App() {
           </Route>
           <Route path="car" element={<CarItemPage />}></Route>
         </Route>
+
+        {/* Begin Route Enterprise */}
+        <Route path="/enterprise" element={<EnterpriseIndex />}>
+          {/* <Route index element={<EtpHome/>}></Route> */}
+
+          {/* Route Etp-Vehicle */}
+          <Route path="vehicle">
+            <Route index element={<EtpVehicleHome />}></Route>
+            <Route path="create" element={<EtpVehicleForm />}></Route>
+            <Route path="list" element={<EtpVehicleList />}></Route>
+            <Route path="buses">
+              <Route index element={<EtpBusesList />}></Route>
+              <Route path="create" element={<EtpBusesForm />}></Route>
+            </Route>
+
+            <Route path="detail">
+              <Route path="car/:carId" element={<EtpCarDetail />}></Route>
+              <Route path="plane/:planeId"></Route>
+            </Route>
+          </Route>
+
+          {/* Route Etp-Post */}
+          <Route path="post">
+            <Route path="list" element={<EtpPostList />}></Route>
+          </Route>
+
+          <Route path="login" element={<EtpLogin />}></Route>
+
+          {/* Route Etp-Restaurant */}
+          <Route path="restaurant">
+            <Route index element={<EtpRestaurantHome />}></Route>
+            <Route path="create" element={<EtpRestaurantForm />}></Route>
+            <Route path="list" element={<EtpRestaurantList />}></Route>
+            <Route
+              path="detail/:rtrId"
+              element={<EtpRestaurantDetail />}
+            ></Route>
+          </Route>
+
+          <Route path="news">
+            <Route index element={<EtpNewsIndex />}></Route>
+          </Route>
+          {/* Route Etp-Hotel */}
+          <Route path="hotel">
+            <Route index element={<EtpHotelHome />}></Route>
+            <Route path="create" element={<EtpHotelForm />}></Route>
+            <Route path="detail/:hId" element={<EtpHotelDetail />}></Route>
+            <Route path="list" element={<EtpHotelList />}></Route>
+          </Route>
+        </Route>
       </Routes>
 
       <Routes>
         <Route path="/admin/transaction" element={<TransactionPage />} />
-        <Route path="/admin/content" element={<Content />} />
+        {/* <Route path="/admin/content" element={<Content />} /> */}
         <Route path="/admin/business" element={<BusinessPage />} />
         <Route path="/admin" element={<StatisticsPage />} />
         <Route path="/admin/feedback" element={<FeedbackPage />} />

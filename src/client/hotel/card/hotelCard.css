@@ -23,9 +23,15 @@
     width: 100%;
     height: 50px;
     font-size: 1.2rem;
-    text-align: center;
     color: var(--background-color);
     background-color: var(--success-btn-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 
@@ -39,6 +45,12 @@
     justify-content: center;
     font-size: 1.2rem;
     font-weight: 600;
+}
+
+.addFav-viewDe a:hover {
+    background-color: var(--success-text-color);
+    color: var(--background-color);
+    transition: background-color 0.3s ease;
 }
 
 .amenities {
@@ -75,16 +87,33 @@
     text-decoration: line-through;
     color: gray;
     font-size: 1.2rem;
+    text-wrap: nowrap;
 }
 
 .new-price {
     font-size: 1.5rem;
     color: var(--success-text-color);
+    text-wrap: nowrap;
 }
 
 
 @media screen and (max-width: 1230px) {
     .addFav-viewDe {
         gap: 10px;
+    }
+
+}
+
+@media screen and (max-width: 1300px) {
+    .addFav-viewDe {
+        gap: 10px;
+    }
+
+    .new-price {
+        font-size: 1.2rem;
+    }
+
+    .price .discounted {
+        font-size: 1rem;
     }
 }
