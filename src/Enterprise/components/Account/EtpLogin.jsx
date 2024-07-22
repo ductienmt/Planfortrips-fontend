@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./EtpLogin.css"; 
 import { useNavigate } from "react-router-dom";
+import logoBrand from '../../assets/images/planfortrips-logo.png';
+
 
 function EtpLogin() {
     const [typeEtp, setTypeEtp] = useState(''); 
@@ -24,11 +26,12 @@ function EtpLogin() {
                 <h2 className="text-center text-dark mt-5">Tài khoản doanh nghiệp</h2>
                 <div className="card my-5">
                     <form className="card-body p-lg-5" onSubmit={handleLogin}>
-                        <div className="text-center mb-4">
+                      <div className="text-center mb-4">
                             <img
-                                src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png"
-                                className="profile-image img-thumbnail rounded-circle"
+                                src={logoBrand}
+                                className="profile-image img-thumbnail rounded-circle mx-auto"
                                 alt="profile"
+                                style={{objectFit : 'contain'}}
                             />
                         </div>
                         <div className="mb-3">
