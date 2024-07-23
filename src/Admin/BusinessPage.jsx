@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import './styles/businesspage.css';
+import ContentHeader from './ContentHeader';
 
 const BusinessPage = () => {
     const [businesses] = useState([
@@ -34,6 +35,7 @@ const BusinessPage = () => {
 
     return (
         <div className='businesspage'>
+            <ContentHeader />
             <Sidebar />
             <div className='businesspage-content'>
                 <div className="businesspage-container">
@@ -95,7 +97,7 @@ const BusinessPage = () => {
 
                     {/* View Business Modal */}
                     {isViewModalOpen && selectedBusiness && (
-                        <div className="businesspage-modal">
+                        <div className={`businesspage-modal ${isViewModalOpen ? 'open' : ''}`}>
                             <div className="businesspage-modal-content">
                                 <button className="businesspage-close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Thông Tin Doanh Nghiệp</h2>
@@ -116,7 +118,7 @@ const BusinessPage = () => {
 
                     {/* Add Business Modal */}
                     {isAddModalOpen && (
-                        <div className="businesspage-modal">
+                        <div className={`businesspage-modal ${isAddModalOpen ? 'open' : ''}`}>
                             <div className="businesspage-modal-content">
                                 <button className="businesspage-close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Thêm Doanh Nghiệp</h2>
@@ -142,7 +144,7 @@ const BusinessPage = () => {
 
                     {/* Edit Business Modal */}
                     {isEditModalOpen && (
-                        <div className="businesspage-modal">
+                        <div className={`businesspage-modal ${isEditModalOpen ? 'open' : ''}`}>
                             <div className="businesspage-modal-content">
                                 <button className="businesspage-close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Chỉnh Sửa Doanh Nghiệp</h2>

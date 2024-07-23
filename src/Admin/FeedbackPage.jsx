@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import './styles/feedbackpage.css';
+import ContentHeader from './ContentHeader';
 
 const FeedbackPage = () => {
     const [feedbacks] = useState([
@@ -36,6 +37,7 @@ const FeedbackPage = () => {
 
     return (
         <div className='feedbackpage'>
+            <ContentHeader />
             <Sidebar />
             <div className='feedbackpage--content'>
                 <div className="feedbackpage-container">
@@ -93,7 +95,7 @@ const FeedbackPage = () => {
 
                     {/* View Feedback Modal */}
                     {isViewModalOpen && selectedFeedback && (
-                        <div className="feedbackpage-modal">
+                        <div className={`feedbackpage-modal ${isViewModalOpen ? 'open' : ''}`}>
                             <div className="feedbackpage-modal-content">
                                 <button className="feedbackpage-close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Thông Tin Phản Hồi</h2>
@@ -114,7 +116,7 @@ const FeedbackPage = () => {
 
                     {/* Add Feedback Modal */}
                     {isAddModalOpen && (
-                        <div className="feedbackpage-modal">
+                        <div className={`feedbackpage-modal ${isAddModalOpen ? 'open' : ''}`}>
                             <div className="feedbackpage-modal-content">
                                 <button className="feedbackpage-close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Thêm Phản Hồi</h2>
@@ -138,7 +140,7 @@ const FeedbackPage = () => {
 
                     {/* Edit Feedback Modal */}
                     {isEditModalOpen && (
-                        <div className="feedbackpage-modal">
+                        <div className={`feedbackpage-modal ${isEditModalOpen ? 'open' : ''}`}>
                             <div className="feedbackpage-modal-content">
                                 <button className="feedbackpage-close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Chỉnh Sửa Phản Hồi</h2>

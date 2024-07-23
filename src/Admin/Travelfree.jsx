@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
-import './styles/travelfree.css';
+import '../Admin/styles/travelfree.css'
+import ContentHeader from './ContentHeader';
 
 const TravelPage = () => {
     const [places, setPlaces] = useState([
@@ -52,25 +53,26 @@ const TravelPage = () => {
     );
 
     return (
-        <div className="travel-dashboard">
+        <div className="travel">
+            <ContentHeader />
             <Sidebar />
-            <div className="travel-dashboard-content">
+            <div className="travel-content">
                 <div className="travel-container">
                     <div className="travel-header">
                         <h1>Danh Sách Điểm Tham Quan</h1>
-                        <button className="add-travel-button" onClick={handleAddPlace}>Thêm Điểm Tham Quan</button>
+                        <button className="travel-add-button" onClick={handleAddPlace}>Thêm Điểm Tham Quan</button>
                     </div>
                     <div className="travel-card">
-                        <div className="filter-container">
+                        <div className="travel-filter">
                             <label htmlFor="region-filter">Lọc theo vùng:</label>
-                            <select id="region-filter" value={filterRegion} onChange={(e) => setFilterRegion(e.target.value)} className="styled-select">
+                            <select id="region-filter" value={filterRegion} onChange={(e) => setFilterRegion(e.target.value)} className="travel-select">
                                 <option value="Tất cả">Tất cả</option>
                                 <option value="Bắc">Bắc</option>
                                 <option value="Trung">Trung</option>
                                 <option value="Nam">Nam</option>
                             </select>
                             <label htmlFor="price-filter">Lọc theo giá:</label>
-                            <select id="price-filter" value={filterPrice} onChange={(e) => setFilterPrice(e.target.value)} className="styled-select">
+                            <select id="price-filter" value={filterPrice} onChange={(e) => setFilterPrice(e.target.value)} className="travel-select">
                                 <option value="Tất cả">Tất cả</option>
                                 <option value="Miễn phí">Miễn phí</option>
                                 <option value="Mất phí">Mất phí</option>
@@ -99,9 +101,9 @@ const TravelPage = () => {
                                             <td>{place.description}</td>
                                             <td>{place.price}</td>
                                             <td className="travel-actions">
-                                                <button className="view-button" onClick={() => handleViewPlace(place)}>Xem</button>
-                                                <button className="edit-button" onClick={() => handleEditPlace(place)}>Chỉnh Sửa</button>
-                                                <button className="delete-button" onClick={() => setPlaces(places.filter(p => p.id !== place.id))}>Xóa</button>
+                                                <button className="travel-view-button" onClick={() => handleViewPlace(place)}>Xem</button>
+                                                <button className="travel-edit-button" onClick={() => handleEditPlace(place)}>Chỉnh Sửa</button>
+                                                <button className="travel-delete-button" onClick={() => setPlaces(places.filter(p => p.id !== place.id))}>Xóa</button>
                                             </td>
                                         </tr>
                                     ))}
@@ -112,9 +114,9 @@ const TravelPage = () => {
 
                     {/* View Place Modal */}
                     {isViewModalOpen && selectedPlace && (
-                        <div className="travel-modal">
+                        <div className={`travel-modal ${isViewModalOpen ? 'open' : ''}`}>
                             <div className="travel-modal-content">
-                                <button className="close-button" onClick={handleCloseModal}>×</button>
+                                <button className="travel-close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Thông Tin Điểm Tham Quan</h2>
                                 <div className="travel-info">
                                     <p><strong>ID:</strong> {selectedPlace.id}</p>
@@ -125,9 +127,7 @@ const TravelPage = () => {
                                     <p><strong>Giá:</strong> {selectedPlace.price}</p>
                                 </div>
                                 <div className="travel-modal-actions">
-                                    <button className="edit-button" onClick={() => handleEditPlace(selectedPlace)}>Chỉnh Sửa</button>
-                                    <button className="delete-button" onClick={() => setPlaces(places.filter(p => p.id !== selectedPlace.id))}>Xóa</button>
-                                    <button className="cancel-button" onClick={handleCloseModal}>Đóng</button>
+                                    <button className="travel-cancel-button" onClick={handleCloseModal}>Đóng</button>
                                 </div>
                             </div>
                         </div>
@@ -135,11 +135,11 @@ const TravelPage = () => {
 
                     {/* Add Place Modal */}
                     {isAddModalOpen && (
-                        <div className="travel-modal">
+                        <div className={`travel-modal ${isAddModalOpen ? 'open' : ''}`}>
                             <div className="travel-modal-content">
-                                <button className="close-button" onClick={handleCloseModal}>×</button>
+                                <button className="travel-close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Thêm Điểm Tham Quan</h2>
-                                <div className="form-group">
+                                <div className="travel-form-group">
                                     <label>Tên:</label>
                                     <input type="text" placeholder="Nhập tên điểm tham quan" />
                                     <label>Vùng:</label>
@@ -155,7 +155,7 @@ const TravelPage = () => {
                                     </select>
                                 </div>
                                 <div className="travel-modal-actions">
-                                    <button className="confirm-button" onClick={() => {
+                                    <button className="travel-confirm-button" onClick={() => {
                                         const newPlace = {
                                             id: places.length + 1,
                                             name: document.querySelector('input[placeholder="Nhập tên điểm tham quan"]').value,
@@ -166,7 +166,7 @@ const TravelPage = () => {
                                         };
                                         handleAddNewPlace(newPlace);
                                     }}>Lưu</button>
-                                    <button className="cancel-button" onClick={handleCloseModal}>Hủy</button>
+                                    <button className="travel-cancel-button" onClick={handleCloseModal}>Hủy</button>
                                 </div>
                             </div>
                         </div>
@@ -174,11 +174,11 @@ const TravelPage = () => {
 
                     {/* Edit Place Modal */}
                     {isEditModalOpen && selectedPlace && (
-                        <div className="travel-modal">
+                        <div className={`travel-modal ${isEditModalOpen ? 'open' : ''}`}>
                             <div className="travel-modal-content">
-                                <button className="close-button" onClick={handleCloseModal}>×</button>
+                                <button className="travel-close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Chỉnh Sửa Điểm Tham Quan</h2>
-                                <div className="form-group">
+                                <div className="travel-form-group">
                                     <label>Tên:</label>
                                     <input
                                         type="text"
@@ -210,8 +210,8 @@ const TravelPage = () => {
                                     </select>
                                 </div>
                                 <div className="travel-modal-actions">
-                                    <button className="confirm-button" onClick={() => handleSavePlace(selectedPlace)}>Lưu</button>
-                                    <button className="cancel-button" onClick={handleCloseModal}>Hủy</button>
+                                    <button className="travel-confirm-button" onClick={() => handleSavePlace(selectedPlace)}>Lưu</button>
+                                    <button className="travel-cancel-button" onClick={handleCloseModal}>Hủy</button>
                                 </div>
                             </div>
                         </div>

@@ -1,13 +1,17 @@
 import React from 'react';
-import { BiSearch, BiNotification } from 'react-icons/bi';
-
+import { Link } from 'react-router-dom';
+import { BiSearch, BiNotification, BiSolidUser } from 'react-icons/bi';
+import '../Admin/styles/content.css'
+import logo from '../assets/img/planfortrips-logo.png';
 const ContentHeader = () => {
     return (
         <div className='content--header'>
 
-            <h1 className="header--title">
-                Bảng Quản Lí
-            </h1>
+            <div className="AdminHeader-logo">
+                <Link to="/">
+                    <img src={logo} alt="Planfortrips Logo" className="logo-img" />
+                </Link>
+            </div>
 
             <div className="header--activity">
                 <div className="search--box">
@@ -16,7 +20,10 @@ const ContentHeader = () => {
                 </div>
 
                 <div className="notify">
-                    <BiNotification className='icon' />
+                    <Link to="/admin/adminaccount" className="menu-item">
+                        <BiSolidUser className='icon' />
+
+                    </Link>
                 </div>
 
             </div>

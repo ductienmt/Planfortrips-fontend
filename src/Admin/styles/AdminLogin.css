@@ -1,89 +1,140 @@
-.login-body {
-    margin: 0;
-    padding: 0;
+.background-radial-gradient-admin {
+    background-color: hsl(218, 41%, 15%);
+    background-image: radial-gradient(650px circle at 0% 0%,
+            hsl(218, 41%, 35%) 15%,
+            hsl(218, 41%, 30%) 35%,
+            hsl(218, 41%, 20%) 75%,
+            hsl(218, 41%, 19%) 80%,
+            transparent 100%),
+        radial-gradient(1250px circle at 100% 100%,
+            hsl(218, 41%, 45%) 15%,
+            hsl(218, 41%, 30%) 35%,
+            hsl(218, 41%, 20%) 75%,
+            hsl(218, 41%, 19%) 80%,
+            transparent 100%);
     height: 100vh;
-    width: 100vw;
-    background-image: url(./Admin.jpg);
-    background-size: cover;
-    background-repeat: no;
-    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-.overplay {
-    position: absolute;
-    top: 0;
+.container {
+    max-width: 1200px;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.login-content {
-    position: absolute;
-    width: 400px;
-    background-color: white;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 15px;
-    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.5);
-}
-
-.header {
-    background-image: url(./Admin.jpg);
-    background-size: cover;
-    padding: 90px 30px;
-    color: white;
-    border-radius: 15px 15px 0 0;
-
-}
-
-.header p {
-    font-size: 15px;
-}
-
-.login-area {
-    text-align: center;
-    padding: 50px 50px 30px 50px;
-}
-
-.username,
-.password {
+.row {
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    text-align: center;
-    padding: 13px 0;
-    border-radius: 20px;
-    outline: none;
-    border: none;
-    color: white;
-    background-color: rgba(55, 10, 114, .5);
-    margin-bottom: 15px;
-    transition: 5px;
 }
 
-.username::placeholder,
-.password::placeholder {
-    color: rgb(225, 225, 225, .7);
+.col-left,
+.col-right {
+    flex: 1;
+    padding: 20px;
 }
 
-.username:focus,
-.password:focus {
-    background-color: rgb(55, 10, 114, .7);
-}
-
-.button-login {
-    width: 150px;
-    padding: 10px;
-    background-color: rgba(55, 10, 114, .8);
-    border-radius: 15px;
+.title {
+    color: hsl(218, 81%, 95%);
+    font-size: 2.5rem;
     font-weight: bold;
-    color: whitesmoke;
-    border: none;
-    outline: none;
-    margin: 10px;
-    transition: 2px;
-    cursor: pointer;
 }
 
-.button-login:hover {
-    background-color: #1f0344;
+.title span {
+    color: hsl(218, 81%, 75%);
+}
+
+.description {
+    color: hsl(218, 81%, 85%);
+    opacity: 0.7;
+}
+
+.radius-shape {
+    position: absolute;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#radius-shape-1 {
+    height: 220px;
+    width: 220px;
+    top: -60px;
+    left: -130px;
+    background: radial-gradient(#44006b, #ad1fff);
+}
+
+#radius-shape-2 {
+    border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+    bottom: -60px;
+    right: -110px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(#44006b, #ad1fff);
+}
+
+.card {
+    background-color: hsla(0, 0%, 100%, 0.9);
+    backdrop-filter: saturate(200%) blur(25px);
+    padding: 40px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-header {
+    margin-bottom: 20px;
+}
+
+.form-header h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    background-color: #7b1fc1;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #5e17a1;
 }

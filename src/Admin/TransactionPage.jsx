@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
-import Sidebar from './Sidebar';
 import './styles/transactionpage.css';
+import Sidebar from './Sidebar';
+import ContentHeader from './ContentHeader';
 
 const TransactionPage = () => {
     const [transactions] = useState([
-        { id: 1, user: 'Nguyen Van A', date: '01-01-2023', amount: '1000 USD', status: 'Hoàn Thành' },
-        { id: 2, user: 'Le Thi B', date: '05-02-2023', amount: '1500 USD', status: 'Đang Xử Lý' },
-        { id: 3, user: 'Tran Van C', date: '15-03-2023', amount: '500 USD', status: 'Hoàn Thành' },
-        { id: 4, user: 'Nguyen Thi D', date: '25-04-2023', amount: '2000 USD', status: 'Đang Xử Lý' },
-        { id: 5, user: 'Le Van E', date: '30-05-2023', amount: '750 USD', status: 'Hoàn Thành' },
         { id: 1, user: 'Nguyen Van A', date: '01-01-2023', amount: '1000 USD', status: 'Hoàn Thành' },
         { id: 2, user: 'Le Thi B', date: '05-02-2023', amount: '1500 USD', status: 'Đang Xử Lý' },
         { id: 3, user: 'Tran Van C', date: '15-03-2023', amount: '500 USD', status: 'Hoàn Thành' },
@@ -23,24 +19,43 @@ const TransactionPage = () => {
 
     const handleViewTransaction = (transaction) => {
         setSelectedTransaction(transaction);
-        setIsViewModalOpen(true);
+        setIsViewModalOpen(!isViewModalOpen);
     };
 
-    const handleEditTransaction = () => setIsEditModalOpen(true);
-    const handleAddTransaction = () => setIsAddModalOpen(true);
+    const handleEditTransaction = () => {
+        setIsEditModalOpen(true);
+    };
+
+    const handleAddTransaction = () => {
+        setIsAddModalOpen(true);
+    };
+
     const handleCloseModal = () => {
         setIsViewModalOpen(false);
         setIsEditModalOpen(false);
         setIsAddModalOpen(false);
+        setSelectedTransaction(null);
+    };
+
+    const toggleUserlistShrink = (shrink) => {
+        const userlistContent = document.querySelector('.userlist-content');
+        if (shrink) {
+            userlistContent.classList.add('shrink');
+            userlistContent.classList.remove('expand');
+        } else {
+            userlistContent.classList.remove('shrink');
+            userlistContent.classList.add('expand');
+        }
     };
 
     return (
-        <div className='dashboard'>
+        <div className='transaction'>
+            <ContentHeader />
             <Sidebar />
             <div className='transactionpage-content'>
                 <div className="transactionpage-container">
                     <div className="transactionpage-header">
-                        <h1>Danh Sách Giao Dịch</h1>
+                        <h1>Danh Sách Giao Dịch </h1>
                         <button className="transactionpage-add-button" onClick={handleAddTransaction}>Thêm Giao Dịch</button>
                     </div>
                     <div className="transactionpage-card">
@@ -90,10 +105,9 @@ const TransactionPage = () => {
                             </table>
                         </div>
                     </div>
-
                     {/* View Transaction Modal */}
                     {isViewModalOpen && selectedTransaction && (
-                        <div className="transactionpage-modal">
+                        <div className={`transactionpage-modal ${isViewModalOpen ? 'open' : ''}`}>
                             <div className="transactionpage-modal-content">
                                 <button className="transactionpage-close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Chi Tiết Giao Dịch</h2>
@@ -113,7 +127,7 @@ const TransactionPage = () => {
 
                     {/* Add Transaction Modal */}
                     {isAddModalOpen && (
-                        <div className="transactionpage-modal">
+                        <div className={`transactionpage-modal ${isAddModalOpen ? 'open' : ''}`}>
                             <div className="transactionpage-modal-content">
                                 <button className="transactionpage-close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Thêm Giao Dịch</h2>
@@ -140,7 +154,7 @@ const TransactionPage = () => {
 
                     {/* Edit Transaction Modal */}
                     {isEditModalOpen && (
-                        <div className="transactionpage-modal">
+                        <div className={`transactionpage-modal ${isEditModalOpen ? 'open' : ''}`}>
                             <div className="transactionpage-modal-content">
                                 <button className="transactionpage-close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Chỉnh Sửa Giao Dịch</h2>

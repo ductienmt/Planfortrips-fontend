@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './styles/userlist.css';
 import Sidebar from './Sidebar';
+import ContentHeader from './ContentHeader';
 
 const Userlist = () => {
     const [users] = useState([
@@ -11,35 +12,58 @@ const Userlist = () => {
         { id: 5, name: 'Hoa', email: 'Hoa@example.com', phone: '456-789-1230', address: 'Hue' },
         { id: 6, name: 'Dung', email: 'Dung@example.com', phone: '654-321-0987', address: 'Can Tho' },
         { id: 7, name: 'Ngoc', email: 'Ngoc@example.com', phone: '789-123-4560', address: 'Nha Trang' },
-        { id: 8, name: 'Vinh', email: 'Vinh@example.com', phone: '123-987-4560', address: 'Bac Ninh' }
+        { id: 8, name: 'Vinh', email: 'Vinh@example.com', phone: '123-987-4560', address: 'Bac Ninh' },
+
     ]);
 
     const [isViewModalOpen, setIsViewModalOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
-    const handleViewUser = () => setIsViewModalOpen(true);
-    const handleEditUser = () => setIsEditModalOpen(true);
-    const handleAddUser = () => setIsAddModalOpen(true);
+    const handleViewUser = () => {
+        setIsViewModalOpen(!isViewModalOpen);
+        toggleUserlistShrink(!isViewModalOpen);
+    };
+
+    const handleEditUser = () => {
+        setIsEditModalOpen(true);
+        toggleUserlistShrink(true);
+    };
+
+    const handleAddUser = () => {
+        setIsAddModalOpen(true);
+        toggleUserlistShrink(true);
+    };
+
     const handleCloseModal = () => {
         setIsViewModalOpen(false);
         setIsEditModalOpen(false);
         setIsAddModalOpen(false);
+        toggleUserlistShrink(false);
     };
 
-
-
+    const toggleUserlistShrink = (shrink) => {
+        const userlistContent = document.querySelector('.userlist-content');
+        if (shrink) {
+            userlistContent.classList.add('shrink');
+            userlistContent.classList.remove('expand');
+        } else {
+            userlistContent.classList.remove('shrink');
+            userlistContent.classList.add('expand');
+        }
+    };
 
     return (
         <div className='userlist'>
+            <ContentHeader />
             <Sidebar />
             <div className='userlist-content'>
-                <div className="userlist-containe">
+                <div className="userlist-container">
                     <div className="userlist-header">
                         <h1>Danh Sách Người Dùng</h1>
                         <button className="userlist-add-button" onClick={handleAddUser}>Thêm Người Dùng</button>
                     </div>
-                    <div className="userlist-car">
+                    <div className="userlist-card">
                         <div className="userlist-table-responsive">
                             <table className="userlist-table">
                                 <thead>
@@ -71,9 +95,10 @@ const Userlist = () => {
                             </table>
                         </div>
                     </div>
+
                     {/* View User Modal */}
                     {isViewModalOpen && (
-                        <div className="userlist-modal">
+                        <div className={`userlist-modal ${isViewModalOpen ? 'open' : ''}`}>
                             <div className="userlist-modal-content">
                                 <button className="userlist-close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Thông Tin Hồ Sơ</h2>
@@ -84,7 +109,6 @@ const Userlist = () => {
                                     <p><strong>Địa Chỉ:</strong> Ninh Thuan</p>
                                 </div>
                                 <div className="userlist-modal-actions">
-
                                     <button className="userlist-cancel-button" onClick={handleCloseModal}>Đóng</button>
                                 </div>
                             </div>
@@ -93,7 +117,7 @@ const Userlist = () => {
 
                     {/* Add User Modal */}
                     {isAddModalOpen && (
-                        <div className="userlist-modal">
+                        <div className={`userlist-modal ${isAddModalOpen ? 'open' : ''}`}>
                             <div className="userlist-modal-content">
                                 <button className="userlist-close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Thêm Người Dùng</h2>
@@ -117,7 +141,7 @@ const Userlist = () => {
 
                     {/* Edit User Modal */}
                     {isEditModalOpen && (
-                        <div className="userlist-modal">
+                        <div className={`userlist-modal ${isEditModalOpen ? 'open' : ''}`}>
                             <div className="userlist-modal-content">
                                 <button className="userlist-close-button" onClick={handleCloseModal}>×</button>
                                 <h2>Chỉnh Sửa Người Dùng</h2>
