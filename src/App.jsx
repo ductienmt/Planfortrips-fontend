@@ -1,5 +1,5 @@
 import "./App.css";
-import { LandingPage } from "./pages/landingPage/landingPage";
+import { LandingPage } from "./client/landingPage/landingPage";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { Routes, Route, useLocation } from "react-router-dom";
