@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "./foodItem.module.css";
+import styles from "./FoodItem.module.css";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import { useEffect, useState } from "react";
 import { Skeleton, Stack } from "@mui/material";
@@ -19,7 +19,12 @@ export function FoodItem() {
       <Stack spacing={1}>
         <Skeleton variant="rectangular" width={210} height={120} />
         <Skeleton variant="rectangular" width={210} height={60} />
-        <Skeleton variant="rounded" width={80} height={60} style={{ float: "right" }} />
+        <Skeleton
+          variant="rounded"
+          width={80}
+          height={60}
+          style={{ float: "right" }}
+        />
       </Stack>
     );
   }

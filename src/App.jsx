@@ -33,9 +33,6 @@ import EtpRestaurantDetail from "./Enterprise/components/Detai/EtpRestaurantDeta
 import EtpHotelForm from "./Enterprise/components/Form/EtpHotelForm";
 import EtpHotelDetail from "./Enterprise/components/Detai/EtpHotelDetai";
 import EtpCarDetail from "./Enterprise/components/Detai/EtpCarDetail";
-import CarItemPage from "./client/transport/formCar/carItem/CarItemPage";
-import HorizontalNonLinearStepper from "./client/transport/formFlight/passenger/Stepper";
-import { PassengerPage } from "./client/transport/formFlight/passenger/PassengerPage";
 import { DetailFood } from "./client/food/detailFood/DetailFood";
 import CarItemPage from "./client/transport/formCar/carItem/CarItemPage";
 import HorizontalNonLinearStepper from "./client/transport/formFlight/passenger/Stepper";
@@ -66,7 +63,7 @@ function App() {
 
         <Route path="food">
           <Route path="" element={<FoodPage />}></Route>
-          <Route path="detail" element={<DetailFood />} />         
+          <Route path="detail" element={<DetailFood />} />
         </Route>
         <Route path="transport">
           <Route path="" element={<TransportPage />}></Route>
@@ -90,7 +87,7 @@ function App() {
             <Route path="buses">
               <Route index element={<EtpBusesList />}></Route>
               <Route path="create" element={<EtpBusesForm />}></Route>
-              <Route path=":busesId" element={<EtpBusesDetail/>}></Route>
+              <Route path=":busesId" element={<EtpBusesDetail />}></Route>
             </Route>
 
             <Route path="detail">
