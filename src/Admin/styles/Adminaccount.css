@@ -1,0 +1,202 @@
+/* General Styles */
+
+/* Admin Account Styles */
+.admin-account {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(to right, #3a3541, #2575fc);
+    color: white;
+}
+
+.account-content {
+    width: 90%;
+    flex-grow: 1;
+    padding: 0;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-left: 60%;
+    max-width: 800px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.account-content:hover {
+    transform: translateY(-10px);
+}
+
+/* Header Styles */
+.account-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.account-header h2 {
+    margin: 0;
+    font-weight: 600;
+    color: #333;
+}
+
+.account-logout-btn {
+    border: none;
+    color: #fff;
+    background-color: #dc3545;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.account-logout-btn:hover {
+    background-color: #c82333;
+}
+
+/* Media Styles */
+.account-media-left {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.account-avatar {
+    width: 100%px;
+    height: 200px;
+    border-radius: 5%;
+    object-fit: cover;
+    border: 2px solid #007bff;
+    transition: transform 0.3s ease-in-out;
+}
+
+.account-avatar:hover {
+    transform: scale(1.1);
+}
+
+.account-media-body {
+    margin-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.account-upload-btn {
+    border: 1px solid #007bff;
+    color: #007bff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.account-upload-btn:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.account-upload-btn input {
+    display: none;
+}
+
+.account-reset-btn {
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #f4f4f4;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.account-reset-btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Divider Styles */
+.account-divider {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 1.5rem 0;
+}
+
+/* Form Styles */
+.account-form {
+    padding: 1rem 0;
+}
+
+.account-form-group {
+    margin-bottom: 1rem;
+}
+
+.account-form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.account-form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.account-form-control:focus {
+    border-color: #007bff;
+}
+
+.account-form-control[readonly] {
+    background-color: #e9ecef;
+}
+
+/* Alert Styles */
+.account-alert {
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+.account-alert-warning {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+}
+
+.account-alert a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .account-content {
+        width: 100%;
+        padding: 1rem;
+        margin: 0;
+    }
+
+    .account-media {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .account-media-body {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+
+    .account-avatar {
+        width: 80px;
+        height: 80px;
+    }
+}
