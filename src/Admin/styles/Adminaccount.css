@@ -11,11 +11,11 @@
 .account-content {
     width: 90%;
     flex-grow: 1;
-    padding: 2rem;
+    padding: 0;
     background: #fff;
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    margin: auto;
+    margin-left: 60%;
     max-width: 800px;
     transition: transform 0.3s ease-in-out;
 }
@@ -53,16 +53,16 @@
 }
 
 /* Media Styles */
-.account-media {
+.account-media-left {
     display: flex;
     align-items: center;
     padding: 1rem 0;
 }
 
 .account-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+    width: 100%px;
+    height: 200px;
+    border-radius: 5%;
     object-fit: cover;
     border: 2px solid #007bff;
     transition: transform 0.3s ease-in-out;

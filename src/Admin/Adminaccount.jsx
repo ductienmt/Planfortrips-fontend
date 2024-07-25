@@ -11,7 +11,7 @@ const AccountGeneral = () => {
                     <h2>Thông tin tài khoản</h2>
                     <button type="button" className="account-logout-btn">Đăng xuất</button>
                 </div>
-                <div className="account-media">
+                <div className="account-media-left">
                     <img
                         src="https://bootdey.com/img/Content/avatar/avatar1.png"
                         alt="User Avatar"

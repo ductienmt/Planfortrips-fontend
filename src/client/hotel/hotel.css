@@ -37,6 +37,7 @@
     padding: 0 1.2rem;
     font-size: 1.1rem;
     border: none;
+    background-color: var(--background-color);
 }
 
 .form-hotel .input-custom-hotel input:focus {
@@ -126,9 +127,128 @@
     cursor: not-allowed;
 }
 
-.custom-btn-hotel {
-    color: white;
+.custom-list-hotel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.select-category {
+    background-color: var(--background-color);
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    height: 80px;
+    border-radius: 13px;
+    margin-top: 1rem;
+    box-shadow: 2px 2px 1rem #c4c4c4;
+    /* border: 1px solid var(--dark-color); */
+    cursor: pointer;
+    position: relative;
+}
+
+.select-category .col-md-4 {
+    padding: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.select-category .col-md-4.active {
+    color: var(--success-btn-color);
+}
+
+/* Style for the slider bar */
+.slider-bar {
+    height: 4px;
     background-color: var(--success-btn-color);
+    /* Change to match your theme */
+    position: absolute;
+    bottom: 0;
+    transition: all 0.3s ease;
+}
+
+/* Adjust the width and initial position based on your layout */
+.slider-bar.hotel {
+    width: 33.33%;
+    left: 0.5%;
+    border-radius: 0 0 0 15px;
+}
+
+.slider-bar.homestay {
+    width: 33.33%;
+    left: 33.33%;
+}
+
+.slider-bar.resort {
+    width: 33.33%;
+    left: 66%;
+    border-radius: 0 0 15px 0;
+
+}
+
+.hotel-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    width: 80%;
+    margin-top: 2rem;
+}
+
+.hotel-list li {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.column-sort {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    width: 80%;
+    margin-top: 2rem;
+}
+
+.column-sort h4 {
+    margin: 0;
+}
+
+.column-sort .btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination button:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.custom-btn-hotel {
+    color: white !important;
+    background-color: var(--success-btn-color) !important;
 }
 
 .custom-btn-hotel:hover {

@@ -8,7 +8,7 @@ function Loading() {
         <img
           src="https://cdn6.agoda.net/images/brand/agoji-parachute.gif"
           alt="gif1"
-        ></img>
+        />
         <h3>ĐẢM BẢO GIÁ TỐT NHẤT</h3>
         <h5>Chúng tôi sẽ khớp bất kỳ mức giá nào trên web hoặc hoàn lại khoản chênh lệch</h5>
       </div>
