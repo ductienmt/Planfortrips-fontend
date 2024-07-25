@@ -4,6 +4,7 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import PaymentForm from "../../payment-form/PaymentForm";
 
 const Payment = () => {
   const steps = ["Bạn chọn", "Nhập thông tin của bạn", "Bước cuối cùng"];
@@ -22,9 +23,9 @@ const Payment = () => {
           })}
         </Stepper>
         <div className="content">
-          <div className="save-info">
+          <div className="payment-info">
             <div className="content">
-              <h4>Lưu thông tin bạn</h4>
+              <PaymentForm />
             </div>
           </div>
         </div>

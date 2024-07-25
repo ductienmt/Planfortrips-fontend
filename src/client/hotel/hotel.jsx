@@ -218,6 +218,7 @@ const Hotel = () => {
           locale: VietnameseHotel,
           minDate: today,
           maxDate: maxDate,
+          static: true,
           onChange: function (selectedDates, dateStr, instance) {
             const minReturnDate = selectedDates[0]; // Ngày đi đã chọn
             const returnDate = returnPicker.selectedDates[0]; // Ngày về đã chọn
@@ -235,6 +236,7 @@ const Hotel = () => {
           locale: VietnameseHotel,
           minDate: today,
           maxDate: maxDate,
+          static: true,
           onChange: function (selectedDates, dateStr, instance) {
             const departDate = departPicker.selectedDates[0]; // Ngày đi đã chọn
             const maxDepartDate = selectedDates[0]; // Ngày về đã chọn
