@@ -1,5 +1,5 @@
 import "./App.css";
-import { LandingPage } from "./client/landingPage/landingPage";
+import { LandingPage } from "./pages/landingPage/landingPage";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { Routes, Route, useLocation } from "react-router-dom";
@@ -7,6 +7,7 @@ import Header from "./client/header/header";
 import FoodPage from "./client/food/FoodPage";
 import Footer from "./client/footer/footer";
 import Hotel from "./client/hotel/hotel";
+
 import EnterpriseIndex from "./Enterprise/EnterpriseIndex";
 import { TransportPage } from "./client/transport/transportPage";
 import FlightItemPage from "./client/transport/formFlight/flightItem/FlightItemPage";
@@ -18,13 +19,6 @@ import EtpNewsIndex from "./Enterprise/components/News/EtpNewsIndex";
 import EtpVehicleHome from "./Enterprise/components/Home/EtpVehicleHome";
 import EtpRestaurantHome from "./Enterprise/components/Home/EtpRestaurantHome";
 import EtpHotelHome from "./Enterprise/components/Home/EtpHotelHome";
-// import Content from "./components/Content";
-import FeedbackPage from "./components/FeedbackPage";
-import TransactionPage from "./components/TransactionPage";
-import BusinessPage from "./components/BusinessPage";
-import StatisticsPage from "./components/StatisticsPage";
-import TravelfreePage from "./components/Travelfree";
-import HotPage from "./components/HotPage";
 import EtpVehicleForm from "./Enterprise/components/Form/EtpVehicleForm";
 import EtpBusesForm from "./Enterprise/components/Form/EtpBusesForm";
 import EtpBusesList from "./Enterprise/components/List/EtpBusesList";
@@ -44,12 +38,25 @@ import Login from "./client/login/login";
 import EtpBusesDetail from "./Enterprise/components/Detai/EtpBusesDetail";
 import EtpLogin from "./Enterprise/components/Account/EtpLogin";
 
+// import Content from './components/Content';
+import Userlist from "./Admin/Userlist";
+import FeedbackPage from "./Admin/FeedbackPage";
+import TransactionPage from "./Admin/TransactionPage";
+import BusinessPage from "./Admin/BusinessPage";
+import StatisticsPage from "./Admin/StatisticsPage";
+import TravelfreePage from "./Admin/Travelfree";
+import Adminlogin from "./Admin/AdminLogin";
+import Adminaccount from "./Admin/Adminaccount";
 function App() {
   const location = useLocation();
 
   return (
     <>
-      {!location.pathname.includes("/enterprise") && <Header />}
+      {!(
+        location.pathname.includes("/enterprise") ||
+        location.pathname.includes("/admin")
+      ) && <Header />}
+
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />}></Route>
@@ -128,17 +135,18 @@ function App() {
       </Routes>
 
       <Routes>
-        <Route path="/admin/transaction" element={<TransactionPage />} />
-        {/* <Route path="/admin/content" element={<Content />} /> */}
-        <Route path="/admin/business" element={<BusinessPage />} />
         <Route path="/admin" element={<StatisticsPage />} />
+        <Route path="/admin/userlist" element={<Userlist />} />
+        <Route path="/admin/transaction" element={<TransactionPage />} />
+        <Route path="/admin/business" element={<BusinessPage />} />
         <Route path="/admin/feedback" element={<FeedbackPage />} />
         <Route path="/admin/travelfree" element={<TravelfreePage />} />
-        <Route path="/admin/hot" element={<HotPage />} />
+        <Route path="/admin/adminlogin" element={<Adminlogin />} />
+        <Route path="/admin/adminaccount" element={<Adminaccount />} />
       </Routes>
 
       {!location.pathname.includes("/enterprise") &&
-        !location.pathname.includes("/food") && <Footer />}
+        !location.pathname.includes("/admin") && <Footer />}
     </>
   );
 }
