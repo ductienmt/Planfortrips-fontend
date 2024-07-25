@@ -1,8 +1,6 @@
 import "./App.css";
 
 
-import { LandingPage } from "./pages/landingPage/landingPage";
-
 import { LandingPage } from "./client/landingPage/landingPage";
 
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -20,18 +18,11 @@ import PostForm from "./Enterprise/components/Form/PostForm";
 import VehicleList from "./Enterprise/components/List/VehicleList";
 import PostList from "./Enterprise/components/List/PostList";
 
-import Content from './components/Admin/Content';
-import FeedbackPage from './components/Admin/FeedbackPage';
-import TransactionPage from './components/Admin/TransactionPage';
-import BusinessPage from './components/Admin/BusinessPage';
-import StatisticsPage from './components/Admin/StatisticsPage';
-import SupportPage from './components/Admin/SupportPage';
-
 // import Content from './components/Content';
 import Userlist from './Admin/Userlist'
 import FeedbackPage from './Admin/FeedbackPage';
 import TransactionPage from './Admin/TransactionPage';
-import BusinessPage from './Admin/BusinessPage';
+import BusinessPage from './Admin/StatisticsPage';
 import StatisticsPage from './Admin/StatisticsPage';
 import TravelfreePage from './Admin/Travelfree';
 import Adminlogin from "./Admin/AdminLogin"
@@ -64,13 +55,7 @@ function App() {
           <Route path="detail" element={<DetailFood />} />
         </Route>
 
-        <Route path='/content' element={<Content />}  >
-          <Route path='transaction' element={<TransactionPage />} />
-          <Route path='business' element={<BusinessPage />} />
-          <Route path='statistics' element={<StatisticsPage />} />
-          <Route path='feedback' element={<FeedbackPage />} />
-          <Route path='support' element={<SupportPage />} />
-        </Route>
+
 
 
       </Routes>
