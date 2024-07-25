@@ -71,21 +71,25 @@ span {
 }
 
 .tab-button {
-    border: none;
-    border-radius: 0%;
+    border-radius: 0%; /* Bỏ bo góc */
     outline: none;
     background-color: transparent;
     padding: 5px 15px;
     cursor: pointer;
     font-size: 16px;
     color: #000;
-    transition: background-color 0.3s ease, boder-radius 0.3 ease;
+    transition: color 0.5s ease, border-radius 0.5s ease-in-out,background-color 1s ease-in-out; 
+}
+
+.tab-button:hover, .tab-button:focus {
+    color: white;
+    border-radius: 50px;
 }
 
 .tab-button.active {
     border-radius: 0% !important;
     background-color:black !important;
-    color: #fff;
+    color:white;
     font-weight: bold;
 }
 
@@ -168,3 +172,47 @@ span {
     font-weight: bold;
     color: red;
 }
+
+.card_plane {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.card-booked-common {
+    border-color: #ff6f61; 
+    background-color: #ffe0e0; 
+}
+
+.card-available-common {
+    border-color: #8bc34a; 
+    background-color: #e8f5e9;
+}
+
+.card-booked-vip {
+    border-color: #ffc107;
+    background-color: #fff3e0; 
+}
+
+.card-available-vip {
+    border-color: #00bcd4; 
+    background-color: #e0f7fa;
+}
+
+/* Hiệu ứng cho nút bấm */
+.btn-outline-primary {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-danger {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-outline-danger:hover, .btn-outline-danger:focus {
+    background-color: #dc3545;
+    color: #fff;
+}
+

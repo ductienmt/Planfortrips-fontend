@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import avartar from '../assets/images/pexels-photo-1162361-removebg-preview.png';
-import { faSearch } from '@fortawesome/free-solid-svg-icons'; // Adjusted icon import
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 
 function EtpHeader({ children }) {
