@@ -68,6 +68,8 @@
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s ease-in-out;
+    background-color: var(--success-text-color);
+    color: var(--background-color);
 }
 
 .NavbarItems ul button:hover {

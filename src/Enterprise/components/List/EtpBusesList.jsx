@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function EtpBusesList() {
     const buses = [
@@ -103,7 +104,6 @@ function EtpBusesList() {
                         <th scope="col">#</th>
                         <th scope="col">Mã số chuyến bay</th>
                         <th scope="col">Sân bay khởi hành</th>
-                        <th scope="col">Trạm sân bay đáp</th>
                         <th scope="col">Từ</th>
                         <th scope="col">Đến</th>
                         <th scope="col">Giờ khởi hành</th>
@@ -114,9 +114,10 @@ function EtpBusesList() {
                     {buses.map((bus, index) => (
                         <tr key={bus.busesID}>
                             <td>{index + 1}</td>
-                            <td>{bus.busesID}</td>
+                            <td>
+                                <Link to={`${bus.busesID}`}>{bus.busesID}</Link>
+                            </td>
                             <td>{bus.airportForm}</td>
-                            <td>{bus.airportTo}</td>
                             <td>{bus.busesForm}</td>
                             <td>{bus.busesTo}</td>
                             <td>{bus.departureTime}</td>

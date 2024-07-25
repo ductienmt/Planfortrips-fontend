@@ -65,7 +65,7 @@ const HotelCard = ({ name }) => {
               </div>
 
               <h6 className="col-md-4">
-                <div className="row">Chỉ từ</div>
+                <div className="text">Chỉ từ</div>
                 <span className={`price ${hasDiscount ? "discounted" : ""}`}>
                   {originalPrice.toLocaleString("vi-VN")} VNĐ
                 </span>

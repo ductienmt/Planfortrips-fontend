@@ -149,7 +149,7 @@ const Hotel = () => {
 
   const [isLoading, setIsLoading] = useState(true); // Thêm trạng thái isLoading
 
-  const Vietnamese = {
+  const VietnameseHotel = {
     weekdays: {
       shorthand: ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
       longhand: [
@@ -207,15 +207,15 @@ const Hotel = () => {
     document.addEventListener("click", handleClickOutside);
 
     if (!isLoading) {
-      const departInput = document.getElementById("date-depart");
-      const returnInput = document.getElementById("date-return");
+      const departInputHotel = document.getElementById("date-depart-hotel");
+      const returnInputHotel = document.getElementById("date-return-hotel");
 
-      if (departInput && returnInput) {
-        const departPicker = flatpickr(departInput, {
+      if (departInputHotel && returnInputHotel) {
+        const departPicker = flatpickr(departInputHotel, {
           altInput: true,
           altFormat: "d-m-Y",
           dateFormat: "Y-m-d",
-          locale: Vietnamese,
+          locale: VietnameseHotel,
           minDate: today,
           maxDate: maxDate,
           onChange: function (selectedDates, dateStr, instance) {
@@ -228,11 +228,11 @@ const Hotel = () => {
           },
         });
 
-        const returnPicker = flatpickr(returnInput, {
+        const returnPicker = flatpickr(returnInputHotel, {
           altInput: true,
           altFormat: "d-m-Y",
           dateFormat: "Y-m-d",
-          locale: Vietnamese,
+          locale: VietnameseHotel,
           minDate: today,
           maxDate: maxDate,
           onChange: function (selectedDates, dateStr, instance) {
@@ -300,11 +300,11 @@ const Hotel = () => {
               </div>
               <div className="input-custom-hotel">
                 <i className="far fa-calendar-alt"></i>
-                <input id="date-depart" placeholder="Ngày đi" />
+                <input id="date-depart-hotel" placeholder="Ngày đi" />
               </div>
               <div className="input-custom-hotel">
                 <i className="far fa-calendar-alt"></i>
-                <input id="date-return" placeholder="Ngày về" />
+                <input id="date-return-hotel" placeholder="Ngày về" />
               </div>
               <div className="input-custom-hotel">
                 <i className="fas fa-user-check"></i>
