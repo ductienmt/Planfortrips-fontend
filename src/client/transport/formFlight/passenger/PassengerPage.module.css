@@ -1,0 +1,292 @@
+.titleFlight {
+  font-size: 30px;
+  font-weight: bolder;
+  color: #000;
+}
+.changeFlight {
+  font-size: 12px;
+  color: rgba(96, 165, 250, 1);
+  cursor: pointer;
+  border-radius: 20px;
+  background: #cdc7c7;
+  padding: 4px;
+  margin: 10px 20px 30px 20px;
+}
+.changeFlight:hover {
+  border: 2px solid rgb(38, 39, 134);
+  transition: all 0.3;
+}
+.flightSection {
+  font-family: Arial, sans-serif;
+}
+
+.outbound {
+  background-color: rgba(96, 165, 250, 1); /* Xanh */
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.flightDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.timeLocation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.time {
+  font-weight: bold;
+  flex-basis: 20%;
+}
+
+.location {
+  flex-basis: 75%;
+  /* text-align: right; */
+  margin-left: 10px;
+}
+
+.airlineDetails {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.airlineInfo img {
+  border-radius: 50%;
+  width: 30px;
+  height: auto;
+}
+
+.date {
+  font-weight: bold;
+  flex-basis: 75%;
+  /* text-align: right; */
+  margin-left: 10px;
+}
+
+.airlineDescription {
+  margin-top: 5px;
+}
+.card {
+  /* margin-top: 140px; */
+  position: fixed; /* Thay vì sticky, sử dụng fixed */
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  max-width: 400px;
+  border-width: 1px;
+  border: 1px solid rgb(214, 214, 213);
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 10px 20px;
+  margin: 165px 10px 20px 100px;
+  transition: top 0.3s ease, position 0.3s ease;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  grid-gap: 1rem;
+  gap: 1rem;
+}
+
+.icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: rgba(96, 165, 250, 1);
+  padding: 0.5rem;
+  color: rgba(255, 255, 255, 1);
+}
+
+.icon svg {
+  height: 1rem;
+  width: 1rem;
+}
+
+.alert {
+  font-weight: 600;
+  color: rgba(107, 114, 128, 1);
+}
+
+.message {
+  margin-top: 1rem;
+  color: rgba(107, 114, 128, 1);
+}
+
+.actions {
+  margin-top: 1.5rem;
+}
+
+.actions a {
+  text-decoration: none;
+}
+
+.markAsRead,
+.read {
+  display: inline-block;
+  border-radius: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
+
+.read {
+  background-color: rgba(59, 130, 246, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+.markAsRead {
+  margin-top: 0.5rem;
+  background-color: rgba(249, 250, 251, 1);
+  color: rgba(107, 114, 128, 1);
+  transition: all 0.15s ease;
+}
+
+.markAsRead:hover {
+  background-color: rgb(230, 231, 233);
+}
+.ticketInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.textInfo {
+  font-weight: bolder;
+  color: #000;
+}
+.textLeft {
+  font-weight: normal;
+}
+.textRight {
+  font-weight: normal;
+  color: #2cba4f;
+}
+.ticket {
+  background: #eeeef4;
+  padding: 20px 40px;
+}
+.ticketI4 {
+  width: 100%;
+  border-width: 1px;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.column {
+  flex: 1;
+  padding: 10px;
+}
+.baggageInfo {
+  display: flex;
+  gap: 10px; /* Khoảng cách giữa các phần tử */
+  flex-wrap: wrap; /* Đảm bảo các phần tử xuống dòng nếu cần */
+}
+.baggageInfo span {
+  font-size: 0.82em;
+  padding-top: 10px;
+}
+.submit {
+  margin-top: 10px;
+  border: none;
+  outline: none;
+  background-color: royalblue;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: 0.3s ease;
+  width: 100%;
+}
+
+.submit:hover {
+  background-color: rgb(56, 90, 194);
+}
+.payment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.price {
+  font-size: 20px;
+  color: royalblue;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 268px) {
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    border-width: 1px;
+    border: 1px solid rgb(214, 214, 213);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 10px 20px;
+    margin: 0px 10px 20px 10px;
+    transition: top 0.3s ease, position 0.3s ease;
+  }
+}
+@media (min-width: 468px) {
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    border-width: 1px;
+    border: 1px solid rgb(214, 214, 213);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 10px 20px;
+    margin: 165px 10px 20px 10px;
+    transition: top 0.3s ease, position 0.3s ease;
+  }
+}
+@media (min-width: 768px) {
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    border-width: 1px;
+    border: 1px solid rgb(214, 214, 213);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 10px 20px;
+    margin: 165px 10px 20px 20px;
+    transition: top 0.3s ease, position 0.3s ease;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    border-width: 1px;
+    border: 1px solid rgb(214, 214, 213);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 10px 20px;
+    margin: 165px 10px 20px 20px;
+    transition: top 0.3s ease, position 0.3s ease;
+  }
+}

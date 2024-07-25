@@ -21,7 +21,7 @@ function LoginAdmin() {
             <div className="container">
                 <div className="row">
                     <div className="col-left">
-                        <h1 className="title">
+                        <h1 className="title1">
                             Admin page of <br />
                             <span>Plan For Trips</span>
                         </h1>

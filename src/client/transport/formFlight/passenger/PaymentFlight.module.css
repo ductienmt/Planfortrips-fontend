@@ -1,0 +1,672 @@
+.titleFlight {
+  font-size: 30px;
+  font-weight: bolder;
+  color: #000;
+}
+.changeFlight {
+  font-size: 10px;
+  color: rgba(96, 165, 250, 1);
+  cursor: pointer;
+  border-radius: 20px;
+  background: #cdc7c7;
+  padding: 4px;
+}
+.flightSection {
+  font-family: Arial, sans-serif;
+}
+
+.outbound {
+  background-color: rgba(96, 165, 250, 1); /* Xanh */
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.flightDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.timeLocation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.time {
+  font-weight: bold;
+  flex-basis: 20%;
+}
+
+.location {
+  flex-basis: 75%;
+  /* text-align: right; */
+  margin-left: 10px;
+}
+
+.airlineDetails {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.airlineInfo img {
+  border-radius: 50%;
+  width: 30px;
+  height: auto;
+}
+
+.date {
+  font-weight: bold;
+  flex-basis: 75%;
+  /* text-align: right; */
+  margin-left: 10px;
+}
+
+.airlineDescription {
+  margin-top: 5px;
+}
+.card {
+  /* margin-top: 140px; */
+  position: fixed; /* Thay vì sticky, sử dụng fixed */
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  max-width: 400px;
+  border-width: 1px;
+  border: 1px solid rgb(214, 214, 213);
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 20px 50px;
+  margin: 165px 10px 20px 40px;
+  transition: top 0.3s ease, position 0.3s ease;
+}
+.form {
+  width: 100%;
+  max-width: 800px;
+  border-width: 1px;
+  border: 1px solid rgb(39, 130, 227);
+  border-radius: 1rem;
+  background-color: rgb(39, 130, 227);
+  padding: 20px 20px;
+  transition: top 0.3s ease, position 0.3s ease;
+  display: flex;
+  flex-wrap: wrap;
+}
+.form1 {
+  top: 0;
+  width: 100%;
+  max-width: 800px;
+  border: 1px solid rgb(214, 214, 213);
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 1);
+  margin: -20px 40px 20px 20px;
+  padding: 20px 20px;
+  transition: top 0.3s ease, position 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  flex: 1 1 50%; /* Each label takes up 50% of the row */
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  display: flex;
+  align-items: center;
+  grid-gap: 1rem;
+  gap: 1rem;
+}
+
+.icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: rgba(96, 165, 250, 1);
+  padding: 0.5rem;
+  color: rgba(255, 255, 255, 1);
+}
+
+.icon svg {
+  height: 1rem;
+  width: 1rem;
+}
+
+.alert {
+  font-weight: 600;
+  color: rgba(107, 114, 128, 1);
+}
+
+.message {
+  margin-top: 1rem;
+  color: rgba(107, 114, 128, 1);
+}
+
+.actions {
+  margin-top: 1.5rem;
+}
+
+.actions a {
+  text-decoration: none;
+}
+
+.markAsRead,
+.read {
+  display: inline-block;
+  border-radius: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
+
+.read {
+  background-color: rgba(59, 130, 246, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+.markAsRead {
+  margin-top: 0.5rem;
+  background-color: rgba(249, 250, 251, 1);
+  color: rgba(107, 114, 128, 1);
+  transition: all 0.15s ease;
+}
+
+.markAsRead:hover {
+  background-color: rgb(230, 231, 233);
+}
+.ticketInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.textInfo {
+  font-weight: bolder;
+  color: #000;
+}
+.textLeft {
+  font-weight: normal;
+}
+.textRight {
+  font-weight: normal;
+  color: #2cba4f;
+}
+.ticket {
+  background: #eeeef4;
+  padding: 20px 40px;
+}
+.ticketI4 {
+  width: 100%;
+  border-width: 1px;
+  border: 1px solid rgb(214, 214, 213);
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 40px 20px 20px;
+  padding: 20px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.column {
+  flex: 1;
+  padding: 10px;
+}
+.baggageInfo {
+  display: flex;
+  gap: 10px; /* Khoảng cách giữa các phần tử */
+  flex-wrap: wrap; /* Đảm bảo các phần tử xuống dòng nếu cần */
+}
+.baggageInfo span {
+  font-size: 0.82em;
+  padding-top: 10px;
+}
+.submit {
+  margin-top: 10px;
+  border: none;
+  outline: none;
+  background-color: royalblue;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: 0.3s ease;
+  width: 100%;
+}
+
+.submit:hover {
+  background-color: rgb(56, 90, 194);
+}
+.payment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.price {
+  font-size: 20px;
+  color: royalblue;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.details {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column; /* Arrange items in a column */
+  background-color: white;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.flightInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.flightTime,
+.flightLocation,
+.flightCountry {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.flightDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flightDuration {
+  margin-right: 1rem;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.flightLine {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.dot {
+  font-size: 1.5rem;
+  line-height: 0;
+  color: #000;
+  margin: 0 0.5rem;
+}
+
+.line {
+  width: 120px;
+  height: 3px;
+  background-color: #000;
+}
+.paymentTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+.titleInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 16px;
+  color: royalblue;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.title::before,
+.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: royalblue;
+}
+
+.remove {
+  font-size: 14px;
+  color: royalblue;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+}
+
+.title::before {
+  width: 18px;
+  height: 18px;
+  background-color: royalblue;
+}
+
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+
+.message,
+.signin {
+  color: rgba(88, 87, 87, 0.822);
+  font-size: 14px;
+}
+
+.signin {
+  text-align: center;
+}
+
+.signin a {
+  color: royalblue;
+}
+
+.signin a:hover {
+  text-decoration: underline royalblue;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+
+.form label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.form label .input {
+  width: 100%;
+  padding: 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.form label .input + span {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  color: grey;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,
+.form label .input:valid + span {
+  top: 30px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.form label .input:valid + span {
+  color: green;
+}
+
+.error {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+/* PaymentFlight.module.css */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Màu nền mờ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Đảm bảo lớp phủ nằm trên các thành phần khác */
+}
+
+.popup {
+  padding: 20px;
+  background-color: #c0bebe; /* Nền của popup */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.locationDetail {
+  font-size: 18px;
+  font-weight: bolder;
+  color: #001;
+}
+
+@media (min-width: 268px) {
+  .card {
+    width: 100%;
+    max-width: 400px;
+    border-width: 1px;
+    border: 1px solid rgb(214, 214, 213);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 20px 50px;
+    margin: 10px 10px 20px 10px;
+    transition: top 0.3s ease, position 0.3s ease;
+  }
+  .form {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 18px;
+    padding-left: 20px;
+  }
+
+  .title::before,
+  .title::after {
+    height: 14px;
+    width: 14px;
+  }
+
+  .remove {
+    font-size: 18px;
+  }
+
+  .form label .input {
+    padding: 8px;
+  }
+  .locationDetail {
+    font-size: 14px;
+    font-weight: bolder;
+    color: #001;
+  }
+  .flightTime,
+  .flightLocation,
+  .flightCountry {
+    font-size: 0.7rem;
+  }
+}
+@media (min-width: 468px) {
+  .card {
+    top: 0;
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    border-width: 1px;
+    border: 1px solid rgb(214, 214, 213);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 20px 50px;
+    margin: 10px 10px 20px 30px;
+    transition: top 0.3s ease, position 0.3s ease;
+  }
+  .form {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 18px;
+    padding-left: 20px;
+  }
+
+  .title::before,
+  .title::after {
+    height: 14px;
+    width: 14px;
+  }
+
+  .remove {
+    font-size: 18px;
+  }
+
+  .form label .input {
+    padding: 8px;
+  }
+  .locationDetail {
+    font-size: 14px;
+    font-weight: bolder;
+    color: #001;
+  }
+
+  .flightTime,
+  .flightLocation,
+  .flightCountry {
+    font-size: 0.7rem;
+  }
+}
+@media (min-width: 640px) {
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 305px;
+    border-width: 1px;
+    border: 1px solid rgb(214, 214, 213);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 20px 50px;
+    margin: 165px 10px 20px 40px;
+    transition: top 0.3s ease, position 0.3s ease;
+  }
+  .form {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 18px;
+    padding-left: 20px;
+  }
+
+  .title::before,
+  .title::after {
+    height: 14px;
+    width: 14px;
+  }
+
+  .remove {
+    font-size: 18px;
+  }
+
+  .form label .input {
+    padding: 8px;
+  }
+  .locationDetail {
+    font-size: 12px;
+    font-weight: bolder;
+    color: #001;
+  }
+
+  .flightTime,
+  .flightLocation,
+  .flightCountry {
+    font-size: 0.7rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    width: 100%;
+    position: relative;
+    max-width: 400px;
+    border-width: 1px;
+    border: 1px solid rgb(214, 214, 213);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 20px 50px;
+    margin: 165px 10px 20px 40px;
+    transition: top 0.3s ease, position 0.3s ease;
+  }
+  .form {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 18px;
+    padding-left: 20px;
+  }
+
+  .title::before,
+  .title::after {
+    height: 14px;
+    width: 14px;
+  }
+
+  .remove {
+    font-size: 18px;
+  }
+
+  .form label .input {
+    padding: 8px;
+  }
+  .locationDetail {
+    font-size: 14px;
+    font-weight: bolder;
+    color: #001;
+  }
+
+  .flightTime,
+  .flightLocation,
+  .flightCountry {
+    font-size: 0.9rem;
+  }
+}

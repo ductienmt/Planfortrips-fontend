@@ -10,6 +10,7 @@ const FoodPage = () => {
   const handlechangecheck = () => {};
   useEffect(() => {
     const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
       setLoading(true);
     }, 1500);
     return () => clearTimeout(timer);
