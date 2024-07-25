@@ -1,0 +1,243 @@
+/* flightItem.module.css */
+
+.container {
+  padding: 2.5rem;
+}
+
+.card {
+  width: 1000px;
+  max-width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  flex-wrap: nowrap;
+  background-color: #f3f4f6;
+  padding: 0.5rem;
+}
+
+.headerIcon {
+  margin-top: 0.5rem;
+  margin-right: 0.25rem;
+  fill: rgb(102, 102, 102);
+  height: 0.9rem;
+  width: 0.9rem;
+}
+
+.headerTitle {
+  margin-left: 0.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #6b7280;
+}
+
+.headerText {
+  margin-left: 0.5rem;
+  font-weight: normal;
+  color: #6b7280;
+}
+
+.economy {
+  margin-top: 0.5rem;
+  margin-left: 1.5rem;
+  display: flex;
+  align-items: baseline;
+  background-color: #f3f4f6;
+  padding: 0.25rem;
+  border-radius: 9999px;
+}
+
+.economyIcon {
+  fill: rgb(102, 102, 102);
+  height: 12px;
+  width: 12px;
+}
+
+.economyText {
+  margin-left: 0.25rem;
+  font-weight: normal;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.details {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 0.5rem;
+}
+
+.detailsItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+
+.detailsText {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.5rem;
+}
+
+.detailsTextPrimary {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #6b7280;
+}
+
+.detailsTextSecondary {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.detailsWeight {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.flightInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.flightTime {
+  font-weight: bold;
+}
+
+.flightLocation {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.flightCountry {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.detailsIcon {
+  width: 2rem;
+  height: 2rem;
+  align-self: center;
+}
+
+
+.footer {
+  margin-top: 1rem;
+  background-color: #f3f4f6;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.ticket {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin-left: 1.5rem;
+}
+
+.ticketIcon {
+  width: 3rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  background-color: #9ca3af;
+  border-radius: 9999px;
+  fill: white;
+}
+
+.ticketInfo {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+}
+
+.ticketType {
+  font-size: 1rem;
+}
+
+.ticketPrice {
+  font-weight: bold;
+}
+
+.ticketPriceNote {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.bookButton {
+  width: 8rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px;
+  background-color: white;
+  margin-left: 0.5rem;
+  border-radius: 0.375rem;
+}
+
+.flexibleTicket {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin-left: 1.5rem;
+  border-left: 2px dotted;
+  border-color: #e5e7eb;
+}
+
+.flexibleTicketIcon {
+  width: 3rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  background-color: #8dcfec;
+  border-radius: 9999px;
+  fill: white;
+}
+
+.flexibleTicketInfo {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+}
+
+.flexibleTicketType {
+  font-size: 1rem;
+}
+
+.flexibleTicketPrice {
+  font-weight: bold;
+}
+
+.flexibleTicketPriceNote {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.flexibleBookButton {
+  width: 8rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #8dcfec;
+  color: white;
+  margin-left: 0.5rem;
+  border-radius: 0.375rem;
+}

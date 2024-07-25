@@ -1,0 +1,113 @@
+.container {
+  width: 100%;
+  background-color: var(--background-paper);
+  margin-top: 120px;
+  margin-bottom: 200px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #fff;
+}
+
+.tab {
+  color: #fff;
+  position: relative;
+  border: none;
+  outline: none;
+}
+
+.tab .borderBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: transparent;
+  transition: height 0.3s, background-color 0.3s;
+}
+
+.tab:hover .borderBottom {
+  height: 4px; /* Set height for bottom border line */
+  background-color: #3b82f6; /* Color for bottom border line */
+}
+
+.tab.Mui-selected .borderBottom {
+  height: 4px; /* Set height for bottom border line */
+  background-color: #3b82f6; /* Color for bottom border line */
+}
+
+/* Center icon and add margin-bottom */
+.icon-center {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+/* Custom tab styles */
+.custom-tab {
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  font-weight: 600;
+  width: 200px;
+  min-height: 64px;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Adjustments for selected tab */
+.custom-tab.Mui-selected {
+  background-color: white;
+  color: black !important;
+  border: 1px solid transparent;
+}
+
+.navBtn {
+  border: none;
+  outline: none;
+  position: relative;
+}
+
+.navBtn .borderBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: transparent;
+  transition: height 0.3s, background-color 0.3s;
+}
+
+.navBtn:hover .borderBottom {
+  height: 4px; /* Set height for bottom border line */
+  background-color: #3b82f6; /* Color for bottom border line */
+}
+
+.navBtn.active .borderBottom {
+  height: 4px; /* Set height for bottom border line */
+  background-color: #3b82f6; /* Color for bottom border line */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 600px) {
+  .custom-tab {
+    width: 150px;
+    min-height: 56px;
+    font-size: 14px;
+  }
+
+  .icon-center {
+    margin-bottom: 4px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 960px) {
+  .custom-tab {
+    width: 180px;
+    min-height: 60px;
+    font-size: 16px;
+  }
+}

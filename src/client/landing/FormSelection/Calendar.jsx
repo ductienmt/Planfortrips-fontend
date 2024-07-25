@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { DatePicker } from "antd";
-// import 'antd/dist/antd.css'
+import { DatePicker, ConfigProvider } from "antd";
+import viVN from 'antd/es/locale/vi_VN'; // Import locale tiếng Việt
 import styles from "./calendar.module.css";
-// import moment from "moment";
+import moment from "moment";
 
 const { RangePicker } = DatePicker;
 
@@ -10,8 +10,6 @@ export const Calendar = ({ setFocus }) => {
   const [dates, setDates] = useState([]);
   const [hackValue, setHackValue] = useState();
   const [value, setValue] = useState();
-
-  // const dateFormat = 'YYYY/MM/DD';
 
   const disabledDate = (current) => {
     if (!dates || dates.length === 0) {
@@ -32,19 +30,20 @@ export const Calendar = ({ setFocus }) => {
   };
 
   return (
-    <RangePicker
-      onFocus={() => setFocus(true)}
-      onBlur={() => setFocus(false)}
-      className={styles.calendar}
-      value={hackValue || value}
-      disabledDate={disabledDate}
-      onCalendarChange={(val) => setDates(val)}
-      onChange={(val) => setValue(val)}
-      onOpenChange={onOpenChange}
-      placeholder={['Ngày bắt đầu', 'Ngày kết thúc']}
-      // defaultValue={[moment('2015/01/01', dateFormat), moment('2015/01/01', dateFormat)]}
-      // format={dateFormat}
-      showToday
-    />
+    <ConfigProvider locale={viVN}>
+      <RangePicker
+        onFocus={() => setFocus(true)}
+        onBlur={() => setFocus(false)}
+        className={styles.calendar}
+        value={hackValue || value}
+        disabledDate={disabledDate}
+        onCalendarChange={(val) => setDates(val)}
+        onChange={(val) => setValue(val)}
+        onOpenChange={onOpenChange}
+        placeholder={['Ngày bắt đầu', 'Ngày kết thúc']}
+        format="DD/MM/YYYY" // Cập nhật định dạng ngày tháng
+        showToday
+      />
+    </ConfigProvider>
   );
 };

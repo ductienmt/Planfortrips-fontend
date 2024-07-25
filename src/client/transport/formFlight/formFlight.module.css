@@ -1,0 +1,105 @@
+.bgBlue500 {
+  background-color: rgb(1, 148, 243) !important;
+}
+
+.customSelect {
+  position: relative;
+  display: inline-block;
+}
+
+.customSelect select:focus {
+  outline: none;
+}
+
+.customSelect select option {
+  background-color: white;
+  color: black;
+}
+
+.customSelect select:closed {
+  border: none;
+}
+
+.customSelect select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none;
+  padding-right: 1.5rem;
+}
+
+.rotateIcon {
+  transition: transform 0.3s ease;
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+.flightSpan {
+  margin: 0px 20px 0px 20px;
+  font-weight: bold;
+  color: #000;
+}
+.selected {
+  border-bottom: 1px solid #958e8e;
+}
+.selected:hover {
+  background-color: #f5eded;
+  padding: -10px -20px -20px -20px;
+  cursor: pointer;
+}
+.spanText {
+  padding: 12px 16px;
+}
+.btnEvent {
+  color: rgba(13, 110, 253);
+}
+.btnEvent:hover {
+  cursor: pointer;
+}
+.customSelect .item {
+  position: relative; /* Ensure that the dot is positioned relative to the item */
+  align-items: center;
+  padding: 10px;
+}
+
+.customSelect .item span {
+  font-size: 14px;
+  font-weight: bolder;
+  color: #000;
+  padding: 12px 16px;
+  margin: 10px;
+  flex: 1;
+}
+
+.customSelect .item:hover {
+  background-color: #f5eded;
+  cursor: pointer;
+}
+
+.customSelect .dot {
+  display: none;
+  font-size: 8px !important;
+  padding: 5px 5px !important;
+  width: 1px;
+  height: 1px;
+  background-color: #000;
+  border-radius: 50%;
+  position: absolute;
+  left: -3px; /* Adjust this value to place the dot correctly */
+  bottom: 3px;
+}
+
+.customSelect .item:hover .dot {
+  display: block; /* Show the dot on hover */
+}
+
+.customSelect .item.selected .dot {
+  background-color: rgba(13, 110, 253);
+  display: block; /* Ensure the dot is visible for the selected item */
+}
+
+.customSelect .item.selected span {
+  font-weight: bolder;
+  color:  rgba(13, 110, 253);
+}

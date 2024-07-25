@@ -1,0 +1,75 @@
+.card {
+  border-radius: 30px;
+  margin: 20px auto;
+  max-width: 400px; /* Ensures a reasonable max width */
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 14px;
+  border-bottom: 2px solid #eee;
+}
+
+.cardBody {
+  padding: 10px 14px;
+}
+
+.infoSection {
+  margin-bottom: 10px;
+}
+
+.sectionTitle {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.sectionContent {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.cardFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10px 14px;
+  border-top: 2px solid #eee;
+}
+
+.price {
+  margin-bottom: 10px;
+}
+
+.button {
+  width: 100%;
+  max-width: 200px;
+  padding: 10px 0;
+  background-color: #0283df;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: #026bb5;
+}
+
+@media (max-width: 768px) {
+  .card {
+    max-width: 100%;
+  }
+
+  .sectionContent {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 0;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
