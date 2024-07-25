@@ -17,8 +17,13 @@ export function PassengerPage({ handleComplete }) {
   const addPassenger = () => {
     setPassengers([...passengers, passengers.length + 1]);
   };
-
+  const removePassenger = () => {
+    if (passengers.length > 1) {
+      setPassengers(passengers.slice(0, -1));
+    }
+  };
   useEffect(() => {
+    window.scrollTo(0, 0); // to scroll to the top of the page when the component mounts up.  // eslint-disable-next-line react-hooks/exhaustive-deps
     const handleScroll = () => {
       setScrollY(window.scrollY);
 
@@ -29,8 +34,11 @@ export function PassengerPage({ handleComplete }) {
         if (buttonRect.top < cardRect.height) {
           cardRef.current.style.position = "absolute";
           cardRef.current.style.top = `${
-            buttonRect.top + window.scrollY - cardRect.height - 400
+            buttonRect.top + window.scrollY - cardRect.height - 90
           }px`;
+        }
+        if (window.innerWidth < 768 || buttonRect.top < cardRect.height) {
+          cardRef.current.style.position = "relative";
         } else {
           cardRef.current.style.position = "fixed";
           cardRef.current.style.top = "0";
@@ -46,7 +54,7 @@ export function PassengerPage({ handleComplete }) {
 
   return (
     <div className="row">
-      <div className="col-6">
+      <div className="col-12 col-sm-6 col-md-6 col-lg-6">
         <span className={styles.titleFlight}>Chuyến đi tới Hà Nội</span>
         <span className={styles.changeFlight}>
           Đổi Chuyến Bay <BorderColorIcon style={{ fontSize: "12px" }} />
@@ -84,14 +92,14 @@ export function PassengerPage({ handleComplete }) {
           </div>
         </div>
       </div>
-      <div className="col-6">
+      <div className="col-12 col-sm-6 col-md-6 col-lg-6">
         <div
           ref={cardRef}
           className={styles.card}
-          style={{
-            position: "fixed",
-            top: "0",
-          }}
+          // style={{
+          //   position: "fixed",
+          //   top: "0",
+          // }}
         >
           <div className={styles.header}>
             <span className={styles.icon}>
@@ -138,7 +146,7 @@ export function PassengerPage({ handleComplete }) {
         </div>
       </div>
       <div className={styles.ticket}>
-        <div className="col-6">
+        <div className="col-12 col-sm-6 col-md-6 col-lg-6">
           <div className={styles.ticketInfo}>
             <span className={styles.textInfo}>Vé của bạn</span>
             <span className={styles.details}>
@@ -177,14 +185,18 @@ export function PassengerPage({ handleComplete }) {
           <div>
             <span className={styles.textInfo}>Những ai sẽ đi?</span>
             {passengers.map((_, index) => (
-              <FormPassenger key={index} index={index} />
+              <FormPassenger
+                key={index}
+                index={index}
+                removePassenger={removePassenger}
+              />
             ))}
           </div>
           <button className={styles.submit} onClick={addPassenger}>
             Thêm người lớn khác <AddOutlined />
           </button>
         </div>
-        <div className="col-6">
+        <div className="col-12 col-sm-6 col-md-6 col-lg-6">
           <div className={styles.ticketI4}>
             <div className={styles.column}>
               <div className={styles.payment}>

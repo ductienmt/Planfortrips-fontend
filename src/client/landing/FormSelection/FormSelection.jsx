@@ -12,6 +12,7 @@ import {
   Tab,
   Tabs,
   ThemeProvider,
+  styled,
 } from "@mui/material";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
 import ApartmentIcon from "@mui/icons-material/Apartment";
@@ -19,13 +20,10 @@ import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 import SearchIcon from "@mui/icons-material/Search";
 import FlightIcon from "@mui/icons-material/Flight";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
-import { makeStyles } from "@mui/styles";
-import { styled } from "@mui/system";
 import { Unstable_Popup as BasePopup } from "@mui/base/Unstable_Popup";
 import TitlebarImageList from "./ImageDestination";
 import TitlebarImageListForeign from "./ImageForeign";
-
-// import LocationOnIcon from '@mui/icons-material/LocationOn';
+import InputPrice from "./InputPrice";
 
 const theme = createTheme({
   palette: {
@@ -35,43 +33,53 @@ const theme = createTheme({
   },
 });
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "65%",
-    margin: "auto",
-    backgroundColor: "#fff",
-    transform: "translateY(-260px)",
-    borderRadius: 9,
-    boxShadow: "0 4px 10px #bbb",
-    zIndex: 10,
-    position: "relative",
-    top: "16px",
-    padding: "0 0px",
-  },
-  tab: {
-    margin: "8px 0",
-    fontSize: "14px",
-    textShadow: "0.5px 0 1px #777",
-  },
-  margin: {
-    width: "100%",
-    margin: "10px 0",
-    backgroundColor: "#fff",
-    outline: "none",
-  },
-  input: {
-    border: "none",
-  },
-  form: {
-    width: "83%",
-    height: window.innerWidth > 970 ? "300px" : "360px",
-    margin: "auto",
-    backgroundColor: "#F8F7F9",
-    transform: "translateY(-260px)",
-    borderRadius: 9,
-    padding: "40px 50px",
-  },
+// Định nghĩa kiểu với styled
+const RootPaper = styled(Paper)(({ theme }) => ({
+  width: "65%",
+  margin: "auto",
+  backgroundColor: "#fff",
+  transform: "translateY(-260px)",
+  borderRadius: 9,
+  boxShadow: "0 4px 10px #bbb",
+  zIndex: 10,
+  position: "relative",
+  top: "16px",
+  padding: "0 0px",
 }));
+
+const FormPaper = styled(Paper)(({ theme }) => ({
+  width: "83%",
+  height: window.innerWidth > 970 ? "300px" : "360px",
+  margin: "auto",
+  backgroundColor: "#F8F7F9",
+  transform: "translateY(-260px)",
+  borderRadius: 9,
+  padding: "40px 50px",
+}));
+
+const StyledTab = styled(Tab)(({ theme }) => ({
+  margin: "auto",
+  fontSize: "14px",
+  textShadow: "0.5px 0 1px #777",
+}));
+
+const PopupBody = styled("div")(({ theme }) => ({
+  width: "1000px",
+  padding: "12px 16px",
+  margin: "8px",
+  borderRadius: "8px",
+  border: `1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]}`,
+  backgroundColor: `${theme.palette.mode === "dark" ? grey[900] : "#fff"}`,
+  boxShadow:
+    theme.palette.mode === "dark"
+      ? `0px 4px 8px rgb(0 0 0 / 0.7)`
+      : `0px 4px 8px rgb(0 0 0 / 0.1)`,
+  fontFamily: `'IBM Plex Sans', sans-serif`,
+  fontWeight: 500,
+  fontSize: "0.875rem",
+  zIndex: 1,
+}));
+
 const grey = {
   50: "#F3F6F9",
   100: "#E5EAF2",
@@ -85,48 +93,15 @@ const grey = {
   900: "#1C2025",
 };
 
-const blue = {
-  200: "#99CCFF",
-  300: "#66B2FF",
-  400: "#3399FF",
-  500: "#007FFF",
-  600: "#0072E5",
-  700: "#0066CC",
-};
-
-const PopupBody = styled("div")(
-  ({ theme }) => `
-  width: 1000px;
-  padding: 12px 16px;
-  margin: 8px;
-  border-radius: 8px;
-  border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
-  background-color: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
-  box-shadow: ${
-    theme.palette.mode === "dark"
-      ? `0px 4px 8px rgb(0 0 0 / 0.7)`
-      : `0px 4px 8px rgb(0 0 0 / 0.1)`
-  };
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: 500;
-  font-size: 0.875rem;
-  z-index: 1;
-`
-);
-export const FormSelection = () => {
-  const classes = useStyles();
+const FormSelection = () => {
   const [value, setValue] = useState(0);
-  // const [search, setSearch] = useState("");
   const [focus, setFocus] = useState(false);
   const [debounce, setDebounce] = useState(false);
-
-  // const { searchedCity, setSearchedCity } = useContext(AppContext);
+  const [anchor, setAnchor] = useState(null);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  const [anchor, setAnchor] = useState(null);
 
   const showPopup = (event) => {
     setAnchor(anchor ? null : event.currentTarget);
@@ -142,7 +117,7 @@ export const FormSelection = () => {
   }, []);
 
   return (
-    <div >
+    <div>
       <div
         style={{
           backgroundColor: focus ? "rgba(0,0,0,0.7)" : "transparent",
@@ -154,85 +129,62 @@ export const FormSelection = () => {
         className={styles.background_image}
         src="https://cdn6.agoda.net/images/MVC/default/background_image/illustrations/bg-agoda-homepage.png"
         alt=""
-        style={{marginTop:'40px',marginBottom:'35px'}}
+        style={{ marginTop: "40px", marginBottom: "35px" }}
       />
       <ThemeProvider theme={theme}>
-        <Paper theme={theme} square className={classes.root} >
-          <div className={styles.newTag}>New!</div>
-          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            variant="scrollable"
-            scrollButtons="auto"
-            indicatorColor="primary"
-            textColor="primary"
-            aria-label="icon label tabs example"
-          >
-            <Tab
-              className={classes.tab}
-              style={{ margin: "auto" }}
-              icon={<HomeWorkIcon />}
-              label="Nhà & Căn hộ"
-              value={1}
-              onClick={(e) => {
-                setValue(e.target.value);
-              }}
-              
-            />
-            <Tab
-              className={classes.tab}
-              style={{ margin: "auto" }}
-              icon={<ApartmentIcon />}
-              label="Khách sạn"
-              value={2}
-              onClick={(e) => {
-                setValue(e.target.value);
-              }}
-            />
-            <Tab
-              className={classes.tab}
-              style={{ margin: "auto" }}
-              icon={<FlightTakeoffIcon />}
-              label="Máy bay + K.sạn"
-              value={3}
-              onClick={(e) => {
-                setValue(e.target.value);
-              }}
-            />
-            <Tab
-              className={classes.tab}
-              style={{ margin: "auto" }}
-              icon={<FlightIcon />}
-              label="Chuyến bay"
-              value={4}
-              onClick={(e) => {
-                setValue(e.target.value);
-              }}
-            />
-            <Tab
-              className={classes.tab}
-              style={{ margin: "auto" }}
-              icon={<EventAvailableIcon />}
-              label="Hoạt động"
-              value={5}
-              onClick={(e) => {
-                setValue(e.target.value);
-              }}
-            />
-          </Tabs>
+        <RootPaper theme={theme} square>
+          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              variant="scrollable"
+              scrollButtons="auto"
+              indicatorColor="primary"
+              textColor="primary"
+              aria-label="icon label tabs example"
+            >
+              <StyledTab
+                icon={<HomeWorkIcon />}
+                label="Nhà & Căn hộ"
+                value={1}
+                onClick={(e) => setValue(e.target.value)}
+              />
+              <StyledTab
+                icon={<ApartmentIcon />}
+                label="Khách sạn"
+                value={2}
+                onClick={(e) => setValue(e.target.value)}
+              />
+              <StyledTab
+                icon={<FlightTakeoffIcon />}
+                label="Máy bay + K.sạn"
+                value={3}
+                onClick={(e) => setValue(e.target.value)}
+              />
+              <StyledTab
+                icon={<FlightIcon />}
+                label="Chuyến bay"
+                value={4}
+                onClick={(e) => setValue(e.target.value)}
+              />
+              <StyledTab
+                icon={<EventAvailableIcon />}
+                label="Hoạt động"
+                value={5}
+                onClick={(e) => setValue(e.target.value)}
+              />
+            </Tabs>
           </Box>
-        </Paper>
+        </RootPaper>
       </ThemeProvider>
-      <Paper
+      <FormPaper
         style={{
           backgroundColor: focus ? "#666" : "#F8F7F9",
           boxShadow: focus ? "none" : "0 4px 10px #888, 0 -4px 10px #888",
           opacity: "0.9",
-          height:'400px'
+          height: "400px",
         }}
         square
-        className={classes.form}
       >
         <Grid container className="m-2">
           <Grid
@@ -242,7 +194,7 @@ export const FormSelection = () => {
             md={12}
             sm={12}
             xs={12}
-            style={{marginBottom:5}}
+            style={{ marginBottom: 5 }}
           >
             <SearchIcon className={styles.searchIcon} />
             <input
@@ -257,7 +209,6 @@ export const FormSelection = () => {
               }}
               onClick={showPopup}
               type="search"
-              // value={search}
               placeholder="Nhập địa điểm du lịch hoặc tên khách sạn"
             />
           </Grid>
@@ -284,7 +235,6 @@ export const FormSelection = () => {
               </PopupBody>
             </Grid>
           </BasePopup>
-          {/* debounce result */}
 
           <Paper
             style={{ display: debounce ? "block" : "none" }}
@@ -293,12 +243,12 @@ export const FormSelection = () => {
             <div className={styles.debounceTooltip}></div>
           </Paper>
 
-          {/* debounce result end */}
-
           <Grid
-            style={{ paddingBottom: window.innerWidth > 800 ? "0" : "10px",marginBottom:5 }}
+            style={{
+              paddingBottom: window.innerWidth > 800 ? "0" : "10px",
+              marginBottom: 5,
+            }}
             className={styles.formSecLine}
-            
             container
             item
           >
@@ -323,10 +273,13 @@ export const FormSelection = () => {
               <RoomSelect setFocus={setFocus} />
             </Grid>
           </Grid>
-
           <Grid
-            style={{ width: "98%" ,marginBottom: '20px'}}
-            className={styles.formThirdLine}
+            style={{
+              paddingBottom: window.innerWidth > 800 ? "0" : "10px",
+              marginBottom: 5,
+              marginRight: 10,
+            }}
+            className={styles.formSecLine}
             container
             item
           >
@@ -341,8 +294,17 @@ export const FormSelection = () => {
               <Checkbox>Khuyến mãi lên đến 25% cho khách sạn</Checkbox>
               <div className={styles.checkboxTag}>Máy bay + K.sạn</div>
             </Grid>
+            <Grid
+              className={styles.roomSelect}
+              item
+              lg={5}
+              md={5}
+              sm={12}
+              xs={12}
+            >
+              <InputPrice setFocus={setFocus} />
+            </Grid>
           </Grid>
-
           <Link
             className={styles.searchBtnLink}
             style={{ color: "#fff" }}
@@ -351,7 +313,9 @@ export const FormSelection = () => {
             <button className={styles.searchBtn}>Lên kế hoạch</button>
           </Link>
         </Grid>
-      </Paper>
+      </FormPaper>
     </div>
   );
 };
+
+export default FormSelection;

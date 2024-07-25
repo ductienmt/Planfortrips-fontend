@@ -36,13 +36,16 @@
 .tab.Mui-selected .borderBottom {
   height: 4px; /* Set height for bottom border line */
   background-color: #3b82f6; /* Color for bottom border line */
-} /* Center icon and add margin-bottom */
+}
+
+/* Center icon and add margin-bottom */
 .icon-center {
   display: flex;
   justify-content: center;
   margin-bottom: 8px;
 }
 
+/* Custom tab styles */
 .custom-tab {
   background-color: transparent;
   color: inherit;
@@ -53,14 +56,15 @@
   padding: 8px 16px;
   border-radius: 25px;
   transition: background-color 0.4s ease, color 0.4s ease;
-  
 }
 
+/* Adjustments for selected tab */
 .custom-tab.Mui-selected {
   background-color: white;
   color: black !important;
   border: 1px solid transparent;
 }
+
 .navBtn {
   border: none;
   outline: none;
@@ -78,11 +82,32 @@
 }
 
 .navBtn:hover .borderBottom {
-  height: 4px; /* Set tinggi garis border bawah */
-  background-color: #3b82f6; /* Warna garis border */
+  height: 4px; /* Set height for bottom border line */
+  background-color: #3b82f6; /* Color for bottom border line */
 }
 
 .navBtn.active .borderBottom {
-  height: 4px; /* Set tinggi garis border bawah */
-  background-color: #3b82f6; /* Warna garis border */
+  height: 4px; /* Set height for bottom border line */
+  background-color: #3b82f6; /* Color for bottom border line */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 600px) {
+  .custom-tab {
+    width: 150px;
+    min-height: 56px;
+    font-size: 14px;
+  }
+
+  .icon-center {
+    margin-bottom: 4px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 960px) {
+  .custom-tab {
+    width: 180px;
+    min-height: 60px;
+    font-size: 16px;
+  }
 }

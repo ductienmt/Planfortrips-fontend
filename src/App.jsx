@@ -5,7 +5,6 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./client/header/header";
 import FoodPage from "./client/food/FoodPage";
-import { DetailFood } from "./client/food/detailFood/DetailFood";
 import Footer from "./client/footer/footer";
 import Hotel from "./client/hotel/hotel";
 import EnterpriseIndex from "./Enterprise/EnterpriseIndex";
@@ -37,6 +36,10 @@ import EtpCarDetail from "./Enterprise/components/Detai/EtpCarDetail";
 import CarItemPage from "./client/transport/formCar/carItem/CarItemPage";
 import HorizontalNonLinearStepper from "./client/transport/formFlight/passenger/Stepper";
 import { PassengerPage } from "./client/transport/formFlight/passenger/PassengerPage";
+import { DetailFood } from "./client/food/detailFood/DetailFood";
+import CarItemPage from "./client/transport/formCar/carItem/CarItemPage";
+import HorizontalNonLinearStepper from "./client/transport/formFlight/passenger/Stepper";
+import { PassengerPage } from "./client/transport/formFlight/passenger/PassengerPage";
 import DetailCard from "./client/hotel/detailHotel/detailCard";
 import BookingHotel from "./client/hotel/booking/bookingHotel";
 import Payment from "./client/hotel/payment/payment";
@@ -63,7 +66,7 @@ function App() {
 
         <Route path="food">
           <Route path="" element={<FoodPage />}></Route>
-          <Route path="detail" element={<DetailFood />} />
+          <Route path="detail" element={<DetailFood />} />         
         </Route>
         <Route path="transport">
           <Route path="" element={<TransportPage />}></Route>

@@ -18,7 +18,6 @@
   max-width: 1200px;
   display: flex;
   flex-direction: column;
-  grid-template-columns: 1fr 1fr;
   gap: 20px;
   background: white;
   border-radius: 8px;
@@ -31,8 +30,6 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  grid-column: 1 / 2;
-
 }
 
 .detailImgContent {
@@ -57,16 +54,14 @@
   list-style: none;
 }
 
-.detailImgList li:hover,
-.voteImg li:hover {
+.detailImgList li:hover {
   border-radius: 8px;
   overflow: hidden;
   transform: scale(1.2);
   cursor: pointer;
 }
 
-.detailImgList img,
-.voteImg img {
+.detailImgList img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -133,17 +128,18 @@
 .navigationButton:hover {
   background-color: #eaeaea;
 }
+
 .detailBtn {
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 15px;
-  list-style-type: none; /* Remove list markers for all list items within .detailBtn */
+  list-style: none; /* Remove list markers for all list items within .detailBtn */
   padding: 0; /* Remove default padding */
 }
 
 .detailBtn li {
-  list-style-type: none; /* Ensure no markers on list items */
+  list-style: none; /* Ensure no markers on list items */
 }
 
 .detailBtn button {
@@ -180,10 +176,8 @@
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  grid-column: 2 / 3;
   text-align: center;
 }
-
 
 .detailText h2 {
   font-size: 1.4rem;
@@ -249,7 +243,6 @@
   text-align: center;
   border: none;
   outline: none;
-  -webkit-appearance: none;
 }
 
 .quantity .plusBtn,
@@ -271,11 +264,6 @@
   background-color: #f1f1f1;
 }
 
-.quantity .plusBtn:focus,
-.quantity .minusBtn:focus {
-  outline: none;
-}
-
 .quantity .minusBtn {
   position: absolute;
   top: 7px;
@@ -287,9 +275,31 @@
   top: 10px;
   right: 15px;
 }
+.demoPaper {
+  width: 80px;
+  height: 120px;
+  padding: 8px;
+  text-align: center;
+  border: 2px solid #000;
+  border-radius: 5px;
+  color: #000;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.demoPaper:hover {
+  color: #fff;
+  border-color: #46a2da;
+  background-color: #b8e2f4;
+}
 
 /* Responsive styles */
 @media (max-width: 767px) {
+  .demoPaper {
+    width: 60px;
+    height: 90px;
+    margin-bottom: 10px;
+  }
   .detailContent {
     flex-direction: column;
   }
@@ -322,6 +332,11 @@
 }
 
 @media (min-width: 768px) {
+  .demoPaper {
+    width: 60px;
+    height: 90px;
+    margin-bottom: 10px;
+  }
   .detailContent {
     flex-direction: row;
     gap: 50px;
@@ -352,8 +367,9 @@
     transform: translateX(-50%);
   }
 }
+
 .feedback {
-  grid-column: 1 / -1; /* Span across all columns */
+  width: 100%;
   margin-top: 20px;
 }
 

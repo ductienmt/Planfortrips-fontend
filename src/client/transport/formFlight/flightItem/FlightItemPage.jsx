@@ -18,6 +18,82 @@ const generateDateRange = (startDate, endDate) => {
   }
   return dates;
 };
+const flights = [
+  [
+    {
+      airline: "VietJet Air",
+      logo: "http://static.tripcdn.com/packages/flight/airline-logo/latest/airline_logo/3x/vj.webp",
+      departure: {
+        airport: "SGN - Tan Son Nhat",
+        country: "Vietnam",
+        time: "08:30",
+      },
+      arrival: {
+        airport: "HAN - Noi Bai",
+        country: "Vietnam",
+        time: "11:30",
+      },
+      date: "2024-07-14",
+      duration: "3h 00m",
+      location:"TP HCM - Hà Nội"
+    },
+    {
+      airline: "VietJet Air",
+      logo: "http://static.tripcdn.com/packages/flight/airline-logo/latest/airline_logo/3x/vj.webp",
+      departure: {
+        airport: "HAN - Noi Bai",
+        country: "Vietnam",
+        time: "11:45",
+      },
+      arrival: {
+        airport: "SGN - Tan Son Nhat",
+        country: "Vietnam",
+        time: "14:45",
+      },
+      date: "2024-07-14",
+      duration: "3h 00m",
+      location:"TP HCM - Hà Nội",
+    },
+  ],
+  [
+    {
+      airline: "Vietnam Airlines",
+      logo: "http://static.tripcdn.com/packages/flight/airline-logo/latest/airline_logo/3x/vn.webp",
+      departure: {
+        airport: "SGN - Tan Son Nhat",
+        country: "Vietnam",
+        time: "09:00",
+      },
+      arrival: {
+        airport: "HAN - Noi Bai",
+        country: "Vietnam",
+        time: "12:00",
+      },
+      date: "2024-07-15",
+      duration: "3h 00m",
+      location:"TP HCM - Hà Nội"
+
+    },
+    {
+      airline: "Vietnam Airlines",
+      logo: "http://static.tripcdn.com/packages/flight/airline-logo/latest/airline_logo/3x/vn.webp",
+      departure: {
+        airport: "HAN - Noi Bai",
+        country: "Vietnam",
+        time: "15:00",
+      },
+      arrival: {
+        airport: "SGN - Tan Son Nhat",
+        country: "Vietnam",
+        time: "18:00",
+      },
+      date: "2024-07-15",
+      duration: "3h 00m",
+      location:"TP HCM - Hà Nội"
+    },
+  ],
+];
+
 const FlightItemPage = () => {
   const [loading, setLoading] = useState(false);
   const handlechangecheck = () => {};
@@ -31,8 +107,8 @@ const FlightItemPage = () => {
   const endDate = new Date(2024, 7, 15); // Lưu ý: Tháng 8 là tháng 7 (0-based index)
   const dateRange = generateDateRange(startDate, endDate);
   useEffect(() => {
+    window.scrollTo(0, 0); // to scroll to the top of the page when the component mounts up.  // eslint-disable-next-line react-hooks/exhaustive-deps
     const timer = setTimeout(() => {
-      window.scrollTo(0, 0);
       setLoading(true);
     }, 1500);
     return () => clearTimeout(timer);
@@ -68,8 +144,17 @@ const FlightItemPage = () => {
               />
             ))}
           </Tabs>
-          <Box style={{ width: "500px",borderLeft:'3px solid #fff',fontWeight: "bolder", color: "#000" }}>
-            <div className="m-auto container w-75 fw-900"><CalendarViewMonth /></div>
+          <Box
+            style={{
+              width: "500px",
+              borderLeft: "3px solid #fff",
+              fontWeight: "bolder",
+              color: "#000",
+            }}
+          >
+            <div className="m-auto container w-75 fw-900">
+              <CalendarViewMonth />
+            </div>
             <div>Bảng giá vé rẻ</div>
           </Box>
         </Box>
@@ -80,11 +165,9 @@ const FlightItemPage = () => {
 
           <div className={styles.hotelpaper}>
             <Box className={styles.root3}>
-              <FlightItem />
-              <FlightItem />
-              <FlightItem />
-              <FlightItem />
-              <FlightItem />
+              {flights.map((flight, index) => (
+                <FlightItem key={index} flight={flight} />
+              ))}
             </Box>
           </div>
         </Box>

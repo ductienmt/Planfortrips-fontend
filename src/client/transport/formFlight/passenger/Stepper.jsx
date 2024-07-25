@@ -1,14 +1,15 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepButton from '@mui/material/StepButton';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { PassengerPage } from './PassengerPage';
-import { ExampleComponent } from './test';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepButton from "@mui/material/StepButton";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import { PassengerPage } from "./PassengerPage";
+import { PaymentFlight } from "./PaymentFlight";
+import { Card } from "antd";
 
-const steps = ['Thông tin khách hàng', 'Thanh toán'];
+const steps = ["Thông tin khách hàng", "Thanh toán"];
 
 export default function HorizontalNonLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -48,9 +49,11 @@ export default function HorizontalNonLinearStepper() {
     setActiveStep(0);
     setCompleted({});
   };
-
+  React.useEffect(() => {
+    window.scrollTo(0, 0); // to scroll to the top of the page when the component mounts up.  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
-    <Box sx={{ width: '75%', margin: 'auto', marginTop: '140px' }}>
+    <Box sx={{ width: "75%", margin: "auto", marginTop: "140px" }}>
       <Stepper nonLinear activeStep={activeStep}>
         {steps.map((label, index) => (
           <Step key={label} completed={completed[index]}>
@@ -64,45 +67,29 @@ export default function HorizontalNonLinearStepper() {
         {allStepsCompleted() ? (
           <React.Fragment>
             <Typography sx={{ mt: 2, mb: 1 }}>
-              All steps completed - you're finished
+              <Card
+                className="d-flex justify-content-center"
+                style={{
+                  fontSize: "20px",
+                  fontWeight: "bolder",
+                  color: "#000",
+                }}
+              >
+                {" "}
+                Thanh toán thành công!
+              </Card>
             </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-              <Box sx={{ flex: '1 1 auto' }} />
-              <Button onClick={handleReset}>Reset</Button>
-            </Box>
           </React.Fragment>
         ) : (
           <React.Fragment>
             <Typography sx={{ mt: 2, mb: 1, py: 1 }}>
-              {activeStep === 0 && <PassengerPage handleComplete={handleComplete} />}
-              {activeStep === 1 && <ExampleComponent />}
+              {activeStep === 0 && (
+                <PassengerPage handleComplete={handleComplete} />
+              )}
+              {activeStep === 1 && (
+                <PaymentFlight handleComplete={handleComplete} />
+              )}
             </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-              <Button
-                color="inherit"
-                disabled={activeStep === 0}
-                onClick={handleBack}
-                sx={{ mr: 1 }}
-              >
-                Back
-              </Button>
-              <Box sx={{ flex: '1 1 auto' }} />
-              <Button onClick={handleNext} sx={{ mr: 1 }}>
-                Next
-              </Button>
-              {activeStep !== steps.length &&
-                (completed[activeStep] ? (
-                  <Typography variant="caption" sx={{ display: 'inline-block' }}>
-                    Step {activeStep + 1} already completed
-                  </Typography>
-                ) : (
-                  <Button onClick={handleComplete}>
-                    {completedSteps() === totalSteps() - 1
-                      ? 'Finish'
-                      : 'Complete Step'}
-                  </Button>
-                ))}
-            </Box>
           </React.Fragment>
         )}
       </div>

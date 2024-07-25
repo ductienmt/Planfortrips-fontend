@@ -3,7 +3,7 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 import styles from "./detailFood.module.css";
 import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
-import { styled } from "@mui/material/styles";
+import { styled } from "@mui/system";
 import { Unstable_Popup as BasePopup } from "@mui/base/Unstable_Popup";
 import { CalendarIcon } from "@mui/x-date-pickers";
 import { Feedback } from "./Feedback";
@@ -12,7 +12,7 @@ const DemoPaper = styled(Paper)(({ theme }) => ({
   width: 80,
   height: 120,
   padding: theme.spacing(1),
-  ...theme.typography.body2,
+  marginBottom: '10px',
   textAlign: "center",
   border: "2px solid #000",
   borderRadius: "5px",
@@ -23,24 +23,26 @@ const DemoPaper = styled(Paper)(({ theme }) => ({
     borderColor: "#46a2da",
     backgroundColor: "#b8e2f4",
   },
+  [theme.breakpoints.down("sm")]: {
+    width: 60,
+    height: 90,
+    marginBottom: '10px',
+  },
 }));
 
-const PopupBody = styled("div")(
-  ({ theme }) => `
-  width: max-content;
-  padding: 12px 16px;
-  margin: 8px;
-  border-radius: 8px;
-  box-shadow: ${
+const PopupBody = styled("div")(({ theme }) => ({
+  width: "max-content",
+  padding: "12px 16px",
+  margin: "8px",
+  borderRadius: "8px",
+  boxShadow:
     theme.palette.mode === "dark"
-      ? `0px 4px 8px rgb(0 0 0 / 0.7)`
-      : `0px 4px 8px rgb(0 0 0 / 0.1)`
-  };
-  font-weight: 500;
-  font-size: 0.875rem;
-  z-index: 1;
-`
-);
+      ? "0px 4px 8px rgb(0 0 0 / 0.7)"
+      : "0px 4px 8px rgb(0 0 0 / 0.1)",
+  fontWeight: 500,
+  fontSize: "0.875rem",
+  zIndex: 1,
+}));
 
 export function DetailFood() {
   const [clickedIndex, setClickedIndex] = useState(null);
@@ -69,11 +71,13 @@ export function DetailFood() {
     const fullscreenImage = document.getElementById("fullscreen-image");
     fullscreenImage.classList.remove(styles.show);
   };
-  useEffect(()=>{
+
+  useEffect(() => {
     window.scrollTo(0, 0);
-  },[]);
+  }, []);
+
   return (
-    <main className={styles.detail} style={{ marginTop: "150px" }}>
+    <main className={styles.detail} style={{ marginTop: "20px" }}>
       <div className="container">
         <div className={styles.detailContent}>
           <div className={styles.detailImg}>
@@ -96,11 +100,7 @@ export function DetailFood() {
                   "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/13/17/a5/b2.jpg?s=800x",
                 ].map((img, index) => (
                   <li key={index}>
-                    <img
-                      src={`${img}`}
-                      alt=""
-                      onClick={() => showImage(`${img}`)}
-                    />
+                    <img src={img} alt="" onClick={() => showImage(img)} />
                   </li>
                 ))}
               </ul>
@@ -163,7 +163,11 @@ export function DetailFood() {
             <div>
               <span className={styles.textspan}>Lựa chọn ngày đặt</span>
               <div className="mt-2">
-                <Stack direction="row" spacing={2}>
+                <Stack
+                  direction="row"
+                  spacing={2}
+                  sx={{ flexWrap: { xs: "wrap", sm: "nowrap" } }}
+                >
                   {[
                     { month: "Tháng 7", day: "5", weekday: "T6" },
                     { month: "Tháng 7", day: "6", weekday: "T7" },
@@ -175,9 +179,7 @@ export function DetailFood() {
                     <DemoPaper
                       key={index}
                       onClick={() => handleStyleChange(index)}
-                      className={
-                        clickedIndex === index ? styles.clicked : ""
-                      }
+                      className={clickedIndex === index ? styles.clicked : ""}
                       square
                     >
                       <div className={styles.month}>{date.month}</div>
